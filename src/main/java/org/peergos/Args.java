@@ -9,13 +9,19 @@ import java.util.stream.Stream;
 public class Args {
 
     private final Map<String, String> params;
+    private int version = 1;
 
-    public Args(Map<String, String> params) {
+    public Args(Map<String, String> params, int version) {
         this.params = params;
+        this.version = version;
     }
 
     public Path getIPFSDir() {
-        return hasArg(Nabu.IPFS_PATH) ? Paths.get(getArg(Nabu.IPFS_PATH)) : Nabu.DEFAULT_IPFS_DIR_PATH;
+        if(version == 1 ) {
+            return hasArg(Nabu.IPFS_PATH) ? Paths.get(getArg(Nabu.IPFS_PATH)) : Nabu.DEFAULT_IPFS_DIR_PATH;
+        } else {
+            return hasArg(Nabu2.IPFS_PATH) ? Paths.get(getArg(Nabu2.IPFS_PATH)) : Nabu2.DEFAULT_IPFS_DIR_PATH;
+        }
     }
 
     public Path fromIPFSDir(String fileName, String defaultName) {
@@ -56,7 +62,7 @@ public class Args {
         Map<String, String> newParams = paramMap();
         newParams.putAll(params);
         newParams.put(param, value);
-        return new Args(newParams);
+        return new Args(newParams, 1);
     }
 
     public boolean hasArg(String arg) {
@@ -93,7 +99,7 @@ public class Args {
         return setArg(key, value);
     }
 
-    public static Args parse(String[] args) {
+    public static Args parse(String[] args, int version) {
         Map<String, String> map = paramMap();
         map.putAll(System.getenv());
         for (int i = 0; i < args.length; i++) {
@@ -106,7 +112,7 @@ public class Args {
             else
                 map.put(argName, args[++i]);
         }
-        return new Args(map);
+        return new Args(map, version);
     }
 
     private static <K, V> Map<K, V> paramMap() {

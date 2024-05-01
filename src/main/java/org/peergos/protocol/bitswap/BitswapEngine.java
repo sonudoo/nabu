@@ -143,6 +143,8 @@ public class BitswapEngine {
 
     public void receiveMessage(MessageOuterClass.Message msg, Stream source, Counter sentBytes) {
 
+        LOG.info("Message received: " + msg.toString());
+
         List<MessageOuterClass.Message.BlockPresence> presences = new ArrayList<>();
         List<MessageOuterClass.Message.Block> blocks = new ArrayList<>();
 
@@ -234,7 +236,7 @@ public class BitswapEngine {
             }
         }
 
-        LOG.fine("Bitswap received " + msg.getWantlist().getEntriesCount() + " wants, " + msg.getPayloadCount() +
+        LOG.info("Bitswap received " + msg.getWantlist().getEntriesCount() + " wants, " + msg.getPayloadCount() +
                 " blocks and " + msg.getBlockPresencesCount() + " presences from " + sourcePeerId);
         boolean receivedWantedBlock = false;
         for (MessageOuterClass.Message.Block block : msg.getPayloadList()) {
@@ -272,7 +274,7 @@ public class BitswapEngine {
             }
         }
         if (! localWants.isEmpty())
-            LOG.fine("Remaining: " + localWants.size());
+            LOG.info("Remaining: " + localWants.size());
         boolean receivedRequestedHave = false;
         for (MessageOuterClass.Message.BlockPresence blockPresence : msg.getBlockPresencesList()) {
             Cid c = Cid.cast(blockPresence.getCid().toByteArray());
@@ -305,6 +307,8 @@ public class BitswapEngine {
                                      List<MessageOuterClass.Message.BlockPresence> presences,
                                      List<MessageOuterClass.Message.Block> blocks,
                                      Consumer<MessageOuterClass.Message> sender) {
+
+        LOG.info("Sending message: " + wants.size());
         // make sure we stay within the message size limit
         MessageOuterClass.Message.Builder builder = MessageOuterClass.Message.newBuilder();
         int messageSize = 0;

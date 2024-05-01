@@ -114,6 +114,7 @@ public class EmbeddedIpfs {
     }
 
     public CompletableFuture<Integer> publishPresignedRecord(Multihash pub, byte[] presignedRecord) {
+        LOG.info("Publishing signed record: " + pub.toString());
         return dht.publishValue(pub, presignedRecord, node);
     }
 

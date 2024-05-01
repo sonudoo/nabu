@@ -5,6 +5,7 @@ import com.sun.net.httpserver.HttpServer;
 import io.ipfs.cid.Cid;
 import io.ipfs.cid.Cid.Codec;
 import io.ipfs.multiaddr.MultiAddress;
+import io.libp2p.core.PeerId;
 import io.libp2p.core.crypto.PrivKey;
 import io.libp2p.crypto.keys.Ed25519Kt;
 
@@ -21,6 +22,7 @@ import org.peergos.util.Logging;
 import java.io.File;
 import java.io.IOException;
 import java.net.InetSocketAddress;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -33,11 +35,11 @@ import java.util.logging.Logger;
 import static org.peergos.EmbeddedIpfs.buildBlockStore;
 import static org.peergos.EmbeddedIpfs.buildBlockMetadata;
 
-public class Nabu {
+public class Nabu2 {
 
     public static final String IPFS_PATH = "IPFS_PATH";
     public static final Path DEFAULT_IPFS_DIR_PATH =
-            Paths.get(System.getProperty("user.home"), ".ipfs");
+            Paths.get(System.getProperty("user.home"), ".ipfs2");
 
     private static final Logger LOG = Logging.LOG();
 
@@ -45,7 +47,7 @@ public class Nabu {
         return (s, req, h) -> HttpProtocol.proxyRequest(req, new InetSocketAddress(target.getHost(), target.getPort()), h);
     }
 
-    public Nabu(Args args) throws Exception {
+    public Nabu2(Args args) throws Exception {
         Path ipfsPath = getIPFSPath(args);
         Logging.init(ipfsPath, args.getBoolean("log-to-console", true));
         Config config = readConfig(ipfsPath, args);
@@ -65,14 +67,15 @@ public class Nabu {
                 config.bootstrap.getBootstrapAddresses(),
                 config.identity,
                 authoriser,
-                config.addresses.proxyTargetAddress.map(Nabu::proxyHandler)
+                config.addresses.proxyTargetAddress.map(Nabu2::proxyHandler)
         );
         ipfs.start();
 
-        byte[] bytes = "abc".getBytes();
-        CompletableFuture<Cid> cid = ipfs.blockstore.put(bytes, Codec.Raw);
-        cid.join();
-        LOG.info("Content added: " + cid.get().toHex() + " " + cid.get().toString());
+        Want want = new Want(Cid.decode("bafkreif2pall7dybz7vecqka3zo24irdwabwdi4wc55jznaq75q7eaavvu"));
+        Set<PeerId> peer_set = new HashSet<PeerId>();
+        List<HashedBlock> blocks =  ipfs.getBlocks(List.of(want), peer_set, false);
+        System.out.println(new String(blocks.get(0).block, StandardCharsets.UTF_8));
+
 
         String apiAddressArg = "Addresses.API";
         MultiAddress apiAddress = args.hasArg(apiAddressArg) ? new MultiAddress(args.getArg(apiAddressArg)) :  config.addresses.apiAddress;
@@ -104,7 +107,7 @@ public class Nabu {
         Optional<String> ipfsPath = args.getOptionalArg("IPFS_PATH");
         if (ipfsPath.isEmpty()) {
             String home = args.getArg("HOME");
-            return Path.of(home, ".ipfs");
+            return Path.of(home, ".ipfs2");
         }
         return Path.of(ipfsPath.get());
     }
@@ -143,7 +146,7 @@ public class Nabu {
 
     public static void main(String[] args) {
         try {
-            new Nabu(Args.parse(args, 1));
+            new Nabu2(Args.parse(args, 2));
         } catch (Exception e) {
             LOG.log(Level.SEVERE, "SHUTDOWN", e);
         }

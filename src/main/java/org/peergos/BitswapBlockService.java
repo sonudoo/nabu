@@ -24,6 +24,7 @@ public class BitswapBlockService implements BlockService {
 
     @Override
     public List<HashedBlock> get(List<Want> hashes, Set<PeerId> peers, boolean addToBlockstore) {
+        System.out.println("Get request for hashes: " + hashes.size());
         if (peers.isEmpty()) {
             // if peers are not provided try connected peers and then fallback to finding peers from DHT
             Set<PeerId> connected = bitswap.getBroadcastAudience();

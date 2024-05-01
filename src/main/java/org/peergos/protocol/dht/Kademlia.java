@@ -295,6 +295,7 @@ public class Kademlia extends StrictProtocolBinding<KademliaController> implemen
                 .map(a -> Multiaddr.fromString(a.toString()))
                 .filter(a -> ! a.has(Protocol.DNS) && ! a.has(Protocol.DNS4) && ! a.has(Protocol.DNS6))
                 .collect(Collectors.toList()).toArray(new Multiaddr[0]);
+        LOG.info("Dialing to: "+ multiaddrs[0].toString());
         return dial(us, PeerId.fromBase58(target.peerId.toBase58()), multiaddrs).getController();
     }
 
@@ -331,10 +332,15 @@ public class Kademlia extends StrictProtocolBinding<KademliaController> implemen
                                                 byte[] signedRecord,
                                                 PeerAddresses peer,
                                                 Host us) {
+        LOG.info("Putting value: :" + peer.toString());
         try {
-            return dialPeer(peer, us).join()
-                    .putValue(publisher, signedRecord);
-        } catch (Exception e) {}
+             KademliaController controller =  dialPeer(peer, us).join();
+            LOG.info("Peer dialed: ");
+             
+            return controller.putValue(publisher, signedRecord);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return CompletableFuture.completedFuture(false);
     }
 
@@ -361,6 +367,9 @@ public class Kademlia extends StrictProtocolBinding<KademliaController> implemen
         Id keyId = Id.create(Hash.sha256(key), 256);
         SortedSet<RoutingEntry> toQuery = new TreeSet<>((a, b) -> compareKeys(a, b, keyId));
         List<PeerAddresses> localClosest = engine.getKClosestPeers(key, minPublishes);
+        for(PeerAddresses addresses: localClosest) {
+            LOG.info(addresses.toString());
+        }
         int queryParallelism = 3;
         toQuery.addAll(localClosest.stream()
                 .limit(queryParallelism)
@@ -368,18 +377,24 @@ public class Kademlia extends StrictProtocolBinding<KademliaController> implemen
                 .collect(Collectors.toList()));
         Set<Multihash> queried = Collections.synchronizedSet(new HashSet<>());
         while (! toQuery.isEmpty()) {
+            LOG.info("Try publish");
             int remaining = toQuery.size() - 3;
             List<RoutingEntry> thisRound = toQuery.stream()
                     .filter(r -> hasTransportOverlap(r.addresses)) // don't waste time trying to dial nodes we can't
                     .limit(queryParallelism)
                     .collect(Collectors.toList());
+            for(RoutingEntry entry: thisRound) {
+                LOG.info("RoutingEntry " + entry.addresses.toString());
+            }  
             List<? extends CompletableFuture<List<RoutingEntry>>> futures = thisRound.stream()
                     .map(r -> {
                         toQuery.remove(r);
                         queried.add(r.addresses.peerId);
                         return CompletableFuture.supplyAsync(() -> getCloserPeers(key, r.addresses, us).thenApply(res -> {
+                            LOG.info("Closest peer: " + res.size());
                             List<RoutingEntry> more = new ArrayList<>();
                             for (PeerAddresses peer : res) {
+                                LOG.info("Peer found: " + peer.toString());
                                 if (! queried.contains(peer.peerId)) {
                                     Id peerKey = Id.create(Hash.sha256(IPNS.getKey(peer.peerId)), 256);
                                     RoutingEntry e = new RoutingEntry(peerKey, peer);
@@ -388,6 +403,7 @@ public class Kademlia extends StrictProtocolBinding<KademliaController> implemen
                             }
                             CompletableFuture.supplyAsync(() -> putValue(publisher, signedRecord, r.addresses, us)
                                     .thenAccept(done -> {
+                                        LOG.info("Published by: " + r.addresses.toString());
                                         if (done)
                                             publishes.add(r.addresses.peerId);
                                     }), ioExec);

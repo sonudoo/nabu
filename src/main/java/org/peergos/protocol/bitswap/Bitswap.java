@@ -66,6 +66,7 @@ public class Bitswap extends StrictProtocolBinding<BitswapController> implements
                                                     Host us,
                                                     Set<PeerId> peers,
                                                     boolean addToBlockstore) {
+        LOG.info("New request: " +  wants.size());
         if (wants.isEmpty())
             return Collections.emptyList();
         List<CompletableFuture<HashedBlock>> results = new ArrayList<>();
