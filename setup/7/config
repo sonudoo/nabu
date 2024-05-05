@@ -1,11 +1,11 @@
 {
 	"Addresses":{
-		"API":"/ip4/127.0.0.1/tcp/5001",
-		"Gateway":"/ip4/127.0.0.1/tcp/8080",
-		"ProxyTarget":"/ip4/127.0.0.1/tcp/8003",
-		"AllowTarget":"http://localhost:8002",
+		"API":"/ip4/127.0.0.1/tcp/5008",
+		"Gateway":"/ip4/127.0.0.1/tcp/8087",
+		"ProxyTarget":"/ip4/127.0.0.1/tcp/8017",
+		"AllowTarget":"http://localhost:8016",
 		"Swarm":[
-			"/ip6/0:0:0:0:0:0:0:0/tcp/4001"
+			"/ip6/0:0:0:0:0:0:0:0/tcp/4008"
 		]
 	},
 	"Bootstrap":[
@@ -44,10 +44,10 @@
 	"Metrics":{
 		"Enabled":true,
 		"Address":"localhost",
-		"Port":9100
+		"Port":9107
 	},
 	"Identity":{
-		"PeerID":"12D3KooWMDHFtZjTZ6Hdi5WEQPBxJp7gT4yqtQkne6DCqiQCBP73",
-		"PrivKey":"CAESIPUH1avdkLVwvc4vrHwMbIDK8JTgwcCIqaRCmnhDJyMA"
+		"PeerID":"12D3KooWHyor6CQ21vMhtSJ2qb1YEBfv9vgpe1VgA5iMYT4DTd9T",
+		"PrivKey":"CAESILUUltJmHS8JsnYcEul3ScLj+W4c084LwyhYiiNQazQr"
 	}
 }

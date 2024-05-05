@@ -29,7 +29,6 @@ public class ProvidingBlockstore implements Blockstore {
 
     @Override
     public CompletableFuture<Optional<byte[]>> get(Cid c) {
-        System.out.println("Seeking from underlying store for " + c.toString());
         return target.get(c);
     }
 

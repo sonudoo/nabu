@@ -36,13 +36,13 @@ import static org.peergos.EmbeddedIpfs.buildBlockMetadata;
 public class Nabu {
 
     public static final String IPFS_PATH = "IPFS_PATH";
-    public static final Path DEFAULT_IPFS_DIR_PATH =
-            Paths.get(System.getProperty("user.home"), ".ipfs");
+    public static final Path DEFAULT_IPFS_DIR_PATH = Paths.get(System.getProperty("user.home"), ".ipfs");
 
     private static final Logger LOG = Logging.LOG();
 
     private static HttpProtocol.HttpRequestProcessor proxyHandler(MultiAddress target) {
-        return (s, req, h) -> HttpProtocol.proxyRequest(req, new InetSocketAddress(target.getHost(), target.getPort()), h);
+        return (s, req, h) -> HttpProtocol.proxyRequest(req, new InetSocketAddress(target.getHost(), target.getPort()),
+                h);
     }
 
     public Nabu(Args args) throws Exception {
@@ -65,17 +65,12 @@ public class Nabu {
                 config.bootstrap.getBootstrapAddresses(),
                 config.identity,
                 authoriser,
-                config.addresses.proxyTargetAddress.map(Nabu::proxyHandler)
-        );
+                config.addresses.proxyTargetAddress.map(Nabu::proxyHandler));
         ipfs.start();
 
-        byte[] bytes = "abc".getBytes();
-        CompletableFuture<Cid> cid = ipfs.blockstore.put(bytes, Codec.Raw);
-        cid.join();
-        LOG.info("Content added: " + cid.get().toHex() + " " + cid.get().toString());
-
         String apiAddressArg = "Addresses.API";
-        MultiAddress apiAddress = args.hasArg(apiAddressArg) ? new MultiAddress(args.getArg(apiAddressArg)) :  config.addresses.apiAddress;
+        MultiAddress apiAddress = args.hasArg(apiAddressArg) ? new MultiAddress(args.getArg(apiAddressArg))
+                : config.addresses.apiAddress;
         InetSocketAddress localAPIAddress = new InetSocketAddress(apiAddress.getHost(), apiAddress.getPort());
 
         int maxConnectionQueue = 500;
@@ -85,14 +80,15 @@ public class Nabu {
 
         apiServer.createContext(APIHandler.API_URL, new APIHandler(ipfs));
         if (config.addresses.proxyTargetAddress.isPresent())
-            apiServer.createContext(HttpProxyService.API_URL, new HttpProxyHandler(new HttpProxyService(ipfs.node, ipfs.p2pHttp.get(), ipfs.dht)));
+            apiServer.createContext(HttpProxyService.API_URL,
+                    new HttpProxyHandler(new HttpProxyService(ipfs.node, ipfs.p2pHttp.get(), ipfs.dht)));
         apiServer.setExecutor(Executors.newFixedThreadPool(handlerThreads));
         apiServer.start();
 
         Thread shutdownHook = new Thread(() -> {
             LOG.info("Stopping API server...");
             try {
-                apiServer.stop(3); //wait max 3 seconds
+                apiServer.stop(3); // wait max 3 seconds
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
@@ -119,14 +115,14 @@ public class Nabu {
             if (s3datastoreArgs.isPresent()) {
                 Map<String, Object> json = (Map) JSONParser.parse(s3datastoreArgs.get());
                 Map<String, Object> blockChildMap = new LinkedHashMap<>();
-                blockChildMap.put("region", JsonHelper.getStringProperty(json,"region"));
-                blockChildMap.put("bucket", JsonHelper.getStringProperty(json,"bucket"));
-                blockChildMap.put("rootDirectory", JsonHelper.getStringProperty(json,"rootDirectory"));
-                blockChildMap.put("regionEndpoint", JsonHelper.getStringProperty(json,"regionEndpoint"));
-                if (JsonHelper.getOptionalProperty(json,"accessKey").isPresent()) {
+                blockChildMap.put("region", JsonHelper.getStringProperty(json, "region"));
+                blockChildMap.put("bucket", JsonHelper.getStringProperty(json, "bucket"));
+                blockChildMap.put("rootDirectory", JsonHelper.getStringProperty(json, "rootDirectory"));
+                blockChildMap.put("regionEndpoint", JsonHelper.getStringProperty(json, "regionEndpoint"));
+                if (JsonHelper.getOptionalProperty(json, "accessKey").isPresent()) {
                     blockChildMap.put("accessKey", JsonHelper.getStringProperty(json, "accessKey"));
                 }
-                if (JsonHelper.getOptionalProperty(json,"secretKey").isPresent()) {
+                if (JsonHelper.getOptionalProperty(json, "secretKey").isPresent()) {
                     blockChildMap.put("secretKey", JsonHelper.getStringProperty(json, "secretKey"));
                 }
                 blockChildMap.put("type", "s3ds");
@@ -143,7 +139,7 @@ public class Nabu {
 
     public static void main(String[] args) {
         try {
-            new Nabu(Args.parse(args, 1));
+            new Nabu(Args.parse(args, /* isClient= */ false));
         } catch (Exception e) {
             LOG.log(Level.SEVERE, "SHUTDOWN", e);
         }

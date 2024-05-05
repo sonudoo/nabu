@@ -234,6 +234,7 @@ public class Kademlia extends StrictProtocolBinding<KademliaController> implemen
                         KademliaController res = null;
                         try {
                             res = dialPeer(r.addresses, us).join();
+                            LOG.info("Get providers request start: " + block.hashCode());
                             return res.getProviders(block).orTimeout(2, TimeUnit.SECONDS);
                         }catch (Exception e) {
                             return null;
@@ -244,6 +245,7 @@ public class Kademlia extends StrictProtocolBinding<KademliaController> implemen
             for (CompletableFuture<Providers> future : futures) {
                 try {
                     Providers newProviders = future.join();
+                    LOG.info("Get providers request finished: " + block.hashCode());
                     providers.addAll(newProviders.providers);
                     for (PeerAddresses peer : newProviders.closerPeers) {
                         if (!queried.contains(peer.peerId)) {

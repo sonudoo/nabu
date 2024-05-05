@@ -66,7 +66,7 @@ public class EmbeddedIpfs {
         this.p2pHttp = p2pHttp;
         this.bootstrap = bootstrap;
         this.blocks = new BitswapBlockService(node, bitswap, dht);
-        this.blockProvider = newBlockProvider.map(q -> new PeriodicBlockProvider(22 * 3600_000L,
+        this.blockProvider = newBlockProvider.map(q -> new PeriodicBlockProvider(300 * 1000L,
                 () -> blockstore.refs(false).join().stream(), node, dht, q));
     }
 

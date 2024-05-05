@@ -9,19 +9,18 @@ import java.util.stream.Stream;
 public class Args {
 
     private final Map<String, String> params;
-    private int version = 1;
+    private final boolean isClient;
 
-    public Args(Map<String, String> params, int version) {
+    public Args(Map<String, String> params, boolean isClient) {
         this.params = params;
-        this.version = version;
+        this.isClient = isClient;
     }
 
     public Path getIPFSDir() {
-        if(version == 1 ) {
-            return hasArg(Nabu.IPFS_PATH) ? Paths.get(getArg(Nabu.IPFS_PATH)) : Nabu.DEFAULT_IPFS_DIR_PATH;
-        } else {
-            return hasArg(Nabu2.IPFS_PATH) ? Paths.get(getArg(Nabu2.IPFS_PATH)) : Nabu2.DEFAULT_IPFS_DIR_PATH;
+        if (isClient) {
+            return hasArg(Client.IPFS_PATH) ? Paths.get(getArg(Client.IPFS_PATH)) : Client.DEFAULT_IPFS_DIR_PATH;
         }
+        return hasArg(Nabu.IPFS_PATH) ? Paths.get(getArg(Nabu.IPFS_PATH)) : Nabu.DEFAULT_IPFS_DIR_PATH;
     }
 
     public Path fromIPFSDir(String fileName, String defaultName) {
@@ -37,7 +36,7 @@ public class Args {
     public List<String> getAllArgs() {
         Map<String, String> env = System.getenv();
         return params.entrySet().stream()
-                .filter(e -> ! env.containsKey(e.getKey()))
+                .filter(e -> !env.containsKey(e.getKey()))
                 .flatMap(e -> Stream.of("-" + e.getKey(), e.getValue()))
                 .collect(Collectors.toList());
     }
@@ -62,7 +61,7 @@ public class Args {
         Map<String, String> newParams = paramMap();
         newParams.putAll(params);
         newParams.put(param, value);
-        return new Args(newParams, 1);
+        return new Args(newParams, /* isClient= */ false);
     }
 
     public boolean hasArg(String arg) {
@@ -99,7 +98,7 @@ public class Args {
         return setArg(key, value);
     }
 
-    public static Args parse(String[] args, int version) {
+    public static Args parse(String[] args, boolean isClient) {
         Map<String, String> map = paramMap();
         map.putAll(System.getenv());
         for (int i = 0; i < args.length; i++) {
@@ -112,7 +111,7 @@ public class Args {
             else
                 map.put(argName, args[++i]);
         }
-        return new Args(map, version);
+        return new Args(map, isClient);
     }
 
     private static <K, V> Map<K, V> paramMap() {

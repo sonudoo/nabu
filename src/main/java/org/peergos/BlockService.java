@@ -1,6 +1,5 @@
 package org.peergos;
 
-import io.ipfs.cid.*;
 import io.libp2p.core.*;
 
 import java.util.*;

@@ -1,18 +1,12 @@
 package org.peergos;
 
-import com.sun.net.httpserver.HttpServer;
-
 import io.ipfs.cid.Cid;
 import io.ipfs.cid.Cid.Codec;
 import io.ipfs.multiaddr.MultiAddress;
 import io.libp2p.core.PeerId;
-import io.libp2p.core.crypto.PrivKey;
-import io.libp2p.crypto.keys.Ed25519Kt;
 
 import org.peergos.blockstore.metadatadb.BlockMetadataStore;
 import org.peergos.config.*;
-import org.peergos.net.APIHandler;
-import org.peergos.net.HttpProxyHandler;
 import org.peergos.protocol.dht.DatabaseRecordStore;
 import org.peergos.protocol.http.*;
 import org.peergos.util.JSONParser;
@@ -35,26 +29,29 @@ import java.util.logging.Logger;
 import static org.peergos.EmbeddedIpfs.buildBlockStore;
 import static org.peergos.EmbeddedIpfs.buildBlockMetadata;
 
-public class Nabu2 {
+public class Client {
 
     public static final String IPFS_PATH = "IPFS_PATH";
-    public static final Path DEFAULT_IPFS_DIR_PATH =
-            Paths.get(System.getProperty("user.home"), ".ipfs2");
+    public static Path DEFAULT_IPFS_CONFIG_PATH = Paths.get(System.getProperty("user.dir"), "setup");
+    public static Path DEFAULT_IPFS_DIR_PATH = Paths.get(System.getProperty("user.home"), ".ipfs");
 
     private static final Logger LOG = Logging.LOG();
 
     private static HttpProtocol.HttpRequestProcessor proxyHandler(MultiAddress target) {
-        return (s, req, h) -> HttpProtocol.proxyRequest(req, new InetSocketAddress(target.getHost(), target.getPort()), h);
+        return (s, req, h) -> HttpProtocol.proxyRequest(req, new InetSocketAddress(target.getHost(), target.getPort()),
+                h);
     }
 
-    public Nabu2(Args args) throws Exception {
-        Path ipfsPath = getIPFSPath(args);
+    public Client(Args args) throws Exception {
+        DEFAULT_IPFS_CONFIG_PATH = Paths.get(DEFAULT_IPFS_CONFIG_PATH.toAbsolutePath().toString(), args.getArg("id"));
+        DEFAULT_IPFS_DIR_PATH = Paths.get(DEFAULT_IPFS_DIR_PATH.toAbsolutePath().toString(), args.getArg("id"));
+        Path configPath = DEFAULT_IPFS_CONFIG_PATH;
+        Path ipfsPath = DEFAULT_IPFS_DIR_PATH;
         Logging.init(ipfsPath, args.getBoolean("log-to-console", true));
-        Config config = readConfig(ipfsPath, args);
+        Config config = readConfig(configPath, args);
         if (config.metrics.enabled) {
             AggregatedMetrics.startExporter(config.metrics.address, config.metrics.port);
         }
-        LOG.info("Starting Nabu version: " + APIHandler.CURRENT_VERSION);
         BlockRequestAuthoriser authoriser = (c, p, a) -> CompletableFuture.completedFuture(true);
 
         Path datastorePath = ipfsPath.resolve("datastore").resolve("h2-v2.datastore");
@@ -67,49 +64,30 @@ public class Nabu2 {
                 config.bootstrap.getBootstrapAddresses(),
                 config.identity,
                 authoriser,
-                config.addresses.proxyTargetAddress.map(Nabu2::proxyHandler)
-        );
+                config.addresses.proxyTargetAddress.map(Client::proxyHandler));
         ipfs.start();
 
-        Want want = new Want(Cid.decode("bafkreif2pall7dybz7vecqka3zo24irdwabwdi4wc55jznaq75q7eaavvu"));
-        Set<PeerId> peer_set = new HashSet<PeerId>();
-        List<HashedBlock> blocks =  ipfs.getBlocks(List.of(want), peer_set, false);
-        System.out.println(new String(blocks.get(0).block, StandardCharsets.UTF_8));
-
-
-        String apiAddressArg = "Addresses.API";
-        MultiAddress apiAddress = args.hasArg(apiAddressArg) ? new MultiAddress(args.getArg(apiAddressArg)) :  config.addresses.apiAddress;
-        InetSocketAddress localAPIAddress = new InetSocketAddress(apiAddress.getHost(), apiAddress.getPort());
-
-        int maxConnectionQueue = 500;
-        int handlerThreads = 50;
-        LOG.info("Starting RPC API server at " + apiAddress.getHost() + ":" + localAPIAddress.getPort());
-        HttpServer apiServer = HttpServer.create(localAPIAddress, maxConnectionQueue);
-
-        apiServer.createContext(APIHandler.API_URL, new APIHandler(ipfs));
-        if (config.addresses.proxyTargetAddress.isPresent())
-            apiServer.createContext(HttpProxyService.API_URL, new HttpProxyHandler(new HttpProxyService(ipfs.node, ipfs.p2pHttp.get(), ipfs.dht)));
-        apiServer.setExecutor(Executors.newFixedThreadPool(handlerThreads));
-        apiServer.start();
-
-        Thread shutdownHook = new Thread(() -> {
-            LOG.info("Stopping API server...");
-            try {
-                apiServer.stop(3); //wait max 3 seconds
-            } catch (Exception ex) {
-                ex.printStackTrace();
+        LOG.info("Started client: " + args.getArg("id"));
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            LOG.info("Publish (P) or Retrieve (R)?");
+            String opt = scanner.nextLine();
+            if (opt.toUpperCase().equals("P")) {
+                LOG.info("Enter contents to publish");
+                String content = scanner.nextLine();
+                byte[] contentBytes = content.getBytes();
+                Cid cid = ipfs.blockstore.put(contentBytes, Codec.Raw).join();
+                LOG.info("Cid: " + cid.toString());
+            } else if (opt.toUpperCase().equals("R")) {
+                LOG.info("Enter Cid to retrieve");
+                String cid = scanner.nextLine();
+                Want want = new Want(Cid.decode(cid));
+                List<HashedBlock> blocks = ipfs.getBlocks(List.of(want), new HashSet<PeerId>(), false);
+                LOG.info("Content: " + new String(blocks.get(0).block, StandardCharsets.UTF_8));
+            } else {
+                LOG.info("Try again");
             }
-        });
-        Runtime.getRuntime().addShutdownHook(shutdownHook);
-    }
-
-    private Path getIPFSPath(Args args) {
-        Optional<String> ipfsPath = args.getOptionalArg("IPFS_PATH");
-        if (ipfsPath.isEmpty()) {
-            String home = args.getArg("HOME");
-            return Path.of(home, ".ipfs2");
         }
-        return Path.of(ipfsPath.get());
     }
 
     private Config readConfig(Path configPath, Args args) throws IOException {
@@ -122,14 +100,14 @@ public class Nabu2 {
             if (s3datastoreArgs.isPresent()) {
                 Map<String, Object> json = (Map) JSONParser.parse(s3datastoreArgs.get());
                 Map<String, Object> blockChildMap = new LinkedHashMap<>();
-                blockChildMap.put("region", JsonHelper.getStringProperty(json,"region"));
-                blockChildMap.put("bucket", JsonHelper.getStringProperty(json,"bucket"));
-                blockChildMap.put("rootDirectory", JsonHelper.getStringProperty(json,"rootDirectory"));
-                blockChildMap.put("regionEndpoint", JsonHelper.getStringProperty(json,"regionEndpoint"));
-                if (JsonHelper.getOptionalProperty(json,"accessKey").isPresent()) {
+                blockChildMap.put("region", JsonHelper.getStringProperty(json, "region"));
+                blockChildMap.put("bucket", JsonHelper.getStringProperty(json, "bucket"));
+                blockChildMap.put("rootDirectory", JsonHelper.getStringProperty(json, "rootDirectory"));
+                blockChildMap.put("regionEndpoint", JsonHelper.getStringProperty(json, "regionEndpoint"));
+                if (JsonHelper.getOptionalProperty(json, "accessKey").isPresent()) {
                     blockChildMap.put("accessKey", JsonHelper.getStringProperty(json, "accessKey"));
                 }
-                if (JsonHelper.getOptionalProperty(json,"secretKey").isPresent()) {
+                if (JsonHelper.getOptionalProperty(json, "secretKey").isPresent()) {
                     blockChildMap.put("secretKey", JsonHelper.getStringProperty(json, "secretKey"));
                 }
                 blockChildMap.put("type", "s3ds");
@@ -146,7 +124,7 @@ public class Nabu2 {
 
     public static void main(String[] args) {
         try {
-            new Nabu2(Args.parse(args, 2));
+            new Client(Args.parse(args, /* isClient= */ true));
         } catch (Exception e) {
             LOG.log(Level.SEVERE, "SHUTDOWN", e);
         }

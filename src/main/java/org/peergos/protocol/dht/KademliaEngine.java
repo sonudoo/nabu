@@ -2,22 +2,25 @@ package org.peergos.protocol.dht;
 
 import com.google.protobuf.*;
 import com.offbynull.kademlia.*;
+import com.offbynull.kademlia.Node;
+
 import io.ipfs.cid.*;
 import io.ipfs.multihash.Multihash;
 import io.libp2p.core.*;
 import io.libp2p.core.Stream;
 import io.libp2p.core.multiformats.*;
-import io.libp2p.core.multiformats.Protocol;
 import io.prometheus.client.*;
 import org.peergos.*;
 import org.peergos.blockstore.*;
 import org.peergos.protocol.dht.pb.*;
 import org.peergos.protocol.ipns.*;
+import org.peergos.util.Logging;
 
 import java.io.*;
 import java.net.*;
 import java.time.*;
 import java.util.*;
+import java.util.logging.Logger;
 import java.util.stream.*;
 
 public class KademliaEngine {
@@ -44,6 +47,9 @@ public class KademliaEngine {
             .register();
 
     private static final int BUCKET_SIZE = 20;
+
+    private static final Logger LOG = Logging.LOG();
+
     private final ProviderStore providersStore;
     private final RecordStore ipnsStore;
     public final Router router;
@@ -91,10 +97,11 @@ public class KademliaEngine {
         }
         return nodes.stream()
                 .map(n -> {
-                    List<Multiaddr> addrs = new ArrayList<>(addressBook.getAddrs(PeerId.fromBase58(n.getLink())).join());
+                    List<Multiaddr> addrs = new ArrayList<>(
+                            addressBook.getAddrs(PeerId.fromBase58(n.getLink())).join());
                     return new PeerAddresses(Multihash.fromBase58(n.getLink()), addrs);
                 })
-                .filter(p -> ! p.addresses.isEmpty())
+                .filter(p -> !p.addresses.isEmpty())
                 .collect(Collectors.toList());
     }
 
@@ -153,6 +160,7 @@ public class KademliaEngine {
             }
             case GET_PROVIDERS: {
                 Multihash hash = Multihash.deserialize(msg.getKey().toByteArray());
+                LOG.info("Get providers start: " + hash.toString());
                 Set<Dht.Message.Peer> providers = providersStore.getProviders(hash);
                 if (blocks.hasAny(hash).join()) {
                     providers = new HashSet<>(providers);
@@ -160,7 +168,8 @@ public class KademliaEngine {
                             addressBook.getAddrs(PeerId.fromBase58(ourPeerId.toBase58())).join()
                                     .stream()
                                     .filter(a -> isPublic(a))
-                                    .collect(Collectors.toList())).toProtobuf());
+                                    .collect(Collectors.toList()))
+                            .toProtobuf());
                 }
                 Dht.Message.Builder builder = msg.toBuilder();
                 builder = builder.addAllProviderPeers(providers.stream()
@@ -171,6 +180,7 @@ public class KademliaEngine {
                         .collect(Collectors.toList()));
                 Dht.Message reply = builder.build();
                 stream.writeAndFlush(reply);
+                LOG.info("Get providers end: " + hash.toString());
                 responderSentBytes.inc(reply.getSerializedSize());
                 responderProvidersSentBytes.inc(reply.getSerializedSize());
                 break;
@@ -182,11 +192,12 @@ public class KademliaEngine {
                 if (Arrays.equals(target, ourPeerIdBytes)) {
                     // Only return ourselves (without addresses) if they are querying for us
                     // This is because all Go peers query for this to check live-ness
-                    builder = builder.addCloserPeers(new PeerAddresses(ourPeerId, Collections.emptyList()).toProtobuf());
+                    builder = builder
+                            .addCloserPeers(new PeerAddresses(ourPeerId, Collections.emptyList()).toProtobuf());
                 } else
                     builder = builder.addAllCloserPeers(getKClosestPeers(target, BUCKET_SIZE)
                             .stream()
-                            .filter(p -> ! p.peerId.equals(sourcePeer)) // don't tell a peer about themselves
+                            .filter(p -> !p.peerId.equals(sourcePeer)) // don't tell a peer about themselves
                             .map(p -> p.toProtobuf(a -> isPublic(a)))
                             .collect(Collectors.toList()));
                 Dht.Message reply = builder.build();
@@ -195,25 +206,30 @@ public class KademliaEngine {
                 responderFindNodeSentBytes.inc(reply.getSerializedSize());
                 break;
             }
-            case PING: {break;} // Not used any more
-            default: throw new IllegalStateException("Unknown message kademlia type: " + msg.getType());
+            case PING: {
+                break;
+            } // Not used any more
+            default:
+                throw new IllegalStateException("Unknown message kademlia type: " + msg.getType());
         }
     }
 
     public static boolean isPublic(Multiaddr addr) {
         try {
             List<MultiaddrComponent> parts = addr.getComponents();
-            for (MultiaddrComponent part: parts) {
+            for (MultiaddrComponent part : parts) {
                 if (part.getProtocol() == Protocol.IP6ZONE)
                     return true;
                 if (part.getProtocol() == Protocol.IP4 || part.getProtocol() == Protocol.IP6) {
                     InetAddress ip = InetAddress.getByName(part.getStringValue());
-                    if (ip.isLoopbackAddress() || ip.isSiteLocalAddress() || ip.isLinkLocalAddress() || ip.isAnyLocalAddress())
+                    if (ip.isLoopbackAddress() || ip.isSiteLocalAddress() || ip.isLinkLocalAddress()
+                            || ip.isAnyLocalAddress())
                         return false;
                     return true;
                 }
             }
-        } catch (IOException e) {}
+        } catch (IOException e) {
+        }
         return false;
     }
 }

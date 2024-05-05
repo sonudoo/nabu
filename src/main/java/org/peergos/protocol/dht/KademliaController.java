@@ -1,15 +1,11 @@
 package org.peergos.protocol.dht;
 
 import com.google.protobuf.*;
-import crypto.pb.*;
 import io.ipfs.multihash.*;
-import io.libp2p.core.crypto.*;
 import org.peergos.*;
 import org.peergos.protocol.dht.pb.*;
 import org.peergos.protocol.ipns.*;
-import org.peergos.protocol.ipns.pb.*;
 
-import java.time.*;
 import java.util.*;
 import java.util.concurrent.*;
 import java.util.stream.*;

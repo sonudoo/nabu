@@ -74,6 +74,7 @@ public class FileBlockstore implements Blockstore {
         //     System.out.println(ste + "\n");
         // }
         try {
+            LOG.info("Get from file started: " + cid.toString());
             Path path = getFilePath(cid);
             File file = blocksRoot.resolve(path).toFile();
             if (!file.exists()) {
@@ -85,7 +86,7 @@ public class FileBlockstore implements Blockstore {
                 for (int len; (len = din.read(buffer)) != -1; ) {
                     bout.write(buffer, 0, len);
                 }
-                LOG.info("Returning blocks from file for cid: " + cid.toString());
+                LOG.info("Get from file finished: " + cid.toString());
                 return CompletableFuture.completedFuture(Optional.of(bout.toByteArray()));
             }
         } catch (IOException e) {
