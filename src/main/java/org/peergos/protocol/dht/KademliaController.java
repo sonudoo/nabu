@@ -53,7 +53,6 @@ public interface KademliaController {
                         .setValue(ByteString.copyFrom(value))
                         .build())
                 .build();
-        System.out.println(outgoing.toString());
         return rpc(outgoing).thenApply(reply -> reply.getKey().equals(outgoing.getKey()) &&
                 reply.getRecord().getValue().equals(outgoing.getRecord().getValue()));
     }

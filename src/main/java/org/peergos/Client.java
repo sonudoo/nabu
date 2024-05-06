@@ -67,25 +67,25 @@ public class Client {
                 config.addresses.proxyTargetAddress.map(Client::proxyHandler));
         ipfs.start();
 
-        LOG.info("Started client: " + args.getArg("id"));
+        System.out.println("Started client: " + args.getArg("id"));
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            LOG.info("Publish (P) or Retrieve (R)?");
+            System.out.print("Publish (P) or Retrieve (R)? ");
             String opt = scanner.nextLine();
             if (opt.toUpperCase().equals("P")) {
-                LOG.info("Enter contents to publish");
+                System.out.print("Enter contents to publish: ");
                 String content = scanner.nextLine();
                 byte[] contentBytes = content.getBytes();
                 Cid cid = ipfs.blockstore.put(contentBytes, Codec.Raw).join();
-                LOG.info("Cid: " + cid.toString());
+                System.out.println("Cid: " + cid.toString());
             } else if (opt.toUpperCase().equals("R")) {
-                LOG.info("Enter Cid to retrieve");
+                System.out.print("Enter Cid to retrieve: ");
                 String cid = scanner.nextLine();
                 Want want = new Want(Cid.decode(cid));
                 List<HashedBlock> blocks = ipfs.getBlocks(List.of(want), new HashSet<PeerId>(), false);
-                LOG.info("Content: " + new String(blocks.get(0).block, StandardCharsets.UTF_8));
+                System.out.println("Content: " + new String(blocks.get(0).block, StandardCharsets.UTF_8));
             } else {
-                LOG.info("Try again");
+                System.out.println("Try again");
             }
         }
     }
@@ -94,7 +94,6 @@ public class Client {
         Path configFilePath = configPath.resolve("config");
         File configFile = configFilePath.toFile();
         if (!configFile.exists()) {
-            LOG.info("Unable to find config file. Creating default config");
             Optional<String> s3datastoreArgs = args.getOptionalArg("s3.datastore");
             Config config = null;
             if (s3datastoreArgs.isPresent()) {

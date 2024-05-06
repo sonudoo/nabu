@@ -11,6 +11,7 @@ import org.peergos.*;
 import org.peergos.blockstore.*;
 import org.peergos.protocol.bitswap.pb.*;
 import org.peergos.util.*;
+import org.peergos.util.Logging;
 
 import java.io.*;
 import java.nio.charset.*;
@@ -150,10 +151,10 @@ public class BitswapEngine {
         int absentBlocks = 0;
         int presentBlocks = 0;
         if (msg.hasWantlist()) {
-            LOG.info("Bitswap received request for wants: ");
+            System.out.println("Bitswap received request for wants: ");
             for (MessageOuterClass.Message.Wantlist.Entry e : msg.getWantlist().getEntriesList()) {
                 Cid c = Cid.cast(e.getBlock().toByteArray());
-                LOG.info("Want: " + c.toString());
+                System.out.println("Want: " + c.toString());
                 Optional<String> auth = e.getAuth().isEmpty() ? Optional.empty() : Optional.of(ArrayOps.bytesToHex(e.getAuth().toByteArray()));
                 boolean isCancel = e.getCancel();
                 boolean sendDontHave = e.getSendDontHave();
@@ -260,7 +261,7 @@ public class BitswapEngine {
             }
         }
         if (! localWants.isEmpty())
-            LOG.info("Remaining: " + localWants.size());
+            System.out.println("Remaining: " + localWants.size());
         boolean receivedRequestedHave = false;
         for (MessageOuterClass.Message.BlockPresence blockPresence : msg.getBlockPresencesList()) {
             Cid c = Cid.cast(blockPresence.getCid().toByteArray());
@@ -287,7 +288,7 @@ public class BitswapEngine {
             sentBytes.inc(reply.getSerializedSize());
             source.writeAndFlush(reply);
         });
-        LOG.info("Bitswap sent " + (presences.size() + blocks.size()) + " blocks in response.");
+        System.out.println("Bitswap sent " + (presences.size() + blocks.size()) + " blocks in response.");
     }
 
     public void buildAndSendMessages(List<MessageOuterClass.Message.Wantlist.Entry> wants,

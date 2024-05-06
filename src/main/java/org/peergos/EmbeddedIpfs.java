@@ -66,7 +66,7 @@ public class EmbeddedIpfs {
         this.p2pHttp = p2pHttp;
         this.bootstrap = bootstrap;
         this.blocks = new BitswapBlockService(node, bitswap, dht);
-        this.blockProvider = newBlockProvider.map(q -> new PeriodicBlockProvider(300 * 1000L,
+        this.blockProvider = newBlockProvider.map(q -> new PeriodicBlockProvider(1000L,
                 () -> blockstore.refs(false).join().stream(), node, dht, q));
     }
 
@@ -114,7 +114,6 @@ public class EmbeddedIpfs {
     }
 
     public CompletableFuture<Integer> publishPresignedRecord(Multihash pub, byte[] presignedRecord) {
-        LOG.info("Publishing signed record: " + pub.toString());
         return dht.publishValue(pub, presignedRecord, node);
     }
 
@@ -133,9 +132,9 @@ public class EmbeddedIpfs {
     }
 
     public void start() {
-        LOG.info("Starting IPFS...");
+        System.out.println("Starting IPFS...");
         Thread shutdownHook = new Thread(() -> {
-            LOG.info("Stopping Ipfs server...");
+            System.out.println("Stopping Ipfs server...");
             try {
                 this.stop().join();
             } catch (Exception ex) {
@@ -145,12 +144,11 @@ public class EmbeddedIpfs {
         Runtime.getRuntime().addShutdownHook(shutdownHook);
         node.start().join();
         IdentifyBuilder.addIdentifyProtocol(node);
-        LOG.info("Node started and listening on " + node.listenAddresses());
-        LOG.info("Bootstrapping IPFS routing table");
+        System.out.println("Node started and listening on " + node.listenAddresses());
         if (bootstrap.isEmpty())
             LOG.warning("Starting with empty bootstrap list - you will not join the global dht");
         int connections = dht.bootstrapRoutingTable(node, bootstrap, addr -> !addr.contains("/wss/"));
-        LOG.info("Bootstrapping IPFS kademlia");
+        System.out.println("Bootstrapping IPFS kademlia");
         dht.bootstrap(node);
         dht.startBootstrapThread(node);
 

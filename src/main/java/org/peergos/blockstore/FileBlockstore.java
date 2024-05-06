@@ -70,11 +70,8 @@ public class FileBlockstore implements Blockstore {
 
     @Override
     public CompletableFuture<Optional<byte[]>> get(Cid cid) {
-        // for (StackTraceElement ste : Thread.currentThread().getStackTrace()) {
-        //     System.out.println(ste + "\n");
-        // }
         try {
-            LOG.info("Get from file started: " + cid.toString());
+            System.out.println("Get from file started: " + cid.toString());
             Path path = getFilePath(cid);
             File file = blocksRoot.resolve(path).toFile();
             if (!file.exists()) {
@@ -86,7 +83,7 @@ public class FileBlockstore implements Blockstore {
                 for (int len; (len = din.read(buffer)) != -1; ) {
                     bout.write(buffer, 0, len);
                 }
-                LOG.info("Get from file finished: " + cid.toString());
+                System.out.println("Get from file finished: " + cid.toString());
                 return CompletableFuture.completedFuture(Optional.of(bout.toByteArray()));
             }
         } catch (IOException e) {

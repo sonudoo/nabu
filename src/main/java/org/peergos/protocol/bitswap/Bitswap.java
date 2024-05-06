@@ -75,6 +75,7 @@ public class Bitswap extends StrictProtocolBinding<BitswapController> implements
             CompletableFuture<HashedBlock> res = engine.getWant(w, addToBlockstore);
             results.add(res);
         }
+        System.out.println("Send wants started: " + wants.size());
         sendWants(us, peers);
         DownloadManager manager = downloads.getOrDefault(peers, new DownloadManager(us, peers));
         manager.ensureRunning();
@@ -137,7 +138,6 @@ public class Bitswap extends StrictProtocolBinding<BitswapController> implements
                 msg -> audience.forEach(peer -> {
                     try {
                         dialPeer(us, peer, c -> {
-                            LOG.info("Send wants started: " + wants.size());
                             c.send(msg);
                         });
                     } catch (Exception e) {}
