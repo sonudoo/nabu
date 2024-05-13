@@ -15,7 +15,7 @@ public final class Dht {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   public interface RecordOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:org.peergos.dht.pb.Record)
+      // @@protoc_insertion_point(interface_extends:org.peergos.protocol.dht.pb.Record)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -24,6 +24,7 @@ public final class Dht {
      * </pre>
      *
      * <code>bytes key = 1;</code>
+     * @return The key.
      */
     com.google.protobuf.ByteString getKey();
 
@@ -33,6 +34,7 @@ public final class Dht {
      * </pre>
      *
      * <code>bytes value = 2;</code>
+     * @return The value.
      */
     com.google.protobuf.ByteString getValue();
 
@@ -42,6 +44,7 @@ public final class Dht {
      * </pre>
      *
      * <code>string timeReceived = 5;</code>
+     * @return The timeReceived.
      */
     java.lang.String getTimeReceived();
     /**
@@ -50,6 +53,7 @@ public final class Dht {
      * </pre>
      *
      * <code>string timeReceived = 5;</code>
+     * @return The bytes for timeReceived.
      */
     com.google.protobuf.ByteString
         getTimeReceivedBytes();
@@ -60,11 +64,11 @@ public final class Dht {
    * for a key value pair
    * </pre>
    *
-   * Protobuf type {@code org.peergos.dht.pb.Record}
+   * Protobuf type {@code org.peergos.protocol.dht.pb.Record}
    */
-  public  static final class Record extends
+  public static final class Record extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:org.peergos.dht.pb.Record)
+      // @@protoc_insertion_point(message_implements:org.peergos.protocol.dht.pb.Record)
       RecordOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use Record.newBuilder() to construct.
@@ -75,6 +79,13 @@ public final class Dht {
       key_ = com.google.protobuf.ByteString.EMPTY;
       value_ = com.google.protobuf.ByteString.EMPTY;
       timeReceived_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Record();
     }
 
     @java.lang.Override
@@ -90,7 +101,6 @@ public final class Dht {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -118,7 +128,7 @@ public final class Dht {
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -138,15 +148,15 @@ public final class Dht {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Dht.internal_static_org_peergos_dht_pb_Record_descriptor;
+      return org.peergos.protocol.dht.pb.Dht.internal_static_org_peergos_protocol_dht_pb_Record_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Dht.internal_static_org_peergos_dht_pb_Record_fieldAccessorTable
+      return org.peergos.protocol.dht.pb.Dht.internal_static_org_peergos_protocol_dht_pb_Record_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Dht.Record.class, Dht.Record.Builder.class);
+              org.peergos.protocol.dht.pb.Dht.Record.class, org.peergos.protocol.dht.pb.Dht.Record.Builder.class);
     }
 
     public static final int KEY_FIELD_NUMBER = 1;
@@ -157,7 +167,9 @@ public final class Dht {
      * </pre>
      *
      * <code>bytes key = 1;</code>
+     * @return The key.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString getKey() {
       return key_;
     }
@@ -170,7 +182,9 @@ public final class Dht {
      * </pre>
      *
      * <code>bytes value = 2;</code>
+     * @return The value.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString getValue() {
       return value_;
     }
@@ -183,7 +197,9 @@ public final class Dht {
      * </pre>
      *
      * <code>string timeReceived = 5;</code>
+     * @return The timeReceived.
      */
+    @java.lang.Override
     public java.lang.String getTimeReceived() {
       java.lang.Object ref = timeReceived_;
       if (ref instanceof java.lang.String) {
@@ -202,7 +218,9 @@ public final class Dht {
      * </pre>
      *
      * <code>string timeReceived = 5;</code>
+     * @return The bytes for timeReceived.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getTimeReceivedBytes() {
       java.lang.Object ref = timeReceived_;
@@ -270,20 +288,19 @@ public final class Dht {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof Dht.Record)) {
+      if (!(obj instanceof org.peergos.protocol.dht.pb.Dht.Record)) {
         return super.equals(obj);
       }
-      Dht.Record other = (Dht.Record) obj;
+      org.peergos.protocol.dht.pb.Dht.Record other = (org.peergos.protocol.dht.pb.Dht.Record) obj;
 
-      boolean result = true;
-      result = result && getKey()
-          .equals(other.getKey());
-      result = result && getValue()
-          .equals(other.getValue());
-      result = result && getTimeReceived()
-          .equals(other.getTimeReceived());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (!getKey()
+          .equals(other.getKey())) return false;
+      if (!getValue()
+          .equals(other.getValue())) return false;
+      if (!getTimeReceived()
+          .equals(other.getTimeReceived())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -304,69 +321,69 @@ public final class Dht {
       return hash;
     }
 
-    public static Dht.Record parseFrom(
+    public static org.peergos.protocol.dht.pb.Dht.Record parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Dht.Record parseFrom(
+    public static org.peergos.protocol.dht.pb.Dht.Record parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Dht.Record parseFrom(
+    public static org.peergos.protocol.dht.pb.Dht.Record parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Dht.Record parseFrom(
+    public static org.peergos.protocol.dht.pb.Dht.Record parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Dht.Record parseFrom(byte[] data)
+    public static org.peergos.protocol.dht.pb.Dht.Record parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Dht.Record parseFrom(
+    public static org.peergos.protocol.dht.pb.Dht.Record parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Dht.Record parseFrom(java.io.InputStream input)
+    public static org.peergos.protocol.dht.pb.Dht.Record parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static Dht.Record parseFrom(
+    public static org.peergos.protocol.dht.pb.Dht.Record parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static Dht.Record parseDelimitedFrom(java.io.InputStream input)
+    public static org.peergos.protocol.dht.pb.Dht.Record parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static Dht.Record parseDelimitedFrom(
+    public static org.peergos.protocol.dht.pb.Dht.Record parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static Dht.Record parseFrom(
+    public static org.peergos.protocol.dht.pb.Dht.Record parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static Dht.Record parseFrom(
+    public static org.peergos.protocol.dht.pb.Dht.Record parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -379,7 +396,7 @@ public final class Dht {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(Dht.Record prototype) {
+    public static Builder newBuilder(org.peergos.protocol.dht.pb.Dht.Record prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -400,26 +417,26 @@ public final class Dht {
      * for a key value pair
      * </pre>
      *
-     * Protobuf type {@code org.peergos.dht.pb.Record}
+     * Protobuf type {@code org.peergos.protocol.dht.pb.Record}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:org.peergos.dht.pb.Record)
-        Dht.RecordOrBuilder {
+        // @@protoc_insertion_point(builder_implements:org.peergos.protocol.dht.pb.Record)
+        org.peergos.protocol.dht.pb.Dht.RecordOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Dht.internal_static_org_peergos_dht_pb_Record_descriptor;
+        return org.peergos.protocol.dht.pb.Dht.internal_static_org_peergos_protocol_dht_pb_Record_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Dht.internal_static_org_peergos_dht_pb_Record_fieldAccessorTable
+        return org.peergos.protocol.dht.pb.Dht.internal_static_org_peergos_protocol_dht_pb_Record_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Dht.Record.class, Dht.Record.Builder.class);
+                org.peergos.protocol.dht.pb.Dht.Record.class, org.peergos.protocol.dht.pb.Dht.Record.Builder.class);
       }
 
-      // Construct using org.peergos.dht.pb.Dht.Record.newBuilder()
+      // Construct using org.peergos.protocol.dht.pb.Dht.Record.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -449,17 +466,17 @@ public final class Dht {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Dht.internal_static_org_peergos_dht_pb_Record_descriptor;
+        return org.peergos.protocol.dht.pb.Dht.internal_static_org_peergos_protocol_dht_pb_Record_descriptor;
       }
 
       @java.lang.Override
-      public Dht.Record getDefaultInstanceForType() {
-        return Dht.Record.getDefaultInstance();
+      public org.peergos.protocol.dht.pb.Dht.Record getDefaultInstanceForType() {
+        return org.peergos.protocol.dht.pb.Dht.Record.getDefaultInstance();
       }
 
       @java.lang.Override
-      public Dht.Record build() {
-        Dht.Record result = buildPartial();
+      public org.peergos.protocol.dht.pb.Dht.Record build() {
+        org.peergos.protocol.dht.pb.Dht.Record result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -467,8 +484,8 @@ public final class Dht {
       }
 
       @java.lang.Override
-      public Dht.Record buildPartial() {
-        Dht.Record result = new Dht.Record(this);
+      public org.peergos.protocol.dht.pb.Dht.Record buildPartial() {
+        org.peergos.protocol.dht.pb.Dht.Record result = new org.peergos.protocol.dht.pb.Dht.Record(this);
         result.key_ = key_;
         result.value_ = value_;
         result.timeReceived_ = timeReceived_;
@@ -478,48 +495,48 @@ public final class Dht {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Dht.Record) {
-          return mergeFrom((Dht.Record)other);
+        if (other instanceof org.peergos.protocol.dht.pb.Dht.Record) {
+          return mergeFrom((org.peergos.protocol.dht.pb.Dht.Record)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(Dht.Record other) {
-        if (other == Dht.Record.getDefaultInstance()) return this;
+      public Builder mergeFrom(org.peergos.protocol.dht.pb.Dht.Record other) {
+        if (other == org.peergos.protocol.dht.pb.Dht.Record.getDefaultInstance()) return this;
         if (other.getKey() != com.google.protobuf.ByteString.EMPTY) {
           setKey(other.getKey());
         }
@@ -545,11 +562,11 @@ public final class Dht {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        Dht.Record parsedMessage = null;
+        org.peergos.protocol.dht.pb.Dht.Record parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (Dht.Record) e.getUnfinishedMessage();
+          parsedMessage = (org.peergos.protocol.dht.pb.Dht.Record) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -566,7 +583,9 @@ public final class Dht {
        * </pre>
        *
        * <code>bytes key = 1;</code>
+       * @return The key.
        */
+      @java.lang.Override
       public com.google.protobuf.ByteString getKey() {
         return key_;
       }
@@ -576,6 +595,8 @@ public final class Dht {
        * </pre>
        *
        * <code>bytes key = 1;</code>
+       * @param value The key to set.
+       * @return This builder for chaining.
        */
       public Builder setKey(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -592,6 +613,7 @@ public final class Dht {
        * </pre>
        *
        * <code>bytes key = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearKey() {
         
@@ -607,7 +629,9 @@ public final class Dht {
        * </pre>
        *
        * <code>bytes value = 2;</code>
+       * @return The value.
        */
+      @java.lang.Override
       public com.google.protobuf.ByteString getValue() {
         return value_;
       }
@@ -617,6 +641,8 @@ public final class Dht {
        * </pre>
        *
        * <code>bytes value = 2;</code>
+       * @param value The value to set.
+       * @return This builder for chaining.
        */
       public Builder setValue(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -633,6 +659,7 @@ public final class Dht {
        * </pre>
        *
        * <code>bytes value = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearValue() {
         
@@ -648,6 +675,7 @@ public final class Dht {
        * </pre>
        *
        * <code>string timeReceived = 5;</code>
+       * @return The timeReceived.
        */
       public java.lang.String getTimeReceived() {
         java.lang.Object ref = timeReceived_;
@@ -667,6 +695,7 @@ public final class Dht {
        * </pre>
        *
        * <code>string timeReceived = 5;</code>
+       * @return The bytes for timeReceived.
        */
       public com.google.protobuf.ByteString
           getTimeReceivedBytes() {
@@ -687,6 +716,8 @@ public final class Dht {
        * </pre>
        *
        * <code>string timeReceived = 5;</code>
+       * @param value The timeReceived to set.
+       * @return This builder for chaining.
        */
       public Builder setTimeReceived(
           java.lang.String value) {
@@ -704,6 +735,7 @@ public final class Dht {
        * </pre>
        *
        * <code>string timeReceived = 5;</code>
+       * @return This builder for chaining.
        */
       public Builder clearTimeReceived() {
         
@@ -717,6 +749,8 @@ public final class Dht {
        * </pre>
        *
        * <code>string timeReceived = 5;</code>
+       * @param value The bytes for timeReceived to set.
+       * @return This builder for chaining.
        */
       public Builder setTimeReceivedBytes(
           com.google.protobuf.ByteString value) {
@@ -732,7 +766,7 @@ public final class Dht {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -742,16 +776,16 @@ public final class Dht {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:org.peergos.dht.pb.Record)
+      // @@protoc_insertion_point(builder_scope:org.peergos.protocol.dht.pb.Record)
     }
 
-    // @@protoc_insertion_point(class_scope:org.peergos.dht.pb.Record)
-    private static final Dht.Record DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:org.peergos.protocol.dht.pb.Record)
+    private static final org.peergos.protocol.dht.pb.Dht.Record DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new Dht.Record();
+      DEFAULT_INSTANCE = new org.peergos.protocol.dht.pb.Dht.Record();
     }
 
-    public static Dht.Record getDefaultInstance() {
+    public static org.peergos.protocol.dht.pb.Dht.Record getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -776,14 +810,14 @@ public final class Dht {
     }
 
     @java.lang.Override
-    public Dht.Record getDefaultInstanceForType() {
+    public org.peergos.protocol.dht.pb.Dht.Record getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
   public interface MessageOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:org.peergos.dht.pb.Message)
+      // @@protoc_insertion_point(interface_extends:org.peergos.protocol.dht.pb.Message)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -791,7 +825,8 @@ public final class Dht {
      * defines what type of message it is.
      * </pre>
      *
-     * <code>.org.peergos.dht.pb.Message.MessageType type = 1;</code>
+     * <code>.org.peergos.protocol.dht.pb.Message.MessageType type = 1;</code>
+     * @return The enum numeric value on the wire for type.
      */
     int getTypeValue();
     /**
@@ -799,9 +834,10 @@ public final class Dht {
      * defines what type of message it is.
      * </pre>
      *
-     * <code>.org.peergos.dht.pb.Message.MessageType type = 1;</code>
+     * <code>.org.peergos.protocol.dht.pb.Message.MessageType type = 1;</code>
+     * @return The type.
      */
-    Dht.Message.MessageType getType();
+    org.peergos.protocol.dht.pb.Dht.Message.MessageType getType();
 
     /**
      * <pre>
@@ -810,6 +846,7 @@ public final class Dht {
      * </pre>
      *
      * <code>int32 clusterLevelRaw = 10;</code>
+     * @return The clusterLevelRaw.
      */
     int getClusterLevelRaw();
 
@@ -820,6 +857,7 @@ public final class Dht {
      * </pre>
      *
      * <code>bytes key = 2;</code>
+     * @return The key.
      */
     com.google.protobuf.ByteString getKey();
 
@@ -829,7 +867,8 @@ public final class Dht {
      * PUT_VALUE, GET_VALUE
      * </pre>
      *
-     * <code>.org.peergos.dht.pb.Record record = 3;</code>
+     * <code>.org.peergos.protocol.dht.pb.Record record = 3;</code>
+     * @return Whether the record field is set.
      */
     boolean hasRecord();
     /**
@@ -838,18 +877,19 @@ public final class Dht {
      * PUT_VALUE, GET_VALUE
      * </pre>
      *
-     * <code>.org.peergos.dht.pb.Record record = 3;</code>
+     * <code>.org.peergos.protocol.dht.pb.Record record = 3;</code>
+     * @return The record.
      */
-    Dht.Record getRecord();
+    org.peergos.protocol.dht.pb.Dht.Record getRecord();
     /**
      * <pre>
      * Used to return a value
      * PUT_VALUE, GET_VALUE
      * </pre>
      *
-     * <code>.org.peergos.dht.pb.Record record = 3;</code>
+     * <code>.org.peergos.protocol.dht.pb.Record record = 3;</code>
      */
-    Dht.RecordOrBuilder getRecordOrBuilder();
+    org.peergos.protocol.dht.pb.Dht.RecordOrBuilder getRecordOrBuilder();
 
     /**
      * <pre>
@@ -857,9 +897,9 @@ public final class Dht {
      * GET_VALUE, GET_PROVIDERS, FIND_NODE
      * </pre>
      *
-     * <code>repeated .org.peergos.dht.pb.Message.Peer closerPeers = 8;</code>
+     * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer closerPeers = 8;</code>
      */
-    java.util.List<Dht.Message.Peer>
+    java.util.List<org.peergos.protocol.dht.pb.Dht.Message.Peer> 
         getCloserPeersList();
     /**
      * <pre>
@@ -867,16 +907,16 @@ public final class Dht {
      * GET_VALUE, GET_PROVIDERS, FIND_NODE
      * </pre>
      *
-     * <code>repeated .org.peergos.dht.pb.Message.Peer closerPeers = 8;</code>
+     * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer closerPeers = 8;</code>
      */
-    Dht.Message.Peer getCloserPeers(int index);
+    org.peergos.protocol.dht.pb.Dht.Message.Peer getCloserPeers(int index);
     /**
      * <pre>
      * Used to return peers closer to a key in a query
      * GET_VALUE, GET_PROVIDERS, FIND_NODE
      * </pre>
      *
-     * <code>repeated .org.peergos.dht.pb.Message.Peer closerPeers = 8;</code>
+     * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer closerPeers = 8;</code>
      */
     int getCloserPeersCount();
     /**
@@ -885,9 +925,9 @@ public final class Dht {
      * GET_VALUE, GET_PROVIDERS, FIND_NODE
      * </pre>
      *
-     * <code>repeated .org.peergos.dht.pb.Message.Peer closerPeers = 8;</code>
+     * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer closerPeers = 8;</code>
      */
-    java.util.List<? extends Dht.Message.PeerOrBuilder>
+    java.util.List<? extends org.peergos.protocol.dht.pb.Dht.Message.PeerOrBuilder> 
         getCloserPeersOrBuilderList();
     /**
      * <pre>
@@ -895,9 +935,9 @@ public final class Dht {
      * GET_VALUE, GET_PROVIDERS, FIND_NODE
      * </pre>
      *
-     * <code>repeated .org.peergos.dht.pb.Message.Peer closerPeers = 8;</code>
+     * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer closerPeers = 8;</code>
      */
-    Dht.Message.PeerOrBuilder getCloserPeersOrBuilder(
+    org.peergos.protocol.dht.pb.Dht.Message.PeerOrBuilder getCloserPeersOrBuilder(
         int index);
 
     /**
@@ -906,9 +946,9 @@ public final class Dht {
      * GET_VALUE, ADD_PROVIDER, GET_PROVIDERS
      * </pre>
      *
-     * <code>repeated .org.peergos.dht.pb.Message.Peer providerPeers = 9;</code>
+     * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer providerPeers = 9;</code>
      */
-    java.util.List<Dht.Message.Peer>
+    java.util.List<org.peergos.protocol.dht.pb.Dht.Message.Peer> 
         getProviderPeersList();
     /**
      * <pre>
@@ -916,16 +956,16 @@ public final class Dht {
      * GET_VALUE, ADD_PROVIDER, GET_PROVIDERS
      * </pre>
      *
-     * <code>repeated .org.peergos.dht.pb.Message.Peer providerPeers = 9;</code>
+     * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer providerPeers = 9;</code>
      */
-    Dht.Message.Peer getProviderPeers(int index);
+    org.peergos.protocol.dht.pb.Dht.Message.Peer getProviderPeers(int index);
     /**
      * <pre>
      * Used to return Providers
      * GET_VALUE, ADD_PROVIDER, GET_PROVIDERS
      * </pre>
      *
-     * <code>repeated .org.peergos.dht.pb.Message.Peer providerPeers = 9;</code>
+     * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer providerPeers = 9;</code>
      */
     int getProviderPeersCount();
     /**
@@ -934,9 +974,9 @@ public final class Dht {
      * GET_VALUE, ADD_PROVIDER, GET_PROVIDERS
      * </pre>
      *
-     * <code>repeated .org.peergos.dht.pb.Message.Peer providerPeers = 9;</code>
+     * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer providerPeers = 9;</code>
      */
-    java.util.List<? extends Dht.Message.PeerOrBuilder>
+    java.util.List<? extends org.peergos.protocol.dht.pb.Dht.Message.PeerOrBuilder> 
         getProviderPeersOrBuilderList();
     /**
      * <pre>
@@ -944,17 +984,37 @@ public final class Dht {
      * GET_VALUE, ADD_PROVIDER, GET_PROVIDERS
      * </pre>
      *
-     * <code>repeated .org.peergos.dht.pb.Message.Peer providerPeers = 9;</code>
+     * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer providerPeers = 9;</code>
      */
-    Dht.Message.PeerOrBuilder getProviderPeersOrBuilder(
+    org.peergos.protocol.dht.pb.Dht.Message.PeerOrBuilder getProviderPeersOrBuilder(
         int index);
+
+    /**
+     * <pre>
+     * Trace Id.
+     * </pre>
+     *
+     * <code>string traceId = 11;</code>
+     * @return The traceId.
+     */
+    java.lang.String getTraceId();
+    /**
+     * <pre>
+     * Trace Id.
+     * </pre>
+     *
+     * <code>string traceId = 11;</code>
+     * @return The bytes for traceId.
+     */
+    com.google.protobuf.ByteString
+        getTraceIdBytes();
   }
   /**
-   * Protobuf type {@code org.peergos.dht.pb.Message}
+   * Protobuf type {@code org.peergos.protocol.dht.pb.Message}
    */
-  public  static final class Message extends
+  public static final class Message extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:org.peergos.dht.pb.Message)
+      // @@protoc_insertion_point(message_implements:org.peergos.protocol.dht.pb.Message)
       MessageOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use Message.newBuilder() to construct.
@@ -963,10 +1023,17 @@ public final class Dht {
     }
     private Message() {
       type_ = 0;
-      clusterLevelRaw_ = 0;
       key_ = com.google.protobuf.ByteString.EMPTY;
       closerPeers_ = java.util.Collections.emptyList();
       providerPeers_ = java.util.Collections.emptyList();
+      traceId_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Message();
     }
 
     @java.lang.Override
@@ -1005,11 +1072,11 @@ public final class Dht {
               break;
             }
             case 26: {
-              Dht.Record.Builder subBuilder = null;
+              org.peergos.protocol.dht.pb.Dht.Record.Builder subBuilder = null;
               if (record_ != null) {
                 subBuilder = record_.toBuilder();
               }
-              record_ = input.readMessage(Dht.Record.parser(), extensionRegistry);
+              record_ = input.readMessage(org.peergos.protocol.dht.pb.Dht.Record.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(record_);
                 record_ = subBuilder.buildPartial();
@@ -1018,21 +1085,21 @@ public final class Dht {
               break;
             }
             case 66: {
-              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
-                closerPeers_ = new java.util.ArrayList<Dht.Message.Peer>();
-                mutable_bitField0_ |= 0x00000010;
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                closerPeers_ = new java.util.ArrayList<org.peergos.protocol.dht.pb.Dht.Message.Peer>();
+                mutable_bitField0_ |= 0x00000001;
               }
               closerPeers_.add(
-                  input.readMessage(Dht.Message.Peer.parser(), extensionRegistry));
+                  input.readMessage(org.peergos.protocol.dht.pb.Dht.Message.Peer.parser(), extensionRegistry));
               break;
             }
             case 74: {
-              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
-                providerPeers_ = new java.util.ArrayList<Dht.Message.Peer>();
-                mutable_bitField0_ |= 0x00000020;
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+                providerPeers_ = new java.util.ArrayList<org.peergos.protocol.dht.pb.Dht.Message.Peer>();
+                mutable_bitField0_ |= 0x00000002;
               }
               providerPeers_.add(
-                  input.readMessage(Dht.Message.Peer.parser(), extensionRegistry));
+                  input.readMessage(org.peergos.protocol.dht.pb.Dht.Message.Peer.parser(), extensionRegistry));
               break;
             }
             case 80: {
@@ -1040,8 +1107,14 @@ public final class Dht {
               clusterLevelRaw_ = input.readInt32();
               break;
             }
+            case 90: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              traceId_ = s;
+              break;
+            }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -1055,10 +1128,10 @@ public final class Dht {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
           closerPeers_ = java.util.Collections.unmodifiableList(closerPeers_);
         }
-        if (((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
           providerPeers_ = java.util.Collections.unmodifiableList(providerPeers_);
         }
         this.unknownFields = unknownFields.build();
@@ -1067,19 +1140,19 @@ public final class Dht {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Dht.internal_static_org_peergos_dht_pb_Message_descriptor;
+      return org.peergos.protocol.dht.pb.Dht.internal_static_org_peergos_protocol_dht_pb_Message_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Dht.internal_static_org_peergos_dht_pb_Message_fieldAccessorTable
+      return org.peergos.protocol.dht.pb.Dht.internal_static_org_peergos_protocol_dht_pb_Message_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Dht.Message.class, Dht.Message.Builder.class);
+              org.peergos.protocol.dht.pb.Dht.Message.class, org.peergos.protocol.dht.pb.Dht.Message.Builder.class);
     }
 
     /**
-     * Protobuf enum {@code org.peergos.dht.pb.Message.MessageType}
+     * Protobuf enum {@code org.peergos.protocol.dht.pb.Message.MessageType}
      */
     public enum MessageType
         implements com.google.protobuf.ProtocolMessageEnum {
@@ -1145,6 +1218,8 @@ public final class Dht {
       }
 
       /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
        * @deprecated Use {@link #forNumber(int)} instead.
        */
       @java.lang.Deprecated
@@ -1152,6 +1227,10 @@ public final class Dht {
         return forNumber(value);
       }
 
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       */
       public static MessageType forNumber(int value) {
         switch (value) {
           case 0: return PUT_VALUE;
@@ -1178,6 +1257,10 @@ public final class Dht {
 
       public final com.google.protobuf.Descriptors.EnumValueDescriptor
           getValueDescriptor() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalStateException(
+              "Can't get the descriptor of an unrecognized enum value.");
+        }
         return getDescriptor().getValues().get(ordinal());
       }
       public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -1186,7 +1269,7 @@ public final class Dht {
       }
       public static final com.google.protobuf.Descriptors.EnumDescriptor
           getDescriptor() {
-        return Dht.Message.getDescriptor().getEnumTypes().get(0);
+        return org.peergos.protocol.dht.pb.Dht.Message.getDescriptor().getEnumTypes().get(0);
       }
 
       private static final MessageType[] VALUES = values();
@@ -1209,11 +1292,11 @@ public final class Dht {
         this.value = value;
       }
 
-      // @@protoc_insertion_point(enum_scope:org.peergos.dht.pb.Message.MessageType)
+      // @@protoc_insertion_point(enum_scope:org.peergos.protocol.dht.pb.Message.MessageType)
     }
 
     /**
-     * Protobuf enum {@code org.peergos.dht.pb.Message.ConnectionType}
+     * Protobuf enum {@code org.peergos.protocol.dht.pb.Message.ConnectionType}
      */
     public enum ConnectionType
         implements com.google.protobuf.ProtocolMessageEnum {
@@ -1297,6 +1380,8 @@ public final class Dht {
       }
 
       /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
        * @deprecated Use {@link #forNumber(int)} instead.
        */
       @java.lang.Deprecated
@@ -1304,6 +1389,10 @@ public final class Dht {
         return forNumber(value);
       }
 
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       */
       public static ConnectionType forNumber(int value) {
         switch (value) {
           case 0: return NOT_CONNECTED;
@@ -1328,6 +1417,10 @@ public final class Dht {
 
       public final com.google.protobuf.Descriptors.EnumValueDescriptor
           getValueDescriptor() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalStateException(
+              "Can't get the descriptor of an unrecognized enum value.");
+        }
         return getDescriptor().getValues().get(ordinal());
       }
       public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -1336,7 +1429,7 @@ public final class Dht {
       }
       public static final com.google.protobuf.Descriptors.EnumDescriptor
           getDescriptor() {
-        return Dht.Message.getDescriptor().getEnumTypes().get(1);
+        return org.peergos.protocol.dht.pb.Dht.Message.getDescriptor().getEnumTypes().get(1);
       }
 
       private static final ConnectionType[] VALUES = values();
@@ -1359,11 +1452,11 @@ public final class Dht {
         this.value = value;
       }
 
-      // @@protoc_insertion_point(enum_scope:org.peergos.dht.pb.Message.ConnectionType)
+      // @@protoc_insertion_point(enum_scope:org.peergos.protocol.dht.pb.Message.ConnectionType)
     }
 
     public interface PeerOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:org.peergos.dht.pb.Message.Peer)
+        // @@protoc_insertion_point(interface_extends:org.peergos.protocol.dht.pb.Message.Peer)
         com.google.protobuf.MessageOrBuilder {
 
       /**
@@ -1372,6 +1465,7 @@ public final class Dht {
        * </pre>
        *
        * <code>bytes id = 1;</code>
+       * @return The id.
        */
       com.google.protobuf.ByteString getId();
 
@@ -1381,6 +1475,7 @@ public final class Dht {
        * </pre>
        *
        * <code>repeated bytes addrs = 2;</code>
+       * @return A list containing the addrs.
        */
       java.util.List<com.google.protobuf.ByteString> getAddrsList();
       /**
@@ -1389,6 +1484,7 @@ public final class Dht {
        * </pre>
        *
        * <code>repeated bytes addrs = 2;</code>
+       * @return The count of addrs.
        */
       int getAddrsCount();
       /**
@@ -1397,6 +1493,8 @@ public final class Dht {
        * </pre>
        *
        * <code>repeated bytes addrs = 2;</code>
+       * @param index The index of the element to return.
+       * @return The addrs at the given index.
        */
       com.google.protobuf.ByteString getAddrs(int index);
 
@@ -1405,7 +1503,8 @@ public final class Dht {
        * used to signal the sender's connection capabilities to the peer
        * </pre>
        *
-       * <code>.org.peergos.dht.pb.Message.ConnectionType connection = 3;</code>
+       * <code>.org.peergos.protocol.dht.pb.Message.ConnectionType connection = 3;</code>
+       * @return The enum numeric value on the wire for connection.
        */
       int getConnectionValue();
       /**
@@ -1413,16 +1512,17 @@ public final class Dht {
        * used to signal the sender's connection capabilities to the peer
        * </pre>
        *
-       * <code>.org.peergos.dht.pb.Message.ConnectionType connection = 3;</code>
+       * <code>.org.peergos.protocol.dht.pb.Message.ConnectionType connection = 3;</code>
+       * @return The connection.
        */
-      Dht.Message.ConnectionType getConnection();
+      org.peergos.protocol.dht.pb.Dht.Message.ConnectionType getConnection();
     }
     /**
-     * Protobuf type {@code org.peergos.dht.pb.Message.Peer}
+     * Protobuf type {@code org.peergos.protocol.dht.pb.Message.Peer}
      */
-    public  static final class Peer extends
+    public static final class Peer extends
         com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:org.peergos.dht.pb.Message.Peer)
+        // @@protoc_insertion_point(message_implements:org.peergos.protocol.dht.pb.Message.Peer)
         PeerOrBuilder {
     private static final long serialVersionUID = 0L;
       // Use Peer.newBuilder() to construct.
@@ -1433,6 +1533,13 @@ public final class Dht {
         id_ = com.google.protobuf.ByteString.EMPTY;
         addrs_ = java.util.Collections.emptyList();
         connection_ = 0;
+      }
+
+      @java.lang.Override
+      @SuppressWarnings({"unused"})
+      protected java.lang.Object newInstance(
+          UnusedPrivateParameter unused) {
+        return new Peer();
       }
 
       @java.lang.Override
@@ -1465,9 +1572,9 @@ public final class Dht {
                 break;
               }
               case 18: {
-                if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                if (!((mutable_bitField0_ & 0x00000001) != 0)) {
                   addrs_ = new java.util.ArrayList<com.google.protobuf.ByteString>();
-                  mutable_bitField0_ |= 0x00000002;
+                  mutable_bitField0_ |= 0x00000001;
                 }
                 addrs_.add(input.readBytes());
                 break;
@@ -1479,7 +1586,7 @@ public final class Dht {
                 break;
               }
               default: {
-                if (!parseUnknownFieldProto3(
+                if (!parseUnknownField(
                     input, unknownFields, extensionRegistry, tag)) {
                   done = true;
                 }
@@ -1493,8 +1600,8 @@ public final class Dht {
           throw new com.google.protobuf.InvalidProtocolBufferException(
               e).setUnfinishedMessage(this);
         } finally {
-          if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-            addrs_ = java.util.Collections.unmodifiableList(addrs_);
+          if (((mutable_bitField0_ & 0x00000001) != 0)) {
+            addrs_ = java.util.Collections.unmodifiableList(addrs_); // C
           }
           this.unknownFields = unknownFields.build();
           makeExtensionsImmutable();
@@ -1502,18 +1609,17 @@ public final class Dht {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Dht.internal_static_org_peergos_dht_pb_Message_Peer_descriptor;
+        return org.peergos.protocol.dht.pb.Dht.internal_static_org_peergos_protocol_dht_pb_Message_Peer_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Dht.internal_static_org_peergos_dht_pb_Message_Peer_fieldAccessorTable
+        return org.peergos.protocol.dht.pb.Dht.internal_static_org_peergos_protocol_dht_pb_Message_Peer_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Dht.Message.Peer.class, Dht.Message.Peer.Builder.class);
+                org.peergos.protocol.dht.pb.Dht.Message.Peer.class, org.peergos.protocol.dht.pb.Dht.Message.Peer.Builder.class);
       }
 
-      private int bitField0_;
       public static final int ID_FIELD_NUMBER = 1;
       private com.google.protobuf.ByteString id_;
       /**
@@ -1522,7 +1628,9 @@ public final class Dht {
        * </pre>
        *
        * <code>bytes id = 1;</code>
+       * @return The id.
        */
+      @java.lang.Override
       public com.google.protobuf.ByteString getId() {
         return id_;
       }
@@ -1535,7 +1643,9 @@ public final class Dht {
        * </pre>
        *
        * <code>repeated bytes addrs = 2;</code>
+       * @return A list containing the addrs.
        */
+      @java.lang.Override
       public java.util.List<com.google.protobuf.ByteString>
           getAddrsList() {
         return addrs_;
@@ -1546,6 +1656,7 @@ public final class Dht {
        * </pre>
        *
        * <code>repeated bytes addrs = 2;</code>
+       * @return The count of addrs.
        */
       public int getAddrsCount() {
         return addrs_.size();
@@ -1556,6 +1667,8 @@ public final class Dht {
        * </pre>
        *
        * <code>repeated bytes addrs = 2;</code>
+       * @param index The index of the element to return.
+       * @return The addrs at the given index.
        */
       public com.google.protobuf.ByteString getAddrs(int index) {
         return addrs_.get(index);
@@ -1568,9 +1681,10 @@ public final class Dht {
        * used to signal the sender's connection capabilities to the peer
        * </pre>
        *
-       * <code>.org.peergos.dht.pb.Message.ConnectionType connection = 3;</code>
+       * <code>.org.peergos.protocol.dht.pb.Message.ConnectionType connection = 3;</code>
+       * @return The enum numeric value on the wire for connection.
        */
-      public int getConnectionValue() {
+      @java.lang.Override public int getConnectionValue() {
         return connection_;
       }
       /**
@@ -1578,12 +1692,13 @@ public final class Dht {
        * used to signal the sender's connection capabilities to the peer
        * </pre>
        *
-       * <code>.org.peergos.dht.pb.Message.ConnectionType connection = 3;</code>
+       * <code>.org.peergos.protocol.dht.pb.Message.ConnectionType connection = 3;</code>
+       * @return The connection.
        */
-      public Dht.Message.ConnectionType getConnection() {
+      @java.lang.Override public org.peergos.protocol.dht.pb.Dht.Message.ConnectionType getConnection() {
         @SuppressWarnings("deprecation")
-        Dht.Message.ConnectionType result = Dht.Message.ConnectionType.valueOf(connection_);
-        return result == null ? Dht.Message.ConnectionType.UNRECOGNIZED : result;
+        org.peergos.protocol.dht.pb.Dht.Message.ConnectionType result = org.peergos.protocol.dht.pb.Dht.Message.ConnectionType.valueOf(connection_);
+        return result == null ? org.peergos.protocol.dht.pb.Dht.Message.ConnectionType.UNRECOGNIZED : result;
       }
 
       private byte memoizedIsInitialized = -1;
@@ -1606,7 +1721,7 @@ public final class Dht {
         for (int i = 0; i < addrs_.size(); i++) {
           output.writeBytes(2, addrs_.get(i));
         }
-        if (connection_ != Dht.Message.ConnectionType.NOT_CONNECTED.getNumber()) {
+        if (connection_ != org.peergos.protocol.dht.pb.Dht.Message.ConnectionType.NOT_CONNECTED.getNumber()) {
           output.writeEnum(3, connection_);
         }
         unknownFields.writeTo(output);
@@ -1631,7 +1746,7 @@ public final class Dht {
           size += dataSize;
           size += 1 * getAddrsList().size();
         }
-        if (connection_ != Dht.Message.ConnectionType.NOT_CONNECTED.getNumber()) {
+        if (connection_ != org.peergos.protocol.dht.pb.Dht.Message.ConnectionType.NOT_CONNECTED.getNumber()) {
           size += com.google.protobuf.CodedOutputStream
             .computeEnumSize(3, connection_);
         }
@@ -1645,19 +1760,18 @@ public final class Dht {
         if (obj == this) {
          return true;
         }
-        if (!(obj instanceof Dht.Message.Peer)) {
+        if (!(obj instanceof org.peergos.protocol.dht.pb.Dht.Message.Peer)) {
           return super.equals(obj);
         }
-        Dht.Message.Peer other = (Dht.Message.Peer) obj;
+        org.peergos.protocol.dht.pb.Dht.Message.Peer other = (org.peergos.protocol.dht.pb.Dht.Message.Peer) obj;
 
-        boolean result = true;
-        result = result && getId()
-            .equals(other.getId());
-        result = result && getAddrsList()
-            .equals(other.getAddrsList());
-        result = result && connection_ == other.connection_;
-        result = result && unknownFields.equals(other.unknownFields);
-        return result;
+        if (!getId()
+            .equals(other.getId())) return false;
+        if (!getAddrsList()
+            .equals(other.getAddrsList())) return false;
+        if (connection_ != other.connection_) return false;
+        if (!unknownFields.equals(other.unknownFields)) return false;
+        return true;
       }
 
       @java.lang.Override
@@ -1680,69 +1794,69 @@ public final class Dht {
         return hash;
       }
 
-      public static Dht.Message.Peer parseFrom(
+      public static org.peergos.protocol.dht.pb.Dht.Message.Peer parseFrom(
           java.nio.ByteBuffer data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static Dht.Message.Peer parseFrom(
+      public static org.peergos.protocol.dht.pb.Dht.Message.Peer parseFrom(
           java.nio.ByteBuffer data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static Dht.Message.Peer parseFrom(
+      public static org.peergos.protocol.dht.pb.Dht.Message.Peer parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static Dht.Message.Peer parseFrom(
+      public static org.peergos.protocol.dht.pb.Dht.Message.Peer parseFrom(
           com.google.protobuf.ByteString data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static Dht.Message.Peer parseFrom(byte[] data)
+      public static org.peergos.protocol.dht.pb.Dht.Message.Peer parseFrom(byte[] data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static Dht.Message.Peer parseFrom(
+      public static org.peergos.protocol.dht.pb.Dht.Message.Peer parseFrom(
           byte[] data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static Dht.Message.Peer parseFrom(java.io.InputStream input)
+      public static org.peergos.protocol.dht.pb.Dht.Message.Peer parseFrom(java.io.InputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input);
       }
-      public static Dht.Message.Peer parseFrom(
+      public static org.peergos.protocol.dht.pb.Dht.Message.Peer parseFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input, extensionRegistry);
       }
-      public static Dht.Message.Peer parseDelimitedFrom(java.io.InputStream input)
+      public static org.peergos.protocol.dht.pb.Dht.Message.Peer parseDelimitedFrom(java.io.InputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseDelimitedWithIOException(PARSER, input);
       }
-      public static Dht.Message.Peer parseDelimitedFrom(
+      public static org.peergos.protocol.dht.pb.Dht.Message.Peer parseDelimitedFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
       }
-      public static Dht.Message.Peer parseFrom(
+      public static org.peergos.protocol.dht.pb.Dht.Message.Peer parseFrom(
           com.google.protobuf.CodedInputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input);
       }
-      public static Dht.Message.Peer parseFrom(
+      public static org.peergos.protocol.dht.pb.Dht.Message.Peer parseFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
@@ -1755,7 +1869,7 @@ public final class Dht {
       public static Builder newBuilder() {
         return DEFAULT_INSTANCE.toBuilder();
       }
-      public static Builder newBuilder(Dht.Message.Peer prototype) {
+      public static Builder newBuilder(org.peergos.protocol.dht.pb.Dht.Message.Peer prototype) {
         return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
       }
       @java.lang.Override
@@ -1771,26 +1885,26 @@ public final class Dht {
         return builder;
       }
       /**
-       * Protobuf type {@code org.peergos.dht.pb.Message.Peer}
+       * Protobuf type {@code org.peergos.protocol.dht.pb.Message.Peer}
        */
       public static final class Builder extends
           com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-          // @@protoc_insertion_point(builder_implements:org.peergos.dht.pb.Message.Peer)
-          Dht.Message.PeerOrBuilder {
+          // @@protoc_insertion_point(builder_implements:org.peergos.protocol.dht.pb.Message.Peer)
+          org.peergos.protocol.dht.pb.Dht.Message.PeerOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return Dht.internal_static_org_peergos_dht_pb_Message_Peer_descriptor;
+          return org.peergos.protocol.dht.pb.Dht.internal_static_org_peergos_protocol_dht_pb_Message_Peer_descriptor;
         }
 
         @java.lang.Override
         protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return Dht.internal_static_org_peergos_dht_pb_Message_Peer_fieldAccessorTable
+          return org.peergos.protocol.dht.pb.Dht.internal_static_org_peergos_protocol_dht_pb_Message_Peer_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
-                  Dht.Message.Peer.class, Dht.Message.Peer.Builder.class);
+                  org.peergos.protocol.dht.pb.Dht.Message.Peer.class, org.peergos.protocol.dht.pb.Dht.Message.Peer.Builder.class);
         }
 
-        // Construct using org.peergos.dht.pb.Dht.Message.Peer.newBuilder()
+        // Construct using org.peergos.protocol.dht.pb.Dht.Message.Peer.newBuilder()
         private Builder() {
           maybeForceBuilderInitialization();
         }
@@ -1811,7 +1925,7 @@ public final class Dht {
           id_ = com.google.protobuf.ByteString.EMPTY;
 
           addrs_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000001);
           connection_ = 0;
 
           return this;
@@ -1820,17 +1934,17 @@ public final class Dht {
         @java.lang.Override
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return Dht.internal_static_org_peergos_dht_pb_Message_Peer_descriptor;
+          return org.peergos.protocol.dht.pb.Dht.internal_static_org_peergos_protocol_dht_pb_Message_Peer_descriptor;
         }
 
         @java.lang.Override
-        public Dht.Message.Peer getDefaultInstanceForType() {
-          return Dht.Message.Peer.getDefaultInstance();
+        public org.peergos.protocol.dht.pb.Dht.Message.Peer getDefaultInstanceForType() {
+          return org.peergos.protocol.dht.pb.Dht.Message.Peer.getDefaultInstance();
         }
 
         @java.lang.Override
-        public Dht.Message.Peer build() {
-          Dht.Message.Peer result = buildPartial();
+        public org.peergos.protocol.dht.pb.Dht.Message.Peer build() {
+          org.peergos.protocol.dht.pb.Dht.Message.Peer result = buildPartial();
           if (!result.isInitialized()) {
             throw newUninitializedMessageException(result);
           }
@@ -1838,73 +1952,71 @@ public final class Dht {
         }
 
         @java.lang.Override
-        public Dht.Message.Peer buildPartial() {
-          Dht.Message.Peer result = new Dht.Message.Peer(this);
+        public org.peergos.protocol.dht.pb.Dht.Message.Peer buildPartial() {
+          org.peergos.protocol.dht.pb.Dht.Message.Peer result = new org.peergos.protocol.dht.pb.Dht.Message.Peer(this);
           int from_bitField0_ = bitField0_;
-          int to_bitField0_ = 0;
           result.id_ = id_;
-          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             addrs_ = java.util.Collections.unmodifiableList(addrs_);
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.addrs_ = addrs_;
           result.connection_ = connection_;
-          result.bitField0_ = to_bitField0_;
           onBuilt();
           return result;
         }
 
         @java.lang.Override
         public Builder clone() {
-          return (Builder) super.clone();
+          return super.clone();
         }
         @java.lang.Override
         public Builder setField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
             java.lang.Object value) {
-          return (Builder) super.setField(field, value);
+          return super.setField(field, value);
         }
         @java.lang.Override
         public Builder clearField(
             com.google.protobuf.Descriptors.FieldDescriptor field) {
-          return (Builder) super.clearField(field);
+          return super.clearField(field);
         }
         @java.lang.Override
         public Builder clearOneof(
             com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-          return (Builder) super.clearOneof(oneof);
+          return super.clearOneof(oneof);
         }
         @java.lang.Override
         public Builder setRepeatedField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
             int index, java.lang.Object value) {
-          return (Builder) super.setRepeatedField(field, index, value);
+          return super.setRepeatedField(field, index, value);
         }
         @java.lang.Override
         public Builder addRepeatedField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
             java.lang.Object value) {
-          return (Builder) super.addRepeatedField(field, value);
+          return super.addRepeatedField(field, value);
         }
         @java.lang.Override
         public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof Dht.Message.Peer) {
-            return mergeFrom((Dht.Message.Peer)other);
+          if (other instanceof org.peergos.protocol.dht.pb.Dht.Message.Peer) {
+            return mergeFrom((org.peergos.protocol.dht.pb.Dht.Message.Peer)other);
           } else {
             super.mergeFrom(other);
             return this;
           }
         }
 
-        public Builder mergeFrom(Dht.Message.Peer other) {
-          if (other == Dht.Message.Peer.getDefaultInstance()) return this;
+        public Builder mergeFrom(org.peergos.protocol.dht.pb.Dht.Message.Peer other) {
+          if (other == org.peergos.protocol.dht.pb.Dht.Message.Peer.getDefaultInstance()) return this;
           if (other.getId() != com.google.protobuf.ByteString.EMPTY) {
             setId(other.getId());
           }
           if (!other.addrs_.isEmpty()) {
             if (addrs_.isEmpty()) {
               addrs_ = other.addrs_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureAddrsIsMutable();
               addrs_.addAll(other.addrs_);
@@ -1929,11 +2041,11 @@ public final class Dht {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          Dht.Message.Peer parsedMessage = null;
+          org.peergos.protocol.dht.pb.Dht.Message.Peer parsedMessage = null;
           try {
             parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (Dht.Message.Peer) e.getUnfinishedMessage();
+            parsedMessage = (org.peergos.protocol.dht.pb.Dht.Message.Peer) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
             if (parsedMessage != null) {
@@ -1951,7 +2063,9 @@ public final class Dht {
          * </pre>
          *
          * <code>bytes id = 1;</code>
+         * @return The id.
          */
+        @java.lang.Override
         public com.google.protobuf.ByteString getId() {
           return id_;
         }
@@ -1961,6 +2075,8 @@ public final class Dht {
          * </pre>
          *
          * <code>bytes id = 1;</code>
+         * @param value The id to set.
+         * @return This builder for chaining.
          */
         public Builder setId(com.google.protobuf.ByteString value) {
           if (value == null) {
@@ -1977,6 +2093,7 @@ public final class Dht {
          * </pre>
          *
          * <code>bytes id = 1;</code>
+         * @return This builder for chaining.
          */
         public Builder clearId() {
           
@@ -1987,9 +2104,9 @@ public final class Dht {
 
         private java.util.List<com.google.protobuf.ByteString> addrs_ = java.util.Collections.emptyList();
         private void ensureAddrsIsMutable() {
-          if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          if (!((bitField0_ & 0x00000001) != 0)) {
             addrs_ = new java.util.ArrayList<com.google.protobuf.ByteString>(addrs_);
-            bitField0_ |= 0x00000002;
+            bitField0_ |= 0x00000001;
            }
         }
         /**
@@ -1998,10 +2115,12 @@ public final class Dht {
          * </pre>
          *
          * <code>repeated bytes addrs = 2;</code>
+         * @return A list containing the addrs.
          */
         public java.util.List<com.google.protobuf.ByteString>
             getAddrsList() {
-          return java.util.Collections.unmodifiableList(addrs_);
+          return ((bitField0_ & 0x00000001) != 0) ?
+                   java.util.Collections.unmodifiableList(addrs_) : addrs_;
         }
         /**
          * <pre>
@@ -2009,6 +2128,7 @@ public final class Dht {
          * </pre>
          *
          * <code>repeated bytes addrs = 2;</code>
+         * @return The count of addrs.
          */
         public int getAddrsCount() {
           return addrs_.size();
@@ -2019,6 +2139,8 @@ public final class Dht {
          * </pre>
          *
          * <code>repeated bytes addrs = 2;</code>
+         * @param index The index of the element to return.
+         * @return The addrs at the given index.
          */
         public com.google.protobuf.ByteString getAddrs(int index) {
           return addrs_.get(index);
@@ -2029,6 +2151,9 @@ public final class Dht {
          * </pre>
          *
          * <code>repeated bytes addrs = 2;</code>
+         * @param index The index to set the value at.
+         * @param value The addrs to set.
+         * @return This builder for chaining.
          */
         public Builder setAddrs(
             int index, com.google.protobuf.ByteString value) {
@@ -2046,6 +2171,8 @@ public final class Dht {
          * </pre>
          *
          * <code>repeated bytes addrs = 2;</code>
+         * @param value The addrs to add.
+         * @return This builder for chaining.
          */
         public Builder addAddrs(com.google.protobuf.ByteString value) {
           if (value == null) {
@@ -2062,6 +2189,8 @@ public final class Dht {
          * </pre>
          *
          * <code>repeated bytes addrs = 2;</code>
+         * @param values The addrs to add.
+         * @return This builder for chaining.
          */
         public Builder addAllAddrs(
             java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
@@ -2077,10 +2206,11 @@ public final class Dht {
          * </pre>
          *
          * <code>repeated bytes addrs = 2;</code>
+         * @return This builder for chaining.
          */
         public Builder clearAddrs() {
           addrs_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
           return this;
         }
@@ -2091,9 +2221,10 @@ public final class Dht {
          * used to signal the sender's connection capabilities to the peer
          * </pre>
          *
-         * <code>.org.peergos.dht.pb.Message.ConnectionType connection = 3;</code>
+         * <code>.org.peergos.protocol.dht.pb.Message.ConnectionType connection = 3;</code>
+         * @return The enum numeric value on the wire for connection.
          */
-        public int getConnectionValue() {
+        @java.lang.Override public int getConnectionValue() {
           return connection_;
         }
         /**
@@ -2101,9 +2232,12 @@ public final class Dht {
          * used to signal the sender's connection capabilities to the peer
          * </pre>
          *
-         * <code>.org.peergos.dht.pb.Message.ConnectionType connection = 3;</code>
+         * <code>.org.peergos.protocol.dht.pb.Message.ConnectionType connection = 3;</code>
+         * @param value The enum numeric value on the wire for connection to set.
+         * @return This builder for chaining.
          */
         public Builder setConnectionValue(int value) {
+          
           connection_ = value;
           onChanged();
           return this;
@@ -2113,21 +2247,25 @@ public final class Dht {
          * used to signal the sender's connection capabilities to the peer
          * </pre>
          *
-         * <code>.org.peergos.dht.pb.Message.ConnectionType connection = 3;</code>
+         * <code>.org.peergos.protocol.dht.pb.Message.ConnectionType connection = 3;</code>
+         * @return The connection.
          */
-        public Dht.Message.ConnectionType getConnection() {
+        @java.lang.Override
+        public org.peergos.protocol.dht.pb.Dht.Message.ConnectionType getConnection() {
           @SuppressWarnings("deprecation")
-          Dht.Message.ConnectionType result = Dht.Message.ConnectionType.valueOf(connection_);
-          return result == null ? Dht.Message.ConnectionType.UNRECOGNIZED : result;
+          org.peergos.protocol.dht.pb.Dht.Message.ConnectionType result = org.peergos.protocol.dht.pb.Dht.Message.ConnectionType.valueOf(connection_);
+          return result == null ? org.peergos.protocol.dht.pb.Dht.Message.ConnectionType.UNRECOGNIZED : result;
         }
         /**
          * <pre>
          * used to signal the sender's connection capabilities to the peer
          * </pre>
          *
-         * <code>.org.peergos.dht.pb.Message.ConnectionType connection = 3;</code>
+         * <code>.org.peergos.protocol.dht.pb.Message.ConnectionType connection = 3;</code>
+         * @param value The connection to set.
+         * @return This builder for chaining.
          */
-        public Builder setConnection(Dht.Message.ConnectionType value) {
+        public Builder setConnection(org.peergos.protocol.dht.pb.Dht.Message.ConnectionType value) {
           if (value == null) {
             throw new NullPointerException();
           }
@@ -2141,7 +2279,8 @@ public final class Dht {
          * used to signal the sender's connection capabilities to the peer
          * </pre>
          *
-         * <code>.org.peergos.dht.pb.Message.ConnectionType connection = 3;</code>
+         * <code>.org.peergos.protocol.dht.pb.Message.ConnectionType connection = 3;</code>
+         * @return This builder for chaining.
          */
         public Builder clearConnection() {
           
@@ -2152,7 +2291,7 @@ public final class Dht {
         @java.lang.Override
         public final Builder setUnknownFields(
             final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.setUnknownFieldsProto3(unknownFields);
+          return super.setUnknownFields(unknownFields);
         }
 
         @java.lang.Override
@@ -2162,16 +2301,16 @@ public final class Dht {
         }
 
 
-        // @@protoc_insertion_point(builder_scope:org.peergos.dht.pb.Message.Peer)
+        // @@protoc_insertion_point(builder_scope:org.peergos.protocol.dht.pb.Message.Peer)
       }
 
-      // @@protoc_insertion_point(class_scope:org.peergos.dht.pb.Message.Peer)
-      private static final Dht.Message.Peer DEFAULT_INSTANCE;
+      // @@protoc_insertion_point(class_scope:org.peergos.protocol.dht.pb.Message.Peer)
+      private static final org.peergos.protocol.dht.pb.Dht.Message.Peer DEFAULT_INSTANCE;
       static {
-        DEFAULT_INSTANCE = new Dht.Message.Peer();
+        DEFAULT_INSTANCE = new org.peergos.protocol.dht.pb.Dht.Message.Peer();
       }
 
-      public static Dht.Message.Peer getDefaultInstance() {
+      public static org.peergos.protocol.dht.pb.Dht.Message.Peer getDefaultInstance() {
         return DEFAULT_INSTANCE;
       }
 
@@ -2196,13 +2335,12 @@ public final class Dht {
       }
 
       @java.lang.Override
-      public Dht.Message.Peer getDefaultInstanceForType() {
+      public org.peergos.protocol.dht.pb.Dht.Message.Peer getDefaultInstanceForType() {
         return DEFAULT_INSTANCE;
       }
 
     }
 
-    private int bitField0_;
     public static final int TYPE_FIELD_NUMBER = 1;
     private int type_;
     /**
@@ -2210,9 +2348,10 @@ public final class Dht {
      * defines what type of message it is.
      * </pre>
      *
-     * <code>.org.peergos.dht.pb.Message.MessageType type = 1;</code>
+     * <code>.org.peergos.protocol.dht.pb.Message.MessageType type = 1;</code>
+     * @return The enum numeric value on the wire for type.
      */
-    public int getTypeValue() {
+    @java.lang.Override public int getTypeValue() {
       return type_;
     }
     /**
@@ -2220,12 +2359,13 @@ public final class Dht {
      * defines what type of message it is.
      * </pre>
      *
-     * <code>.org.peergos.dht.pb.Message.MessageType type = 1;</code>
+     * <code>.org.peergos.protocol.dht.pb.Message.MessageType type = 1;</code>
+     * @return The type.
      */
-    public Dht.Message.MessageType getType() {
+    @java.lang.Override public org.peergos.protocol.dht.pb.Dht.Message.MessageType getType() {
       @SuppressWarnings("deprecation")
-      Dht.Message.MessageType result = Dht.Message.MessageType.valueOf(type_);
-      return result == null ? Dht.Message.MessageType.UNRECOGNIZED : result;
+      org.peergos.protocol.dht.pb.Dht.Message.MessageType result = org.peergos.protocol.dht.pb.Dht.Message.MessageType.valueOf(type_);
+      return result == null ? org.peergos.protocol.dht.pb.Dht.Message.MessageType.UNRECOGNIZED : result;
     }
 
     public static final int CLUSTERLEVELRAW_FIELD_NUMBER = 10;
@@ -2237,7 +2377,9 @@ public final class Dht {
      * </pre>
      *
      * <code>int32 clusterLevelRaw = 10;</code>
+     * @return The clusterLevelRaw.
      */
+    @java.lang.Override
     public int getClusterLevelRaw() {
       return clusterLevelRaw_;
     }
@@ -2251,21 +2393,25 @@ public final class Dht {
      * </pre>
      *
      * <code>bytes key = 2;</code>
+     * @return The key.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString getKey() {
       return key_;
     }
 
     public static final int RECORD_FIELD_NUMBER = 3;
-    private Dht.Record record_;
+    private org.peergos.protocol.dht.pb.Dht.Record record_;
     /**
      * <pre>
      * Used to return a value
      * PUT_VALUE, GET_VALUE
      * </pre>
      *
-     * <code>.org.peergos.dht.pb.Record record = 3;</code>
+     * <code>.org.peergos.protocol.dht.pb.Record record = 3;</code>
+     * @return Whether the record field is set.
      */
+    @java.lang.Override
     public boolean hasRecord() {
       return record_ != null;
     }
@@ -2275,10 +2421,12 @@ public final class Dht {
      * PUT_VALUE, GET_VALUE
      * </pre>
      *
-     * <code>.org.peergos.dht.pb.Record record = 3;</code>
+     * <code>.org.peergos.protocol.dht.pb.Record record = 3;</code>
+     * @return The record.
      */
-    public Dht.Record getRecord() {
-      return record_ == null ? Dht.Record.getDefaultInstance() : record_;
+    @java.lang.Override
+    public org.peergos.protocol.dht.pb.Dht.Record getRecord() {
+      return record_ == null ? org.peergos.protocol.dht.pb.Dht.Record.getDefaultInstance() : record_;
     }
     /**
      * <pre>
@@ -2286,23 +2434,25 @@ public final class Dht {
      * PUT_VALUE, GET_VALUE
      * </pre>
      *
-     * <code>.org.peergos.dht.pb.Record record = 3;</code>
+     * <code>.org.peergos.protocol.dht.pb.Record record = 3;</code>
      */
-    public Dht.RecordOrBuilder getRecordOrBuilder() {
+    @java.lang.Override
+    public org.peergos.protocol.dht.pb.Dht.RecordOrBuilder getRecordOrBuilder() {
       return getRecord();
     }
 
     public static final int CLOSERPEERS_FIELD_NUMBER = 8;
-    private java.util.List<Dht.Message.Peer> closerPeers_;
+    private java.util.List<org.peergos.protocol.dht.pb.Dht.Message.Peer> closerPeers_;
     /**
      * <pre>
      * Used to return peers closer to a key in a query
      * GET_VALUE, GET_PROVIDERS, FIND_NODE
      * </pre>
      *
-     * <code>repeated .org.peergos.dht.pb.Message.Peer closerPeers = 8;</code>
+     * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer closerPeers = 8;</code>
      */
-    public java.util.List<Dht.Message.Peer> getCloserPeersList() {
+    @java.lang.Override
+    public java.util.List<org.peergos.protocol.dht.pb.Dht.Message.Peer> getCloserPeersList() {
       return closerPeers_;
     }
     /**
@@ -2311,9 +2461,10 @@ public final class Dht {
      * GET_VALUE, GET_PROVIDERS, FIND_NODE
      * </pre>
      *
-     * <code>repeated .org.peergos.dht.pb.Message.Peer closerPeers = 8;</code>
+     * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer closerPeers = 8;</code>
      */
-    public java.util.List<? extends Dht.Message.PeerOrBuilder>
+    @java.lang.Override
+    public java.util.List<? extends org.peergos.protocol.dht.pb.Dht.Message.PeerOrBuilder> 
         getCloserPeersOrBuilderList() {
       return closerPeers_;
     }
@@ -2323,8 +2474,9 @@ public final class Dht {
      * GET_VALUE, GET_PROVIDERS, FIND_NODE
      * </pre>
      *
-     * <code>repeated .org.peergos.dht.pb.Message.Peer closerPeers = 8;</code>
+     * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer closerPeers = 8;</code>
      */
+    @java.lang.Override
     public int getCloserPeersCount() {
       return closerPeers_.size();
     }
@@ -2334,9 +2486,10 @@ public final class Dht {
      * GET_VALUE, GET_PROVIDERS, FIND_NODE
      * </pre>
      *
-     * <code>repeated .org.peergos.dht.pb.Message.Peer closerPeers = 8;</code>
+     * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer closerPeers = 8;</code>
      */
-    public Dht.Message.Peer getCloserPeers(int index) {
+    @java.lang.Override
+    public org.peergos.protocol.dht.pb.Dht.Message.Peer getCloserPeers(int index) {
       return closerPeers_.get(index);
     }
     /**
@@ -2345,24 +2498,26 @@ public final class Dht {
      * GET_VALUE, GET_PROVIDERS, FIND_NODE
      * </pre>
      *
-     * <code>repeated .org.peergos.dht.pb.Message.Peer closerPeers = 8;</code>
+     * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer closerPeers = 8;</code>
      */
-    public Dht.Message.PeerOrBuilder getCloserPeersOrBuilder(
+    @java.lang.Override
+    public org.peergos.protocol.dht.pb.Dht.Message.PeerOrBuilder getCloserPeersOrBuilder(
         int index) {
       return closerPeers_.get(index);
     }
 
     public static final int PROVIDERPEERS_FIELD_NUMBER = 9;
-    private java.util.List<Dht.Message.Peer> providerPeers_;
+    private java.util.List<org.peergos.protocol.dht.pb.Dht.Message.Peer> providerPeers_;
     /**
      * <pre>
      * Used to return Providers
      * GET_VALUE, ADD_PROVIDER, GET_PROVIDERS
      * </pre>
      *
-     * <code>repeated .org.peergos.dht.pb.Message.Peer providerPeers = 9;</code>
+     * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer providerPeers = 9;</code>
      */
-    public java.util.List<Dht.Message.Peer> getProviderPeersList() {
+    @java.lang.Override
+    public java.util.List<org.peergos.protocol.dht.pb.Dht.Message.Peer> getProviderPeersList() {
       return providerPeers_;
     }
     /**
@@ -2371,9 +2526,10 @@ public final class Dht {
      * GET_VALUE, ADD_PROVIDER, GET_PROVIDERS
      * </pre>
      *
-     * <code>repeated .org.peergos.dht.pb.Message.Peer providerPeers = 9;</code>
+     * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer providerPeers = 9;</code>
      */
-    public java.util.List<? extends Dht.Message.PeerOrBuilder>
+    @java.lang.Override
+    public java.util.List<? extends org.peergos.protocol.dht.pb.Dht.Message.PeerOrBuilder> 
         getProviderPeersOrBuilderList() {
       return providerPeers_;
     }
@@ -2383,8 +2539,9 @@ public final class Dht {
      * GET_VALUE, ADD_PROVIDER, GET_PROVIDERS
      * </pre>
      *
-     * <code>repeated .org.peergos.dht.pb.Message.Peer providerPeers = 9;</code>
+     * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer providerPeers = 9;</code>
      */
+    @java.lang.Override
     public int getProviderPeersCount() {
       return providerPeers_.size();
     }
@@ -2394,9 +2551,10 @@ public final class Dht {
      * GET_VALUE, ADD_PROVIDER, GET_PROVIDERS
      * </pre>
      *
-     * <code>repeated .org.peergos.dht.pb.Message.Peer providerPeers = 9;</code>
+     * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer providerPeers = 9;</code>
      */
-    public Dht.Message.Peer getProviderPeers(int index) {
+    @java.lang.Override
+    public org.peergos.protocol.dht.pb.Dht.Message.Peer getProviderPeers(int index) {
       return providerPeers_.get(index);
     }
     /**
@@ -2405,11 +2563,58 @@ public final class Dht {
      * GET_VALUE, ADD_PROVIDER, GET_PROVIDERS
      * </pre>
      *
-     * <code>repeated .org.peergos.dht.pb.Message.Peer providerPeers = 9;</code>
+     * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer providerPeers = 9;</code>
      */
-    public Dht.Message.PeerOrBuilder getProviderPeersOrBuilder(
+    @java.lang.Override
+    public org.peergos.protocol.dht.pb.Dht.Message.PeerOrBuilder getProviderPeersOrBuilder(
         int index) {
       return providerPeers_.get(index);
+    }
+
+    public static final int TRACEID_FIELD_NUMBER = 11;
+    private volatile java.lang.Object traceId_;
+    /**
+     * <pre>
+     * Trace Id.
+     * </pre>
+     *
+     * <code>string traceId = 11;</code>
+     * @return The traceId.
+     */
+    @java.lang.Override
+    public java.lang.String getTraceId() {
+      java.lang.Object ref = traceId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        traceId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Trace Id.
+     * </pre>
+     *
+     * <code>string traceId = 11;</code>
+     * @return The bytes for traceId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getTraceIdBytes() {
+      java.lang.Object ref = traceId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        traceId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     private byte memoizedIsInitialized = -1;
@@ -2426,7 +2631,7 @@ public final class Dht {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (type_ != Dht.Message.MessageType.PUT_VALUE.getNumber()) {
+      if (type_ != org.peergos.protocol.dht.pb.Dht.Message.MessageType.PUT_VALUE.getNumber()) {
         output.writeEnum(1, type_);
       }
       if (!key_.isEmpty()) {
@@ -2444,6 +2649,9 @@ public final class Dht {
       if (clusterLevelRaw_ != 0) {
         output.writeInt32(10, clusterLevelRaw_);
       }
+      if (!getTraceIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 11, traceId_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -2453,7 +2661,7 @@ public final class Dht {
       if (size != -1) return size;
 
       size = 0;
-      if (type_ != Dht.Message.MessageType.PUT_VALUE.getNumber()) {
+      if (type_ != org.peergos.protocol.dht.pb.Dht.Message.MessageType.PUT_VALUE.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, type_);
       }
@@ -2477,6 +2685,9 @@ public final class Dht {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(10, clusterLevelRaw_);
       }
+      if (!getTraceIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, traceId_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -2487,28 +2698,29 @@ public final class Dht {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof Dht.Message)) {
+      if (!(obj instanceof org.peergos.protocol.dht.pb.Dht.Message)) {
         return super.equals(obj);
       }
-      Dht.Message other = (Dht.Message) obj;
+      org.peergos.protocol.dht.pb.Dht.Message other = (org.peergos.protocol.dht.pb.Dht.Message) obj;
 
-      boolean result = true;
-      result = result && type_ == other.type_;
-      result = result && (getClusterLevelRaw()
-          == other.getClusterLevelRaw());
-      result = result && getKey()
-          .equals(other.getKey());
-      result = result && (hasRecord() == other.hasRecord());
+      if (type_ != other.type_) return false;
+      if (getClusterLevelRaw()
+          != other.getClusterLevelRaw()) return false;
+      if (!getKey()
+          .equals(other.getKey())) return false;
+      if (hasRecord() != other.hasRecord()) return false;
       if (hasRecord()) {
-        result = result && getRecord()
-            .equals(other.getRecord());
+        if (!getRecord()
+            .equals(other.getRecord())) return false;
       }
-      result = result && getCloserPeersList()
-          .equals(other.getCloserPeersList());
-      result = result && getProviderPeersList()
-          .equals(other.getProviderPeersList());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (!getCloserPeersList()
+          .equals(other.getCloserPeersList())) return false;
+      if (!getProviderPeersList()
+          .equals(other.getProviderPeersList())) return false;
+      if (!getTraceId()
+          .equals(other.getTraceId())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -2536,74 +2748,76 @@ public final class Dht {
         hash = (37 * hash) + PROVIDERPEERS_FIELD_NUMBER;
         hash = (53 * hash) + getProviderPeersList().hashCode();
       }
+      hash = (37 * hash) + TRACEID_FIELD_NUMBER;
+      hash = (53 * hash) + getTraceId().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static Dht.Message parseFrom(
+    public static org.peergos.protocol.dht.pb.Dht.Message parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Dht.Message parseFrom(
+    public static org.peergos.protocol.dht.pb.Dht.Message parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Dht.Message parseFrom(
+    public static org.peergos.protocol.dht.pb.Dht.Message parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Dht.Message parseFrom(
+    public static org.peergos.protocol.dht.pb.Dht.Message parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Dht.Message parseFrom(byte[] data)
+    public static org.peergos.protocol.dht.pb.Dht.Message parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Dht.Message parseFrom(
+    public static org.peergos.protocol.dht.pb.Dht.Message parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Dht.Message parseFrom(java.io.InputStream input)
+    public static org.peergos.protocol.dht.pb.Dht.Message parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static Dht.Message parseFrom(
+    public static org.peergos.protocol.dht.pb.Dht.Message parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static Dht.Message parseDelimitedFrom(java.io.InputStream input)
+    public static org.peergos.protocol.dht.pb.Dht.Message parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static Dht.Message parseDelimitedFrom(
+    public static org.peergos.protocol.dht.pb.Dht.Message parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static Dht.Message parseFrom(
+    public static org.peergos.protocol.dht.pb.Dht.Message parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static Dht.Message parseFrom(
+    public static org.peergos.protocol.dht.pb.Dht.Message parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -2616,7 +2830,7 @@ public final class Dht {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(Dht.Message prototype) {
+    public static Builder newBuilder(org.peergos.protocol.dht.pb.Dht.Message prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -2632,26 +2846,26 @@ public final class Dht {
       return builder;
     }
     /**
-     * Protobuf type {@code org.peergos.dht.pb.Message}
+     * Protobuf type {@code org.peergos.protocol.dht.pb.Message}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:org.peergos.dht.pb.Message)
-        Dht.MessageOrBuilder {
+        // @@protoc_insertion_point(builder_implements:org.peergos.protocol.dht.pb.Message)
+        org.peergos.protocol.dht.pb.Dht.MessageOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Dht.internal_static_org_peergos_dht_pb_Message_descriptor;
+        return org.peergos.protocol.dht.pb.Dht.internal_static_org_peergos_protocol_dht_pb_Message_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Dht.internal_static_org_peergos_dht_pb_Message_fieldAccessorTable
+        return org.peergos.protocol.dht.pb.Dht.internal_static_org_peergos_protocol_dht_pb_Message_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Dht.Message.class, Dht.Message.Builder.class);
+                org.peergos.protocol.dht.pb.Dht.Message.class, org.peergos.protocol.dht.pb.Dht.Message.Builder.class);
       }
 
-      // Construct using org.peergos.dht.pb.Dht.Message.newBuilder()
+      // Construct using org.peergos.protocol.dht.pb.Dht.Message.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -2685,33 +2899,35 @@ public final class Dht {
         }
         if (closerPeersBuilder_ == null) {
           closerPeers_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000010);
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
           closerPeersBuilder_.clear();
         }
         if (providerPeersBuilder_ == null) {
           providerPeers_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000020);
+          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
           providerPeersBuilder_.clear();
         }
+        traceId_ = "";
+
         return this;
       }
 
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Dht.internal_static_org_peergos_dht_pb_Message_descriptor;
+        return org.peergos.protocol.dht.pb.Dht.internal_static_org_peergos_protocol_dht_pb_Message_descriptor;
       }
 
       @java.lang.Override
-      public Dht.Message getDefaultInstanceForType() {
-        return Dht.Message.getDefaultInstance();
+      public org.peergos.protocol.dht.pb.Dht.Message getDefaultInstanceForType() {
+        return org.peergos.protocol.dht.pb.Dht.Message.getDefaultInstance();
       }
 
       @java.lang.Override
-      public Dht.Message build() {
-        Dht.Message result = buildPartial();
+      public org.peergos.protocol.dht.pb.Dht.Message build() {
+        org.peergos.protocol.dht.pb.Dht.Message result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -2719,10 +2935,9 @@ public final class Dht {
       }
 
       @java.lang.Override
-      public Dht.Message buildPartial() {
-        Dht.Message result = new Dht.Message(this);
+      public org.peergos.protocol.dht.pb.Dht.Message buildPartial() {
+        org.peergos.protocol.dht.pb.Dht.Message result = new org.peergos.protocol.dht.pb.Dht.Message(this);
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
         result.type_ = type_;
         result.clusterLevelRaw_ = clusterLevelRaw_;
         result.key_ = key_;
@@ -2732,72 +2947,72 @@ public final class Dht {
           result.record_ = recordBuilder_.build();
         }
         if (closerPeersBuilder_ == null) {
-          if (((bitField0_ & 0x00000010) == 0x00000010)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             closerPeers_ = java.util.Collections.unmodifiableList(closerPeers_);
-            bitField0_ = (bitField0_ & ~0x00000010);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.closerPeers_ = closerPeers_;
         } else {
           result.closerPeers_ = closerPeersBuilder_.build();
         }
         if (providerPeersBuilder_ == null) {
-          if (((bitField0_ & 0x00000020) == 0x00000020)) {
+          if (((bitField0_ & 0x00000002) != 0)) {
             providerPeers_ = java.util.Collections.unmodifiableList(providerPeers_);
-            bitField0_ = (bitField0_ & ~0x00000020);
+            bitField0_ = (bitField0_ & ~0x00000002);
           }
           result.providerPeers_ = providerPeers_;
         } else {
           result.providerPeers_ = providerPeersBuilder_.build();
         }
-        result.bitField0_ = to_bitField0_;
+        result.traceId_ = traceId_;
         onBuilt();
         return result;
       }
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Dht.Message) {
-          return mergeFrom((Dht.Message)other);
+        if (other instanceof org.peergos.protocol.dht.pb.Dht.Message) {
+          return mergeFrom((org.peergos.protocol.dht.pb.Dht.Message)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(Dht.Message other) {
-        if (other == Dht.Message.getDefaultInstance()) return this;
+      public Builder mergeFrom(org.peergos.protocol.dht.pb.Dht.Message other) {
+        if (other == org.peergos.protocol.dht.pb.Dht.Message.getDefaultInstance()) return this;
         if (other.type_ != 0) {
           setTypeValue(other.getTypeValue());
         }
@@ -2814,7 +3029,7 @@ public final class Dht {
           if (!other.closerPeers_.isEmpty()) {
             if (closerPeers_.isEmpty()) {
               closerPeers_ = other.closerPeers_;
-              bitField0_ = (bitField0_ & ~0x00000010);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureCloserPeersIsMutable();
               closerPeers_.addAll(other.closerPeers_);
@@ -2827,7 +3042,7 @@ public final class Dht {
               closerPeersBuilder_.dispose();
               closerPeersBuilder_ = null;
               closerPeers_ = other.closerPeers_;
-              bitField0_ = (bitField0_ & ~0x00000010);
+              bitField0_ = (bitField0_ & ~0x00000001);
               closerPeersBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getCloserPeersFieldBuilder() : null;
@@ -2840,7 +3055,7 @@ public final class Dht {
           if (!other.providerPeers_.isEmpty()) {
             if (providerPeers_.isEmpty()) {
               providerPeers_ = other.providerPeers_;
-              bitField0_ = (bitField0_ & ~0x00000020);
+              bitField0_ = (bitField0_ & ~0x00000002);
             } else {
               ensureProviderPeersIsMutable();
               providerPeers_.addAll(other.providerPeers_);
@@ -2853,7 +3068,7 @@ public final class Dht {
               providerPeersBuilder_.dispose();
               providerPeersBuilder_ = null;
               providerPeers_ = other.providerPeers_;
-              bitField0_ = (bitField0_ & ~0x00000020);
+              bitField0_ = (bitField0_ & ~0x00000002);
               providerPeersBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getProviderPeersFieldBuilder() : null;
@@ -2861,6 +3076,10 @@ public final class Dht {
               providerPeersBuilder_.addAllMessages(other.providerPeers_);
             }
           }
+        }
+        if (!other.getTraceId().isEmpty()) {
+          traceId_ = other.traceId_;
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -2877,11 +3096,11 @@ public final class Dht {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        Dht.Message parsedMessage = null;
+        org.peergos.protocol.dht.pb.Dht.Message parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (Dht.Message) e.getUnfinishedMessage();
+          parsedMessage = (org.peergos.protocol.dht.pb.Dht.Message) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -2898,9 +3117,10 @@ public final class Dht {
        * defines what type of message it is.
        * </pre>
        *
-       * <code>.org.peergos.dht.pb.Message.MessageType type = 1;</code>
+       * <code>.org.peergos.protocol.dht.pb.Message.MessageType type = 1;</code>
+       * @return The enum numeric value on the wire for type.
        */
-      public int getTypeValue() {
+      @java.lang.Override public int getTypeValue() {
         return type_;
       }
       /**
@@ -2908,9 +3128,12 @@ public final class Dht {
        * defines what type of message it is.
        * </pre>
        *
-       * <code>.org.peergos.dht.pb.Message.MessageType type = 1;</code>
+       * <code>.org.peergos.protocol.dht.pb.Message.MessageType type = 1;</code>
+       * @param value The enum numeric value on the wire for type to set.
+       * @return This builder for chaining.
        */
       public Builder setTypeValue(int value) {
+        
         type_ = value;
         onChanged();
         return this;
@@ -2920,21 +3143,25 @@ public final class Dht {
        * defines what type of message it is.
        * </pre>
        *
-       * <code>.org.peergos.dht.pb.Message.MessageType type = 1;</code>
+       * <code>.org.peergos.protocol.dht.pb.Message.MessageType type = 1;</code>
+       * @return The type.
        */
-      public Dht.Message.MessageType getType() {
+      @java.lang.Override
+      public org.peergos.protocol.dht.pb.Dht.Message.MessageType getType() {
         @SuppressWarnings("deprecation")
-        Dht.Message.MessageType result = Dht.Message.MessageType.valueOf(type_);
-        return result == null ? Dht.Message.MessageType.UNRECOGNIZED : result;
+        org.peergos.protocol.dht.pb.Dht.Message.MessageType result = org.peergos.protocol.dht.pb.Dht.Message.MessageType.valueOf(type_);
+        return result == null ? org.peergos.protocol.dht.pb.Dht.Message.MessageType.UNRECOGNIZED : result;
       }
       /**
        * <pre>
        * defines what type of message it is.
        * </pre>
        *
-       * <code>.org.peergos.dht.pb.Message.MessageType type = 1;</code>
+       * <code>.org.peergos.protocol.dht.pb.Message.MessageType type = 1;</code>
+       * @param value The type to set.
+       * @return This builder for chaining.
        */
-      public Builder setType(Dht.Message.MessageType value) {
+      public Builder setType(org.peergos.protocol.dht.pb.Dht.Message.MessageType value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -2948,7 +3175,8 @@ public final class Dht {
        * defines what type of message it is.
        * </pre>
        *
-       * <code>.org.peergos.dht.pb.Message.MessageType type = 1;</code>
+       * <code>.org.peergos.protocol.dht.pb.Message.MessageType type = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearType() {
         
@@ -2965,7 +3193,9 @@ public final class Dht {
        * </pre>
        *
        * <code>int32 clusterLevelRaw = 10;</code>
+       * @return The clusterLevelRaw.
        */
+      @java.lang.Override
       public int getClusterLevelRaw() {
         return clusterLevelRaw_;
       }
@@ -2976,6 +3206,8 @@ public final class Dht {
        * </pre>
        *
        * <code>int32 clusterLevelRaw = 10;</code>
+       * @param value The clusterLevelRaw to set.
+       * @return This builder for chaining.
        */
       public Builder setClusterLevelRaw(int value) {
         
@@ -2990,6 +3222,7 @@ public final class Dht {
        * </pre>
        *
        * <code>int32 clusterLevelRaw = 10;</code>
+       * @return This builder for chaining.
        */
       public Builder clearClusterLevelRaw() {
         
@@ -3006,7 +3239,9 @@ public final class Dht {
        * </pre>
        *
        * <code>bytes key = 2;</code>
+       * @return The key.
        */
+      @java.lang.Override
       public com.google.protobuf.ByteString getKey() {
         return key_;
       }
@@ -3017,6 +3252,8 @@ public final class Dht {
        * </pre>
        *
        * <code>bytes key = 2;</code>
+       * @param value The key to set.
+       * @return This builder for chaining.
        */
       public Builder setKey(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -3034,6 +3271,7 @@ public final class Dht {
        * </pre>
        *
        * <code>bytes key = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearKey() {
         
@@ -3042,16 +3280,17 @@ public final class Dht {
         return this;
       }
 
-      private Dht.Record record_ = null;
+      private org.peergos.protocol.dht.pb.Dht.Record record_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          Dht.Record, Dht.Record.Builder, Dht.RecordOrBuilder> recordBuilder_;
+          org.peergos.protocol.dht.pb.Dht.Record, org.peergos.protocol.dht.pb.Dht.Record.Builder, org.peergos.protocol.dht.pb.Dht.RecordOrBuilder> recordBuilder_;
       /**
        * <pre>
        * Used to return a value
        * PUT_VALUE, GET_VALUE
        * </pre>
        *
-       * <code>.org.peergos.dht.pb.Record record = 3;</code>
+       * <code>.org.peergos.protocol.dht.pb.Record record = 3;</code>
+       * @return Whether the record field is set.
        */
       public boolean hasRecord() {
         return recordBuilder_ != null || record_ != null;
@@ -3062,11 +3301,12 @@ public final class Dht {
        * PUT_VALUE, GET_VALUE
        * </pre>
        *
-       * <code>.org.peergos.dht.pb.Record record = 3;</code>
+       * <code>.org.peergos.protocol.dht.pb.Record record = 3;</code>
+       * @return The record.
        */
-      public Dht.Record getRecord() {
+      public org.peergos.protocol.dht.pb.Dht.Record getRecord() {
         if (recordBuilder_ == null) {
-          return record_ == null ? Dht.Record.getDefaultInstance() : record_;
+          return record_ == null ? org.peergos.protocol.dht.pb.Dht.Record.getDefaultInstance() : record_;
         } else {
           return recordBuilder_.getMessage();
         }
@@ -3077,9 +3317,9 @@ public final class Dht {
        * PUT_VALUE, GET_VALUE
        * </pre>
        *
-       * <code>.org.peergos.dht.pb.Record record = 3;</code>
+       * <code>.org.peergos.protocol.dht.pb.Record record = 3;</code>
        */
-      public Builder setRecord(Dht.Record value) {
+      public Builder setRecord(org.peergos.protocol.dht.pb.Dht.Record value) {
         if (recordBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -3098,10 +3338,10 @@ public final class Dht {
        * PUT_VALUE, GET_VALUE
        * </pre>
        *
-       * <code>.org.peergos.dht.pb.Record record = 3;</code>
+       * <code>.org.peergos.protocol.dht.pb.Record record = 3;</code>
        */
       public Builder setRecord(
-          Dht.Record.Builder builderForValue) {
+          org.peergos.protocol.dht.pb.Dht.Record.Builder builderForValue) {
         if (recordBuilder_ == null) {
           record_ = builderForValue.build();
           onChanged();
@@ -3117,13 +3357,13 @@ public final class Dht {
        * PUT_VALUE, GET_VALUE
        * </pre>
        *
-       * <code>.org.peergos.dht.pb.Record record = 3;</code>
+       * <code>.org.peergos.protocol.dht.pb.Record record = 3;</code>
        */
-      public Builder mergeRecord(Dht.Record value) {
+      public Builder mergeRecord(org.peergos.protocol.dht.pb.Dht.Record value) {
         if (recordBuilder_ == null) {
           if (record_ != null) {
             record_ =
-              Dht.Record.newBuilder(record_).mergeFrom(value).buildPartial();
+              org.peergos.protocol.dht.pb.Dht.Record.newBuilder(record_).mergeFrom(value).buildPartial();
           } else {
             record_ = value;
           }
@@ -3140,7 +3380,7 @@ public final class Dht {
        * PUT_VALUE, GET_VALUE
        * </pre>
        *
-       * <code>.org.peergos.dht.pb.Record record = 3;</code>
+       * <code>.org.peergos.protocol.dht.pb.Record record = 3;</code>
        */
       public Builder clearRecord() {
         if (recordBuilder_ == null) {
@@ -3159,9 +3399,9 @@ public final class Dht {
        * PUT_VALUE, GET_VALUE
        * </pre>
        *
-       * <code>.org.peergos.dht.pb.Record record = 3;</code>
+       * <code>.org.peergos.protocol.dht.pb.Record record = 3;</code>
        */
-      public Dht.Record.Builder getRecordBuilder() {
+      public org.peergos.protocol.dht.pb.Dht.Record.Builder getRecordBuilder() {
         
         onChanged();
         return getRecordFieldBuilder().getBuilder();
@@ -3172,14 +3412,14 @@ public final class Dht {
        * PUT_VALUE, GET_VALUE
        * </pre>
        *
-       * <code>.org.peergos.dht.pb.Record record = 3;</code>
+       * <code>.org.peergos.protocol.dht.pb.Record record = 3;</code>
        */
-      public Dht.RecordOrBuilder getRecordOrBuilder() {
+      public org.peergos.protocol.dht.pb.Dht.RecordOrBuilder getRecordOrBuilder() {
         if (recordBuilder_ != null) {
           return recordBuilder_.getMessageOrBuilder();
         } else {
           return record_ == null ?
-              Dht.Record.getDefaultInstance() : record_;
+              org.peergos.protocol.dht.pb.Dht.Record.getDefaultInstance() : record_;
         }
       }
       /**
@@ -3188,14 +3428,14 @@ public final class Dht {
        * PUT_VALUE, GET_VALUE
        * </pre>
        *
-       * <code>.org.peergos.dht.pb.Record record = 3;</code>
+       * <code>.org.peergos.protocol.dht.pb.Record record = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          Dht.Record, Dht.Record.Builder, Dht.RecordOrBuilder>
+          org.peergos.protocol.dht.pb.Dht.Record, org.peergos.protocol.dht.pb.Dht.Record.Builder, org.peergos.protocol.dht.pb.Dht.RecordOrBuilder> 
           getRecordFieldBuilder() {
         if (recordBuilder_ == null) {
           recordBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              Dht.Record, Dht.Record.Builder, Dht.RecordOrBuilder>(
+              org.peergos.protocol.dht.pb.Dht.Record, org.peergos.protocol.dht.pb.Dht.Record.Builder, org.peergos.protocol.dht.pb.Dht.RecordOrBuilder>(
                   getRecord(),
                   getParentForChildren(),
                   isClean());
@@ -3204,17 +3444,17 @@ public final class Dht {
         return recordBuilder_;
       }
 
-      private java.util.List<Dht.Message.Peer> closerPeers_ =
+      private java.util.List<org.peergos.protocol.dht.pb.Dht.Message.Peer> closerPeers_ =
         java.util.Collections.emptyList();
       private void ensureCloserPeersIsMutable() {
-        if (!((bitField0_ & 0x00000010) == 0x00000010)) {
-          closerPeers_ = new java.util.ArrayList<Dht.Message.Peer>(closerPeers_);
-          bitField0_ |= 0x00000010;
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          closerPeers_ = new java.util.ArrayList<org.peergos.protocol.dht.pb.Dht.Message.Peer>(closerPeers_);
+          bitField0_ |= 0x00000001;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          Dht.Message.Peer, Dht.Message.Peer.Builder, Dht.Message.PeerOrBuilder> closerPeersBuilder_;
+          org.peergos.protocol.dht.pb.Dht.Message.Peer, org.peergos.protocol.dht.pb.Dht.Message.Peer.Builder, org.peergos.protocol.dht.pb.Dht.Message.PeerOrBuilder> closerPeersBuilder_;
 
       /**
        * <pre>
@@ -3222,9 +3462,9 @@ public final class Dht {
        * GET_VALUE, GET_PROVIDERS, FIND_NODE
        * </pre>
        *
-       * <code>repeated .org.peergos.dht.pb.Message.Peer closerPeers = 8;</code>
+       * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer closerPeers = 8;</code>
        */
-      public java.util.List<Dht.Message.Peer> getCloserPeersList() {
+      public java.util.List<org.peergos.protocol.dht.pb.Dht.Message.Peer> getCloserPeersList() {
         if (closerPeersBuilder_ == null) {
           return java.util.Collections.unmodifiableList(closerPeers_);
         } else {
@@ -3237,7 +3477,7 @@ public final class Dht {
        * GET_VALUE, GET_PROVIDERS, FIND_NODE
        * </pre>
        *
-       * <code>repeated .org.peergos.dht.pb.Message.Peer closerPeers = 8;</code>
+       * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer closerPeers = 8;</code>
        */
       public int getCloserPeersCount() {
         if (closerPeersBuilder_ == null) {
@@ -3252,9 +3492,9 @@ public final class Dht {
        * GET_VALUE, GET_PROVIDERS, FIND_NODE
        * </pre>
        *
-       * <code>repeated .org.peergos.dht.pb.Message.Peer closerPeers = 8;</code>
+       * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer closerPeers = 8;</code>
        */
-      public Dht.Message.Peer getCloserPeers(int index) {
+      public org.peergos.protocol.dht.pb.Dht.Message.Peer getCloserPeers(int index) {
         if (closerPeersBuilder_ == null) {
           return closerPeers_.get(index);
         } else {
@@ -3267,10 +3507,10 @@ public final class Dht {
        * GET_VALUE, GET_PROVIDERS, FIND_NODE
        * </pre>
        *
-       * <code>repeated .org.peergos.dht.pb.Message.Peer closerPeers = 8;</code>
+       * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer closerPeers = 8;</code>
        */
       public Builder setCloserPeers(
-          int index, Dht.Message.Peer value) {
+          int index, org.peergos.protocol.dht.pb.Dht.Message.Peer value) {
         if (closerPeersBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -3289,10 +3529,10 @@ public final class Dht {
        * GET_VALUE, GET_PROVIDERS, FIND_NODE
        * </pre>
        *
-       * <code>repeated .org.peergos.dht.pb.Message.Peer closerPeers = 8;</code>
+       * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer closerPeers = 8;</code>
        */
       public Builder setCloserPeers(
-          int index, Dht.Message.Peer.Builder builderForValue) {
+          int index, org.peergos.protocol.dht.pb.Dht.Message.Peer.Builder builderForValue) {
         if (closerPeersBuilder_ == null) {
           ensureCloserPeersIsMutable();
           closerPeers_.set(index, builderForValue.build());
@@ -3308,9 +3548,9 @@ public final class Dht {
        * GET_VALUE, GET_PROVIDERS, FIND_NODE
        * </pre>
        *
-       * <code>repeated .org.peergos.dht.pb.Message.Peer closerPeers = 8;</code>
+       * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer closerPeers = 8;</code>
        */
-      public Builder addCloserPeers(Dht.Message.Peer value) {
+      public Builder addCloserPeers(org.peergos.protocol.dht.pb.Dht.Message.Peer value) {
         if (closerPeersBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -3329,10 +3569,10 @@ public final class Dht {
        * GET_VALUE, GET_PROVIDERS, FIND_NODE
        * </pre>
        *
-       * <code>repeated .org.peergos.dht.pb.Message.Peer closerPeers = 8;</code>
+       * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer closerPeers = 8;</code>
        */
       public Builder addCloserPeers(
-          int index, Dht.Message.Peer value) {
+          int index, org.peergos.protocol.dht.pb.Dht.Message.Peer value) {
         if (closerPeersBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -3351,10 +3591,10 @@ public final class Dht {
        * GET_VALUE, GET_PROVIDERS, FIND_NODE
        * </pre>
        *
-       * <code>repeated .org.peergos.dht.pb.Message.Peer closerPeers = 8;</code>
+       * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer closerPeers = 8;</code>
        */
       public Builder addCloserPeers(
-          Dht.Message.Peer.Builder builderForValue) {
+          org.peergos.protocol.dht.pb.Dht.Message.Peer.Builder builderForValue) {
         if (closerPeersBuilder_ == null) {
           ensureCloserPeersIsMutable();
           closerPeers_.add(builderForValue.build());
@@ -3370,10 +3610,10 @@ public final class Dht {
        * GET_VALUE, GET_PROVIDERS, FIND_NODE
        * </pre>
        *
-       * <code>repeated .org.peergos.dht.pb.Message.Peer closerPeers = 8;</code>
+       * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer closerPeers = 8;</code>
        */
       public Builder addCloserPeers(
-          int index, Dht.Message.Peer.Builder builderForValue) {
+          int index, org.peergos.protocol.dht.pb.Dht.Message.Peer.Builder builderForValue) {
         if (closerPeersBuilder_ == null) {
           ensureCloserPeersIsMutable();
           closerPeers_.add(index, builderForValue.build());
@@ -3389,10 +3629,10 @@ public final class Dht {
        * GET_VALUE, GET_PROVIDERS, FIND_NODE
        * </pre>
        *
-       * <code>repeated .org.peergos.dht.pb.Message.Peer closerPeers = 8;</code>
+       * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer closerPeers = 8;</code>
        */
       public Builder addAllCloserPeers(
-          java.lang.Iterable<? extends Dht.Message.Peer> values) {
+          java.lang.Iterable<? extends org.peergos.protocol.dht.pb.Dht.Message.Peer> values) {
         if (closerPeersBuilder_ == null) {
           ensureCloserPeersIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -3409,12 +3649,12 @@ public final class Dht {
        * GET_VALUE, GET_PROVIDERS, FIND_NODE
        * </pre>
        *
-       * <code>repeated .org.peergos.dht.pb.Message.Peer closerPeers = 8;</code>
+       * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer closerPeers = 8;</code>
        */
       public Builder clearCloserPeers() {
         if (closerPeersBuilder_ == null) {
           closerPeers_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000010);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           closerPeersBuilder_.clear();
@@ -3427,7 +3667,7 @@ public final class Dht {
        * GET_VALUE, GET_PROVIDERS, FIND_NODE
        * </pre>
        *
-       * <code>repeated .org.peergos.dht.pb.Message.Peer closerPeers = 8;</code>
+       * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer closerPeers = 8;</code>
        */
       public Builder removeCloserPeers(int index) {
         if (closerPeersBuilder_ == null) {
@@ -3445,9 +3685,9 @@ public final class Dht {
        * GET_VALUE, GET_PROVIDERS, FIND_NODE
        * </pre>
        *
-       * <code>repeated .org.peergos.dht.pb.Message.Peer closerPeers = 8;</code>
+       * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer closerPeers = 8;</code>
        */
-      public Dht.Message.Peer.Builder getCloserPeersBuilder(
+      public org.peergos.protocol.dht.pb.Dht.Message.Peer.Builder getCloserPeersBuilder(
           int index) {
         return getCloserPeersFieldBuilder().getBuilder(index);
       }
@@ -3457,9 +3697,9 @@ public final class Dht {
        * GET_VALUE, GET_PROVIDERS, FIND_NODE
        * </pre>
        *
-       * <code>repeated .org.peergos.dht.pb.Message.Peer closerPeers = 8;</code>
+       * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer closerPeers = 8;</code>
        */
-      public Dht.Message.PeerOrBuilder getCloserPeersOrBuilder(
+      public org.peergos.protocol.dht.pb.Dht.Message.PeerOrBuilder getCloserPeersOrBuilder(
           int index) {
         if (closerPeersBuilder_ == null) {
           return closerPeers_.get(index);  } else {
@@ -3472,9 +3712,9 @@ public final class Dht {
        * GET_VALUE, GET_PROVIDERS, FIND_NODE
        * </pre>
        *
-       * <code>repeated .org.peergos.dht.pb.Message.Peer closerPeers = 8;</code>
+       * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer closerPeers = 8;</code>
        */
-      public java.util.List<? extends Dht.Message.PeerOrBuilder>
+      public java.util.List<? extends org.peergos.protocol.dht.pb.Dht.Message.PeerOrBuilder> 
            getCloserPeersOrBuilderList() {
         if (closerPeersBuilder_ != null) {
           return closerPeersBuilder_.getMessageOrBuilderList();
@@ -3488,11 +3728,11 @@ public final class Dht {
        * GET_VALUE, GET_PROVIDERS, FIND_NODE
        * </pre>
        *
-       * <code>repeated .org.peergos.dht.pb.Message.Peer closerPeers = 8;</code>
+       * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer closerPeers = 8;</code>
        */
-      public Dht.Message.Peer.Builder addCloserPeersBuilder() {
+      public org.peergos.protocol.dht.pb.Dht.Message.Peer.Builder addCloserPeersBuilder() {
         return getCloserPeersFieldBuilder().addBuilder(
-            Dht.Message.Peer.getDefaultInstance());
+            org.peergos.protocol.dht.pb.Dht.Message.Peer.getDefaultInstance());
       }
       /**
        * <pre>
@@ -3500,12 +3740,12 @@ public final class Dht {
        * GET_VALUE, GET_PROVIDERS, FIND_NODE
        * </pre>
        *
-       * <code>repeated .org.peergos.dht.pb.Message.Peer closerPeers = 8;</code>
+       * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer closerPeers = 8;</code>
        */
-      public Dht.Message.Peer.Builder addCloserPeersBuilder(
+      public org.peergos.protocol.dht.pb.Dht.Message.Peer.Builder addCloserPeersBuilder(
           int index) {
         return getCloserPeersFieldBuilder().addBuilder(
-            index, Dht.Message.Peer.getDefaultInstance());
+            index, org.peergos.protocol.dht.pb.Dht.Message.Peer.getDefaultInstance());
       }
       /**
        * <pre>
@@ -3513,20 +3753,20 @@ public final class Dht {
        * GET_VALUE, GET_PROVIDERS, FIND_NODE
        * </pre>
        *
-       * <code>repeated .org.peergos.dht.pb.Message.Peer closerPeers = 8;</code>
+       * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer closerPeers = 8;</code>
        */
-      public java.util.List<Dht.Message.Peer.Builder>
+      public java.util.List<org.peergos.protocol.dht.pb.Dht.Message.Peer.Builder> 
            getCloserPeersBuilderList() {
         return getCloserPeersFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          Dht.Message.Peer, Dht.Message.Peer.Builder, Dht.Message.PeerOrBuilder>
+          org.peergos.protocol.dht.pb.Dht.Message.Peer, org.peergos.protocol.dht.pb.Dht.Message.Peer.Builder, org.peergos.protocol.dht.pb.Dht.Message.PeerOrBuilder> 
           getCloserPeersFieldBuilder() {
         if (closerPeersBuilder_ == null) {
           closerPeersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              Dht.Message.Peer, Dht.Message.Peer.Builder, Dht.Message.PeerOrBuilder>(
+              org.peergos.protocol.dht.pb.Dht.Message.Peer, org.peergos.protocol.dht.pb.Dht.Message.Peer.Builder, org.peergos.protocol.dht.pb.Dht.Message.PeerOrBuilder>(
                   closerPeers_,
-                  ((bitField0_ & 0x00000010) == 0x00000010),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           closerPeers_ = null;
@@ -3534,17 +3774,17 @@ public final class Dht {
         return closerPeersBuilder_;
       }
 
-      private java.util.List<Dht.Message.Peer> providerPeers_ =
+      private java.util.List<org.peergos.protocol.dht.pb.Dht.Message.Peer> providerPeers_ =
         java.util.Collections.emptyList();
       private void ensureProviderPeersIsMutable() {
-        if (!((bitField0_ & 0x00000020) == 0x00000020)) {
-          providerPeers_ = new java.util.ArrayList<Dht.Message.Peer>(providerPeers_);
-          bitField0_ |= 0x00000020;
+        if (!((bitField0_ & 0x00000002) != 0)) {
+          providerPeers_ = new java.util.ArrayList<org.peergos.protocol.dht.pb.Dht.Message.Peer>(providerPeers_);
+          bitField0_ |= 0x00000002;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          Dht.Message.Peer, Dht.Message.Peer.Builder, Dht.Message.PeerOrBuilder> providerPeersBuilder_;
+          org.peergos.protocol.dht.pb.Dht.Message.Peer, org.peergos.protocol.dht.pb.Dht.Message.Peer.Builder, org.peergos.protocol.dht.pb.Dht.Message.PeerOrBuilder> providerPeersBuilder_;
 
       /**
        * <pre>
@@ -3552,9 +3792,9 @@ public final class Dht {
        * GET_VALUE, ADD_PROVIDER, GET_PROVIDERS
        * </pre>
        *
-       * <code>repeated .org.peergos.dht.pb.Message.Peer providerPeers = 9;</code>
+       * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer providerPeers = 9;</code>
        */
-      public java.util.List<Dht.Message.Peer> getProviderPeersList() {
+      public java.util.List<org.peergos.protocol.dht.pb.Dht.Message.Peer> getProviderPeersList() {
         if (providerPeersBuilder_ == null) {
           return java.util.Collections.unmodifiableList(providerPeers_);
         } else {
@@ -3567,7 +3807,7 @@ public final class Dht {
        * GET_VALUE, ADD_PROVIDER, GET_PROVIDERS
        * </pre>
        *
-       * <code>repeated .org.peergos.dht.pb.Message.Peer providerPeers = 9;</code>
+       * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer providerPeers = 9;</code>
        */
       public int getProviderPeersCount() {
         if (providerPeersBuilder_ == null) {
@@ -3582,9 +3822,9 @@ public final class Dht {
        * GET_VALUE, ADD_PROVIDER, GET_PROVIDERS
        * </pre>
        *
-       * <code>repeated .org.peergos.dht.pb.Message.Peer providerPeers = 9;</code>
+       * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer providerPeers = 9;</code>
        */
-      public Dht.Message.Peer getProviderPeers(int index) {
+      public org.peergos.protocol.dht.pb.Dht.Message.Peer getProviderPeers(int index) {
         if (providerPeersBuilder_ == null) {
           return providerPeers_.get(index);
         } else {
@@ -3597,10 +3837,10 @@ public final class Dht {
        * GET_VALUE, ADD_PROVIDER, GET_PROVIDERS
        * </pre>
        *
-       * <code>repeated .org.peergos.dht.pb.Message.Peer providerPeers = 9;</code>
+       * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer providerPeers = 9;</code>
        */
       public Builder setProviderPeers(
-          int index, Dht.Message.Peer value) {
+          int index, org.peergos.protocol.dht.pb.Dht.Message.Peer value) {
         if (providerPeersBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -3619,10 +3859,10 @@ public final class Dht {
        * GET_VALUE, ADD_PROVIDER, GET_PROVIDERS
        * </pre>
        *
-       * <code>repeated .org.peergos.dht.pb.Message.Peer providerPeers = 9;</code>
+       * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer providerPeers = 9;</code>
        */
       public Builder setProviderPeers(
-          int index, Dht.Message.Peer.Builder builderForValue) {
+          int index, org.peergos.protocol.dht.pb.Dht.Message.Peer.Builder builderForValue) {
         if (providerPeersBuilder_ == null) {
           ensureProviderPeersIsMutable();
           providerPeers_.set(index, builderForValue.build());
@@ -3638,9 +3878,9 @@ public final class Dht {
        * GET_VALUE, ADD_PROVIDER, GET_PROVIDERS
        * </pre>
        *
-       * <code>repeated .org.peergos.dht.pb.Message.Peer providerPeers = 9;</code>
+       * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer providerPeers = 9;</code>
        */
-      public Builder addProviderPeers(Dht.Message.Peer value) {
+      public Builder addProviderPeers(org.peergos.protocol.dht.pb.Dht.Message.Peer value) {
         if (providerPeersBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -3659,10 +3899,10 @@ public final class Dht {
        * GET_VALUE, ADD_PROVIDER, GET_PROVIDERS
        * </pre>
        *
-       * <code>repeated .org.peergos.dht.pb.Message.Peer providerPeers = 9;</code>
+       * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer providerPeers = 9;</code>
        */
       public Builder addProviderPeers(
-          int index, Dht.Message.Peer value) {
+          int index, org.peergos.protocol.dht.pb.Dht.Message.Peer value) {
         if (providerPeersBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -3681,10 +3921,10 @@ public final class Dht {
        * GET_VALUE, ADD_PROVIDER, GET_PROVIDERS
        * </pre>
        *
-       * <code>repeated .org.peergos.dht.pb.Message.Peer providerPeers = 9;</code>
+       * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer providerPeers = 9;</code>
        */
       public Builder addProviderPeers(
-          Dht.Message.Peer.Builder builderForValue) {
+          org.peergos.protocol.dht.pb.Dht.Message.Peer.Builder builderForValue) {
         if (providerPeersBuilder_ == null) {
           ensureProviderPeersIsMutable();
           providerPeers_.add(builderForValue.build());
@@ -3700,10 +3940,10 @@ public final class Dht {
        * GET_VALUE, ADD_PROVIDER, GET_PROVIDERS
        * </pre>
        *
-       * <code>repeated .org.peergos.dht.pb.Message.Peer providerPeers = 9;</code>
+       * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer providerPeers = 9;</code>
        */
       public Builder addProviderPeers(
-          int index, Dht.Message.Peer.Builder builderForValue) {
+          int index, org.peergos.protocol.dht.pb.Dht.Message.Peer.Builder builderForValue) {
         if (providerPeersBuilder_ == null) {
           ensureProviderPeersIsMutable();
           providerPeers_.add(index, builderForValue.build());
@@ -3719,10 +3959,10 @@ public final class Dht {
        * GET_VALUE, ADD_PROVIDER, GET_PROVIDERS
        * </pre>
        *
-       * <code>repeated .org.peergos.dht.pb.Message.Peer providerPeers = 9;</code>
+       * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer providerPeers = 9;</code>
        */
       public Builder addAllProviderPeers(
-          java.lang.Iterable<? extends Dht.Message.Peer> values) {
+          java.lang.Iterable<? extends org.peergos.protocol.dht.pb.Dht.Message.Peer> values) {
         if (providerPeersBuilder_ == null) {
           ensureProviderPeersIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -3739,12 +3979,12 @@ public final class Dht {
        * GET_VALUE, ADD_PROVIDER, GET_PROVIDERS
        * </pre>
        *
-       * <code>repeated .org.peergos.dht.pb.Message.Peer providerPeers = 9;</code>
+       * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer providerPeers = 9;</code>
        */
       public Builder clearProviderPeers() {
         if (providerPeersBuilder_ == null) {
           providerPeers_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000020);
+          bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
         } else {
           providerPeersBuilder_.clear();
@@ -3757,7 +3997,7 @@ public final class Dht {
        * GET_VALUE, ADD_PROVIDER, GET_PROVIDERS
        * </pre>
        *
-       * <code>repeated .org.peergos.dht.pb.Message.Peer providerPeers = 9;</code>
+       * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer providerPeers = 9;</code>
        */
       public Builder removeProviderPeers(int index) {
         if (providerPeersBuilder_ == null) {
@@ -3775,9 +4015,9 @@ public final class Dht {
        * GET_VALUE, ADD_PROVIDER, GET_PROVIDERS
        * </pre>
        *
-       * <code>repeated .org.peergos.dht.pb.Message.Peer providerPeers = 9;</code>
+       * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer providerPeers = 9;</code>
        */
-      public Dht.Message.Peer.Builder getProviderPeersBuilder(
+      public org.peergos.protocol.dht.pb.Dht.Message.Peer.Builder getProviderPeersBuilder(
           int index) {
         return getProviderPeersFieldBuilder().getBuilder(index);
       }
@@ -3787,9 +4027,9 @@ public final class Dht {
        * GET_VALUE, ADD_PROVIDER, GET_PROVIDERS
        * </pre>
        *
-       * <code>repeated .org.peergos.dht.pb.Message.Peer providerPeers = 9;</code>
+       * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer providerPeers = 9;</code>
        */
-      public Dht.Message.PeerOrBuilder getProviderPeersOrBuilder(
+      public org.peergos.protocol.dht.pb.Dht.Message.PeerOrBuilder getProviderPeersOrBuilder(
           int index) {
         if (providerPeersBuilder_ == null) {
           return providerPeers_.get(index);  } else {
@@ -3802,9 +4042,9 @@ public final class Dht {
        * GET_VALUE, ADD_PROVIDER, GET_PROVIDERS
        * </pre>
        *
-       * <code>repeated .org.peergos.dht.pb.Message.Peer providerPeers = 9;</code>
+       * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer providerPeers = 9;</code>
        */
-      public java.util.List<? extends Dht.Message.PeerOrBuilder>
+      public java.util.List<? extends org.peergos.protocol.dht.pb.Dht.Message.PeerOrBuilder> 
            getProviderPeersOrBuilderList() {
         if (providerPeersBuilder_ != null) {
           return providerPeersBuilder_.getMessageOrBuilderList();
@@ -3818,11 +4058,11 @@ public final class Dht {
        * GET_VALUE, ADD_PROVIDER, GET_PROVIDERS
        * </pre>
        *
-       * <code>repeated .org.peergos.dht.pb.Message.Peer providerPeers = 9;</code>
+       * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer providerPeers = 9;</code>
        */
-      public Dht.Message.Peer.Builder addProviderPeersBuilder() {
+      public org.peergos.protocol.dht.pb.Dht.Message.Peer.Builder addProviderPeersBuilder() {
         return getProviderPeersFieldBuilder().addBuilder(
-            Dht.Message.Peer.getDefaultInstance());
+            org.peergos.protocol.dht.pb.Dht.Message.Peer.getDefaultInstance());
       }
       /**
        * <pre>
@@ -3830,12 +4070,12 @@ public final class Dht {
        * GET_VALUE, ADD_PROVIDER, GET_PROVIDERS
        * </pre>
        *
-       * <code>repeated .org.peergos.dht.pb.Message.Peer providerPeers = 9;</code>
+       * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer providerPeers = 9;</code>
        */
-      public Dht.Message.Peer.Builder addProviderPeersBuilder(
+      public org.peergos.protocol.dht.pb.Dht.Message.Peer.Builder addProviderPeersBuilder(
           int index) {
         return getProviderPeersFieldBuilder().addBuilder(
-            index, Dht.Message.Peer.getDefaultInstance());
+            index, org.peergos.protocol.dht.pb.Dht.Message.Peer.getDefaultInstance());
       }
       /**
        * <pre>
@@ -3843,30 +4083,126 @@ public final class Dht {
        * GET_VALUE, ADD_PROVIDER, GET_PROVIDERS
        * </pre>
        *
-       * <code>repeated .org.peergos.dht.pb.Message.Peer providerPeers = 9;</code>
+       * <code>repeated .org.peergos.protocol.dht.pb.Message.Peer providerPeers = 9;</code>
        */
-      public java.util.List<Dht.Message.Peer.Builder>
+      public java.util.List<org.peergos.protocol.dht.pb.Dht.Message.Peer.Builder> 
            getProviderPeersBuilderList() {
         return getProviderPeersFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          Dht.Message.Peer, Dht.Message.Peer.Builder, Dht.Message.PeerOrBuilder>
+          org.peergos.protocol.dht.pb.Dht.Message.Peer, org.peergos.protocol.dht.pb.Dht.Message.Peer.Builder, org.peergos.protocol.dht.pb.Dht.Message.PeerOrBuilder> 
           getProviderPeersFieldBuilder() {
         if (providerPeersBuilder_ == null) {
           providerPeersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              Dht.Message.Peer, Dht.Message.Peer.Builder, Dht.Message.PeerOrBuilder>(
+              org.peergos.protocol.dht.pb.Dht.Message.Peer, org.peergos.protocol.dht.pb.Dht.Message.Peer.Builder, org.peergos.protocol.dht.pb.Dht.Message.PeerOrBuilder>(
                   providerPeers_,
-                  ((bitField0_ & 0x00000020) == 0x00000020),
+                  ((bitField0_ & 0x00000002) != 0),
                   getParentForChildren(),
                   isClean());
           providerPeers_ = null;
         }
         return providerPeersBuilder_;
       }
+
+      private java.lang.Object traceId_ = "";
+      /**
+       * <pre>
+       * Trace Id.
+       * </pre>
+       *
+       * <code>string traceId = 11;</code>
+       * @return The traceId.
+       */
+      public java.lang.String getTraceId() {
+        java.lang.Object ref = traceId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          traceId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Trace Id.
+       * </pre>
+       *
+       * <code>string traceId = 11;</code>
+       * @return The bytes for traceId.
+       */
+      public com.google.protobuf.ByteString
+          getTraceIdBytes() {
+        java.lang.Object ref = traceId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          traceId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Trace Id.
+       * </pre>
+       *
+       * <code>string traceId = 11;</code>
+       * @param value The traceId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTraceId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        traceId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Trace Id.
+       * </pre>
+       *
+       * <code>string traceId = 11;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTraceId() {
+        
+        traceId_ = getDefaultInstance().getTraceId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Trace Id.
+       * </pre>
+       *
+       * <code>string traceId = 11;</code>
+       * @param value The bytes for traceId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTraceIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        traceId_ = value;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -3876,16 +4212,16 @@ public final class Dht {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:org.peergos.dht.pb.Message)
+      // @@protoc_insertion_point(builder_scope:org.peergos.protocol.dht.pb.Message)
     }
 
-    // @@protoc_insertion_point(class_scope:org.peergos.dht.pb.Message)
-    private static final Dht.Message DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:org.peergos.protocol.dht.pb.Message)
+    private static final org.peergos.protocol.dht.pb.Dht.Message DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new Dht.Message();
+      DEFAULT_INSTANCE = new org.peergos.protocol.dht.pb.Dht.Message();
     }
 
-    public static Dht.Message getDefaultInstance() {
+    public static org.peergos.protocol.dht.pb.Dht.Message getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -3910,27 +4246,27 @@ public final class Dht {
     }
 
     @java.lang.Override
-    public Dht.Message getDefaultInstanceForType() {
+    public org.peergos.protocol.dht.pb.Dht.Message getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_org_peergos_dht_pb_Record_descriptor;
+    internal_static_org_peergos_protocol_dht_pb_Record_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_org_peergos_dht_pb_Record_fieldAccessorTable;
+      internal_static_org_peergos_protocol_dht_pb_Record_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_org_peergos_dht_pb_Message_descriptor;
+    internal_static_org_peergos_protocol_dht_pb_Message_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_org_peergos_dht_pb_Message_fieldAccessorTable;
+      internal_static_org_peergos_protocol_dht_pb_Message_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_org_peergos_dht_pb_Message_Peer_descriptor;
+    internal_static_org_peergos_protocol_dht_pb_Message_Peer_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_org_peergos_dht_pb_Message_Peer_fieldAccessorTable;
+      internal_static_org_peergos_protocol_dht_pb_Message_Peer_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -3940,53 +4276,47 @@ public final class Dht {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\tdht.proto\022\022org.peergos.dht.pb\":\n\006Recor" +
-      "d\022\013\n\003key\030\001 \001(\014\022\r\n\005value\030\002 \001(\014\022\024\n\014timeRec" +
-      "eived\030\005 \001(\t\"\251\004\n\007Message\0225\n\004type\030\001 \001(\0162\'." +
-      "org.peergos.dht.pb.Message.MessageType\022\027" +
-      "\n\017clusterLevelRaw\030\n \001(\005\022\013\n\003key\030\002 \001(\014\022*\n\006" +
-      "record\030\003 \001(\0132\032.org.peergos.dht.pb.Record" +
-      "\0225\n\013closerPeers\030\010 \003(\0132 .org.peergos.dht." +
-      "pb.Message.Peer\0227\n\rproviderPeers\030\t \003(\0132 " +
-      ".org.peergos.dht.pb.Message.Peer\032a\n\004Peer" +
-      "\022\n\n\002id\030\001 \001(\014\022\r\n\005addrs\030\002 \003(\014\022>\n\nconnectio" +
-      "n\030\003 \001(\0162*.org.peergos.dht.pb.Message.Con" +
-      "nectionType\"i\n\013MessageType\022\r\n\tPUT_VALUE\020" +
-      "\000\022\r\n\tGET_VALUE\020\001\022\020\n\014ADD_PROVIDER\020\002\022\021\n\rGE" +
-      "T_PROVIDERS\020\003\022\r\n\tFIND_NODE\020\004\022\010\n\004PING\020\005\"W" +
-      "\n\016ConnectionType\022\021\n\rNOT_CONNECTED\020\000\022\r\n\tC" +
-      "ONNECTED\020\001\022\017\n\013CAN_CONNECT\020\002\022\022\n\016CANNOT_CO" +
-      "NNECT\020\003b\006proto3"
+      "\n\tdht.proto\022\033org.peergos.protocol.dht.pb" +
+      "\":\n\006Record\022\013\n\003key\030\001 \001(\014\022\r\n\005value\030\002 \001(\014\022\024" +
+      "\n\014timeReceived\030\005 \001(\t\"\347\004\n\007Message\022>\n\004type" +
+      "\030\001 \001(\01620.org.peergos.protocol.dht.pb.Mes" +
+      "sage.MessageType\022\027\n\017clusterLevelRaw\030\n \001(" +
+      "\005\022\013\n\003key\030\002 \001(\014\0223\n\006record\030\003 \001(\0132#.org.pee" +
+      "rgos.protocol.dht.pb.Record\022>\n\013closerPee" +
+      "rs\030\010 \003(\0132).org.peergos.protocol.dht.pb.M" +
+      "essage.Peer\022@\n\rproviderPeers\030\t \003(\0132).org" +
+      ".peergos.protocol.dht.pb.Message.Peer\022\017\n" +
+      "\007traceId\030\013 \001(\t\032j\n\004Peer\022\n\n\002id\030\001 \001(\014\022\r\n\005ad" +
+      "drs\030\002 \003(\014\022G\n\nconnection\030\003 \001(\01623.org.peer" +
+      "gos.protocol.dht.pb.Message.ConnectionTy" +
+      "pe\"i\n\013MessageType\022\r\n\tPUT_VALUE\020\000\022\r\n\tGET_" +
+      "VALUE\020\001\022\020\n\014ADD_PROVIDER\020\002\022\021\n\rGET_PROVIDE" +
+      "RS\020\003\022\r\n\tFIND_NODE\020\004\022\010\n\004PING\020\005\"W\n\016Connect" +
+      "ionType\022\021\n\rNOT_CONNECTED\020\000\022\r\n\tCONNECTED\020" +
+      "\001\022\017\n\013CAN_CONNECT\020\002\022\022\n\016CANNOT_CONNECT\020\003b\006" +
+      "proto3"
     };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-        }, assigner);
-    internal_static_org_peergos_dht_pb_Record_descriptor =
+        });
+    internal_static_org_peergos_protocol_dht_pb_Record_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_org_peergos_dht_pb_Record_fieldAccessorTable = new
+    internal_static_org_peergos_protocol_dht_pb_Record_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_org_peergos_dht_pb_Record_descriptor,
+        internal_static_org_peergos_protocol_dht_pb_Record_descriptor,
         new java.lang.String[] { "Key", "Value", "TimeReceived", });
-    internal_static_org_peergos_dht_pb_Message_descriptor =
+    internal_static_org_peergos_protocol_dht_pb_Message_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_org_peergos_dht_pb_Message_fieldAccessorTable = new
+    internal_static_org_peergos_protocol_dht_pb_Message_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_org_peergos_dht_pb_Message_descriptor,
-        new java.lang.String[] { "Type", "ClusterLevelRaw", "Key", "Record", "CloserPeers", "ProviderPeers", });
-    internal_static_org_peergos_dht_pb_Message_Peer_descriptor =
-      internal_static_org_peergos_dht_pb_Message_descriptor.getNestedTypes().get(0);
-    internal_static_org_peergos_dht_pb_Message_Peer_fieldAccessorTable = new
+        internal_static_org_peergos_protocol_dht_pb_Message_descriptor,
+        new java.lang.String[] { "Type", "ClusterLevelRaw", "Key", "Record", "CloserPeers", "ProviderPeers", "TraceId", });
+    internal_static_org_peergos_protocol_dht_pb_Message_Peer_descriptor =
+      internal_static_org_peergos_protocol_dht_pb_Message_descriptor.getNestedTypes().get(0);
+    internal_static_org_peergos_protocol_dht_pb_Message_Peer_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_org_peergos_dht_pb_Message_Peer_descriptor,
+        internal_static_org_peergos_protocol_dht_pb_Message_Peer_descriptor,
         new java.lang.String[] { "Id", "Addrs", "Connection", });
   }
 

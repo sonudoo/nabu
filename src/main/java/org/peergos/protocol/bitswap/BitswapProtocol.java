@@ -5,7 +5,7 @@ import io.libp2p.protocol.*;
 import io.prometheus.client.*;
 import org.jetbrains.annotations.*;
 import org.peergos.protocol.bitswap.pb.*;
-import org.peergos.util.*;
+import org.peergos.util.Logging;
 
 import java.util.concurrent.*;
 import java.util.logging.*;
@@ -52,7 +52,7 @@ public class BitswapProtocol extends ProtobufProtocolHandler<BitswapController> 
     @NotNull
     @Override
     protected CompletableFuture<BitswapController> onStartResponder(@NotNull Stream stream) {
-        if (! engine.allowConnection(stream.remotePeerId())) {
+        if (!engine.allowConnection(stream.remotePeerId())) {
             stream.close();
             blockedConnections.inc();
             return new CompletableFuture<>();
