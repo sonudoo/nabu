@@ -12,7 +12,6 @@ import org.peergos.protocol.http.*;
 import org.peergos.util.JSONParser;
 import org.peergos.util.JsonHelper;
 import org.peergos.util.Logging;
-import org.peergos.util.TraceLogger;
 
 import java.io.File;
 import java.io.IOException;
@@ -58,6 +57,8 @@ public class Client {
         Path datastorePath = ipfsPath.resolve("datastore").resolve("h2-v2.datastore");
         DatabaseRecordStore records = new DatabaseRecordStore(datastorePath.toAbsolutePath().toString());
         BlockMetadataStore meta = buildBlockMetadata(args);
+
+        System.out.println("Swarm addresses = " + config.addresses.getSwarmAddresses());
         EmbeddedIpfs ipfs = EmbeddedIpfs.build(records,
                 buildBlockStore(config, ipfsPath, meta, true),
                 true,
@@ -70,32 +71,38 @@ public class Client {
 
         System.out.println("Started client: " + args.getArg("id"));
         Scanner scanner = new Scanner(System.in);
-        TraceLogger traceLogger = TraceLogger.getInstance();
-        traceLogger.setIdentity(config.identity.peerId);
+
         while (true) {
             System.out.print("Publish (P) or Retrieve (R)? ");
             String opt = scanner.nextLine();
             if (opt.toUpperCase().equals("P")) {
-                System.out.print("Enter contents to publish: ");
-                String content = scanner.nextLine();
-                byte[] contentBytes = content.getBytes();
-                Cid cid = ipfs.blockstore.put(contentBytes, Codec.Raw).join();
-                System.out.println("Cid: " + cid.toString());
+                System.out.print("File? or Text?");
+                String inputOpt = scanner.nextLine();
+                if (inputOpt.toUpperCase().equals("FILE")) {
+                    System.out.print("Enter a path to the content:");
+                    String contentFilePath = scanner.nextLine();
+                    File contentFile = new File(contentFilePath);
+                    byte[] fileContent = Files.readAllBytes(contentFile.toPath());
+                    System.out.println("Contents:" + fileContent);
+                    Cid cid = ipfs.blockstore.put(fileContent, Codec.Raw).join();
+                    System.out.println("Cid: " + cid.toString());
+                } else {
+                    System.out.println("Enter");
+                    System.out.print("Enter contents to publish: ");
+                    String content = scanner.nextLine();
+                    byte[] contentBytes = content.getBytes();
+                    Cid cid = ipfs.blockstore.put(contentBytes, Codec.Raw).join();
+                    System.out.println("Cid: " + cid.toString());
+                }
             } else if (opt.toUpperCase().equals("R")) {
-                // Start a new thread to build a new context.
-                Thread retrieverThread = new Thread(new Runnable() {
-                    public void run() {
-                        System.out.print("Enter Cid to retrieve: ");
-                        String cid = scanner.nextLine();
-                        Want want = new Want(Cid.decode(cid));
-                        traceLogger.startTrace();
-                        List<HashedBlock> blocks = ipfs.getBlocks(List.of(want), new HashSet<PeerId>(), false);
-                        System.out.println("Content: " + new String(blocks.get(0).block, StandardCharsets.UTF_8));
-                        traceLogger.endTrace();
-                    }
-                });
-                retrieverThread.start();
-                retrieverThread.join();
+                System.out.print("Enter Cid to retrieve: ");
+                String cid = scanner.nextLine();
+                Want want = new Want(Cid.decode(cid));
+                List<HashedBlock> blocks = ipfs.getBlocks(List.of(want), new HashSet<PeerId>(), false);
+                Path tempFile = Files.createTempFile(blocks.get(0).hash.toString(), ".tmp");
+                Files.write(tempFile, blocks.get(0).block, StandardOpenOption.WRITE);
+                System.out.println("Wrote content to " + tempFile.toString());
+                //System.out.println("Content: " + new String(blocks.get(0).block, StandardCharsets.UTF_8));
             } else {
                 System.out.println("Try again");
             }
