@@ -295,7 +295,7 @@ public class BitswapEngine {
             // But the current handler for the response on client side runs on a separate
             // thread which doesn't inherit the trace context.
             reply = reply.toBuilder().setTraceId(msg.getTraceId()).build();
-            sentBytes.inc(repdonely.getSerializedSize());
+            sentBytes.inc(reply.getSerializedSize());
             source.writeAndFlush(reply);
             // TODO(sonudoo): This logging should be performed by handler.
             TraceLogger.getInstance().HandleBitswapServerEnd(reply, source.remotePeerId());

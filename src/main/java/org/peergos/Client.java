@@ -83,7 +83,7 @@ public class Client {
                 System.out.println("Cid: " + cid.toString());
             } else if (opt.toUpperCase().equals("R")) {
                 // Start a new thread to build a new context.
-                Thread retriverThread = new Thread(new Runnable() {
+                Thread retrieverThread = new Thread(new Runnable() {
                     public void run() {
                         System.out.print("Enter Cid to retrieve: ");
                         String cid = scanner.nextLine();
@@ -94,8 +94,8 @@ public class Client {
                         traceLogger.endTrace();
                     }
                 });
-                retriverThread.start();
-                retriverThread.join();
+                retrieverThread.start();
+                retrieverThread.join();
             } else {
                 System.out.println("Try again");
             }
