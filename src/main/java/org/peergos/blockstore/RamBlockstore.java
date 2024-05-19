@@ -28,7 +28,6 @@ public class RamBlockstore implements Blockstore {
 
     @Override
     public CompletableFuture<Optional<byte[]>> get(Cid c) {
-        System.out.println("Returning blocks from RAM for cid: " + c.toString());
         return CompletableFuture.completedFuture(Optional.ofNullable(blocks.get(c)));
     }
 

@@ -47,7 +47,7 @@ public class FileBlockstore implements Blockstore {
 
     public Path getFilePath(Cid cid) {
         String key = hashToKey(cid);
-        String folder = key.substring(key.length() -3, key.length()-1);
+        String folder = key.substring(key.length() - 3, key.length() - 1);
         String filename = key + BLOCK_FILE_SUFFIX;
 
         Path path = Paths.get(folder);
@@ -71,20 +71,21 @@ public class FileBlockstore implements Blockstore {
     @Override
     public CompletableFuture<Optional<byte[]>> get(Cid cid) {
         try {
-            System.out.println("Get from file started: " + cid.toString());
             Path path = getFilePath(cid);
             File file = blocksRoot.resolve(path).toFile();
             if (!file.exists()) {
                 return CompletableFuture.completedFuture(Optional.empty());
             }
+            TraceLogger.getInstance().HandleFileReadStart(cid);
             try (DataInputStream din = new DataInputStream(new BufferedInputStream(new FileInputStream(file)))) {
                 byte[] buffer = new byte[1024];
                 ByteArrayOutputStream bout = new ByteArrayOutputStream();
-                for (int len; (len = din.read(buffer)) != -1; ) {
+                for (int len; (len = din.read(buffer)) != -1;) {
                     bout.write(buffer, 0, len);
                 }
-                System.out.println("Get from file finished: " + cid.toString());
                 return CompletableFuture.completedFuture(Optional.of(bout.toByteArray()));
+            } finally {
+                TraceLogger.getInstance().HandleFileReadEnd(cid);
             }
         } catch (IOException e) {
             throw new RuntimeException(e.getMessage(), e);
@@ -108,10 +109,12 @@ public class FileBlockstore implements Blockstore {
                 if (!someParentFile.canWrite()) {
                     final boolean b = someParentFile.setWritable(true, false);
                     if (!b)
-                        throw new IllegalStateException("Could not make " + someParent.toString() + ", ancestor of " + parentDir.toString() + " writable");
+                        throw new IllegalStateException("Could not make " + someParent.toString() + ", ancestor of "
+                                + parentDir.toString() + " writable");
                 }
             }
-            Files.write(target, block, StandardOpenOption.TRUNCATE_EXISTING, StandardOpenOption.CREATE, StandardOpenOption.WRITE);
+            Files.write(target, block, StandardOpenOption.TRUNCATE_EXISTING, StandardOpenOption.CREATE,
+                    StandardOpenOption.WRITE);
             return CompletableFuture.completedFuture(cid);
         } catch (IOException e) {
             throw new RuntimeException(e.getMessage(), e);
@@ -131,7 +134,7 @@ public class FileBlockstore implements Blockstore {
 
     @Override
     public CompletableFuture<Boolean> bloomAdd(Cid cid) {
-        //not implemented
+        // not implemented
         return CompletableFuture.completedFuture(false);
     }
 
@@ -140,8 +143,8 @@ public class FileBlockstore implements Blockstore {
         List<Path> result = new ArrayList<>();
         try (Stream<Path> walk = Files.walk(blocksRoot)) {
             result = walk.filter(f -> Files.isRegularFile(f) &&
-                            f.toFile().length() > 0 &&
-                            f.getFileName().toString().endsWith(BLOCK_FILE_SUFFIX))
+                    f.toFile().length() > 0 &&
+                    f.getFileName().toString().endsWith(BLOCK_FILE_SUFFIX))
                     .collect(Collectors.toList());
         } catch (IOException ioe) {
             LOG.log(Level.WARNING, "Unable to retrieve local refs: " + ioe);

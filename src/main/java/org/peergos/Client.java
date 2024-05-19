@@ -12,6 +12,7 @@ import org.peergos.protocol.http.*;
 import org.peergos.util.JSONParser;
 import org.peergos.util.JsonHelper;
 import org.peergos.util.Logging;
+import org.peergos.util.TraceLogger;
 
 import java.io.File;
 import java.io.IOException;
@@ -69,6 +70,8 @@ public class Client {
 
         System.out.println("Started client: " + args.getArg("id"));
         Scanner scanner = new Scanner(System.in);
+        TraceLogger traceLogger = TraceLogger.getInstance();
+        traceLogger.setIdentity(config.identity.peerId);
         while (true) {
             System.out.print("Publish (P) or Retrieve (R)? ");
             String opt = scanner.nextLine();
@@ -79,11 +82,20 @@ public class Client {
                 Cid cid = ipfs.blockstore.put(contentBytes, Codec.Raw).join();
                 System.out.println("Cid: " + cid.toString());
             } else if (opt.toUpperCase().equals("R")) {
-                System.out.print("Enter Cid to retrieve: ");
-                String cid = scanner.nextLine();
-                Want want = new Want(Cid.decode(cid));
-                List<HashedBlock> blocks = ipfs.getBlocks(List.of(want), new HashSet<PeerId>(), false);
-                System.out.println("Content: " + new String(blocks.get(0).block, StandardCharsets.UTF_8));
+                // Start a new thread to build a new context.
+                Thread retrieverThread = new Thread(new Runnable() {
+                    public void run() {
+                        System.out.print("Enter Cid to retrieve: ");
+                        String cid = scanner.nextLine();
+                        Want want = new Want(Cid.decode(cid));
+                        traceLogger.startTrace();
+                        List<HashedBlock> blocks = ipfs.getBlocks(List.of(want), new HashSet<PeerId>(), false);
+                        System.out.println("Content: " + new String(blocks.get(0).block, StandardCharsets.UTF_8));
+                        traceLogger.endTrace();
+                    }
+                });
+                retrieverThread.start();
+                retrieverThread.join();
             } else {
                 System.out.println("Try again");
             }

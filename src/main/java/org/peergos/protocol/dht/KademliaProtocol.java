@@ -5,6 +5,7 @@ import io.libp2p.protocol.*;
 import io.prometheus.client.*;
 import org.jetbrains.annotations.*;
 import org.peergos.protocol.dht.pb.Dht;
+import org.peergos.util.TraceLogger;
 
 import java.util.concurrent.*;
 
@@ -19,7 +20,7 @@ public class KademliaProtocol extends ProtobufProtocolHandler<KademliaController
             .help("Total sent bytes in kademlia protocol initiator")
             .register();
 
-    public static final int MAX_MESSAGE_SIZE = 1024*1024;
+    public static final int MAX_MESSAGE_SIZE = 1024 * 1024;
 
     private final KademliaEngine engine;
 
@@ -59,9 +60,12 @@ public class KademliaProtocol extends ProtobufProtocolHandler<KademliaController
 
         @Override
         public CompletableFuture<Dht.Message> rpc(Dht.Message msg) {
+            msg = TraceLogger.getInstance().HandleKademliaClientStart(msg, stream.remotePeerId());
             stream.writeAndFlush(msg);
             sentBytes.inc(msg.getSerializedSize());
-            return resp;
+            Dht.Message response = resp.join();
+            TraceLogger.getInstance().HandleKademliaClientEnd(msg, stream.remotePeerId());
+            return CompletableFuture.completedFuture(response);
         }
 
         @Override
@@ -98,7 +102,9 @@ public class KademliaProtocol extends ProtobufProtocolHandler<KademliaController
 
         @Override
         public void onMessage(@NotNull Stream stream, Dht.Message msg) {
+            TraceLogger.getInstance().HandleKademliaServerStart(msg, stream.remotePeerId());
             engine.receiveRequest(msg, stream.remotePeerId(), stream);
+            TraceLogger.getInstance().HandleKademliaServerEnd(msg, stream.remotePeerId());
         }
 
         @Override

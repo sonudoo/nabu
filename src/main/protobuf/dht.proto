@@ -78,4 +78,8 @@ message Message {
 	// Used to return Providers
 	// GET_VALUE, ADD_PROVIDER, GET_PROVIDERS
 	repeated Peer providerPeers = 9;// [(gogoproto.nullable) = false];
+
+  	// TODO(sonudoo): Traces must be propagated at internal protobuf level.
+	// Trace Id.
+	string traceId = 11;
 }

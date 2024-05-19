@@ -4,6 +4,7 @@ import io.libp2p.core.Stream;
 import io.prometheus.client.*;
 import kotlin.*;
 import org.peergos.protocol.bitswap.pb.*;
+import org.peergos.util.TraceLogger;
 
 import java.util.concurrent.*;
 
@@ -19,6 +20,7 @@ public class BitswapConnection implements BitswapController {
 
     @Override
     public void send(MessageOuterClass.Message msg) {
+        msg = TraceLogger.getInstance().HandleBitswapClientStart(msg, conn.remotePeerId());
         conn.writeAndFlush(msg);
         sentBytes.inc(msg.getSerializedSize());
     }

@@ -44,4 +44,6 @@ message Message {
   repeated Block payload = 3; //[(gogoproto.nullable) = false];		// used to send Blocks in bitswap 1.1.0
   repeated BlockPresence blockPresences = 4; //[(gogoproto.nullable) = false];
   int32 pendingBytes = 5;
+  // TODO(sonudoo): Traces must be propagated at internal protobuf level.
+  string traceId = 6;
 }

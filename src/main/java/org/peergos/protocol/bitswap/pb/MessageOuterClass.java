@@ -15,7 +15,7 @@ public final class MessageOuterClass {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   public interface MessageOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:bitswap.message.pb.Message)
+      // @@protoc_insertion_point(interface_extends:org.peergos.protocol.bitswap.pb.Message)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -23,7 +23,8 @@ public final class MessageOuterClass {
      *[(gogoproto.nullable) = false];
      * </pre>
      *
-     * <code>.bitswap.message.pb.Message.Wantlist wantlist = 1;</code>
+     * <code>.org.peergos.protocol.bitswap.pb.Message.Wantlist wantlist = 1;</code>
+     * @return Whether the wantlist field is set.
      */
     boolean hasWantlist();
     /**
@@ -31,17 +32,18 @@ public final class MessageOuterClass {
      *[(gogoproto.nullable) = false];
      * </pre>
      *
-     * <code>.bitswap.message.pb.Message.Wantlist wantlist = 1;</code>
+     * <code>.org.peergos.protocol.bitswap.pb.Message.Wantlist wantlist = 1;</code>
+     * @return The wantlist.
      */
-    MessageOuterClass.Message.Wantlist getWantlist();
+    org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist getWantlist();
     /**
      * <pre>
      *[(gogoproto.nullable) = false];
      * </pre>
      *
-     * <code>.bitswap.message.pb.Message.Wantlist wantlist = 1;</code>
+     * <code>.org.peergos.protocol.bitswap.pb.Message.Wantlist wantlist = 1;</code>
      */
-    MessageOuterClass.Message.WantlistOrBuilder getWantlistOrBuilder();
+    org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.WantlistOrBuilder getWantlistOrBuilder();
 
     /**
      * <pre>
@@ -49,6 +51,7 @@ public final class MessageOuterClass {
      * </pre>
      *
      * <code>repeated bytes blocks = 2;</code>
+     * @return A list containing the blocks.
      */
     java.util.List<com.google.protobuf.ByteString> getBlocksList();
     /**
@@ -57,6 +60,7 @@ public final class MessageOuterClass {
      * </pre>
      *
      * <code>repeated bytes blocks = 2;</code>
+     * @return The count of blocks.
      */
     int getBlocksCount();
     /**
@@ -65,6 +69,8 @@ public final class MessageOuterClass {
      * </pre>
      *
      * <code>repeated bytes blocks = 2;</code>
+     * @param index The index of the element to return.
+     * @return The blocks at the given index.
      */
     com.google.protobuf.ByteString getBlocks(int index);
 
@@ -73,24 +79,24 @@ public final class MessageOuterClass {
      *[(gogoproto.nullable) = false];		// used to send Blocks in bitswap 1.1.0
      * </pre>
      *
-     * <code>repeated .bitswap.message.pb.Message.Block payload = 3;</code>
+     * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Block payload = 3;</code>
      */
-    java.util.List<MessageOuterClass.Message.Block>
+    java.util.List<org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block> 
         getPayloadList();
     /**
      * <pre>
      *[(gogoproto.nullable) = false];		// used to send Blocks in bitswap 1.1.0
      * </pre>
      *
-     * <code>repeated .bitswap.message.pb.Message.Block payload = 3;</code>
+     * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Block payload = 3;</code>
      */
-    MessageOuterClass.Message.Block getPayload(int index);
+    org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block getPayload(int index);
     /**
      * <pre>
      *[(gogoproto.nullable) = false];		// used to send Blocks in bitswap 1.1.0
      * </pre>
      *
-     * <code>repeated .bitswap.message.pb.Message.Block payload = 3;</code>
+     * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Block payload = 3;</code>
      */
     int getPayloadCount();
     /**
@@ -98,18 +104,18 @@ public final class MessageOuterClass {
      *[(gogoproto.nullable) = false];		// used to send Blocks in bitswap 1.1.0
      * </pre>
      *
-     * <code>repeated .bitswap.message.pb.Message.Block payload = 3;</code>
+     * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Block payload = 3;</code>
      */
-    java.util.List<? extends MessageOuterClass.Message.BlockOrBuilder>
+    java.util.List<? extends org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockOrBuilder> 
         getPayloadOrBuilderList();
     /**
      * <pre>
      *[(gogoproto.nullable) = false];		// used to send Blocks in bitswap 1.1.0
      * </pre>
      *
-     * <code>repeated .bitswap.message.pb.Message.Block payload = 3;</code>
+     * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Block payload = 3;</code>
      */
-    MessageOuterClass.Message.BlockOrBuilder getPayloadOrBuilder(
+    org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockOrBuilder getPayloadOrBuilder(
         int index);
 
     /**
@@ -117,24 +123,24 @@ public final class MessageOuterClass {
      *[(gogoproto.nullable) = false];
      * </pre>
      *
-     * <code>repeated .bitswap.message.pb.Message.BlockPresence blockPresences = 4;</code>
+     * <code>repeated .org.peergos.protocol.bitswap.pb.Message.BlockPresence blockPresences = 4;</code>
      */
-    java.util.List<MessageOuterClass.Message.BlockPresence>
+    java.util.List<org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence> 
         getBlockPresencesList();
     /**
      * <pre>
      *[(gogoproto.nullable) = false];
      * </pre>
      *
-     * <code>repeated .bitswap.message.pb.Message.BlockPresence blockPresences = 4;</code>
+     * <code>repeated .org.peergos.protocol.bitswap.pb.Message.BlockPresence blockPresences = 4;</code>
      */
-    MessageOuterClass.Message.BlockPresence getBlockPresences(int index);
+    org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence getBlockPresences(int index);
     /**
      * <pre>
      *[(gogoproto.nullable) = false];
      * </pre>
      *
-     * <code>repeated .bitswap.message.pb.Message.BlockPresence blockPresences = 4;</code>
+     * <code>repeated .org.peergos.protocol.bitswap.pb.Message.BlockPresence blockPresences = 4;</code>
      */
     int getBlockPresencesCount();
     /**
@@ -142,31 +148,44 @@ public final class MessageOuterClass {
      *[(gogoproto.nullable) = false];
      * </pre>
      *
-     * <code>repeated .bitswap.message.pb.Message.BlockPresence blockPresences = 4;</code>
+     * <code>repeated .org.peergos.protocol.bitswap.pb.Message.BlockPresence blockPresences = 4;</code>
      */
-    java.util.List<? extends MessageOuterClass.Message.BlockPresenceOrBuilder>
+    java.util.List<? extends org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresenceOrBuilder> 
         getBlockPresencesOrBuilderList();
     /**
      * <pre>
      *[(gogoproto.nullable) = false];
      * </pre>
      *
-     * <code>repeated .bitswap.message.pb.Message.BlockPresence blockPresences = 4;</code>
+     * <code>repeated .org.peergos.protocol.bitswap.pb.Message.BlockPresence blockPresences = 4;</code>
      */
-    MessageOuterClass.Message.BlockPresenceOrBuilder getBlockPresencesOrBuilder(
+    org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresenceOrBuilder getBlockPresencesOrBuilder(
         int index);
 
     /**
      * <code>int32 pendingBytes = 5;</code>
+     * @return The pendingBytes.
      */
     int getPendingBytes();
+
+    /**
+     * <code>string traceId = 6;</code>
+     * @return The traceId.
+     */
+    java.lang.String getTraceId();
+    /**
+     * <code>string traceId = 6;</code>
+     * @return The bytes for traceId.
+     */
+    com.google.protobuf.ByteString
+        getTraceIdBytes();
   }
   /**
-   * Protobuf type {@code bitswap.message.pb.Message}
+   * Protobuf type {@code org.peergos.protocol.bitswap.pb.Message}
    */
-  public  static final class Message extends
+  public static final class Message extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:bitswap.message.pb.Message)
+      // @@protoc_insertion_point(message_implements:org.peergos.protocol.bitswap.pb.Message)
       MessageOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use Message.newBuilder() to construct.
@@ -177,7 +196,14 @@ public final class MessageOuterClass {
       blocks_ = java.util.Collections.emptyList();
       payload_ = java.util.Collections.emptyList();
       blockPresences_ = java.util.Collections.emptyList();
-      pendingBytes_ = 0;
+      traceId_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Message();
     }
 
     @java.lang.Override
@@ -205,11 +231,11 @@ public final class MessageOuterClass {
               done = true;
               break;
             case 10: {
-              MessageOuterClass.Message.Wantlist.Builder subBuilder = null;
+              org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Builder subBuilder = null;
               if (wantlist_ != null) {
                 subBuilder = wantlist_.toBuilder();
               }
-              wantlist_ = input.readMessage(MessageOuterClass.Message.Wantlist.parser(), extensionRegistry);
+              wantlist_ = input.readMessage(org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(wantlist_);
                 wantlist_ = subBuilder.buildPartial();
@@ -218,29 +244,29 @@ public final class MessageOuterClass {
               break;
             }
             case 18: {
-              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
                 blocks_ = new java.util.ArrayList<com.google.protobuf.ByteString>();
-                mutable_bitField0_ |= 0x00000002;
+                mutable_bitField0_ |= 0x00000001;
               }
               blocks_.add(input.readBytes());
               break;
             }
             case 26: {
-              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-                payload_ = new java.util.ArrayList<MessageOuterClass.Message.Block>();
-                mutable_bitField0_ |= 0x00000004;
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+                payload_ = new java.util.ArrayList<org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block>();
+                mutable_bitField0_ |= 0x00000002;
               }
               payload_.add(
-                  input.readMessage(MessageOuterClass.Message.Block.parser(), extensionRegistry));
+                  input.readMessage(org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block.parser(), extensionRegistry));
               break;
             }
             case 34: {
-              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-                blockPresences_ = new java.util.ArrayList<MessageOuterClass.Message.BlockPresence>();
-                mutable_bitField0_ |= 0x00000008;
+              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
+                blockPresences_ = new java.util.ArrayList<org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence>();
+                mutable_bitField0_ |= 0x00000004;
               }
               blockPresences_.add(
-                  input.readMessage(MessageOuterClass.Message.BlockPresence.parser(), extensionRegistry));
+                  input.readMessage(org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence.parser(), extensionRegistry));
               break;
             }
             case 40: {
@@ -248,8 +274,14 @@ public final class MessageOuterClass {
               pendingBytes_ = input.readInt32();
               break;
             }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              traceId_ = s;
+              break;
+            }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -263,13 +295,13 @@ public final class MessageOuterClass {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-          blocks_ = java.util.Collections.unmodifiableList(blocks_);
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          blocks_ = java.util.Collections.unmodifiableList(blocks_); // C
         }
-        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
           payload_ = java.util.Collections.unmodifiableList(payload_);
         }
-        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+        if (((mutable_bitField0_ & 0x00000004) != 0)) {
           blockPresences_ = java.util.Collections.unmodifiableList(blockPresences_);
         }
         this.unknownFields = unknownFields.build();
@@ -278,19 +310,19 @@ public final class MessageOuterClass {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return MessageOuterClass.internal_static_bitswap_message_pb_Message_descriptor;
+      return org.peergos.protocol.bitswap.pb.MessageOuterClass.internal_static_bitswap_message_pb_Message_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return MessageOuterClass.internal_static_bitswap_message_pb_Message_fieldAccessorTable
+      return org.peergos.protocol.bitswap.pb.MessageOuterClass.internal_static_bitswap_message_pb_Message_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              MessageOuterClass.Message.class, MessageOuterClass.Message.Builder.class);
+              org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.class, org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Builder.class);
     }
 
     /**
-     * Protobuf enum {@code bitswap.message.pb.Message.BlockPresenceType}
+     * Protobuf enum {@code org.peergos.protocol.bitswap.pb.Message.BlockPresenceType}
      */
     public enum BlockPresenceType
         implements com.google.protobuf.ProtocolMessageEnum {
@@ -324,6 +356,8 @@ public final class MessageOuterClass {
       }
 
       /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
        * @deprecated Use {@link #forNumber(int)} instead.
        */
       @java.lang.Deprecated
@@ -331,6 +365,10 @@ public final class MessageOuterClass {
         return forNumber(value);
       }
 
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       */
       public static BlockPresenceType forNumber(int value) {
         switch (value) {
           case 0: return Have;
@@ -353,6 +391,10 @@ public final class MessageOuterClass {
 
       public final com.google.protobuf.Descriptors.EnumValueDescriptor
           getValueDescriptor() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalStateException(
+              "Can't get the descriptor of an unrecognized enum value.");
+        }
         return getDescriptor().getValues().get(ordinal());
       }
       public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -361,7 +403,7 @@ public final class MessageOuterClass {
       }
       public static final com.google.protobuf.Descriptors.EnumDescriptor
           getDescriptor() {
-        return MessageOuterClass.Message.getDescriptor().getEnumTypes().get(0);
+        return org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.getDescriptor().getEnumTypes().get(0);
       }
 
       private static final BlockPresenceType[] VALUES = values();
@@ -384,11 +426,11 @@ public final class MessageOuterClass {
         this.value = value;
       }
 
-      // @@protoc_insertion_point(enum_scope:bitswap.message.pb.Message.BlockPresenceType)
+      // @@protoc_insertion_point(enum_scope:org.peergos.protocol.bitswap.pb.Message.BlockPresenceType)
     }
 
     public interface WantlistOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:bitswap.message.pb.Message.Wantlist)
+        // @@protoc_insertion_point(interface_extends:org.peergos.protocol.bitswap.pb.Message.Wantlist)
         com.google.protobuf.MessageOrBuilder {
 
       /**
@@ -396,24 +438,24 @@ public final class MessageOuterClass {
        *[(gogoproto.nullable) = false];	// a list of wantlist entries
        * </pre>
        *
-       * <code>repeated .bitswap.message.pb.Message.Wantlist.Entry entries = 1;</code>
+       * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Wantlist.Entry entries = 1;</code>
        */
-      java.util.List<MessageOuterClass.Message.Wantlist.Entry>
+      java.util.List<org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry> 
           getEntriesList();
       /**
        * <pre>
        *[(gogoproto.nullable) = false];	// a list of wantlist entries
        * </pre>
        *
-       * <code>repeated .bitswap.message.pb.Message.Wantlist.Entry entries = 1;</code>
+       * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Wantlist.Entry entries = 1;</code>
        */
-      MessageOuterClass.Message.Wantlist.Entry getEntries(int index);
+      org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry getEntries(int index);
       /**
        * <pre>
        *[(gogoproto.nullable) = false];	// a list of wantlist entries
        * </pre>
        *
-       * <code>repeated .bitswap.message.pb.Message.Wantlist.Entry entries = 1;</code>
+       * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Wantlist.Entry entries = 1;</code>
        */
       int getEntriesCount();
       /**
@@ -421,18 +463,18 @@ public final class MessageOuterClass {
        *[(gogoproto.nullable) = false];	// a list of wantlist entries
        * </pre>
        *
-       * <code>repeated .bitswap.message.pb.Message.Wantlist.Entry entries = 1;</code>
+       * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Wantlist.Entry entries = 1;</code>
        */
-      java.util.List<? extends MessageOuterClass.Message.Wantlist.EntryOrBuilder>
+      java.util.List<? extends org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.EntryOrBuilder> 
           getEntriesOrBuilderList();
       /**
        * <pre>
        *[(gogoproto.nullable) = false];	// a list of wantlist entries
        * </pre>
        *
-       * <code>repeated .bitswap.message.pb.Message.Wantlist.Entry entries = 1;</code>
+       * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Wantlist.Entry entries = 1;</code>
        */
-      MessageOuterClass.Message.Wantlist.EntryOrBuilder getEntriesOrBuilder(
+      org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.EntryOrBuilder getEntriesOrBuilder(
           int index);
 
       /**
@@ -441,15 +483,16 @@ public final class MessageOuterClass {
        * </pre>
        *
        * <code>bool full = 2;</code>
+       * @return The full.
        */
       boolean getFull();
     }
     /**
-     * Protobuf type {@code bitswap.message.pb.Message.Wantlist}
+     * Protobuf type {@code org.peergos.protocol.bitswap.pb.Message.Wantlist}
      */
-    public  static final class Wantlist extends
+    public static final class Wantlist extends
         com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:bitswap.message.pb.Message.Wantlist)
+        // @@protoc_insertion_point(message_implements:org.peergos.protocol.bitswap.pb.Message.Wantlist)
         WantlistOrBuilder {
     private static final long serialVersionUID = 0L;
       // Use Wantlist.newBuilder() to construct.
@@ -458,7 +501,13 @@ public final class MessageOuterClass {
       }
       private Wantlist() {
         entries_ = java.util.Collections.emptyList();
-        full_ = false;
+      }
+
+      @java.lang.Override
+      @SuppressWarnings({"unused"})
+      protected java.lang.Object newInstance(
+          UnusedPrivateParameter unused) {
+        return new Wantlist();
       }
 
       @java.lang.Override
@@ -486,12 +535,12 @@ public final class MessageOuterClass {
                 done = true;
                 break;
               case 10: {
-                if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                  entries_ = new java.util.ArrayList<MessageOuterClass.Message.Wantlist.Entry>();
+                if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                  entries_ = new java.util.ArrayList<org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry>();
                   mutable_bitField0_ |= 0x00000001;
                 }
                 entries_.add(
-                    input.readMessage(MessageOuterClass.Message.Wantlist.Entry.parser(), extensionRegistry));
+                    input.readMessage(org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry.parser(), extensionRegistry));
                 break;
               }
               case 16: {
@@ -500,7 +549,7 @@ public final class MessageOuterClass {
                 break;
               }
               default: {
-                if (!parseUnknownFieldProto3(
+                if (!parseUnknownField(
                     input, unknownFields, extensionRegistry, tag)) {
                   done = true;
                 }
@@ -514,7 +563,7 @@ public final class MessageOuterClass {
           throw new com.google.protobuf.InvalidProtocolBufferException(
               e).setUnfinishedMessage(this);
         } finally {
-          if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          if (((mutable_bitField0_ & 0x00000001) != 0)) {
             entries_ = java.util.Collections.unmodifiableList(entries_);
           }
           this.unknownFields = unknownFields.build();
@@ -523,19 +572,19 @@ public final class MessageOuterClass {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return MessageOuterClass.internal_static_bitswap_message_pb_Message_Wantlist_descriptor;
+        return org.peergos.protocol.bitswap.pb.MessageOuterClass.internal_static_bitswap_message_pb_Message_Wantlist_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return MessageOuterClass.internal_static_bitswap_message_pb_Message_Wantlist_fieldAccessorTable
+        return org.peergos.protocol.bitswap.pb.MessageOuterClass.internal_static_bitswap_message_pb_Message_Wantlist_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                MessageOuterClass.Message.Wantlist.class, MessageOuterClass.Message.Wantlist.Builder.class);
+                org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.class, org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Builder.class);
       }
 
       /**
-       * Protobuf enum {@code bitswap.message.pb.Message.Wantlist.WantType}
+       * Protobuf enum {@code org.peergos.protocol.bitswap.pb.Message.Wantlist.WantType}
        */
       public enum WantType
           implements com.google.protobuf.ProtocolMessageEnum {
@@ -569,6 +618,8 @@ public final class MessageOuterClass {
         }
 
         /**
+         * @param value The numeric wire value of the corresponding enum entry.
+         * @return The enum associated with the given numeric wire value.
          * @deprecated Use {@link #forNumber(int)} instead.
          */
         @java.lang.Deprecated
@@ -576,6 +627,10 @@ public final class MessageOuterClass {
           return forNumber(value);
         }
 
+        /**
+         * @param value The numeric wire value of the corresponding enum entry.
+         * @return The enum associated with the given numeric wire value.
+         */
         public static WantType forNumber(int value) {
           switch (value) {
             case 0: return Block;
@@ -598,6 +653,10 @@ public final class MessageOuterClass {
 
         public final com.google.protobuf.Descriptors.EnumValueDescriptor
             getValueDescriptor() {
+          if (this == UNRECOGNIZED) {
+            throw new java.lang.IllegalStateException(
+                "Can't get the descriptor of an unrecognized enum value.");
+          }
           return getDescriptor().getValues().get(ordinal());
         }
         public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -606,7 +665,7 @@ public final class MessageOuterClass {
         }
         public static final com.google.protobuf.Descriptors.EnumDescriptor
             getDescriptor() {
-          return MessageOuterClass.Message.Wantlist.getDescriptor().getEnumTypes().get(0);
+          return org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.getDescriptor().getEnumTypes().get(0);
         }
 
         private static final WantType[] VALUES = values();
@@ -629,11 +688,11 @@ public final class MessageOuterClass {
           this.value = value;
         }
 
-        // @@protoc_insertion_point(enum_scope:bitswap.message.pb.Message.Wantlist.WantType)
+        // @@protoc_insertion_point(enum_scope:org.peergos.protocol.bitswap.pb.Message.Wantlist.WantType)
       }
 
       public interface EntryOrBuilder extends
-          // @@protoc_insertion_point(interface_extends:bitswap.message.pb.Message.Wantlist.Entry)
+          // @@protoc_insertion_point(interface_extends:org.peergos.protocol.bitswap.pb.Message.Wantlist.Entry)
           com.google.protobuf.MessageOrBuilder {
 
         /**
@@ -642,6 +701,7 @@ public final class MessageOuterClass {
          * </pre>
          *
          * <code>bytes block = 1;</code>
+         * @return The block.
          */
         com.google.protobuf.ByteString getBlock();
 
@@ -651,6 +711,7 @@ public final class MessageOuterClass {
          * </pre>
          *
          * <code>int32 priority = 2;</code>
+         * @return The priority.
          */
         int getPriority();
 
@@ -660,6 +721,7 @@ public final class MessageOuterClass {
          * </pre>
          *
          * <code>bool cancel = 3;</code>
+         * @return The cancel.
          */
         boolean getCancel();
 
@@ -668,7 +730,8 @@ public final class MessageOuterClass {
          * Note: defaults to enum 0, ie Block
          * </pre>
          *
-         * <code>.bitswap.message.pb.Message.Wantlist.WantType wantType = 4;</code>
+         * <code>.org.peergos.protocol.bitswap.pb.Message.Wantlist.WantType wantType = 4;</code>
+         * @return The enum numeric value on the wire for wantType.
          */
         int getWantTypeValue();
         /**
@@ -676,9 +739,10 @@ public final class MessageOuterClass {
          * Note: defaults to enum 0, ie Block
          * </pre>
          *
-         * <code>.bitswap.message.pb.Message.Wantlist.WantType wantType = 4;</code>
+         * <code>.org.peergos.protocol.bitswap.pb.Message.Wantlist.WantType wantType = 4;</code>
+         * @return The wantType.
          */
-        MessageOuterClass.Message.Wantlist.WantType getWantType();
+        org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.WantType getWantType();
 
         /**
          * <pre>
@@ -686,20 +750,22 @@ public final class MessageOuterClass {
          * </pre>
          *
          * <code>bool sendDontHave = 5;</code>
+         * @return The sendDontHave.
          */
         boolean getSendDontHave();
 
         /**
          * <code>bytes auth = 6;</code>
+         * @return The auth.
          */
         com.google.protobuf.ByteString getAuth();
       }
       /**
-       * Protobuf type {@code bitswap.message.pb.Message.Wantlist.Entry}
+       * Protobuf type {@code org.peergos.protocol.bitswap.pb.Message.Wantlist.Entry}
        */
-      public  static final class Entry extends
+      public static final class Entry extends
           com.google.protobuf.GeneratedMessageV3 implements
-          // @@protoc_insertion_point(message_implements:bitswap.message.pb.Message.Wantlist.Entry)
+          // @@protoc_insertion_point(message_implements:org.peergos.protocol.bitswap.pb.Message.Wantlist.Entry)
           EntryOrBuilder {
       private static final long serialVersionUID = 0L;
         // Use Entry.newBuilder() to construct.
@@ -708,11 +774,15 @@ public final class MessageOuterClass {
         }
         private Entry() {
           block_ = com.google.protobuf.ByteString.EMPTY;
-          priority_ = 0;
-          cancel_ = false;
           wantType_ = 0;
-          sendDontHave_ = false;
           auth_ = com.google.protobuf.ByteString.EMPTY;
+        }
+
+        @java.lang.Override
+        @SuppressWarnings({"unused"})
+        protected java.lang.Object newInstance(
+            UnusedPrivateParameter unused) {
+          return new Entry();
         }
 
         @java.lang.Override
@@ -728,7 +798,6 @@ public final class MessageOuterClass {
           if (extensionRegistry == null) {
             throw new java.lang.NullPointerException();
           }
-          int mutable_bitField0_ = 0;
           com.google.protobuf.UnknownFieldSet.Builder unknownFields =
               com.google.protobuf.UnknownFieldSet.newBuilder();
           try {
@@ -771,7 +840,7 @@ public final class MessageOuterClass {
                   break;
                 }
                 default: {
-                  if (!parseUnknownFieldProto3(
+                  if (!parseUnknownField(
                       input, unknownFields, extensionRegistry, tag)) {
                     done = true;
                   }
@@ -791,15 +860,15 @@ public final class MessageOuterClass {
         }
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return MessageOuterClass.internal_static_bitswap_message_pb_Message_Wantlist_Entry_descriptor;
+          return org.peergos.protocol.bitswap.pb.MessageOuterClass.internal_static_bitswap_message_pb_Message_Wantlist_Entry_descriptor;
         }
 
         @java.lang.Override
         protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return MessageOuterClass.internal_static_bitswap_message_pb_Message_Wantlist_Entry_fieldAccessorTable
+          return org.peergos.protocol.bitswap.pb.MessageOuterClass.internal_static_bitswap_message_pb_Message_Wantlist_Entry_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
-                  MessageOuterClass.Message.Wantlist.Entry.class, MessageOuterClass.Message.Wantlist.Entry.Builder.class);
+                  org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry.class, org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry.Builder.class);
         }
 
         public static final int BLOCK_FIELD_NUMBER = 1;
@@ -810,7 +879,9 @@ public final class MessageOuterClass {
          * </pre>
          *
          * <code>bytes block = 1;</code>
+         * @return The block.
          */
+        @java.lang.Override
         public com.google.protobuf.ByteString getBlock() {
           return block_;
         }
@@ -823,7 +894,9 @@ public final class MessageOuterClass {
          * </pre>
          *
          * <code>int32 priority = 2;</code>
+         * @return The priority.
          */
+        @java.lang.Override
         public int getPriority() {
           return priority_;
         }
@@ -836,7 +909,9 @@ public final class MessageOuterClass {
          * </pre>
          *
          * <code>bool cancel = 3;</code>
+         * @return The cancel.
          */
+        @java.lang.Override
         public boolean getCancel() {
           return cancel_;
         }
@@ -848,9 +923,10 @@ public final class MessageOuterClass {
          * Note: defaults to enum 0, ie Block
          * </pre>
          *
-         * <code>.bitswap.message.pb.Message.Wantlist.WantType wantType = 4;</code>
+         * <code>.org.peergos.protocol.bitswap.pb.Message.Wantlist.WantType wantType = 4;</code>
+         * @return The enum numeric value on the wire for wantType.
          */
-        public int getWantTypeValue() {
+        @java.lang.Override public int getWantTypeValue() {
           return wantType_;
         }
         /**
@@ -858,12 +934,13 @@ public final class MessageOuterClass {
          * Note: defaults to enum 0, ie Block
          * </pre>
          *
-         * <code>.bitswap.message.pb.Message.Wantlist.WantType wantType = 4;</code>
+         * <code>.org.peergos.protocol.bitswap.pb.Message.Wantlist.WantType wantType = 4;</code>
+         * @return The wantType.
          */
-        public MessageOuterClass.Message.Wantlist.WantType getWantType() {
+        @java.lang.Override public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.WantType getWantType() {
           @SuppressWarnings("deprecation")
-          MessageOuterClass.Message.Wantlist.WantType result = MessageOuterClass.Message.Wantlist.WantType.valueOf(wantType_);
-          return result == null ? MessageOuterClass.Message.Wantlist.WantType.UNRECOGNIZED : result;
+          org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.WantType result = org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.WantType.valueOf(wantType_);
+          return result == null ? org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.WantType.UNRECOGNIZED : result;
         }
 
         public static final int SENDDONTHAVE_FIELD_NUMBER = 5;
@@ -874,7 +951,9 @@ public final class MessageOuterClass {
          * </pre>
          *
          * <code>bool sendDontHave = 5;</code>
+         * @return The sendDontHave.
          */
+        @java.lang.Override
         public boolean getSendDontHave() {
           return sendDontHave_;
         }
@@ -883,7 +962,9 @@ public final class MessageOuterClass {
         private com.google.protobuf.ByteString auth_;
         /**
          * <code>bytes auth = 6;</code>
+         * @return The auth.
          */
+        @java.lang.Override
         public com.google.protobuf.ByteString getAuth() {
           return auth_;
         }
@@ -911,7 +992,7 @@ public final class MessageOuterClass {
           if (cancel_ != false) {
             output.writeBool(3, cancel_);
           }
-          if (wantType_ != MessageOuterClass.Message.Wantlist.WantType.Block.getNumber()) {
+          if (wantType_ != org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.WantType.Block.getNumber()) {
             output.writeEnum(4, wantType_);
           }
           if (sendDontHave_ != false) {
@@ -941,7 +1022,7 @@ public final class MessageOuterClass {
             size += com.google.protobuf.CodedOutputStream
               .computeBoolSize(3, cancel_);
           }
-          if (wantType_ != MessageOuterClass.Message.Wantlist.WantType.Block.getNumber()) {
+          if (wantType_ != org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.WantType.Block.getNumber()) {
             size += com.google.protobuf.CodedOutputStream
               .computeEnumSize(4, wantType_);
           }
@@ -963,25 +1044,24 @@ public final class MessageOuterClass {
           if (obj == this) {
            return true;
           }
-          if (!(obj instanceof MessageOuterClass.Message.Wantlist.Entry)) {
+          if (!(obj instanceof org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry)) {
             return super.equals(obj);
           }
-          MessageOuterClass.Message.Wantlist.Entry other = (MessageOuterClass.Message.Wantlist.Entry) obj;
+          org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry other = (org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry) obj;
 
-          boolean result = true;
-          result = result && getBlock()
-              .equals(other.getBlock());
-          result = result && (getPriority()
-              == other.getPriority());
-          result = result && (getCancel()
-              == other.getCancel());
-          result = result && wantType_ == other.wantType_;
-          result = result && (getSendDontHave()
-              == other.getSendDontHave());
-          result = result && getAuth()
-              .equals(other.getAuth());
-          result = result && unknownFields.equals(other.unknownFields);
-          return result;
+          if (!getBlock()
+              .equals(other.getBlock())) return false;
+          if (getPriority()
+              != other.getPriority()) return false;
+          if (getCancel()
+              != other.getCancel()) return false;
+          if (wantType_ != other.wantType_) return false;
+          if (getSendDontHave()
+              != other.getSendDontHave()) return false;
+          if (!getAuth()
+              .equals(other.getAuth())) return false;
+          if (!unknownFields.equals(other.unknownFields)) return false;
+          return true;
         }
 
         @java.lang.Override
@@ -1010,69 +1090,69 @@ public final class MessageOuterClass {
           return hash;
         }
 
-        public static MessageOuterClass.Message.Wantlist.Entry parseFrom(
+        public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry parseFrom(
             java.nio.ByteBuffer data)
             throws com.google.protobuf.InvalidProtocolBufferException {
           return PARSER.parseFrom(data);
         }
-        public static MessageOuterClass.Message.Wantlist.Entry parseFrom(
+        public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry parseFrom(
             java.nio.ByteBuffer data,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
           return PARSER.parseFrom(data, extensionRegistry);
         }
-        public static MessageOuterClass.Message.Wantlist.Entry parseFrom(
+        public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry parseFrom(
             com.google.protobuf.ByteString data)
             throws com.google.protobuf.InvalidProtocolBufferException {
           return PARSER.parseFrom(data);
         }
-        public static MessageOuterClass.Message.Wantlist.Entry parseFrom(
+        public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry parseFrom(
             com.google.protobuf.ByteString data,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
           return PARSER.parseFrom(data, extensionRegistry);
         }
-        public static MessageOuterClass.Message.Wantlist.Entry parseFrom(byte[] data)
+        public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry parseFrom(byte[] data)
             throws com.google.protobuf.InvalidProtocolBufferException {
           return PARSER.parseFrom(data);
         }
-        public static MessageOuterClass.Message.Wantlist.Entry parseFrom(
+        public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry parseFrom(
             byte[] data,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
           return PARSER.parseFrom(data, extensionRegistry);
         }
-        public static MessageOuterClass.Message.Wantlist.Entry parseFrom(java.io.InputStream input)
+        public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry parseFrom(java.io.InputStream input)
             throws java.io.IOException {
           return com.google.protobuf.GeneratedMessageV3
               .parseWithIOException(PARSER, input);
         }
-        public static MessageOuterClass.Message.Wantlist.Entry parseFrom(
+        public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry parseFrom(
             java.io.InputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
           return com.google.protobuf.GeneratedMessageV3
               .parseWithIOException(PARSER, input, extensionRegistry);
         }
-        public static MessageOuterClass.Message.Wantlist.Entry parseDelimitedFrom(java.io.InputStream input)
+        public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry parseDelimitedFrom(java.io.InputStream input)
             throws java.io.IOException {
           return com.google.protobuf.GeneratedMessageV3
               .parseDelimitedWithIOException(PARSER, input);
         }
-        public static MessageOuterClass.Message.Wantlist.Entry parseDelimitedFrom(
+        public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry parseDelimitedFrom(
             java.io.InputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
           return com.google.protobuf.GeneratedMessageV3
               .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
         }
-        public static MessageOuterClass.Message.Wantlist.Entry parseFrom(
+        public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry parseFrom(
             com.google.protobuf.CodedInputStream input)
             throws java.io.IOException {
           return com.google.protobuf.GeneratedMessageV3
               .parseWithIOException(PARSER, input);
         }
-        public static MessageOuterClass.Message.Wantlist.Entry parseFrom(
+        public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry parseFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
@@ -1085,7 +1165,7 @@ public final class MessageOuterClass {
         public static Builder newBuilder() {
           return DEFAULT_INSTANCE.toBuilder();
         }
-        public static Builder newBuilder(MessageOuterClass.Message.Wantlist.Entry prototype) {
+        public static Builder newBuilder(org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry prototype) {
           return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
         }
         @java.lang.Override
@@ -1101,26 +1181,26 @@ public final class MessageOuterClass {
           return builder;
         }
         /**
-         * Protobuf type {@code bitswap.message.pb.Message.Wantlist.Entry}
+         * Protobuf type {@code org.peergos.protocol.bitswap.pb.Message.Wantlist.Entry}
          */
         public static final class Builder extends
             com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-            // @@protoc_insertion_point(builder_implements:bitswap.message.pb.Message.Wantlist.Entry)
-            MessageOuterClass.Message.Wantlist.EntryOrBuilder {
+            // @@protoc_insertion_point(builder_implements:org.peergos.protocol.bitswap.pb.Message.Wantlist.Entry)
+            org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.EntryOrBuilder {
           public static final com.google.protobuf.Descriptors.Descriptor
               getDescriptor() {
-            return MessageOuterClass.internal_static_bitswap_message_pb_Message_Wantlist_Entry_descriptor;
+            return org.peergos.protocol.bitswap.pb.MessageOuterClass.internal_static_bitswap_message_pb_Message_Wantlist_Entry_descriptor;
           }
 
           @java.lang.Override
           protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
               internalGetFieldAccessorTable() {
-            return MessageOuterClass.internal_static_bitswap_message_pb_Message_Wantlist_Entry_fieldAccessorTable
+            return org.peergos.protocol.bitswap.pb.MessageOuterClass.internal_static_bitswap_message_pb_Message_Wantlist_Entry_fieldAccessorTable
                 .ensureFieldAccessorsInitialized(
-                    MessageOuterClass.Message.Wantlist.Entry.class, MessageOuterClass.Message.Wantlist.Entry.Builder.class);
+                    org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry.class, org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry.Builder.class);
           }
 
-          // Construct using bitswap.message.pb.MessageOuterClass.Message.Wantlist.Entry.newBuilder()
+          // Construct using org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry.newBuilder()
           private Builder() {
             maybeForceBuilderInitialization();
           }
@@ -1156,17 +1236,17 @@ public final class MessageOuterClass {
           @java.lang.Override
           public com.google.protobuf.Descriptors.Descriptor
               getDescriptorForType() {
-            return MessageOuterClass.internal_static_bitswap_message_pb_Message_Wantlist_Entry_descriptor;
+            return org.peergos.protocol.bitswap.pb.MessageOuterClass.internal_static_bitswap_message_pb_Message_Wantlist_Entry_descriptor;
           }
 
           @java.lang.Override
-          public MessageOuterClass.Message.Wantlist.Entry getDefaultInstanceForType() {
-            return MessageOuterClass.Message.Wantlist.Entry.getDefaultInstance();
+          public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry getDefaultInstanceForType() {
+            return org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry.getDefaultInstance();
           }
 
           @java.lang.Override
-          public MessageOuterClass.Message.Wantlist.Entry build() {
-            MessageOuterClass.Message.Wantlist.Entry result = buildPartial();
+          public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry build() {
+            org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry result = buildPartial();
             if (!result.isInitialized()) {
               throw newUninitializedMessageException(result);
             }
@@ -1174,8 +1254,8 @@ public final class MessageOuterClass {
           }
 
           @java.lang.Override
-          public MessageOuterClass.Message.Wantlist.Entry buildPartial() {
-            MessageOuterClass.Message.Wantlist.Entry result = new MessageOuterClass.Message.Wantlist.Entry(this);
+          public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry buildPartial() {
+            org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry result = new org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry(this);
             result.block_ = block_;
             result.priority_ = priority_;
             result.cancel_ = cancel_;
@@ -1188,48 +1268,48 @@ public final class MessageOuterClass {
 
           @java.lang.Override
           public Builder clone() {
-            return (Builder) super.clone();
+            return super.clone();
           }
           @java.lang.Override
           public Builder setField(
               com.google.protobuf.Descriptors.FieldDescriptor field,
               java.lang.Object value) {
-            return (Builder) super.setField(field, value);
+            return super.setField(field, value);
           }
           @java.lang.Override
           public Builder clearField(
               com.google.protobuf.Descriptors.FieldDescriptor field) {
-            return (Builder) super.clearField(field);
+            return super.clearField(field);
           }
           @java.lang.Override
           public Builder clearOneof(
               com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-            return (Builder) super.clearOneof(oneof);
+            return super.clearOneof(oneof);
           }
           @java.lang.Override
           public Builder setRepeatedField(
               com.google.protobuf.Descriptors.FieldDescriptor field,
               int index, java.lang.Object value) {
-            return (Builder) super.setRepeatedField(field, index, value);
+            return super.setRepeatedField(field, index, value);
           }
           @java.lang.Override
           public Builder addRepeatedField(
               com.google.protobuf.Descriptors.FieldDescriptor field,
               java.lang.Object value) {
-            return (Builder) super.addRepeatedField(field, value);
+            return super.addRepeatedField(field, value);
           }
           @java.lang.Override
           public Builder mergeFrom(com.google.protobuf.Message other) {
-            if (other instanceof MessageOuterClass.Message.Wantlist.Entry) {
-              return mergeFrom((MessageOuterClass.Message.Wantlist.Entry)other);
+            if (other instanceof org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry) {
+              return mergeFrom((org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry)other);
             } else {
               super.mergeFrom(other);
               return this;
             }
           }
 
-          public Builder mergeFrom(MessageOuterClass.Message.Wantlist.Entry other) {
-            if (other == MessageOuterClass.Message.Wantlist.Entry.getDefaultInstance()) return this;
+          public Builder mergeFrom(org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry other) {
+            if (other == org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry.getDefaultInstance()) return this;
             if (other.getBlock() != com.google.protobuf.ByteString.EMPTY) {
               setBlock(other.getBlock());
             }
@@ -1263,11 +1343,11 @@ public final class MessageOuterClass {
               com.google.protobuf.CodedInputStream input,
               com.google.protobuf.ExtensionRegistryLite extensionRegistry)
               throws java.io.IOException {
-            MessageOuterClass.Message.Wantlist.Entry parsedMessage = null;
+            org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry parsedMessage = null;
             try {
               parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
             } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-              parsedMessage = (MessageOuterClass.Message.Wantlist.Entry) e.getUnfinishedMessage();
+              parsedMessage = (org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry) e.getUnfinishedMessage();
               throw e.unwrapIOException();
             } finally {
               if (parsedMessage != null) {
@@ -1284,7 +1364,9 @@ public final class MessageOuterClass {
            * </pre>
            *
            * <code>bytes block = 1;</code>
+           * @return The block.
            */
+          @java.lang.Override
           public com.google.protobuf.ByteString getBlock() {
             return block_;
           }
@@ -1294,6 +1376,8 @@ public final class MessageOuterClass {
            * </pre>
            *
            * <code>bytes block = 1;</code>
+           * @param value The block to set.
+           * @return This builder for chaining.
            */
           public Builder setBlock(com.google.protobuf.ByteString value) {
             if (value == null) {
@@ -1310,6 +1394,7 @@ public final class MessageOuterClass {
            * </pre>
            *
            * <code>bytes block = 1;</code>
+           * @return This builder for chaining.
            */
           public Builder clearBlock() {
             
@@ -1325,7 +1410,9 @@ public final class MessageOuterClass {
            * </pre>
            *
            * <code>int32 priority = 2;</code>
+           * @return The priority.
            */
+          @java.lang.Override
           public int getPriority() {
             return priority_;
           }
@@ -1335,6 +1422,8 @@ public final class MessageOuterClass {
            * </pre>
            *
            * <code>int32 priority = 2;</code>
+           * @param value The priority to set.
+           * @return This builder for chaining.
            */
           public Builder setPriority(int value) {
             
@@ -1348,6 +1437,7 @@ public final class MessageOuterClass {
            * </pre>
            *
            * <code>int32 priority = 2;</code>
+           * @return This builder for chaining.
            */
           public Builder clearPriority() {
             
@@ -1363,7 +1453,9 @@ public final class MessageOuterClass {
            * </pre>
            *
            * <code>bool cancel = 3;</code>
+           * @return The cancel.
            */
+          @java.lang.Override
           public boolean getCancel() {
             return cancel_;
           }
@@ -1373,6 +1465,8 @@ public final class MessageOuterClass {
            * </pre>
            *
            * <code>bool cancel = 3;</code>
+           * @param value The cancel to set.
+           * @return This builder for chaining.
            */
           public Builder setCancel(boolean value) {
             
@@ -1386,6 +1480,7 @@ public final class MessageOuterClass {
            * </pre>
            *
            * <code>bool cancel = 3;</code>
+           * @return This builder for chaining.
            */
           public Builder clearCancel() {
             
@@ -1400,9 +1495,10 @@ public final class MessageOuterClass {
            * Note: defaults to enum 0, ie Block
            * </pre>
            *
-           * <code>.bitswap.message.pb.Message.Wantlist.WantType wantType = 4;</code>
+           * <code>.org.peergos.protocol.bitswap.pb.Message.Wantlist.WantType wantType = 4;</code>
+           * @return The enum numeric value on the wire for wantType.
            */
-          public int getWantTypeValue() {
+          @java.lang.Override public int getWantTypeValue() {
             return wantType_;
           }
           /**
@@ -1410,9 +1506,12 @@ public final class MessageOuterClass {
            * Note: defaults to enum 0, ie Block
            * </pre>
            *
-           * <code>.bitswap.message.pb.Message.Wantlist.WantType wantType = 4;</code>
+           * <code>.org.peergos.protocol.bitswap.pb.Message.Wantlist.WantType wantType = 4;</code>
+           * @param value The enum numeric value on the wire for wantType to set.
+           * @return This builder for chaining.
            */
           public Builder setWantTypeValue(int value) {
+            
             wantType_ = value;
             onChanged();
             return this;
@@ -1422,21 +1521,25 @@ public final class MessageOuterClass {
            * Note: defaults to enum 0, ie Block
            * </pre>
            *
-           * <code>.bitswap.message.pb.Message.Wantlist.WantType wantType = 4;</code>
+           * <code>.org.peergos.protocol.bitswap.pb.Message.Wantlist.WantType wantType = 4;</code>
+           * @return The wantType.
            */
-          public MessageOuterClass.Message.Wantlist.WantType getWantType() {
+          @java.lang.Override
+          public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.WantType getWantType() {
             @SuppressWarnings("deprecation")
-            MessageOuterClass.Message.Wantlist.WantType result = MessageOuterClass.Message.Wantlist.WantType.valueOf(wantType_);
-            return result == null ? MessageOuterClass.Message.Wantlist.WantType.UNRECOGNIZED : result;
+            org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.WantType result = org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.WantType.valueOf(wantType_);
+            return result == null ? org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.WantType.UNRECOGNIZED : result;
           }
           /**
            * <pre>
            * Note: defaults to enum 0, ie Block
            * </pre>
            *
-           * <code>.bitswap.message.pb.Message.Wantlist.WantType wantType = 4;</code>
+           * <code>.org.peergos.protocol.bitswap.pb.Message.Wantlist.WantType wantType = 4;</code>
+           * @param value The wantType to set.
+           * @return This builder for chaining.
            */
-          public Builder setWantType(MessageOuterClass.Message.Wantlist.WantType value) {
+          public Builder setWantType(org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.WantType value) {
             if (value == null) {
               throw new NullPointerException();
             }
@@ -1450,7 +1553,8 @@ public final class MessageOuterClass {
            * Note: defaults to enum 0, ie Block
            * </pre>
            *
-           * <code>.bitswap.message.pb.Message.Wantlist.WantType wantType = 4;</code>
+           * <code>.org.peergos.protocol.bitswap.pb.Message.Wantlist.WantType wantType = 4;</code>
+           * @return This builder for chaining.
            */
           public Builder clearWantType() {
             
@@ -1466,7 +1570,9 @@ public final class MessageOuterClass {
            * </pre>
            *
            * <code>bool sendDontHave = 5;</code>
+           * @return The sendDontHave.
            */
+          @java.lang.Override
           public boolean getSendDontHave() {
             return sendDontHave_;
           }
@@ -1476,6 +1582,8 @@ public final class MessageOuterClass {
            * </pre>
            *
            * <code>bool sendDontHave = 5;</code>
+           * @param value The sendDontHave to set.
+           * @return This builder for chaining.
            */
           public Builder setSendDontHave(boolean value) {
             
@@ -1489,6 +1597,7 @@ public final class MessageOuterClass {
            * </pre>
            *
            * <code>bool sendDontHave = 5;</code>
+           * @return This builder for chaining.
            */
           public Builder clearSendDontHave() {
             
@@ -1500,12 +1609,16 @@ public final class MessageOuterClass {
           private com.google.protobuf.ByteString auth_ = com.google.protobuf.ByteString.EMPTY;
           /**
            * <code>bytes auth = 6;</code>
+           * @return The auth.
            */
+          @java.lang.Override
           public com.google.protobuf.ByteString getAuth() {
             return auth_;
           }
           /**
            * <code>bytes auth = 6;</code>
+           * @param value The auth to set.
+           * @return This builder for chaining.
            */
           public Builder setAuth(com.google.protobuf.ByteString value) {
             if (value == null) {
@@ -1518,6 +1631,7 @@ public final class MessageOuterClass {
           }
           /**
            * <code>bytes auth = 6;</code>
+           * @return This builder for chaining.
            */
           public Builder clearAuth() {
             
@@ -1528,7 +1642,7 @@ public final class MessageOuterClass {
           @java.lang.Override
           public final Builder setUnknownFields(
               final com.google.protobuf.UnknownFieldSet unknownFields) {
-            return super.setUnknownFieldsProto3(unknownFields);
+            return super.setUnknownFields(unknownFields);
           }
 
           @java.lang.Override
@@ -1538,16 +1652,16 @@ public final class MessageOuterClass {
           }
 
 
-          // @@protoc_insertion_point(builder_scope:bitswap.message.pb.Message.Wantlist.Entry)
+          // @@protoc_insertion_point(builder_scope:org.peergos.protocol.bitswap.pb.Message.Wantlist.Entry)
         }
 
-        // @@protoc_insertion_point(class_scope:bitswap.message.pb.Message.Wantlist.Entry)
-        private static final MessageOuterClass.Message.Wantlist.Entry DEFAULT_INSTANCE;
+        // @@protoc_insertion_point(class_scope:org.peergos.protocol.bitswap.pb.Message.Wantlist.Entry)
+        private static final org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry DEFAULT_INSTANCE;
         static {
-          DEFAULT_INSTANCE = new MessageOuterClass.Message.Wantlist.Entry();
+          DEFAULT_INSTANCE = new org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry();
         }
 
-        public static MessageOuterClass.Message.Wantlist.Entry getDefaultInstance() {
+        public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry getDefaultInstance() {
           return DEFAULT_INSTANCE;
         }
 
@@ -1572,23 +1686,23 @@ public final class MessageOuterClass {
         }
 
         @java.lang.Override
-        public MessageOuterClass.Message.Wantlist.Entry getDefaultInstanceForType() {
+        public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry getDefaultInstanceForType() {
           return DEFAULT_INSTANCE;
         }
 
       }
 
-      private int bitField0_;
       public static final int ENTRIES_FIELD_NUMBER = 1;
-      private java.util.List<MessageOuterClass.Message.Wantlist.Entry> entries_;
+      private java.util.List<org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry> entries_;
       /**
        * <pre>
        *[(gogoproto.nullable) = false];	// a list of wantlist entries
        * </pre>
        *
-       * <code>repeated .bitswap.message.pb.Message.Wantlist.Entry entries = 1;</code>
+       * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Wantlist.Entry entries = 1;</code>
        */
-      public java.util.List<MessageOuterClass.Message.Wantlist.Entry> getEntriesList() {
+      @java.lang.Override
+      public java.util.List<org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry> getEntriesList() {
         return entries_;
       }
       /**
@@ -1596,9 +1710,10 @@ public final class MessageOuterClass {
        *[(gogoproto.nullable) = false];	// a list of wantlist entries
        * </pre>
        *
-       * <code>repeated .bitswap.message.pb.Message.Wantlist.Entry entries = 1;</code>
+       * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Wantlist.Entry entries = 1;</code>
        */
-      public java.util.List<? extends MessageOuterClass.Message.Wantlist.EntryOrBuilder>
+      @java.lang.Override
+      public java.util.List<? extends org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.EntryOrBuilder> 
           getEntriesOrBuilderList() {
         return entries_;
       }
@@ -1607,8 +1722,9 @@ public final class MessageOuterClass {
        *[(gogoproto.nullable) = false];	// a list of wantlist entries
        * </pre>
        *
-       * <code>repeated .bitswap.message.pb.Message.Wantlist.Entry entries = 1;</code>
+       * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Wantlist.Entry entries = 1;</code>
        */
+      @java.lang.Override
       public int getEntriesCount() {
         return entries_.size();
       }
@@ -1617,9 +1733,10 @@ public final class MessageOuterClass {
        *[(gogoproto.nullable) = false];	// a list of wantlist entries
        * </pre>
        *
-       * <code>repeated .bitswap.message.pb.Message.Wantlist.Entry entries = 1;</code>
+       * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Wantlist.Entry entries = 1;</code>
        */
-      public MessageOuterClass.Message.Wantlist.Entry getEntries(int index) {
+      @java.lang.Override
+      public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry getEntries(int index) {
         return entries_.get(index);
       }
       /**
@@ -1627,9 +1744,10 @@ public final class MessageOuterClass {
        *[(gogoproto.nullable) = false];	// a list of wantlist entries
        * </pre>
        *
-       * <code>repeated .bitswap.message.pb.Message.Wantlist.Entry entries = 1;</code>
+       * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Wantlist.Entry entries = 1;</code>
        */
-      public MessageOuterClass.Message.Wantlist.EntryOrBuilder getEntriesOrBuilder(
+      @java.lang.Override
+      public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.EntryOrBuilder getEntriesOrBuilder(
           int index) {
         return entries_.get(index);
       }
@@ -1642,7 +1760,9 @@ public final class MessageOuterClass {
        * </pre>
        *
        * <code>bool full = 2;</code>
+       * @return The full.
        */
+      @java.lang.Override
       public boolean getFull() {
         return full_;
       }
@@ -1694,18 +1814,17 @@ public final class MessageOuterClass {
         if (obj == this) {
          return true;
         }
-        if (!(obj instanceof MessageOuterClass.Message.Wantlist)) {
+        if (!(obj instanceof org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist)) {
           return super.equals(obj);
         }
-        MessageOuterClass.Message.Wantlist other = (MessageOuterClass.Message.Wantlist) obj;
+        org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist other = (org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist) obj;
 
-        boolean result = true;
-        result = result && getEntriesList()
-            .equals(other.getEntriesList());
-        result = result && (getFull()
-            == other.getFull());
-        result = result && unknownFields.equals(other.unknownFields);
-        return result;
+        if (!getEntriesList()
+            .equals(other.getEntriesList())) return false;
+        if (getFull()
+            != other.getFull()) return false;
+        if (!unknownFields.equals(other.unknownFields)) return false;
+        return true;
       }
 
       @java.lang.Override
@@ -1727,69 +1846,69 @@ public final class MessageOuterClass {
         return hash;
       }
 
-      public static MessageOuterClass.Message.Wantlist parseFrom(
+      public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist parseFrom(
           java.nio.ByteBuffer data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static MessageOuterClass.Message.Wantlist parseFrom(
+      public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist parseFrom(
           java.nio.ByteBuffer data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static MessageOuterClass.Message.Wantlist parseFrom(
+      public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static MessageOuterClass.Message.Wantlist parseFrom(
+      public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist parseFrom(
           com.google.protobuf.ByteString data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static MessageOuterClass.Message.Wantlist parseFrom(byte[] data)
+      public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist parseFrom(byte[] data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static MessageOuterClass.Message.Wantlist parseFrom(
+      public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist parseFrom(
           byte[] data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static MessageOuterClass.Message.Wantlist parseFrom(java.io.InputStream input)
+      public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist parseFrom(java.io.InputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input);
       }
-      public static MessageOuterClass.Message.Wantlist parseFrom(
+      public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist parseFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input, extensionRegistry);
       }
-      public static MessageOuterClass.Message.Wantlist parseDelimitedFrom(java.io.InputStream input)
+      public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist parseDelimitedFrom(java.io.InputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseDelimitedWithIOException(PARSER, input);
       }
-      public static MessageOuterClass.Message.Wantlist parseDelimitedFrom(
+      public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist parseDelimitedFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
       }
-      public static MessageOuterClass.Message.Wantlist parseFrom(
+      public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist parseFrom(
           com.google.protobuf.CodedInputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input);
       }
-      public static MessageOuterClass.Message.Wantlist parseFrom(
+      public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist parseFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
@@ -1802,7 +1921,7 @@ public final class MessageOuterClass {
       public static Builder newBuilder() {
         return DEFAULT_INSTANCE.toBuilder();
       }
-      public static Builder newBuilder(MessageOuterClass.Message.Wantlist prototype) {
+      public static Builder newBuilder(org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist prototype) {
         return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
       }
       @java.lang.Override
@@ -1818,26 +1937,26 @@ public final class MessageOuterClass {
         return builder;
       }
       /**
-       * Protobuf type {@code bitswap.message.pb.Message.Wantlist}
+       * Protobuf type {@code org.peergos.protocol.bitswap.pb.Message.Wantlist}
        */
       public static final class Builder extends
           com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-          // @@protoc_insertion_point(builder_implements:bitswap.message.pb.Message.Wantlist)
-          MessageOuterClass.Message.WantlistOrBuilder {
+          // @@protoc_insertion_point(builder_implements:org.peergos.protocol.bitswap.pb.Message.Wantlist)
+          org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.WantlistOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return MessageOuterClass.internal_static_bitswap_message_pb_Message_Wantlist_descriptor;
+          return org.peergos.protocol.bitswap.pb.MessageOuterClass.internal_static_bitswap_message_pb_Message_Wantlist_descriptor;
         }
 
         @java.lang.Override
         protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return MessageOuterClass.internal_static_bitswap_message_pb_Message_Wantlist_fieldAccessorTable
+          return org.peergos.protocol.bitswap.pb.MessageOuterClass.internal_static_bitswap_message_pb_Message_Wantlist_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
-                  MessageOuterClass.Message.Wantlist.class, MessageOuterClass.Message.Wantlist.Builder.class);
+                  org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.class, org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Builder.class);
         }
 
-        // Construct using bitswap.message.pb.MessageOuterClass.Message.Wantlist.newBuilder()
+        // Construct using org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.newBuilder()
         private Builder() {
           maybeForceBuilderInitialization();
         }
@@ -1870,17 +1989,17 @@ public final class MessageOuterClass {
         @java.lang.Override
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return MessageOuterClass.internal_static_bitswap_message_pb_Message_Wantlist_descriptor;
+          return org.peergos.protocol.bitswap.pb.MessageOuterClass.internal_static_bitswap_message_pb_Message_Wantlist_descriptor;
         }
 
         @java.lang.Override
-        public MessageOuterClass.Message.Wantlist getDefaultInstanceForType() {
-          return MessageOuterClass.Message.Wantlist.getDefaultInstance();
+        public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist getDefaultInstanceForType() {
+          return org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.getDefaultInstance();
         }
 
         @java.lang.Override
-        public MessageOuterClass.Message.Wantlist build() {
-          MessageOuterClass.Message.Wantlist result = buildPartial();
+        public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist build() {
+          org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist result = buildPartial();
           if (!result.isInitialized()) {
             throw newUninitializedMessageException(result);
           }
@@ -1888,12 +2007,11 @@ public final class MessageOuterClass {
         }
 
         @java.lang.Override
-        public MessageOuterClass.Message.Wantlist buildPartial() {
-          MessageOuterClass.Message.Wantlist result = new MessageOuterClass.Message.Wantlist(this);
+        public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist buildPartial() {
+          org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist result = new org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist(this);
           int from_bitField0_ = bitField0_;
-          int to_bitField0_ = 0;
           if (entriesBuilder_ == null) {
-            if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            if (((bitField0_ & 0x00000001) != 0)) {
               entries_ = java.util.Collections.unmodifiableList(entries_);
               bitField0_ = (bitField0_ & ~0x00000001);
             }
@@ -1902,55 +2020,54 @@ public final class MessageOuterClass {
             result.entries_ = entriesBuilder_.build();
           }
           result.full_ = full_;
-          result.bitField0_ = to_bitField0_;
           onBuilt();
           return result;
         }
 
         @java.lang.Override
         public Builder clone() {
-          return (Builder) super.clone();
+          return super.clone();
         }
         @java.lang.Override
         public Builder setField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
             java.lang.Object value) {
-          return (Builder) super.setField(field, value);
+          return super.setField(field, value);
         }
         @java.lang.Override
         public Builder clearField(
             com.google.protobuf.Descriptors.FieldDescriptor field) {
-          return (Builder) super.clearField(field);
+          return super.clearField(field);
         }
         @java.lang.Override
         public Builder clearOneof(
             com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-          return (Builder) super.clearOneof(oneof);
+          return super.clearOneof(oneof);
         }
         @java.lang.Override
         public Builder setRepeatedField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
             int index, java.lang.Object value) {
-          return (Builder) super.setRepeatedField(field, index, value);
+          return super.setRepeatedField(field, index, value);
         }
         @java.lang.Override
         public Builder addRepeatedField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
             java.lang.Object value) {
-          return (Builder) super.addRepeatedField(field, value);
+          return super.addRepeatedField(field, value);
         }
         @java.lang.Override
         public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof MessageOuterClass.Message.Wantlist) {
-            return mergeFrom((MessageOuterClass.Message.Wantlist)other);
+          if (other instanceof org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist) {
+            return mergeFrom((org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist)other);
           } else {
             super.mergeFrom(other);
             return this;
           }
         }
 
-        public Builder mergeFrom(MessageOuterClass.Message.Wantlist other) {
-          if (other == MessageOuterClass.Message.Wantlist.getDefaultInstance()) return this;
+        public Builder mergeFrom(org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist other) {
+          if (other == org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.getDefaultInstance()) return this;
           if (entriesBuilder_ == null) {
             if (!other.entries_.isEmpty()) {
               if (entries_.isEmpty()) {
@@ -1995,11 +2112,11 @@ public final class MessageOuterClass {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          MessageOuterClass.Message.Wantlist parsedMessage = null;
+          org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist parsedMessage = null;
           try {
             parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (MessageOuterClass.Message.Wantlist) e.getUnfinishedMessage();
+            parsedMessage = (org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
             if (parsedMessage != null) {
@@ -2010,26 +2127,26 @@ public final class MessageOuterClass {
         }
         private int bitField0_;
 
-        private java.util.List<MessageOuterClass.Message.Wantlist.Entry> entries_ =
+        private java.util.List<org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry> entries_ =
           java.util.Collections.emptyList();
         private void ensureEntriesIsMutable() {
-          if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-            entries_ = new java.util.ArrayList<MessageOuterClass.Message.Wantlist.Entry>(entries_);
+          if (!((bitField0_ & 0x00000001) != 0)) {
+            entries_ = new java.util.ArrayList<org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry>(entries_);
             bitField0_ |= 0x00000001;
            }
         }
 
         private com.google.protobuf.RepeatedFieldBuilderV3<
-            MessageOuterClass.Message.Wantlist.Entry, MessageOuterClass.Message.Wantlist.Entry.Builder, MessageOuterClass.Message.Wantlist.EntryOrBuilder> entriesBuilder_;
+            org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry, org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry.Builder, org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.EntryOrBuilder> entriesBuilder_;
 
         /**
          * <pre>
          *[(gogoproto.nullable) = false];	// a list of wantlist entries
          * </pre>
          *
-         * <code>repeated .bitswap.message.pb.Message.Wantlist.Entry entries = 1;</code>
+         * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Wantlist.Entry entries = 1;</code>
          */
-        public java.util.List<MessageOuterClass.Message.Wantlist.Entry> getEntriesList() {
+        public java.util.List<org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry> getEntriesList() {
           if (entriesBuilder_ == null) {
             return java.util.Collections.unmodifiableList(entries_);
           } else {
@@ -2041,7 +2158,7 @@ public final class MessageOuterClass {
          *[(gogoproto.nullable) = false];	// a list of wantlist entries
          * </pre>
          *
-         * <code>repeated .bitswap.message.pb.Message.Wantlist.Entry entries = 1;</code>
+         * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Wantlist.Entry entries = 1;</code>
          */
         public int getEntriesCount() {
           if (entriesBuilder_ == null) {
@@ -2055,9 +2172,9 @@ public final class MessageOuterClass {
          *[(gogoproto.nullable) = false];	// a list of wantlist entries
          * </pre>
          *
-         * <code>repeated .bitswap.message.pb.Message.Wantlist.Entry entries = 1;</code>
+         * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Wantlist.Entry entries = 1;</code>
          */
-        public MessageOuterClass.Message.Wantlist.Entry getEntries(int index) {
+        public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry getEntries(int index) {
           if (entriesBuilder_ == null) {
             return entries_.get(index);
           } else {
@@ -2069,10 +2186,10 @@ public final class MessageOuterClass {
          *[(gogoproto.nullable) = false];	// a list of wantlist entries
          * </pre>
          *
-         * <code>repeated .bitswap.message.pb.Message.Wantlist.Entry entries = 1;</code>
+         * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Wantlist.Entry entries = 1;</code>
          */
         public Builder setEntries(
-            int index, MessageOuterClass.Message.Wantlist.Entry value) {
+            int index, org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry value) {
           if (entriesBuilder_ == null) {
             if (value == null) {
               throw new NullPointerException();
@@ -2090,10 +2207,10 @@ public final class MessageOuterClass {
          *[(gogoproto.nullable) = false];	// a list of wantlist entries
          * </pre>
          *
-         * <code>repeated .bitswap.message.pb.Message.Wantlist.Entry entries = 1;</code>
+         * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Wantlist.Entry entries = 1;</code>
          */
         public Builder setEntries(
-            int index, MessageOuterClass.Message.Wantlist.Entry.Builder builderForValue) {
+            int index, org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry.Builder builderForValue) {
           if (entriesBuilder_ == null) {
             ensureEntriesIsMutable();
             entries_.set(index, builderForValue.build());
@@ -2108,9 +2225,9 @@ public final class MessageOuterClass {
          *[(gogoproto.nullable) = false];	// a list of wantlist entries
          * </pre>
          *
-         * <code>repeated .bitswap.message.pb.Message.Wantlist.Entry entries = 1;</code>
+         * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Wantlist.Entry entries = 1;</code>
          */
-        public Builder addEntries(MessageOuterClass.Message.Wantlist.Entry value) {
+        public Builder addEntries(org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry value) {
           if (entriesBuilder_ == null) {
             if (value == null) {
               throw new NullPointerException();
@@ -2128,10 +2245,10 @@ public final class MessageOuterClass {
          *[(gogoproto.nullable) = false];	// a list of wantlist entries
          * </pre>
          *
-         * <code>repeated .bitswap.message.pb.Message.Wantlist.Entry entries = 1;</code>
+         * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Wantlist.Entry entries = 1;</code>
          */
         public Builder addEntries(
-            int index, MessageOuterClass.Message.Wantlist.Entry value) {
+            int index, org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry value) {
           if (entriesBuilder_ == null) {
             if (value == null) {
               throw new NullPointerException();
@@ -2149,10 +2266,10 @@ public final class MessageOuterClass {
          *[(gogoproto.nullable) = false];	// a list of wantlist entries
          * </pre>
          *
-         * <code>repeated .bitswap.message.pb.Message.Wantlist.Entry entries = 1;</code>
+         * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Wantlist.Entry entries = 1;</code>
          */
         public Builder addEntries(
-            MessageOuterClass.Message.Wantlist.Entry.Builder builderForValue) {
+            org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry.Builder builderForValue) {
           if (entriesBuilder_ == null) {
             ensureEntriesIsMutable();
             entries_.add(builderForValue.build());
@@ -2167,10 +2284,10 @@ public final class MessageOuterClass {
          *[(gogoproto.nullable) = false];	// a list of wantlist entries
          * </pre>
          *
-         * <code>repeated .bitswap.message.pb.Message.Wantlist.Entry entries = 1;</code>
+         * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Wantlist.Entry entries = 1;</code>
          */
         public Builder addEntries(
-            int index, MessageOuterClass.Message.Wantlist.Entry.Builder builderForValue) {
+            int index, org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry.Builder builderForValue) {
           if (entriesBuilder_ == null) {
             ensureEntriesIsMutable();
             entries_.add(index, builderForValue.build());
@@ -2185,10 +2302,10 @@ public final class MessageOuterClass {
          *[(gogoproto.nullable) = false];	// a list of wantlist entries
          * </pre>
          *
-         * <code>repeated .bitswap.message.pb.Message.Wantlist.Entry entries = 1;</code>
+         * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Wantlist.Entry entries = 1;</code>
          */
         public Builder addAllEntries(
-            java.lang.Iterable<? extends MessageOuterClass.Message.Wantlist.Entry> values) {
+            java.lang.Iterable<? extends org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry> values) {
           if (entriesBuilder_ == null) {
             ensureEntriesIsMutable();
             com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -2204,7 +2321,7 @@ public final class MessageOuterClass {
          *[(gogoproto.nullable) = false];	// a list of wantlist entries
          * </pre>
          *
-         * <code>repeated .bitswap.message.pb.Message.Wantlist.Entry entries = 1;</code>
+         * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Wantlist.Entry entries = 1;</code>
          */
         public Builder clearEntries() {
           if (entriesBuilder_ == null) {
@@ -2221,7 +2338,7 @@ public final class MessageOuterClass {
          *[(gogoproto.nullable) = false];	// a list of wantlist entries
          * </pre>
          *
-         * <code>repeated .bitswap.message.pb.Message.Wantlist.Entry entries = 1;</code>
+         * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Wantlist.Entry entries = 1;</code>
          */
         public Builder removeEntries(int index) {
           if (entriesBuilder_ == null) {
@@ -2238,9 +2355,9 @@ public final class MessageOuterClass {
          *[(gogoproto.nullable) = false];	// a list of wantlist entries
          * </pre>
          *
-         * <code>repeated .bitswap.message.pb.Message.Wantlist.Entry entries = 1;</code>
+         * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Wantlist.Entry entries = 1;</code>
          */
-        public MessageOuterClass.Message.Wantlist.Entry.Builder getEntriesBuilder(
+        public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry.Builder getEntriesBuilder(
             int index) {
           return getEntriesFieldBuilder().getBuilder(index);
         }
@@ -2249,9 +2366,9 @@ public final class MessageOuterClass {
          *[(gogoproto.nullable) = false];	// a list of wantlist entries
          * </pre>
          *
-         * <code>repeated .bitswap.message.pb.Message.Wantlist.Entry entries = 1;</code>
+         * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Wantlist.Entry entries = 1;</code>
          */
-        public MessageOuterClass.Message.Wantlist.EntryOrBuilder getEntriesOrBuilder(
+        public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.EntryOrBuilder getEntriesOrBuilder(
             int index) {
           if (entriesBuilder_ == null) {
             return entries_.get(index);  } else {
@@ -2263,9 +2380,9 @@ public final class MessageOuterClass {
          *[(gogoproto.nullable) = false];	// a list of wantlist entries
          * </pre>
          *
-         * <code>repeated .bitswap.message.pb.Message.Wantlist.Entry entries = 1;</code>
+         * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Wantlist.Entry entries = 1;</code>
          */
-        public java.util.List<? extends MessageOuterClass.Message.Wantlist.EntryOrBuilder>
+        public java.util.List<? extends org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.EntryOrBuilder> 
              getEntriesOrBuilderList() {
           if (entriesBuilder_ != null) {
             return entriesBuilder_.getMessageOrBuilderList();
@@ -2278,43 +2395,43 @@ public final class MessageOuterClass {
          *[(gogoproto.nullable) = false];	// a list of wantlist entries
          * </pre>
          *
-         * <code>repeated .bitswap.message.pb.Message.Wantlist.Entry entries = 1;</code>
+         * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Wantlist.Entry entries = 1;</code>
          */
-        public MessageOuterClass.Message.Wantlist.Entry.Builder addEntriesBuilder() {
+        public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry.Builder addEntriesBuilder() {
           return getEntriesFieldBuilder().addBuilder(
-              MessageOuterClass.Message.Wantlist.Entry.getDefaultInstance());
+              org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry.getDefaultInstance());
         }
         /**
          * <pre>
          *[(gogoproto.nullable) = false];	// a list of wantlist entries
          * </pre>
          *
-         * <code>repeated .bitswap.message.pb.Message.Wantlist.Entry entries = 1;</code>
+         * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Wantlist.Entry entries = 1;</code>
          */
-        public MessageOuterClass.Message.Wantlist.Entry.Builder addEntriesBuilder(
+        public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry.Builder addEntriesBuilder(
             int index) {
           return getEntriesFieldBuilder().addBuilder(
-              index, MessageOuterClass.Message.Wantlist.Entry.getDefaultInstance());
+              index, org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry.getDefaultInstance());
         }
         /**
          * <pre>
          *[(gogoproto.nullable) = false];	// a list of wantlist entries
          * </pre>
          *
-         * <code>repeated .bitswap.message.pb.Message.Wantlist.Entry entries = 1;</code>
+         * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Wantlist.Entry entries = 1;</code>
          */
-        public java.util.List<MessageOuterClass.Message.Wantlist.Entry.Builder>
+        public java.util.List<org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry.Builder> 
              getEntriesBuilderList() {
           return getEntriesFieldBuilder().getBuilderList();
         }
         private com.google.protobuf.RepeatedFieldBuilderV3<
-            MessageOuterClass.Message.Wantlist.Entry, MessageOuterClass.Message.Wantlist.Entry.Builder, MessageOuterClass.Message.Wantlist.EntryOrBuilder>
+            org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry, org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry.Builder, org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.EntryOrBuilder> 
             getEntriesFieldBuilder() {
           if (entriesBuilder_ == null) {
             entriesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-                MessageOuterClass.Message.Wantlist.Entry, MessageOuterClass.Message.Wantlist.Entry.Builder, MessageOuterClass.Message.Wantlist.EntryOrBuilder>(
+                org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry, org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Entry.Builder, org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.EntryOrBuilder>(
                     entries_,
-                    ((bitField0_ & 0x00000001) == 0x00000001),
+                    ((bitField0_ & 0x00000001) != 0),
                     getParentForChildren(),
                     isClean());
             entries_ = null;
@@ -2329,7 +2446,9 @@ public final class MessageOuterClass {
          * </pre>
          *
          * <code>bool full = 2;</code>
+         * @return The full.
          */
+        @java.lang.Override
         public boolean getFull() {
           return full_;
         }
@@ -2339,6 +2458,8 @@ public final class MessageOuterClass {
          * </pre>
          *
          * <code>bool full = 2;</code>
+         * @param value The full to set.
+         * @return This builder for chaining.
          */
         public Builder setFull(boolean value) {
           
@@ -2352,6 +2473,7 @@ public final class MessageOuterClass {
          * </pre>
          *
          * <code>bool full = 2;</code>
+         * @return This builder for chaining.
          */
         public Builder clearFull() {
           
@@ -2362,7 +2484,7 @@ public final class MessageOuterClass {
         @java.lang.Override
         public final Builder setUnknownFields(
             final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.setUnknownFieldsProto3(unknownFields);
+          return super.setUnknownFields(unknownFields);
         }
 
         @java.lang.Override
@@ -2372,16 +2494,16 @@ public final class MessageOuterClass {
         }
 
 
-        // @@protoc_insertion_point(builder_scope:bitswap.message.pb.Message.Wantlist)
+        // @@protoc_insertion_point(builder_scope:org.peergos.protocol.bitswap.pb.Message.Wantlist)
       }
 
-      // @@protoc_insertion_point(class_scope:bitswap.message.pb.Message.Wantlist)
-      private static final MessageOuterClass.Message.Wantlist DEFAULT_INSTANCE;
+      // @@protoc_insertion_point(class_scope:org.peergos.protocol.bitswap.pb.Message.Wantlist)
+      private static final org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist DEFAULT_INSTANCE;
       static {
-        DEFAULT_INSTANCE = new MessageOuterClass.Message.Wantlist();
+        DEFAULT_INSTANCE = new org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist();
       }
 
-      public static MessageOuterClass.Message.Wantlist getDefaultInstance() {
+      public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist getDefaultInstance() {
         return DEFAULT_INSTANCE;
       }
 
@@ -2406,14 +2528,14 @@ public final class MessageOuterClass {
       }
 
       @java.lang.Override
-      public MessageOuterClass.Message.Wantlist getDefaultInstanceForType() {
+      public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist getDefaultInstanceForType() {
         return DEFAULT_INSTANCE;
       }
 
     }
 
     public interface BlockOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:bitswap.message.pb.Message.Block)
+        // @@protoc_insertion_point(interface_extends:org.peergos.protocol.bitswap.pb.Message.Block)
         com.google.protobuf.MessageOrBuilder {
 
       /**
@@ -2422,25 +2544,28 @@ public final class MessageOuterClass {
        * </pre>
        *
        * <code>bytes prefix = 1;</code>
+       * @return The prefix.
        */
       com.google.protobuf.ByteString getPrefix();
 
       /**
        * <code>bytes data = 2;</code>
+       * @return The data.
        */
       com.google.protobuf.ByteString getData();
 
       /**
        * <code>bytes auth = 3;</code>
+       * @return The auth.
        */
       com.google.protobuf.ByteString getAuth();
     }
     /**
-     * Protobuf type {@code bitswap.message.pb.Message.Block}
+     * Protobuf type {@code org.peergos.protocol.bitswap.pb.Message.Block}
      */
-    public  static final class Block extends
+    public static final class Block extends
         com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:bitswap.message.pb.Message.Block)
+        // @@protoc_insertion_point(message_implements:org.peergos.protocol.bitswap.pb.Message.Block)
         BlockOrBuilder {
     private static final long serialVersionUID = 0L;
       // Use Block.newBuilder() to construct.
@@ -2451,6 +2576,13 @@ public final class MessageOuterClass {
         prefix_ = com.google.protobuf.ByteString.EMPTY;
         data_ = com.google.protobuf.ByteString.EMPTY;
         auth_ = com.google.protobuf.ByteString.EMPTY;
+      }
+
+      @java.lang.Override
+      @SuppressWarnings({"unused"})
+      protected java.lang.Object newInstance(
+          UnusedPrivateParameter unused) {
+        return new Block();
       }
 
       @java.lang.Override
@@ -2466,7 +2598,6 @@ public final class MessageOuterClass {
         if (extensionRegistry == null) {
           throw new java.lang.NullPointerException();
         }
-        int mutable_bitField0_ = 0;
         com.google.protobuf.UnknownFieldSet.Builder unknownFields =
             com.google.protobuf.UnknownFieldSet.newBuilder();
         try {
@@ -2493,7 +2624,7 @@ public final class MessageOuterClass {
                 break;
               }
               default: {
-                if (!parseUnknownFieldProto3(
+                if (!parseUnknownField(
                     input, unknownFields, extensionRegistry, tag)) {
                   done = true;
                 }
@@ -2513,15 +2644,15 @@ public final class MessageOuterClass {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return MessageOuterClass.internal_static_bitswap_message_pb_Message_Block_descriptor;
+        return org.peergos.protocol.bitswap.pb.MessageOuterClass.internal_static_bitswap_message_pb_Message_Block_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return MessageOuterClass.internal_static_bitswap_message_pb_Message_Block_fieldAccessorTable
+        return org.peergos.protocol.bitswap.pb.MessageOuterClass.internal_static_bitswap_message_pb_Message_Block_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                MessageOuterClass.Message.Block.class, MessageOuterClass.Message.Block.Builder.class);
+                org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block.class, org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block.Builder.class);
       }
 
       public static final int PREFIX_FIELD_NUMBER = 1;
@@ -2532,7 +2663,9 @@ public final class MessageOuterClass {
        * </pre>
        *
        * <code>bytes prefix = 1;</code>
+       * @return The prefix.
        */
+      @java.lang.Override
       public com.google.protobuf.ByteString getPrefix() {
         return prefix_;
       }
@@ -2541,7 +2674,9 @@ public final class MessageOuterClass {
       private com.google.protobuf.ByteString data_;
       /**
        * <code>bytes data = 2;</code>
+       * @return The data.
        */
+      @java.lang.Override
       public com.google.protobuf.ByteString getData() {
         return data_;
       }
@@ -2550,7 +2685,9 @@ public final class MessageOuterClass {
       private com.google.protobuf.ByteString auth_;
       /**
        * <code>bytes auth = 3;</code>
+       * @return The auth.
        */
+      @java.lang.Override
       public com.google.protobuf.ByteString getAuth() {
         return auth_;
       }
@@ -2609,20 +2746,19 @@ public final class MessageOuterClass {
         if (obj == this) {
          return true;
         }
-        if (!(obj instanceof MessageOuterClass.Message.Block)) {
+        if (!(obj instanceof org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block)) {
           return super.equals(obj);
         }
-        MessageOuterClass.Message.Block other = (MessageOuterClass.Message.Block) obj;
+        org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block other = (org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block) obj;
 
-        boolean result = true;
-        result = result && getPrefix()
-            .equals(other.getPrefix());
-        result = result && getData()
-            .equals(other.getData());
-        result = result && getAuth()
-            .equals(other.getAuth());
-        result = result && unknownFields.equals(other.unknownFields);
-        return result;
+        if (!getPrefix()
+            .equals(other.getPrefix())) return false;
+        if (!getData()
+            .equals(other.getData())) return false;
+        if (!getAuth()
+            .equals(other.getAuth())) return false;
+        if (!unknownFields.equals(other.unknownFields)) return false;
+        return true;
       }
 
       @java.lang.Override
@@ -2643,69 +2779,69 @@ public final class MessageOuterClass {
         return hash;
       }
 
-      public static MessageOuterClass.Message.Block parseFrom(
+      public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block parseFrom(
           java.nio.ByteBuffer data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static MessageOuterClass.Message.Block parseFrom(
+      public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block parseFrom(
           java.nio.ByteBuffer data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static MessageOuterClass.Message.Block parseFrom(
+      public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static MessageOuterClass.Message.Block parseFrom(
+      public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block parseFrom(
           com.google.protobuf.ByteString data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static MessageOuterClass.Message.Block parseFrom(byte[] data)
+      public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block parseFrom(byte[] data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static MessageOuterClass.Message.Block parseFrom(
+      public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block parseFrom(
           byte[] data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static MessageOuterClass.Message.Block parseFrom(java.io.InputStream input)
+      public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block parseFrom(java.io.InputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input);
       }
-      public static MessageOuterClass.Message.Block parseFrom(
+      public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block parseFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input, extensionRegistry);
       }
-      public static MessageOuterClass.Message.Block parseDelimitedFrom(java.io.InputStream input)
+      public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block parseDelimitedFrom(java.io.InputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseDelimitedWithIOException(PARSER, input);
       }
-      public static MessageOuterClass.Message.Block parseDelimitedFrom(
+      public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block parseDelimitedFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
       }
-      public static MessageOuterClass.Message.Block parseFrom(
+      public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block parseFrom(
           com.google.protobuf.CodedInputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input);
       }
-      public static MessageOuterClass.Message.Block parseFrom(
+      public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block parseFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
@@ -2718,7 +2854,7 @@ public final class MessageOuterClass {
       public static Builder newBuilder() {
         return DEFAULT_INSTANCE.toBuilder();
       }
-      public static Builder newBuilder(MessageOuterClass.Message.Block prototype) {
+      public static Builder newBuilder(org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block prototype) {
         return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
       }
       @java.lang.Override
@@ -2734,26 +2870,26 @@ public final class MessageOuterClass {
         return builder;
       }
       /**
-       * Protobuf type {@code bitswap.message.pb.Message.Block}
+       * Protobuf type {@code org.peergos.protocol.bitswap.pb.Message.Block}
        */
       public static final class Builder extends
           com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-          // @@protoc_insertion_point(builder_implements:bitswap.message.pb.Message.Block)
-          MessageOuterClass.Message.BlockOrBuilder {
+          // @@protoc_insertion_point(builder_implements:org.peergos.protocol.bitswap.pb.Message.Block)
+          org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return MessageOuterClass.internal_static_bitswap_message_pb_Message_Block_descriptor;
+          return org.peergos.protocol.bitswap.pb.MessageOuterClass.internal_static_bitswap_message_pb_Message_Block_descriptor;
         }
 
         @java.lang.Override
         protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return MessageOuterClass.internal_static_bitswap_message_pb_Message_Block_fieldAccessorTable
+          return org.peergos.protocol.bitswap.pb.MessageOuterClass.internal_static_bitswap_message_pb_Message_Block_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
-                  MessageOuterClass.Message.Block.class, MessageOuterClass.Message.Block.Builder.class);
+                  org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block.class, org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block.Builder.class);
         }
 
-        // Construct using bitswap.message.pb.MessageOuterClass.Message.Block.newBuilder()
+        // Construct using org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block.newBuilder()
         private Builder() {
           maybeForceBuilderInitialization();
         }
@@ -2783,17 +2919,17 @@ public final class MessageOuterClass {
         @java.lang.Override
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return MessageOuterClass.internal_static_bitswap_message_pb_Message_Block_descriptor;
+          return org.peergos.protocol.bitswap.pb.MessageOuterClass.internal_static_bitswap_message_pb_Message_Block_descriptor;
         }
 
         @java.lang.Override
-        public MessageOuterClass.Message.Block getDefaultInstanceForType() {
-          return MessageOuterClass.Message.Block.getDefaultInstance();
+        public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block getDefaultInstanceForType() {
+          return org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block.getDefaultInstance();
         }
 
         @java.lang.Override
-        public MessageOuterClass.Message.Block build() {
-          MessageOuterClass.Message.Block result = buildPartial();
+        public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block build() {
+          org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block result = buildPartial();
           if (!result.isInitialized()) {
             throw newUninitializedMessageException(result);
           }
@@ -2801,8 +2937,8 @@ public final class MessageOuterClass {
         }
 
         @java.lang.Override
-        public MessageOuterClass.Message.Block buildPartial() {
-          MessageOuterClass.Message.Block result = new MessageOuterClass.Message.Block(this);
+        public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block buildPartial() {
+          org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block result = new org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block(this);
           result.prefix_ = prefix_;
           result.data_ = data_;
           result.auth_ = auth_;
@@ -2812,48 +2948,48 @@ public final class MessageOuterClass {
 
         @java.lang.Override
         public Builder clone() {
-          return (Builder) super.clone();
+          return super.clone();
         }
         @java.lang.Override
         public Builder setField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
             java.lang.Object value) {
-          return (Builder) super.setField(field, value);
+          return super.setField(field, value);
         }
         @java.lang.Override
         public Builder clearField(
             com.google.protobuf.Descriptors.FieldDescriptor field) {
-          return (Builder) super.clearField(field);
+          return super.clearField(field);
         }
         @java.lang.Override
         public Builder clearOneof(
             com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-          return (Builder) super.clearOneof(oneof);
+          return super.clearOneof(oneof);
         }
         @java.lang.Override
         public Builder setRepeatedField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
             int index, java.lang.Object value) {
-          return (Builder) super.setRepeatedField(field, index, value);
+          return super.setRepeatedField(field, index, value);
         }
         @java.lang.Override
         public Builder addRepeatedField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
             java.lang.Object value) {
-          return (Builder) super.addRepeatedField(field, value);
+          return super.addRepeatedField(field, value);
         }
         @java.lang.Override
         public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof MessageOuterClass.Message.Block) {
-            return mergeFrom((MessageOuterClass.Message.Block)other);
+          if (other instanceof org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block) {
+            return mergeFrom((org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block)other);
           } else {
             super.mergeFrom(other);
             return this;
           }
         }
 
-        public Builder mergeFrom(MessageOuterClass.Message.Block other) {
-          if (other == MessageOuterClass.Message.Block.getDefaultInstance()) return this;
+        public Builder mergeFrom(org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block other) {
+          if (other == org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block.getDefaultInstance()) return this;
           if (other.getPrefix() != com.google.protobuf.ByteString.EMPTY) {
             setPrefix(other.getPrefix());
           }
@@ -2878,11 +3014,11 @@ public final class MessageOuterClass {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          MessageOuterClass.Message.Block parsedMessage = null;
+          org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block parsedMessage = null;
           try {
             parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (MessageOuterClass.Message.Block) e.getUnfinishedMessage();
+            parsedMessage = (org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
             if (parsedMessage != null) {
@@ -2899,7 +3035,9 @@ public final class MessageOuterClass {
          * </pre>
          *
          * <code>bytes prefix = 1;</code>
+         * @return The prefix.
          */
+        @java.lang.Override
         public com.google.protobuf.ByteString getPrefix() {
           return prefix_;
         }
@@ -2909,6 +3047,8 @@ public final class MessageOuterClass {
          * </pre>
          *
          * <code>bytes prefix = 1;</code>
+         * @param value The prefix to set.
+         * @return This builder for chaining.
          */
         public Builder setPrefix(com.google.protobuf.ByteString value) {
           if (value == null) {
@@ -2925,6 +3065,7 @@ public final class MessageOuterClass {
          * </pre>
          *
          * <code>bytes prefix = 1;</code>
+         * @return This builder for chaining.
          */
         public Builder clearPrefix() {
           
@@ -2936,12 +3077,16 @@ public final class MessageOuterClass {
         private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
         /**
          * <code>bytes data = 2;</code>
+         * @return The data.
          */
+        @java.lang.Override
         public com.google.protobuf.ByteString getData() {
           return data_;
         }
         /**
          * <code>bytes data = 2;</code>
+         * @param value The data to set.
+         * @return This builder for chaining.
          */
         public Builder setData(com.google.protobuf.ByteString value) {
           if (value == null) {
@@ -2954,6 +3099,7 @@ public final class MessageOuterClass {
         }
         /**
          * <code>bytes data = 2;</code>
+         * @return This builder for chaining.
          */
         public Builder clearData() {
           
@@ -2965,12 +3111,16 @@ public final class MessageOuterClass {
         private com.google.protobuf.ByteString auth_ = com.google.protobuf.ByteString.EMPTY;
         /**
          * <code>bytes auth = 3;</code>
+         * @return The auth.
          */
+        @java.lang.Override
         public com.google.protobuf.ByteString getAuth() {
           return auth_;
         }
         /**
          * <code>bytes auth = 3;</code>
+         * @param value The auth to set.
+         * @return This builder for chaining.
          */
         public Builder setAuth(com.google.protobuf.ByteString value) {
           if (value == null) {
@@ -2983,6 +3133,7 @@ public final class MessageOuterClass {
         }
         /**
          * <code>bytes auth = 3;</code>
+         * @return This builder for chaining.
          */
         public Builder clearAuth() {
           
@@ -2993,7 +3144,7 @@ public final class MessageOuterClass {
         @java.lang.Override
         public final Builder setUnknownFields(
             final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.setUnknownFieldsProto3(unknownFields);
+          return super.setUnknownFields(unknownFields);
         }
 
         @java.lang.Override
@@ -3003,16 +3154,16 @@ public final class MessageOuterClass {
         }
 
 
-        // @@protoc_insertion_point(builder_scope:bitswap.message.pb.Message.Block)
+        // @@protoc_insertion_point(builder_scope:org.peergos.protocol.bitswap.pb.Message.Block)
       }
 
-      // @@protoc_insertion_point(class_scope:bitswap.message.pb.Message.Block)
-      private static final MessageOuterClass.Message.Block DEFAULT_INSTANCE;
+      // @@protoc_insertion_point(class_scope:org.peergos.protocol.bitswap.pb.Message.Block)
+      private static final org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block DEFAULT_INSTANCE;
       static {
-        DEFAULT_INSTANCE = new MessageOuterClass.Message.Block();
+        DEFAULT_INSTANCE = new org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block();
       }
 
-      public static MessageOuterClass.Message.Block getDefaultInstance() {
+      public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block getDefaultInstance() {
         return DEFAULT_INSTANCE;
       }
 
@@ -3037,14 +3188,14 @@ public final class MessageOuterClass {
       }
 
       @java.lang.Override
-      public MessageOuterClass.Message.Block getDefaultInstanceForType() {
+      public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block getDefaultInstanceForType() {
         return DEFAULT_INSTANCE;
       }
 
     }
 
     public interface BlockPresenceOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:bitswap.message.pb.Message.BlockPresence)
+        // @@protoc_insertion_point(interface_extends:org.peergos.protocol.bitswap.pb.Message.BlockPresence)
         com.google.protobuf.MessageOrBuilder {
 
       /**
@@ -3053,29 +3204,33 @@ public final class MessageOuterClass {
        * </pre>
        *
        * <code>bytes cid = 1;</code>
+       * @return The cid.
        */
       com.google.protobuf.ByteString getCid();
 
       /**
-       * <code>.bitswap.message.pb.Message.BlockPresenceType type = 2;</code>
+       * <code>.org.peergos.protocol.bitswap.pb.Message.BlockPresenceType type = 2;</code>
+       * @return The enum numeric value on the wire for type.
        */
       int getTypeValue();
       /**
-       * <code>.bitswap.message.pb.Message.BlockPresenceType type = 2;</code>
+       * <code>.org.peergos.protocol.bitswap.pb.Message.BlockPresenceType type = 2;</code>
+       * @return The type.
        */
-      MessageOuterClass.Message.BlockPresenceType getType();
+      org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresenceType getType();
 
       /**
        * <code>bytes auth = 3;</code>
+       * @return The auth.
        */
       com.google.protobuf.ByteString getAuth();
     }
     /**
-     * Protobuf type {@code bitswap.message.pb.Message.BlockPresence}
+     * Protobuf type {@code org.peergos.protocol.bitswap.pb.Message.BlockPresence}
      */
-    public  static final class BlockPresence extends
+    public static final class BlockPresence extends
         com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:bitswap.message.pb.Message.BlockPresence)
+        // @@protoc_insertion_point(message_implements:org.peergos.protocol.bitswap.pb.Message.BlockPresence)
         BlockPresenceOrBuilder {
     private static final long serialVersionUID = 0L;
       // Use BlockPresence.newBuilder() to construct.
@@ -3086,6 +3241,13 @@ public final class MessageOuterClass {
         cid_ = com.google.protobuf.ByteString.EMPTY;
         type_ = 0;
         auth_ = com.google.protobuf.ByteString.EMPTY;
+      }
+
+      @java.lang.Override
+      @SuppressWarnings({"unused"})
+      protected java.lang.Object newInstance(
+          UnusedPrivateParameter unused) {
+        return new BlockPresence();
       }
 
       @java.lang.Override
@@ -3101,7 +3263,6 @@ public final class MessageOuterClass {
         if (extensionRegistry == null) {
           throw new java.lang.NullPointerException();
         }
-        int mutable_bitField0_ = 0;
         com.google.protobuf.UnknownFieldSet.Builder unknownFields =
             com.google.protobuf.UnknownFieldSet.newBuilder();
         try {
@@ -3129,7 +3290,7 @@ public final class MessageOuterClass {
                 break;
               }
               default: {
-                if (!parseUnknownFieldProto3(
+                if (!parseUnknownField(
                     input, unknownFields, extensionRegistry, tag)) {
                   done = true;
                 }
@@ -3149,15 +3310,15 @@ public final class MessageOuterClass {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return MessageOuterClass.internal_static_bitswap_message_pb_Message_BlockPresence_descriptor;
+        return org.peergos.protocol.bitswap.pb.MessageOuterClass.internal_static_bitswap_message_pb_Message_BlockPresence_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return MessageOuterClass.internal_static_bitswap_message_pb_Message_BlockPresence_fieldAccessorTable
+        return org.peergos.protocol.bitswap.pb.MessageOuterClass.internal_static_bitswap_message_pb_Message_BlockPresence_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                MessageOuterClass.Message.BlockPresence.class, MessageOuterClass.Message.BlockPresence.Builder.class);
+                org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence.class, org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence.Builder.class);
       }
 
       public static final int CID_FIELD_NUMBER = 1;
@@ -3168,7 +3329,9 @@ public final class MessageOuterClass {
        * </pre>
        *
        * <code>bytes cid = 1;</code>
+       * @return The cid.
        */
+      @java.lang.Override
       public com.google.protobuf.ByteString getCid() {
         return cid_;
       }
@@ -3176,25 +3339,29 @@ public final class MessageOuterClass {
       public static final int TYPE_FIELD_NUMBER = 2;
       private int type_;
       /**
-       * <code>.bitswap.message.pb.Message.BlockPresenceType type = 2;</code>
+       * <code>.org.peergos.protocol.bitswap.pb.Message.BlockPresenceType type = 2;</code>
+       * @return The enum numeric value on the wire for type.
        */
-      public int getTypeValue() {
+      @java.lang.Override public int getTypeValue() {
         return type_;
       }
       /**
-       * <code>.bitswap.message.pb.Message.BlockPresenceType type = 2;</code>
+       * <code>.org.peergos.protocol.bitswap.pb.Message.BlockPresenceType type = 2;</code>
+       * @return The type.
        */
-      public MessageOuterClass.Message.BlockPresenceType getType() {
+      @java.lang.Override public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresenceType getType() {
         @SuppressWarnings("deprecation")
-        MessageOuterClass.Message.BlockPresenceType result = MessageOuterClass.Message.BlockPresenceType.valueOf(type_);
-        return result == null ? MessageOuterClass.Message.BlockPresenceType.UNRECOGNIZED : result;
+        org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresenceType result = org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresenceType.valueOf(type_);
+        return result == null ? org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresenceType.UNRECOGNIZED : result;
       }
 
       public static final int AUTH_FIELD_NUMBER = 3;
       private com.google.protobuf.ByteString auth_;
       /**
        * <code>bytes auth = 3;</code>
+       * @return The auth.
        */
+      @java.lang.Override
       public com.google.protobuf.ByteString getAuth() {
         return auth_;
       }
@@ -3216,7 +3383,7 @@ public final class MessageOuterClass {
         if (!cid_.isEmpty()) {
           output.writeBytes(1, cid_);
         }
-        if (type_ != MessageOuterClass.Message.BlockPresenceType.Have.getNumber()) {
+        if (type_ != org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresenceType.Have.getNumber()) {
           output.writeEnum(2, type_);
         }
         if (!auth_.isEmpty()) {
@@ -3235,7 +3402,7 @@ public final class MessageOuterClass {
           size += com.google.protobuf.CodedOutputStream
             .computeBytesSize(1, cid_);
         }
-        if (type_ != MessageOuterClass.Message.BlockPresenceType.Have.getNumber()) {
+        if (type_ != org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresenceType.Have.getNumber()) {
           size += com.google.protobuf.CodedOutputStream
             .computeEnumSize(2, type_);
         }
@@ -3253,19 +3420,18 @@ public final class MessageOuterClass {
         if (obj == this) {
          return true;
         }
-        if (!(obj instanceof MessageOuterClass.Message.BlockPresence)) {
+        if (!(obj instanceof org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence)) {
           return super.equals(obj);
         }
-        MessageOuterClass.Message.BlockPresence other = (MessageOuterClass.Message.BlockPresence) obj;
+        org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence other = (org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence) obj;
 
-        boolean result = true;
-        result = result && getCid()
-            .equals(other.getCid());
-        result = result && type_ == other.type_;
-        result = result && getAuth()
-            .equals(other.getAuth());
-        result = result && unknownFields.equals(other.unknownFields);
-        return result;
+        if (!getCid()
+            .equals(other.getCid())) return false;
+        if (type_ != other.type_) return false;
+        if (!getAuth()
+            .equals(other.getAuth())) return false;
+        if (!unknownFields.equals(other.unknownFields)) return false;
+        return true;
       }
 
       @java.lang.Override
@@ -3286,69 +3452,69 @@ public final class MessageOuterClass {
         return hash;
       }
 
-      public static MessageOuterClass.Message.BlockPresence parseFrom(
+      public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence parseFrom(
           java.nio.ByteBuffer data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static MessageOuterClass.Message.BlockPresence parseFrom(
+      public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence parseFrom(
           java.nio.ByteBuffer data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static MessageOuterClass.Message.BlockPresence parseFrom(
+      public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static MessageOuterClass.Message.BlockPresence parseFrom(
+      public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence parseFrom(
           com.google.protobuf.ByteString data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static MessageOuterClass.Message.BlockPresence parseFrom(byte[] data)
+      public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence parseFrom(byte[] data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static MessageOuterClass.Message.BlockPresence parseFrom(
+      public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence parseFrom(
           byte[] data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static MessageOuterClass.Message.BlockPresence parseFrom(java.io.InputStream input)
+      public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence parseFrom(java.io.InputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input);
       }
-      public static MessageOuterClass.Message.BlockPresence parseFrom(
+      public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence parseFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input, extensionRegistry);
       }
-      public static MessageOuterClass.Message.BlockPresence parseDelimitedFrom(java.io.InputStream input)
+      public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence parseDelimitedFrom(java.io.InputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseDelimitedWithIOException(PARSER, input);
       }
-      public static MessageOuterClass.Message.BlockPresence parseDelimitedFrom(
+      public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence parseDelimitedFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
       }
-      public static MessageOuterClass.Message.BlockPresence parseFrom(
+      public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence parseFrom(
           com.google.protobuf.CodedInputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input);
       }
-      public static MessageOuterClass.Message.BlockPresence parseFrom(
+      public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence parseFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
@@ -3361,7 +3527,7 @@ public final class MessageOuterClass {
       public static Builder newBuilder() {
         return DEFAULT_INSTANCE.toBuilder();
       }
-      public static Builder newBuilder(MessageOuterClass.Message.BlockPresence prototype) {
+      public static Builder newBuilder(org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence prototype) {
         return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
       }
       @java.lang.Override
@@ -3377,26 +3543,26 @@ public final class MessageOuterClass {
         return builder;
       }
       /**
-       * Protobuf type {@code bitswap.message.pb.Message.BlockPresence}
+       * Protobuf type {@code org.peergos.protocol.bitswap.pb.Message.BlockPresence}
        */
       public static final class Builder extends
           com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-          // @@protoc_insertion_point(builder_implements:bitswap.message.pb.Message.BlockPresence)
-          MessageOuterClass.Message.BlockPresenceOrBuilder {
+          // @@protoc_insertion_point(builder_implements:org.peergos.protocol.bitswap.pb.Message.BlockPresence)
+          org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresenceOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return MessageOuterClass.internal_static_bitswap_message_pb_Message_BlockPresence_descriptor;
+          return org.peergos.protocol.bitswap.pb.MessageOuterClass.internal_static_bitswap_message_pb_Message_BlockPresence_descriptor;
         }
 
         @java.lang.Override
         protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return MessageOuterClass.internal_static_bitswap_message_pb_Message_BlockPresence_fieldAccessorTable
+          return org.peergos.protocol.bitswap.pb.MessageOuterClass.internal_static_bitswap_message_pb_Message_BlockPresence_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
-                  MessageOuterClass.Message.BlockPresence.class, MessageOuterClass.Message.BlockPresence.Builder.class);
+                  org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence.class, org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence.Builder.class);
         }
 
-        // Construct using bitswap.message.pb.MessageOuterClass.Message.BlockPresence.newBuilder()
+        // Construct using org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence.newBuilder()
         private Builder() {
           maybeForceBuilderInitialization();
         }
@@ -3426,17 +3592,17 @@ public final class MessageOuterClass {
         @java.lang.Override
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return MessageOuterClass.internal_static_bitswap_message_pb_Message_BlockPresence_descriptor;
+          return org.peergos.protocol.bitswap.pb.MessageOuterClass.internal_static_bitswap_message_pb_Message_BlockPresence_descriptor;
         }
 
         @java.lang.Override
-        public MessageOuterClass.Message.BlockPresence getDefaultInstanceForType() {
-          return MessageOuterClass.Message.BlockPresence.getDefaultInstance();
+        public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence getDefaultInstanceForType() {
+          return org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence.getDefaultInstance();
         }
 
         @java.lang.Override
-        public MessageOuterClass.Message.BlockPresence build() {
-          MessageOuterClass.Message.BlockPresence result = buildPartial();
+        public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence build() {
+          org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence result = buildPartial();
           if (!result.isInitialized()) {
             throw newUninitializedMessageException(result);
           }
@@ -3444,8 +3610,8 @@ public final class MessageOuterClass {
         }
 
         @java.lang.Override
-        public MessageOuterClass.Message.BlockPresence buildPartial() {
-          MessageOuterClass.Message.BlockPresence result = new MessageOuterClass.Message.BlockPresence(this);
+        public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence buildPartial() {
+          org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence result = new org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence(this);
           result.cid_ = cid_;
           result.type_ = type_;
           result.auth_ = auth_;
@@ -3455,48 +3621,48 @@ public final class MessageOuterClass {
 
         @java.lang.Override
         public Builder clone() {
-          return (Builder) super.clone();
+          return super.clone();
         }
         @java.lang.Override
         public Builder setField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
             java.lang.Object value) {
-          return (Builder) super.setField(field, value);
+          return super.setField(field, value);
         }
         @java.lang.Override
         public Builder clearField(
             com.google.protobuf.Descriptors.FieldDescriptor field) {
-          return (Builder) super.clearField(field);
+          return super.clearField(field);
         }
         @java.lang.Override
         public Builder clearOneof(
             com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-          return (Builder) super.clearOneof(oneof);
+          return super.clearOneof(oneof);
         }
         @java.lang.Override
         public Builder setRepeatedField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
             int index, java.lang.Object value) {
-          return (Builder) super.setRepeatedField(field, index, value);
+          return super.setRepeatedField(field, index, value);
         }
         @java.lang.Override
         public Builder addRepeatedField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
             java.lang.Object value) {
-          return (Builder) super.addRepeatedField(field, value);
+          return super.addRepeatedField(field, value);
         }
         @java.lang.Override
         public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof MessageOuterClass.Message.BlockPresence) {
-            return mergeFrom((MessageOuterClass.Message.BlockPresence)other);
+          if (other instanceof org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence) {
+            return mergeFrom((org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence)other);
           } else {
             super.mergeFrom(other);
             return this;
           }
         }
 
-        public Builder mergeFrom(MessageOuterClass.Message.BlockPresence other) {
-          if (other == MessageOuterClass.Message.BlockPresence.getDefaultInstance()) return this;
+        public Builder mergeFrom(org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence other) {
+          if (other == org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence.getDefaultInstance()) return this;
           if (other.getCid() != com.google.protobuf.ByteString.EMPTY) {
             setCid(other.getCid());
           }
@@ -3521,11 +3687,11 @@ public final class MessageOuterClass {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          MessageOuterClass.Message.BlockPresence parsedMessage = null;
+          org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence parsedMessage = null;
           try {
             parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (MessageOuterClass.Message.BlockPresence) e.getUnfinishedMessage();
+            parsedMessage = (org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
             if (parsedMessage != null) {
@@ -3542,7 +3708,9 @@ public final class MessageOuterClass {
          * </pre>
          *
          * <code>bytes cid = 1;</code>
+         * @return The cid.
          */
+        @java.lang.Override
         public com.google.protobuf.ByteString getCid() {
           return cid_;
         }
@@ -3552,6 +3720,8 @@ public final class MessageOuterClass {
          * </pre>
          *
          * <code>bytes cid = 1;</code>
+         * @param value The cid to set.
+         * @return This builder for chaining.
          */
         public Builder setCid(com.google.protobuf.ByteString value) {
           if (value == null) {
@@ -3568,6 +3738,7 @@ public final class MessageOuterClass {
          * </pre>
          *
          * <code>bytes cid = 1;</code>
+         * @return This builder for chaining.
          */
         public Builder clearCid() {
           
@@ -3578,31 +3749,39 @@ public final class MessageOuterClass {
 
         private int type_ = 0;
         /**
-         * <code>.bitswap.message.pb.Message.BlockPresenceType type = 2;</code>
+         * <code>.org.peergos.protocol.bitswap.pb.Message.BlockPresenceType type = 2;</code>
+         * @return The enum numeric value on the wire for type.
          */
-        public int getTypeValue() {
+        @java.lang.Override public int getTypeValue() {
           return type_;
         }
         /**
-         * <code>.bitswap.message.pb.Message.BlockPresenceType type = 2;</code>
+         * <code>.org.peergos.protocol.bitswap.pb.Message.BlockPresenceType type = 2;</code>
+         * @param value The enum numeric value on the wire for type to set.
+         * @return This builder for chaining.
          */
         public Builder setTypeValue(int value) {
+          
           type_ = value;
           onChanged();
           return this;
         }
         /**
-         * <code>.bitswap.message.pb.Message.BlockPresenceType type = 2;</code>
+         * <code>.org.peergos.protocol.bitswap.pb.Message.BlockPresenceType type = 2;</code>
+         * @return The type.
          */
-        public MessageOuterClass.Message.BlockPresenceType getType() {
+        @java.lang.Override
+        public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresenceType getType() {
           @SuppressWarnings("deprecation")
-          MessageOuterClass.Message.BlockPresenceType result = MessageOuterClass.Message.BlockPresenceType.valueOf(type_);
-          return result == null ? MessageOuterClass.Message.BlockPresenceType.UNRECOGNIZED : result;
+          org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresenceType result = org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresenceType.valueOf(type_);
+          return result == null ? org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresenceType.UNRECOGNIZED : result;
         }
         /**
-         * <code>.bitswap.message.pb.Message.BlockPresenceType type = 2;</code>
+         * <code>.org.peergos.protocol.bitswap.pb.Message.BlockPresenceType type = 2;</code>
+         * @param value The type to set.
+         * @return This builder for chaining.
          */
-        public Builder setType(MessageOuterClass.Message.BlockPresenceType value) {
+        public Builder setType(org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresenceType value) {
           if (value == null) {
             throw new NullPointerException();
           }
@@ -3612,7 +3791,8 @@ public final class MessageOuterClass {
           return this;
         }
         /**
-         * <code>.bitswap.message.pb.Message.BlockPresenceType type = 2;</code>
+         * <code>.org.peergos.protocol.bitswap.pb.Message.BlockPresenceType type = 2;</code>
+         * @return This builder for chaining.
          */
         public Builder clearType() {
           
@@ -3624,12 +3804,16 @@ public final class MessageOuterClass {
         private com.google.protobuf.ByteString auth_ = com.google.protobuf.ByteString.EMPTY;
         /**
          * <code>bytes auth = 3;</code>
+         * @return The auth.
          */
+        @java.lang.Override
         public com.google.protobuf.ByteString getAuth() {
           return auth_;
         }
         /**
          * <code>bytes auth = 3;</code>
+         * @param value The auth to set.
+         * @return This builder for chaining.
          */
         public Builder setAuth(com.google.protobuf.ByteString value) {
           if (value == null) {
@@ -3642,6 +3826,7 @@ public final class MessageOuterClass {
         }
         /**
          * <code>bytes auth = 3;</code>
+         * @return This builder for chaining.
          */
         public Builder clearAuth() {
           
@@ -3652,7 +3837,7 @@ public final class MessageOuterClass {
         @java.lang.Override
         public final Builder setUnknownFields(
             final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.setUnknownFieldsProto3(unknownFields);
+          return super.setUnknownFields(unknownFields);
         }
 
         @java.lang.Override
@@ -3662,16 +3847,16 @@ public final class MessageOuterClass {
         }
 
 
-        // @@protoc_insertion_point(builder_scope:bitswap.message.pb.Message.BlockPresence)
+        // @@protoc_insertion_point(builder_scope:org.peergos.protocol.bitswap.pb.Message.BlockPresence)
       }
 
-      // @@protoc_insertion_point(class_scope:bitswap.message.pb.Message.BlockPresence)
-      private static final MessageOuterClass.Message.BlockPresence DEFAULT_INSTANCE;
+      // @@protoc_insertion_point(class_scope:org.peergos.protocol.bitswap.pb.Message.BlockPresence)
+      private static final org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence DEFAULT_INSTANCE;
       static {
-        DEFAULT_INSTANCE = new MessageOuterClass.Message.BlockPresence();
+        DEFAULT_INSTANCE = new org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence();
       }
 
-      public static MessageOuterClass.Message.BlockPresence getDefaultInstance() {
+      public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence getDefaultInstance() {
         return DEFAULT_INSTANCE;
       }
 
@@ -3696,22 +3881,23 @@ public final class MessageOuterClass {
       }
 
       @java.lang.Override
-      public MessageOuterClass.Message.BlockPresence getDefaultInstanceForType() {
+      public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence getDefaultInstanceForType() {
         return DEFAULT_INSTANCE;
       }
 
     }
 
-    private int bitField0_;
     public static final int WANTLIST_FIELD_NUMBER = 1;
-    private MessageOuterClass.Message.Wantlist wantlist_;
+    private org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist wantlist_;
     /**
      * <pre>
      *[(gogoproto.nullable) = false];
      * </pre>
      *
-     * <code>.bitswap.message.pb.Message.Wantlist wantlist = 1;</code>
+     * <code>.org.peergos.protocol.bitswap.pb.Message.Wantlist wantlist = 1;</code>
+     * @return Whether the wantlist field is set.
      */
+    @java.lang.Override
     public boolean hasWantlist() {
       return wantlist_ != null;
     }
@@ -3720,19 +3906,22 @@ public final class MessageOuterClass {
      *[(gogoproto.nullable) = false];
      * </pre>
      *
-     * <code>.bitswap.message.pb.Message.Wantlist wantlist = 1;</code>
+     * <code>.org.peergos.protocol.bitswap.pb.Message.Wantlist wantlist = 1;</code>
+     * @return The wantlist.
      */
-    public MessageOuterClass.Message.Wantlist getWantlist() {
-      return wantlist_ == null ? MessageOuterClass.Message.Wantlist.getDefaultInstance() : wantlist_;
+    @java.lang.Override
+    public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist getWantlist() {
+      return wantlist_ == null ? org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.getDefaultInstance() : wantlist_;
     }
     /**
      * <pre>
      *[(gogoproto.nullable) = false];
      * </pre>
      *
-     * <code>.bitswap.message.pb.Message.Wantlist wantlist = 1;</code>
+     * <code>.org.peergos.protocol.bitswap.pb.Message.Wantlist wantlist = 1;</code>
      */
-    public MessageOuterClass.Message.WantlistOrBuilder getWantlistOrBuilder() {
+    @java.lang.Override
+    public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.WantlistOrBuilder getWantlistOrBuilder() {
       return getWantlist();
     }
 
@@ -3744,7 +3933,9 @@ public final class MessageOuterClass {
      * </pre>
      *
      * <code>repeated bytes blocks = 2;</code>
+     * @return A list containing the blocks.
      */
+    @java.lang.Override
     public java.util.List<com.google.protobuf.ByteString>
         getBlocksList() {
       return blocks_;
@@ -3755,6 +3946,7 @@ public final class MessageOuterClass {
      * </pre>
      *
      * <code>repeated bytes blocks = 2;</code>
+     * @return The count of blocks.
      */
     public int getBlocksCount() {
       return blocks_.size();
@@ -3765,21 +3957,24 @@ public final class MessageOuterClass {
      * </pre>
      *
      * <code>repeated bytes blocks = 2;</code>
+     * @param index The index of the element to return.
+     * @return The blocks at the given index.
      */
     public com.google.protobuf.ByteString getBlocks(int index) {
       return blocks_.get(index);
     }
 
     public static final int PAYLOAD_FIELD_NUMBER = 3;
-    private java.util.List<MessageOuterClass.Message.Block> payload_;
+    private java.util.List<org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block> payload_;
     /**
      * <pre>
      *[(gogoproto.nullable) = false];		// used to send Blocks in bitswap 1.1.0
      * </pre>
      *
-     * <code>repeated .bitswap.message.pb.Message.Block payload = 3;</code>
+     * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Block payload = 3;</code>
      */
-    public java.util.List<MessageOuterClass.Message.Block> getPayloadList() {
+    @java.lang.Override
+    public java.util.List<org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block> getPayloadList() {
       return payload_;
     }
     /**
@@ -3787,9 +3982,10 @@ public final class MessageOuterClass {
      *[(gogoproto.nullable) = false];		// used to send Blocks in bitswap 1.1.0
      * </pre>
      *
-     * <code>repeated .bitswap.message.pb.Message.Block payload = 3;</code>
+     * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Block payload = 3;</code>
      */
-    public java.util.List<? extends MessageOuterClass.Message.BlockOrBuilder>
+    @java.lang.Override
+    public java.util.List<? extends org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockOrBuilder> 
         getPayloadOrBuilderList() {
       return payload_;
     }
@@ -3798,8 +3994,9 @@ public final class MessageOuterClass {
      *[(gogoproto.nullable) = false];		// used to send Blocks in bitswap 1.1.0
      * </pre>
      *
-     * <code>repeated .bitswap.message.pb.Message.Block payload = 3;</code>
+     * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Block payload = 3;</code>
      */
+    @java.lang.Override
     public int getPayloadCount() {
       return payload_.size();
     }
@@ -3808,9 +4005,10 @@ public final class MessageOuterClass {
      *[(gogoproto.nullable) = false];		// used to send Blocks in bitswap 1.1.0
      * </pre>
      *
-     * <code>repeated .bitswap.message.pb.Message.Block payload = 3;</code>
+     * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Block payload = 3;</code>
      */
-    public MessageOuterClass.Message.Block getPayload(int index) {
+    @java.lang.Override
+    public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block getPayload(int index) {
       return payload_.get(index);
     }
     /**
@@ -3818,23 +4016,25 @@ public final class MessageOuterClass {
      *[(gogoproto.nullable) = false];		// used to send Blocks in bitswap 1.1.0
      * </pre>
      *
-     * <code>repeated .bitswap.message.pb.Message.Block payload = 3;</code>
+     * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Block payload = 3;</code>
      */
-    public MessageOuterClass.Message.BlockOrBuilder getPayloadOrBuilder(
+    @java.lang.Override
+    public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockOrBuilder getPayloadOrBuilder(
         int index) {
       return payload_.get(index);
     }
 
     public static final int BLOCKPRESENCES_FIELD_NUMBER = 4;
-    private java.util.List<MessageOuterClass.Message.BlockPresence> blockPresences_;
+    private java.util.List<org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence> blockPresences_;
     /**
      * <pre>
      *[(gogoproto.nullable) = false];
      * </pre>
      *
-     * <code>repeated .bitswap.message.pb.Message.BlockPresence blockPresences = 4;</code>
+     * <code>repeated .org.peergos.protocol.bitswap.pb.Message.BlockPresence blockPresences = 4;</code>
      */
-    public java.util.List<MessageOuterClass.Message.BlockPresence> getBlockPresencesList() {
+    @java.lang.Override
+    public java.util.List<org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence> getBlockPresencesList() {
       return blockPresences_;
     }
     /**
@@ -3842,9 +4042,10 @@ public final class MessageOuterClass {
      *[(gogoproto.nullable) = false];
      * </pre>
      *
-     * <code>repeated .bitswap.message.pb.Message.BlockPresence blockPresences = 4;</code>
+     * <code>repeated .org.peergos.protocol.bitswap.pb.Message.BlockPresence blockPresences = 4;</code>
      */
-    public java.util.List<? extends MessageOuterClass.Message.BlockPresenceOrBuilder>
+    @java.lang.Override
+    public java.util.List<? extends org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresenceOrBuilder> 
         getBlockPresencesOrBuilderList() {
       return blockPresences_;
     }
@@ -3853,8 +4054,9 @@ public final class MessageOuterClass {
      *[(gogoproto.nullable) = false];
      * </pre>
      *
-     * <code>repeated .bitswap.message.pb.Message.BlockPresence blockPresences = 4;</code>
+     * <code>repeated .org.peergos.protocol.bitswap.pb.Message.BlockPresence blockPresences = 4;</code>
      */
+    @java.lang.Override
     public int getBlockPresencesCount() {
       return blockPresences_.size();
     }
@@ -3863,9 +4065,10 @@ public final class MessageOuterClass {
      *[(gogoproto.nullable) = false];
      * </pre>
      *
-     * <code>repeated .bitswap.message.pb.Message.BlockPresence blockPresences = 4;</code>
+     * <code>repeated .org.peergos.protocol.bitswap.pb.Message.BlockPresence blockPresences = 4;</code>
      */
-    public MessageOuterClass.Message.BlockPresence getBlockPresences(int index) {
+    @java.lang.Override
+    public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence getBlockPresences(int index) {
       return blockPresences_.get(index);
     }
     /**
@@ -3873,9 +4076,10 @@ public final class MessageOuterClass {
      *[(gogoproto.nullable) = false];
      * </pre>
      *
-     * <code>repeated .bitswap.message.pb.Message.BlockPresence blockPresences = 4;</code>
+     * <code>repeated .org.peergos.protocol.bitswap.pb.Message.BlockPresence blockPresences = 4;</code>
      */
-    public MessageOuterClass.Message.BlockPresenceOrBuilder getBlockPresencesOrBuilder(
+    @java.lang.Override
+    public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresenceOrBuilder getBlockPresencesOrBuilder(
         int index) {
       return blockPresences_.get(index);
     }
@@ -3884,9 +4088,49 @@ public final class MessageOuterClass {
     private int pendingBytes_;
     /**
      * <code>int32 pendingBytes = 5;</code>
+     * @return The pendingBytes.
      */
+    @java.lang.Override
     public int getPendingBytes() {
       return pendingBytes_;
+    }
+
+    public static final int TRACEID_FIELD_NUMBER = 6;
+    private volatile java.lang.Object traceId_;
+    /**
+     * <code>string traceId = 6;</code>
+     * @return The traceId.
+     */
+    @java.lang.Override
+    public java.lang.String getTraceId() {
+      java.lang.Object ref = traceId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        traceId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string traceId = 6;</code>
+     * @return The bytes for traceId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getTraceIdBytes() {
+      java.lang.Object ref = traceId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        traceId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     private byte memoizedIsInitialized = -1;
@@ -3917,6 +4161,9 @@ public final class MessageOuterClass {
       }
       if (pendingBytes_ != 0) {
         output.writeInt32(5, pendingBytes_);
+      }
+      if (!getTraceIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, traceId_);
       }
       unknownFields.writeTo(output);
     }
@@ -3952,6 +4199,9 @@ public final class MessageOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(5, pendingBytes_);
       }
+      if (!getTraceIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, traceId_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -3962,27 +4212,28 @@ public final class MessageOuterClass {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof MessageOuterClass.Message)) {
+      if (!(obj instanceof org.peergos.protocol.bitswap.pb.MessageOuterClass.Message)) {
         return super.equals(obj);
       }
-      MessageOuterClass.Message other = (MessageOuterClass.Message) obj;
+      org.peergos.protocol.bitswap.pb.MessageOuterClass.Message other = (org.peergos.protocol.bitswap.pb.MessageOuterClass.Message) obj;
 
-      boolean result = true;
-      result = result && (hasWantlist() == other.hasWantlist());
+      if (hasWantlist() != other.hasWantlist()) return false;
       if (hasWantlist()) {
-        result = result && getWantlist()
-            .equals(other.getWantlist());
+        if (!getWantlist()
+            .equals(other.getWantlist())) return false;
       }
-      result = result && getBlocksList()
-          .equals(other.getBlocksList());
-      result = result && getPayloadList()
-          .equals(other.getPayloadList());
-      result = result && getBlockPresencesList()
-          .equals(other.getBlockPresencesList());
-      result = result && (getPendingBytes()
-          == other.getPendingBytes());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (!getBlocksList()
+          .equals(other.getBlocksList())) return false;
+      if (!getPayloadList()
+          .equals(other.getPayloadList())) return false;
+      if (!getBlockPresencesList()
+          .equals(other.getBlockPresencesList())) return false;
+      if (getPendingBytes()
+          != other.getPendingBytes()) return false;
+      if (!getTraceId()
+          .equals(other.getTraceId())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -4010,74 +4261,76 @@ public final class MessageOuterClass {
       }
       hash = (37 * hash) + PENDINGBYTES_FIELD_NUMBER;
       hash = (53 * hash) + getPendingBytes();
+      hash = (37 * hash) + TRACEID_FIELD_NUMBER;
+      hash = (53 * hash) + getTraceId().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static MessageOuterClass.Message parseFrom(
+    public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static MessageOuterClass.Message parseFrom(
+    public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static MessageOuterClass.Message parseFrom(
+    public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static MessageOuterClass.Message parseFrom(
+    public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static MessageOuterClass.Message parseFrom(byte[] data)
+    public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static MessageOuterClass.Message parseFrom(
+    public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static MessageOuterClass.Message parseFrom(java.io.InputStream input)
+    public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static MessageOuterClass.Message parseFrom(
+    public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static MessageOuterClass.Message parseDelimitedFrom(java.io.InputStream input)
+    public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static MessageOuterClass.Message parseDelimitedFrom(
+    public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static MessageOuterClass.Message parseFrom(
+    public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static MessageOuterClass.Message parseFrom(
+    public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -4090,7 +4343,7 @@ public final class MessageOuterClass {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(MessageOuterClass.Message prototype) {
+    public static Builder newBuilder(org.peergos.protocol.bitswap.pb.MessageOuterClass.Message prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -4106,26 +4359,26 @@ public final class MessageOuterClass {
       return builder;
     }
     /**
-     * Protobuf type {@code bitswap.message.pb.Message}
+     * Protobuf type {@code org.peergos.protocol.bitswap.pb.Message}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:bitswap.message.pb.Message)
-        MessageOuterClass.MessageOrBuilder {
+        // @@protoc_insertion_point(builder_implements:org.peergos.protocol.bitswap.pb.Message)
+        org.peergos.protocol.bitswap.pb.MessageOuterClass.MessageOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return MessageOuterClass.internal_static_bitswap_message_pb_Message_descriptor;
+        return org.peergos.protocol.bitswap.pb.MessageOuterClass.internal_static_bitswap_message_pb_Message_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return MessageOuterClass.internal_static_bitswap_message_pb_Message_fieldAccessorTable
+        return org.peergos.protocol.bitswap.pb.MessageOuterClass.internal_static_bitswap_message_pb_Message_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                MessageOuterClass.Message.class, MessageOuterClass.Message.Builder.class);
+                org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.class, org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Builder.class);
       }
 
-      // Construct using bitswap.message.pb.MessageOuterClass.Message.newBuilder()
+      // Construct using org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -4152,20 +4405,22 @@ public final class MessageOuterClass {
           wantlistBuilder_ = null;
         }
         blocks_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000001);
         if (payloadBuilder_ == null) {
           payload_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
           payloadBuilder_.clear();
         }
         if (blockPresencesBuilder_ == null) {
           blockPresences_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           blockPresencesBuilder_.clear();
         }
         pendingBytes_ = 0;
+
+        traceId_ = "";
 
         return this;
       }
@@ -4173,17 +4428,17 @@ public final class MessageOuterClass {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return MessageOuterClass.internal_static_bitswap_message_pb_Message_descriptor;
+        return org.peergos.protocol.bitswap.pb.MessageOuterClass.internal_static_bitswap_message_pb_Message_descriptor;
       }
 
       @java.lang.Override
-      public MessageOuterClass.Message getDefaultInstanceForType() {
-        return MessageOuterClass.Message.getDefaultInstance();
+      public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message getDefaultInstanceForType() {
+        return org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.getDefaultInstance();
       }
 
       @java.lang.Override
-      public MessageOuterClass.Message build() {
-        MessageOuterClass.Message result = buildPartial();
+      public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message build() {
+        org.peergos.protocol.bitswap.pb.MessageOuterClass.Message result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -4191,95 +4446,94 @@ public final class MessageOuterClass {
       }
 
       @java.lang.Override
-      public MessageOuterClass.Message buildPartial() {
-        MessageOuterClass.Message result = new MessageOuterClass.Message(this);
+      public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message buildPartial() {
+        org.peergos.protocol.bitswap.pb.MessageOuterClass.Message result = new org.peergos.protocol.bitswap.pb.MessageOuterClass.Message(this);
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
         if (wantlistBuilder_ == null) {
           result.wantlist_ = wantlist_;
         } else {
           result.wantlist_ = wantlistBuilder_.build();
         }
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        if (((bitField0_ & 0x00000001) != 0)) {
           blocks_ = java.util.Collections.unmodifiableList(blocks_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.blocks_ = blocks_;
         if (payloadBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          if (((bitField0_ & 0x00000002) != 0)) {
             payload_ = java.util.Collections.unmodifiableList(payload_);
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000002);
           }
           result.payload_ = payload_;
         } else {
           result.payload_ = payloadBuilder_.build();
         }
         if (blockPresencesBuilder_ == null) {
-          if (((bitField0_ & 0x00000008) == 0x00000008)) {
+          if (((bitField0_ & 0x00000004) != 0)) {
             blockPresences_ = java.util.Collections.unmodifiableList(blockPresences_);
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000004);
           }
           result.blockPresences_ = blockPresences_;
         } else {
           result.blockPresences_ = blockPresencesBuilder_.build();
         }
         result.pendingBytes_ = pendingBytes_;
-        result.bitField0_ = to_bitField0_;
+        result.traceId_ = traceId_;
         onBuilt();
         return result;
       }
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof MessageOuterClass.Message) {
-          return mergeFrom((MessageOuterClass.Message)other);
+        if (other instanceof org.peergos.protocol.bitswap.pb.MessageOuterClass.Message) {
+          return mergeFrom((org.peergos.protocol.bitswap.pb.MessageOuterClass.Message)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(MessageOuterClass.Message other) {
-        if (other == MessageOuterClass.Message.getDefaultInstance()) return this;
+      public Builder mergeFrom(org.peergos.protocol.bitswap.pb.MessageOuterClass.Message other) {
+        if (other == org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.getDefaultInstance()) return this;
         if (other.hasWantlist()) {
           mergeWantlist(other.getWantlist());
         }
         if (!other.blocks_.isEmpty()) {
           if (blocks_.isEmpty()) {
             blocks_ = other.blocks_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000001);
           } else {
             ensureBlocksIsMutable();
             blocks_.addAll(other.blocks_);
@@ -4290,7 +4544,7 @@ public final class MessageOuterClass {
           if (!other.payload_.isEmpty()) {
             if (payload_.isEmpty()) {
               payload_ = other.payload_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000002);
             } else {
               ensurePayloadIsMutable();
               payload_.addAll(other.payload_);
@@ -4303,7 +4557,7 @@ public final class MessageOuterClass {
               payloadBuilder_.dispose();
               payloadBuilder_ = null;
               payload_ = other.payload_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000002);
               payloadBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getPayloadFieldBuilder() : null;
@@ -4316,7 +4570,7 @@ public final class MessageOuterClass {
           if (!other.blockPresences_.isEmpty()) {
             if (blockPresences_.isEmpty()) {
               blockPresences_ = other.blockPresences_;
-              bitField0_ = (bitField0_ & ~0x00000008);
+              bitField0_ = (bitField0_ & ~0x00000004);
             } else {
               ensureBlockPresencesIsMutable();
               blockPresences_.addAll(other.blockPresences_);
@@ -4329,7 +4583,7 @@ public final class MessageOuterClass {
               blockPresencesBuilder_.dispose();
               blockPresencesBuilder_ = null;
               blockPresences_ = other.blockPresences_;
-              bitField0_ = (bitField0_ & ~0x00000008);
+              bitField0_ = (bitField0_ & ~0x00000004);
               blockPresencesBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getBlockPresencesFieldBuilder() : null;
@@ -4340,6 +4594,10 @@ public final class MessageOuterClass {
         }
         if (other.getPendingBytes() != 0) {
           setPendingBytes(other.getPendingBytes());
+        }
+        if (!other.getTraceId().isEmpty()) {
+          traceId_ = other.traceId_;
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -4356,11 +4614,11 @@ public final class MessageOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        MessageOuterClass.Message parsedMessage = null;
+        org.peergos.protocol.bitswap.pb.MessageOuterClass.Message parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (MessageOuterClass.Message) e.getUnfinishedMessage();
+          parsedMessage = (org.peergos.protocol.bitswap.pb.MessageOuterClass.Message) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -4371,15 +4629,16 @@ public final class MessageOuterClass {
       }
       private int bitField0_;
 
-      private MessageOuterClass.Message.Wantlist wantlist_ = null;
+      private org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist wantlist_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          MessageOuterClass.Message.Wantlist, MessageOuterClass.Message.Wantlist.Builder, MessageOuterClass.Message.WantlistOrBuilder> wantlistBuilder_;
+          org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist, org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Builder, org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.WantlistOrBuilder> wantlistBuilder_;
       /**
        * <pre>
        *[(gogoproto.nullable) = false];
        * </pre>
        *
-       * <code>.bitswap.message.pb.Message.Wantlist wantlist = 1;</code>
+       * <code>.org.peergos.protocol.bitswap.pb.Message.Wantlist wantlist = 1;</code>
+       * @return Whether the wantlist field is set.
        */
       public boolean hasWantlist() {
         return wantlistBuilder_ != null || wantlist_ != null;
@@ -4389,11 +4648,12 @@ public final class MessageOuterClass {
        *[(gogoproto.nullable) = false];
        * </pre>
        *
-       * <code>.bitswap.message.pb.Message.Wantlist wantlist = 1;</code>
+       * <code>.org.peergos.protocol.bitswap.pb.Message.Wantlist wantlist = 1;</code>
+       * @return The wantlist.
        */
-      public MessageOuterClass.Message.Wantlist getWantlist() {
+      public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist getWantlist() {
         if (wantlistBuilder_ == null) {
-          return wantlist_ == null ? MessageOuterClass.Message.Wantlist.getDefaultInstance() : wantlist_;
+          return wantlist_ == null ? org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.getDefaultInstance() : wantlist_;
         } else {
           return wantlistBuilder_.getMessage();
         }
@@ -4403,9 +4663,9 @@ public final class MessageOuterClass {
        *[(gogoproto.nullable) = false];
        * </pre>
        *
-       * <code>.bitswap.message.pb.Message.Wantlist wantlist = 1;</code>
+       * <code>.org.peergos.protocol.bitswap.pb.Message.Wantlist wantlist = 1;</code>
        */
-      public Builder setWantlist(MessageOuterClass.Message.Wantlist value) {
+      public Builder setWantlist(org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist value) {
         if (wantlistBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -4423,10 +4683,10 @@ public final class MessageOuterClass {
        *[(gogoproto.nullable) = false];
        * </pre>
        *
-       * <code>.bitswap.message.pb.Message.Wantlist wantlist = 1;</code>
+       * <code>.org.peergos.protocol.bitswap.pb.Message.Wantlist wantlist = 1;</code>
        */
       public Builder setWantlist(
-          MessageOuterClass.Message.Wantlist.Builder builderForValue) {
+          org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Builder builderForValue) {
         if (wantlistBuilder_ == null) {
           wantlist_ = builderForValue.build();
           onChanged();
@@ -4441,13 +4701,13 @@ public final class MessageOuterClass {
        *[(gogoproto.nullable) = false];
        * </pre>
        *
-       * <code>.bitswap.message.pb.Message.Wantlist wantlist = 1;</code>
+       * <code>.org.peergos.protocol.bitswap.pb.Message.Wantlist wantlist = 1;</code>
        */
-      public Builder mergeWantlist(MessageOuterClass.Message.Wantlist value) {
+      public Builder mergeWantlist(org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist value) {
         if (wantlistBuilder_ == null) {
           if (wantlist_ != null) {
             wantlist_ =
-              MessageOuterClass.Message.Wantlist.newBuilder(wantlist_).mergeFrom(value).buildPartial();
+              org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.newBuilder(wantlist_).mergeFrom(value).buildPartial();
           } else {
             wantlist_ = value;
           }
@@ -4463,7 +4723,7 @@ public final class MessageOuterClass {
        *[(gogoproto.nullable) = false];
        * </pre>
        *
-       * <code>.bitswap.message.pb.Message.Wantlist wantlist = 1;</code>
+       * <code>.org.peergos.protocol.bitswap.pb.Message.Wantlist wantlist = 1;</code>
        */
       public Builder clearWantlist() {
         if (wantlistBuilder_ == null) {
@@ -4481,9 +4741,9 @@ public final class MessageOuterClass {
        *[(gogoproto.nullable) = false];
        * </pre>
        *
-       * <code>.bitswap.message.pb.Message.Wantlist wantlist = 1;</code>
+       * <code>.org.peergos.protocol.bitswap.pb.Message.Wantlist wantlist = 1;</code>
        */
-      public MessageOuterClass.Message.Wantlist.Builder getWantlistBuilder() {
+      public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Builder getWantlistBuilder() {
         
         onChanged();
         return getWantlistFieldBuilder().getBuilder();
@@ -4493,14 +4753,14 @@ public final class MessageOuterClass {
        *[(gogoproto.nullable) = false];
        * </pre>
        *
-       * <code>.bitswap.message.pb.Message.Wantlist wantlist = 1;</code>
+       * <code>.org.peergos.protocol.bitswap.pb.Message.Wantlist wantlist = 1;</code>
        */
-      public MessageOuterClass.Message.WantlistOrBuilder getWantlistOrBuilder() {
+      public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.WantlistOrBuilder getWantlistOrBuilder() {
         if (wantlistBuilder_ != null) {
           return wantlistBuilder_.getMessageOrBuilder();
         } else {
           return wantlist_ == null ?
-              MessageOuterClass.Message.Wantlist.getDefaultInstance() : wantlist_;
+              org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.getDefaultInstance() : wantlist_;
         }
       }
       /**
@@ -4508,14 +4768,14 @@ public final class MessageOuterClass {
        *[(gogoproto.nullable) = false];
        * </pre>
        *
-       * <code>.bitswap.message.pb.Message.Wantlist wantlist = 1;</code>
+       * <code>.org.peergos.protocol.bitswap.pb.Message.Wantlist wantlist = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          MessageOuterClass.Message.Wantlist, MessageOuterClass.Message.Wantlist.Builder, MessageOuterClass.Message.WantlistOrBuilder>
+          org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist, org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Builder, org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.WantlistOrBuilder> 
           getWantlistFieldBuilder() {
         if (wantlistBuilder_ == null) {
           wantlistBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              MessageOuterClass.Message.Wantlist, MessageOuterClass.Message.Wantlist.Builder, MessageOuterClass.Message.WantlistOrBuilder>(
+              org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist, org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Wantlist.Builder, org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.WantlistOrBuilder>(
                   getWantlist(),
                   getParentForChildren(),
                   isClean());
@@ -4526,9 +4786,9 @@ public final class MessageOuterClass {
 
       private java.util.List<com.google.protobuf.ByteString> blocks_ = java.util.Collections.emptyList();
       private void ensureBlocksIsMutable() {
-        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           blocks_ = new java.util.ArrayList<com.google.protobuf.ByteString>(blocks_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000001;
          }
       }
       /**
@@ -4537,10 +4797,12 @@ public final class MessageOuterClass {
        * </pre>
        *
        * <code>repeated bytes blocks = 2;</code>
+       * @return A list containing the blocks.
        */
       public java.util.List<com.google.protobuf.ByteString>
           getBlocksList() {
-        return java.util.Collections.unmodifiableList(blocks_);
+        return ((bitField0_ & 0x00000001) != 0) ?
+                 java.util.Collections.unmodifiableList(blocks_) : blocks_;
       }
       /**
        * <pre>
@@ -4548,6 +4810,7 @@ public final class MessageOuterClass {
        * </pre>
        *
        * <code>repeated bytes blocks = 2;</code>
+       * @return The count of blocks.
        */
       public int getBlocksCount() {
         return blocks_.size();
@@ -4558,6 +4821,8 @@ public final class MessageOuterClass {
        * </pre>
        *
        * <code>repeated bytes blocks = 2;</code>
+       * @param index The index of the element to return.
+       * @return The blocks at the given index.
        */
       public com.google.protobuf.ByteString getBlocks(int index) {
         return blocks_.get(index);
@@ -4568,6 +4833,9 @@ public final class MessageOuterClass {
        * </pre>
        *
        * <code>repeated bytes blocks = 2;</code>
+       * @param index The index to set the value at.
+       * @param value The blocks to set.
+       * @return This builder for chaining.
        */
       public Builder setBlocks(
           int index, com.google.protobuf.ByteString value) {
@@ -4585,6 +4853,8 @@ public final class MessageOuterClass {
        * </pre>
        *
        * <code>repeated bytes blocks = 2;</code>
+       * @param value The blocks to add.
+       * @return This builder for chaining.
        */
       public Builder addBlocks(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -4601,6 +4871,8 @@ public final class MessageOuterClass {
        * </pre>
        *
        * <code>repeated bytes blocks = 2;</code>
+       * @param values The blocks to add.
+       * @return This builder for chaining.
        */
       public Builder addAllBlocks(
           java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
@@ -4616,34 +4888,35 @@ public final class MessageOuterClass {
        * </pre>
        *
        * <code>repeated bytes blocks = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearBlocks() {
         blocks_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
 
-      private java.util.List<MessageOuterClass.Message.Block> payload_ =
+      private java.util.List<org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block> payload_ =
         java.util.Collections.emptyList();
       private void ensurePayloadIsMutable() {
-        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
-          payload_ = new java.util.ArrayList<MessageOuterClass.Message.Block>(payload_);
-          bitField0_ |= 0x00000004;
+        if (!((bitField0_ & 0x00000002) != 0)) {
+          payload_ = new java.util.ArrayList<org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block>(payload_);
+          bitField0_ |= 0x00000002;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          MessageOuterClass.Message.Block, MessageOuterClass.Message.Block.Builder, MessageOuterClass.Message.BlockOrBuilder> payloadBuilder_;
+          org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block, org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block.Builder, org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockOrBuilder> payloadBuilder_;
 
       /**
        * <pre>
        *[(gogoproto.nullable) = false];		// used to send Blocks in bitswap 1.1.0
        * </pre>
        *
-       * <code>repeated .bitswap.message.pb.Message.Block payload = 3;</code>
+       * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Block payload = 3;</code>
        */
-      public java.util.List<MessageOuterClass.Message.Block> getPayloadList() {
+      public java.util.List<org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block> getPayloadList() {
         if (payloadBuilder_ == null) {
           return java.util.Collections.unmodifiableList(payload_);
         } else {
@@ -4655,7 +4928,7 @@ public final class MessageOuterClass {
        *[(gogoproto.nullable) = false];		// used to send Blocks in bitswap 1.1.0
        * </pre>
        *
-       * <code>repeated .bitswap.message.pb.Message.Block payload = 3;</code>
+       * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Block payload = 3;</code>
        */
       public int getPayloadCount() {
         if (payloadBuilder_ == null) {
@@ -4669,9 +4942,9 @@ public final class MessageOuterClass {
        *[(gogoproto.nullable) = false];		// used to send Blocks in bitswap 1.1.0
        * </pre>
        *
-       * <code>repeated .bitswap.message.pb.Message.Block payload = 3;</code>
+       * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Block payload = 3;</code>
        */
-      public MessageOuterClass.Message.Block getPayload(int index) {
+      public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block getPayload(int index) {
         if (payloadBuilder_ == null) {
           return payload_.get(index);
         } else {
@@ -4683,10 +4956,10 @@ public final class MessageOuterClass {
        *[(gogoproto.nullable) = false];		// used to send Blocks in bitswap 1.1.0
        * </pre>
        *
-       * <code>repeated .bitswap.message.pb.Message.Block payload = 3;</code>
+       * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Block payload = 3;</code>
        */
       public Builder setPayload(
-          int index, MessageOuterClass.Message.Block value) {
+          int index, org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block value) {
         if (payloadBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -4704,10 +4977,10 @@ public final class MessageOuterClass {
        *[(gogoproto.nullable) = false];		// used to send Blocks in bitswap 1.1.0
        * </pre>
        *
-       * <code>repeated .bitswap.message.pb.Message.Block payload = 3;</code>
+       * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Block payload = 3;</code>
        */
       public Builder setPayload(
-          int index, MessageOuterClass.Message.Block.Builder builderForValue) {
+          int index, org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block.Builder builderForValue) {
         if (payloadBuilder_ == null) {
           ensurePayloadIsMutable();
           payload_.set(index, builderForValue.build());
@@ -4722,9 +4995,9 @@ public final class MessageOuterClass {
        *[(gogoproto.nullable) = false];		// used to send Blocks in bitswap 1.1.0
        * </pre>
        *
-       * <code>repeated .bitswap.message.pb.Message.Block payload = 3;</code>
+       * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Block payload = 3;</code>
        */
-      public Builder addPayload(MessageOuterClass.Message.Block value) {
+      public Builder addPayload(org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block value) {
         if (payloadBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -4742,10 +5015,10 @@ public final class MessageOuterClass {
        *[(gogoproto.nullable) = false];		// used to send Blocks in bitswap 1.1.0
        * </pre>
        *
-       * <code>repeated .bitswap.message.pb.Message.Block payload = 3;</code>
+       * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Block payload = 3;</code>
        */
       public Builder addPayload(
-          int index, MessageOuterClass.Message.Block value) {
+          int index, org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block value) {
         if (payloadBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -4763,10 +5036,10 @@ public final class MessageOuterClass {
        *[(gogoproto.nullable) = false];		// used to send Blocks in bitswap 1.1.0
        * </pre>
        *
-       * <code>repeated .bitswap.message.pb.Message.Block payload = 3;</code>
+       * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Block payload = 3;</code>
        */
       public Builder addPayload(
-          MessageOuterClass.Message.Block.Builder builderForValue) {
+          org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block.Builder builderForValue) {
         if (payloadBuilder_ == null) {
           ensurePayloadIsMutable();
           payload_.add(builderForValue.build());
@@ -4781,10 +5054,10 @@ public final class MessageOuterClass {
        *[(gogoproto.nullable) = false];		// used to send Blocks in bitswap 1.1.0
        * </pre>
        *
-       * <code>repeated .bitswap.message.pb.Message.Block payload = 3;</code>
+       * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Block payload = 3;</code>
        */
       public Builder addPayload(
-          int index, MessageOuterClass.Message.Block.Builder builderForValue) {
+          int index, org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block.Builder builderForValue) {
         if (payloadBuilder_ == null) {
           ensurePayloadIsMutable();
           payload_.add(index, builderForValue.build());
@@ -4799,10 +5072,10 @@ public final class MessageOuterClass {
        *[(gogoproto.nullable) = false];		// used to send Blocks in bitswap 1.1.0
        * </pre>
        *
-       * <code>repeated .bitswap.message.pb.Message.Block payload = 3;</code>
+       * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Block payload = 3;</code>
        */
       public Builder addAllPayload(
-          java.lang.Iterable<? extends MessageOuterClass.Message.Block> values) {
+          java.lang.Iterable<? extends org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block> values) {
         if (payloadBuilder_ == null) {
           ensurePayloadIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -4818,12 +5091,12 @@ public final class MessageOuterClass {
        *[(gogoproto.nullable) = false];		// used to send Blocks in bitswap 1.1.0
        * </pre>
        *
-       * <code>repeated .bitswap.message.pb.Message.Block payload = 3;</code>
+       * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Block payload = 3;</code>
        */
       public Builder clearPayload() {
         if (payloadBuilder_ == null) {
           payload_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
         } else {
           payloadBuilder_.clear();
@@ -4835,7 +5108,7 @@ public final class MessageOuterClass {
        *[(gogoproto.nullable) = false];		// used to send Blocks in bitswap 1.1.0
        * </pre>
        *
-       * <code>repeated .bitswap.message.pb.Message.Block payload = 3;</code>
+       * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Block payload = 3;</code>
        */
       public Builder removePayload(int index) {
         if (payloadBuilder_ == null) {
@@ -4852,9 +5125,9 @@ public final class MessageOuterClass {
        *[(gogoproto.nullable) = false];		// used to send Blocks in bitswap 1.1.0
        * </pre>
        *
-       * <code>repeated .bitswap.message.pb.Message.Block payload = 3;</code>
+       * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Block payload = 3;</code>
        */
-      public MessageOuterClass.Message.Block.Builder getPayloadBuilder(
+      public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block.Builder getPayloadBuilder(
           int index) {
         return getPayloadFieldBuilder().getBuilder(index);
       }
@@ -4863,9 +5136,9 @@ public final class MessageOuterClass {
        *[(gogoproto.nullable) = false];		// used to send Blocks in bitswap 1.1.0
        * </pre>
        *
-       * <code>repeated .bitswap.message.pb.Message.Block payload = 3;</code>
+       * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Block payload = 3;</code>
        */
-      public MessageOuterClass.Message.BlockOrBuilder getPayloadOrBuilder(
+      public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockOrBuilder getPayloadOrBuilder(
           int index) {
         if (payloadBuilder_ == null) {
           return payload_.get(index);  } else {
@@ -4877,9 +5150,9 @@ public final class MessageOuterClass {
        *[(gogoproto.nullable) = false];		// used to send Blocks in bitswap 1.1.0
        * </pre>
        *
-       * <code>repeated .bitswap.message.pb.Message.Block payload = 3;</code>
+       * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Block payload = 3;</code>
        */
-      public java.util.List<? extends MessageOuterClass.Message.BlockOrBuilder>
+      public java.util.List<? extends org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockOrBuilder> 
            getPayloadOrBuilderList() {
         if (payloadBuilder_ != null) {
           return payloadBuilder_.getMessageOrBuilderList();
@@ -4892,43 +5165,43 @@ public final class MessageOuterClass {
        *[(gogoproto.nullable) = false];		// used to send Blocks in bitswap 1.1.0
        * </pre>
        *
-       * <code>repeated .bitswap.message.pb.Message.Block payload = 3;</code>
+       * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Block payload = 3;</code>
        */
-      public MessageOuterClass.Message.Block.Builder addPayloadBuilder() {
+      public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block.Builder addPayloadBuilder() {
         return getPayloadFieldBuilder().addBuilder(
-            MessageOuterClass.Message.Block.getDefaultInstance());
+            org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block.getDefaultInstance());
       }
       /**
        * <pre>
        *[(gogoproto.nullable) = false];		// used to send Blocks in bitswap 1.1.0
        * </pre>
        *
-       * <code>repeated .bitswap.message.pb.Message.Block payload = 3;</code>
+       * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Block payload = 3;</code>
        */
-      public MessageOuterClass.Message.Block.Builder addPayloadBuilder(
+      public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block.Builder addPayloadBuilder(
           int index) {
         return getPayloadFieldBuilder().addBuilder(
-            index, MessageOuterClass.Message.Block.getDefaultInstance());
+            index, org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block.getDefaultInstance());
       }
       /**
        * <pre>
        *[(gogoproto.nullable) = false];		// used to send Blocks in bitswap 1.1.0
        * </pre>
        *
-       * <code>repeated .bitswap.message.pb.Message.Block payload = 3;</code>
+       * <code>repeated .org.peergos.protocol.bitswap.pb.Message.Block payload = 3;</code>
        */
-      public java.util.List<MessageOuterClass.Message.Block.Builder>
+      public java.util.List<org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block.Builder> 
            getPayloadBuilderList() {
         return getPayloadFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          MessageOuterClass.Message.Block, MessageOuterClass.Message.Block.Builder, MessageOuterClass.Message.BlockOrBuilder>
+          org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block, org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block.Builder, org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockOrBuilder> 
           getPayloadFieldBuilder() {
         if (payloadBuilder_ == null) {
           payloadBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              MessageOuterClass.Message.Block, MessageOuterClass.Message.Block.Builder, MessageOuterClass.Message.BlockOrBuilder>(
+              org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block, org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.Block.Builder, org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockOrBuilder>(
                   payload_,
-                  ((bitField0_ & 0x00000004) == 0x00000004),
+                  ((bitField0_ & 0x00000002) != 0),
                   getParentForChildren(),
                   isClean());
           payload_ = null;
@@ -4936,26 +5209,26 @@ public final class MessageOuterClass {
         return payloadBuilder_;
       }
 
-      private java.util.List<MessageOuterClass.Message.BlockPresence> blockPresences_ =
+      private java.util.List<org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence> blockPresences_ =
         java.util.Collections.emptyList();
       private void ensureBlockPresencesIsMutable() {
-        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
-          blockPresences_ = new java.util.ArrayList<MessageOuterClass.Message.BlockPresence>(blockPresences_);
-          bitField0_ |= 0x00000008;
+        if (!((bitField0_ & 0x00000004) != 0)) {
+          blockPresences_ = new java.util.ArrayList<org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence>(blockPresences_);
+          bitField0_ |= 0x00000004;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          MessageOuterClass.Message.BlockPresence, MessageOuterClass.Message.BlockPresence.Builder, MessageOuterClass.Message.BlockPresenceOrBuilder> blockPresencesBuilder_;
+          org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence, org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence.Builder, org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresenceOrBuilder> blockPresencesBuilder_;
 
       /**
        * <pre>
        *[(gogoproto.nullable) = false];
        * </pre>
        *
-       * <code>repeated .bitswap.message.pb.Message.BlockPresence blockPresences = 4;</code>
+       * <code>repeated .org.peergos.protocol.bitswap.pb.Message.BlockPresence blockPresences = 4;</code>
        */
-      public java.util.List<MessageOuterClass.Message.BlockPresence> getBlockPresencesList() {
+      public java.util.List<org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence> getBlockPresencesList() {
         if (blockPresencesBuilder_ == null) {
           return java.util.Collections.unmodifiableList(blockPresences_);
         } else {
@@ -4967,7 +5240,7 @@ public final class MessageOuterClass {
        *[(gogoproto.nullable) = false];
        * </pre>
        *
-       * <code>repeated .bitswap.message.pb.Message.BlockPresence blockPresences = 4;</code>
+       * <code>repeated .org.peergos.protocol.bitswap.pb.Message.BlockPresence blockPresences = 4;</code>
        */
       public int getBlockPresencesCount() {
         if (blockPresencesBuilder_ == null) {
@@ -4981,9 +5254,9 @@ public final class MessageOuterClass {
        *[(gogoproto.nullable) = false];
        * </pre>
        *
-       * <code>repeated .bitswap.message.pb.Message.BlockPresence blockPresences = 4;</code>
+       * <code>repeated .org.peergos.protocol.bitswap.pb.Message.BlockPresence blockPresences = 4;</code>
        */
-      public MessageOuterClass.Message.BlockPresence getBlockPresences(int index) {
+      public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence getBlockPresences(int index) {
         if (blockPresencesBuilder_ == null) {
           return blockPresences_.get(index);
         } else {
@@ -4995,10 +5268,10 @@ public final class MessageOuterClass {
        *[(gogoproto.nullable) = false];
        * </pre>
        *
-       * <code>repeated .bitswap.message.pb.Message.BlockPresence blockPresences = 4;</code>
+       * <code>repeated .org.peergos.protocol.bitswap.pb.Message.BlockPresence blockPresences = 4;</code>
        */
       public Builder setBlockPresences(
-          int index, MessageOuterClass.Message.BlockPresence value) {
+          int index, org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence value) {
         if (blockPresencesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -5016,10 +5289,10 @@ public final class MessageOuterClass {
        *[(gogoproto.nullable) = false];
        * </pre>
        *
-       * <code>repeated .bitswap.message.pb.Message.BlockPresence blockPresences = 4;</code>
+       * <code>repeated .org.peergos.protocol.bitswap.pb.Message.BlockPresence blockPresences = 4;</code>
        */
       public Builder setBlockPresences(
-          int index, MessageOuterClass.Message.BlockPresence.Builder builderForValue) {
+          int index, org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence.Builder builderForValue) {
         if (blockPresencesBuilder_ == null) {
           ensureBlockPresencesIsMutable();
           blockPresences_.set(index, builderForValue.build());
@@ -5034,9 +5307,9 @@ public final class MessageOuterClass {
        *[(gogoproto.nullable) = false];
        * </pre>
        *
-       * <code>repeated .bitswap.message.pb.Message.BlockPresence blockPresences = 4;</code>
+       * <code>repeated .org.peergos.protocol.bitswap.pb.Message.BlockPresence blockPresences = 4;</code>
        */
-      public Builder addBlockPresences(MessageOuterClass.Message.BlockPresence value) {
+      public Builder addBlockPresences(org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence value) {
         if (blockPresencesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -5054,10 +5327,10 @@ public final class MessageOuterClass {
        *[(gogoproto.nullable) = false];
        * </pre>
        *
-       * <code>repeated .bitswap.message.pb.Message.BlockPresence blockPresences = 4;</code>
+       * <code>repeated .org.peergos.protocol.bitswap.pb.Message.BlockPresence blockPresences = 4;</code>
        */
       public Builder addBlockPresences(
-          int index, MessageOuterClass.Message.BlockPresence value) {
+          int index, org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence value) {
         if (blockPresencesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -5075,10 +5348,10 @@ public final class MessageOuterClass {
        *[(gogoproto.nullable) = false];
        * </pre>
        *
-       * <code>repeated .bitswap.message.pb.Message.BlockPresence blockPresences = 4;</code>
+       * <code>repeated .org.peergos.protocol.bitswap.pb.Message.BlockPresence blockPresences = 4;</code>
        */
       public Builder addBlockPresences(
-          MessageOuterClass.Message.BlockPresence.Builder builderForValue) {
+          org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence.Builder builderForValue) {
         if (blockPresencesBuilder_ == null) {
           ensureBlockPresencesIsMutable();
           blockPresences_.add(builderForValue.build());
@@ -5093,10 +5366,10 @@ public final class MessageOuterClass {
        *[(gogoproto.nullable) = false];
        * </pre>
        *
-       * <code>repeated .bitswap.message.pb.Message.BlockPresence blockPresences = 4;</code>
+       * <code>repeated .org.peergos.protocol.bitswap.pb.Message.BlockPresence blockPresences = 4;</code>
        */
       public Builder addBlockPresences(
-          int index, MessageOuterClass.Message.BlockPresence.Builder builderForValue) {
+          int index, org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence.Builder builderForValue) {
         if (blockPresencesBuilder_ == null) {
           ensureBlockPresencesIsMutable();
           blockPresences_.add(index, builderForValue.build());
@@ -5111,10 +5384,10 @@ public final class MessageOuterClass {
        *[(gogoproto.nullable) = false];
        * </pre>
        *
-       * <code>repeated .bitswap.message.pb.Message.BlockPresence blockPresences = 4;</code>
+       * <code>repeated .org.peergos.protocol.bitswap.pb.Message.BlockPresence blockPresences = 4;</code>
        */
       public Builder addAllBlockPresences(
-          java.lang.Iterable<? extends MessageOuterClass.Message.BlockPresence> values) {
+          java.lang.Iterable<? extends org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence> values) {
         if (blockPresencesBuilder_ == null) {
           ensureBlockPresencesIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -5130,12 +5403,12 @@ public final class MessageOuterClass {
        *[(gogoproto.nullable) = false];
        * </pre>
        *
-       * <code>repeated .bitswap.message.pb.Message.BlockPresence blockPresences = 4;</code>
+       * <code>repeated .org.peergos.protocol.bitswap.pb.Message.BlockPresence blockPresences = 4;</code>
        */
       public Builder clearBlockPresences() {
         if (blockPresencesBuilder_ == null) {
           blockPresences_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000004);
           onChanged();
         } else {
           blockPresencesBuilder_.clear();
@@ -5147,7 +5420,7 @@ public final class MessageOuterClass {
        *[(gogoproto.nullable) = false];
        * </pre>
        *
-       * <code>repeated .bitswap.message.pb.Message.BlockPresence blockPresences = 4;</code>
+       * <code>repeated .org.peergos.protocol.bitswap.pb.Message.BlockPresence blockPresences = 4;</code>
        */
       public Builder removeBlockPresences(int index) {
         if (blockPresencesBuilder_ == null) {
@@ -5164,9 +5437,9 @@ public final class MessageOuterClass {
        *[(gogoproto.nullable) = false];
        * </pre>
        *
-       * <code>repeated .bitswap.message.pb.Message.BlockPresence blockPresences = 4;</code>
+       * <code>repeated .org.peergos.protocol.bitswap.pb.Message.BlockPresence blockPresences = 4;</code>
        */
-      public MessageOuterClass.Message.BlockPresence.Builder getBlockPresencesBuilder(
+      public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence.Builder getBlockPresencesBuilder(
           int index) {
         return getBlockPresencesFieldBuilder().getBuilder(index);
       }
@@ -5175,9 +5448,9 @@ public final class MessageOuterClass {
        *[(gogoproto.nullable) = false];
        * </pre>
        *
-       * <code>repeated .bitswap.message.pb.Message.BlockPresence blockPresences = 4;</code>
+       * <code>repeated .org.peergos.protocol.bitswap.pb.Message.BlockPresence blockPresences = 4;</code>
        */
-      public MessageOuterClass.Message.BlockPresenceOrBuilder getBlockPresencesOrBuilder(
+      public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresenceOrBuilder getBlockPresencesOrBuilder(
           int index) {
         if (blockPresencesBuilder_ == null) {
           return blockPresences_.get(index);  } else {
@@ -5189,9 +5462,9 @@ public final class MessageOuterClass {
        *[(gogoproto.nullable) = false];
        * </pre>
        *
-       * <code>repeated .bitswap.message.pb.Message.BlockPresence blockPresences = 4;</code>
+       * <code>repeated .org.peergos.protocol.bitswap.pb.Message.BlockPresence blockPresences = 4;</code>
        */
-      public java.util.List<? extends MessageOuterClass.Message.BlockPresenceOrBuilder>
+      public java.util.List<? extends org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresenceOrBuilder> 
            getBlockPresencesOrBuilderList() {
         if (blockPresencesBuilder_ != null) {
           return blockPresencesBuilder_.getMessageOrBuilderList();
@@ -5204,43 +5477,43 @@ public final class MessageOuterClass {
        *[(gogoproto.nullable) = false];
        * </pre>
        *
-       * <code>repeated .bitswap.message.pb.Message.BlockPresence blockPresences = 4;</code>
+       * <code>repeated .org.peergos.protocol.bitswap.pb.Message.BlockPresence blockPresences = 4;</code>
        */
-      public MessageOuterClass.Message.BlockPresence.Builder addBlockPresencesBuilder() {
+      public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence.Builder addBlockPresencesBuilder() {
         return getBlockPresencesFieldBuilder().addBuilder(
-            MessageOuterClass.Message.BlockPresence.getDefaultInstance());
+            org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence.getDefaultInstance());
       }
       /**
        * <pre>
        *[(gogoproto.nullable) = false];
        * </pre>
        *
-       * <code>repeated .bitswap.message.pb.Message.BlockPresence blockPresences = 4;</code>
+       * <code>repeated .org.peergos.protocol.bitswap.pb.Message.BlockPresence blockPresences = 4;</code>
        */
-      public MessageOuterClass.Message.BlockPresence.Builder addBlockPresencesBuilder(
+      public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence.Builder addBlockPresencesBuilder(
           int index) {
         return getBlockPresencesFieldBuilder().addBuilder(
-            index, MessageOuterClass.Message.BlockPresence.getDefaultInstance());
+            index, org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence.getDefaultInstance());
       }
       /**
        * <pre>
        *[(gogoproto.nullable) = false];
        * </pre>
        *
-       * <code>repeated .bitswap.message.pb.Message.BlockPresence blockPresences = 4;</code>
+       * <code>repeated .org.peergos.protocol.bitswap.pb.Message.BlockPresence blockPresences = 4;</code>
        */
-      public java.util.List<MessageOuterClass.Message.BlockPresence.Builder>
+      public java.util.List<org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence.Builder> 
            getBlockPresencesBuilderList() {
         return getBlockPresencesFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          MessageOuterClass.Message.BlockPresence, MessageOuterClass.Message.BlockPresence.Builder, MessageOuterClass.Message.BlockPresenceOrBuilder>
+          org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence, org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence.Builder, org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresenceOrBuilder> 
           getBlockPresencesFieldBuilder() {
         if (blockPresencesBuilder_ == null) {
           blockPresencesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              MessageOuterClass.Message.BlockPresence, MessageOuterClass.Message.BlockPresence.Builder, MessageOuterClass.Message.BlockPresenceOrBuilder>(
+              org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence, org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresence.Builder, org.peergos.protocol.bitswap.pb.MessageOuterClass.Message.BlockPresenceOrBuilder>(
                   blockPresences_,
-                  ((bitField0_ & 0x00000008) == 0x00000008),
+                  ((bitField0_ & 0x00000004) != 0),
                   getParentForChildren(),
                   isClean());
           blockPresences_ = null;
@@ -5251,12 +5524,16 @@ public final class MessageOuterClass {
       private int pendingBytes_ ;
       /**
        * <code>int32 pendingBytes = 5;</code>
+       * @return The pendingBytes.
        */
+      @java.lang.Override
       public int getPendingBytes() {
         return pendingBytes_;
       }
       /**
        * <code>int32 pendingBytes = 5;</code>
+       * @param value The pendingBytes to set.
+       * @return This builder for chaining.
        */
       public Builder setPendingBytes(int value) {
         
@@ -5266,6 +5543,7 @@ public final class MessageOuterClass {
       }
       /**
        * <code>int32 pendingBytes = 5;</code>
+       * @return This builder for chaining.
        */
       public Builder clearPendingBytes() {
         
@@ -5273,10 +5551,86 @@ public final class MessageOuterClass {
         onChanged();
         return this;
       }
+
+      private java.lang.Object traceId_ = "";
+      /**
+       * <code>string traceId = 6;</code>
+       * @return The traceId.
+       */
+      public java.lang.String getTraceId() {
+        java.lang.Object ref = traceId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          traceId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string traceId = 6;</code>
+       * @return The bytes for traceId.
+       */
+      public com.google.protobuf.ByteString
+          getTraceIdBytes() {
+        java.lang.Object ref = traceId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          traceId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string traceId = 6;</code>
+       * @param value The traceId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTraceId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        traceId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string traceId = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTraceId() {
+        
+        traceId_ = getDefaultInstance().getTraceId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string traceId = 6;</code>
+       * @param value The bytes for traceId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTraceIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        traceId_ = value;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -5286,16 +5640,16 @@ public final class MessageOuterClass {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:bitswap.message.pb.Message)
+      // @@protoc_insertion_point(builder_scope:org.peergos.protocol.bitswap.pb.Message)
     }
 
-    // @@protoc_insertion_point(class_scope:bitswap.message.pb.Message)
-    private static final MessageOuterClass.Message DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:org.peergos.protocol.bitswap.pb.Message)
+    private static final org.peergos.protocol.bitswap.pb.MessageOuterClass.Message DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new MessageOuterClass.Message();
+      DEFAULT_INSTANCE = new org.peergos.protocol.bitswap.pb.MessageOuterClass.Message();
     }
 
-    public static MessageOuterClass.Message getDefaultInstance() {
+    public static org.peergos.protocol.bitswap.pb.MessageOuterClass.Message getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -5320,7 +5674,7 @@ public final class MessageOuterClass {
     }
 
     @java.lang.Override
-    public MessageOuterClass.Message getDefaultInstanceForType() {
+    public org.peergos.protocol.bitswap.pb.MessageOuterClass.Message getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -5360,44 +5714,37 @@ public final class MessageOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\rmessage.proto\022\022bitswap.message.pb\"\302\005\n\007" +
+      "\n\rmessage.proto\022\022org.peergos.protocol.bitswap.pb\"\323\005\n\007" +
       "Message\0226\n\010wantlist\030\001 \001(\0132$.bitswap.mess" +
       "age.pb.Message.Wantlist\022\016\n\006blocks\030\002 \003(\014\022" +
-      "2\n\007payload\030\003 \003(\0132!.bitswap.message.pb.Me" +
+      "2\n\007payload\030\003 \003(\0132!.org.peergos.protocol.bitswap.pb.Me" +
       "ssage.Block\022A\n\016blockPresences\030\004 \003(\0132).bi" +
       "tswap.message.pb.Message.BlockPresence\022\024" +
-      "\n\014pendingBytes\030\005 \001(\005\032\226\002\n\010Wantlist\022;\n\007ent" +
-      "ries\030\001 \003(\0132*.bitswap.message.pb.Message." +
-      "Wantlist.Entry\022\014\n\004full\030\002 \001(\010\032\235\001\n\005Entry\022\r" +
-      "\n\005block\030\001 \001(\014\022\020\n\010priority\030\002 \001(\005\022\016\n\006cance" +
-      "l\030\003 \001(\010\022?\n\010wantType\030\004 \001(\0162-.bitswap.mess" +
-      "age.pb.Message.Wantlist.WantType\022\024\n\014send" +
-      "DontHave\030\005 \001(\010\022\014\n\004auth\030\006 \001(\014\"\037\n\010WantType" +
-      "\022\t\n\005Block\020\000\022\010\n\004Have\020\001\0323\n\005Block\022\016\n\006prefix" +
-      "\030\001 \001(\014\022\014\n\004data\030\002 \001(\014\022\014\n\004auth\030\003 \001(\014\032g\n\rBl" +
-      "ockPresence\022\013\n\003cid\030\001 \001(\014\022;\n\004type\030\002 \001(\0162-" +
-      ".bitswap.message.pb.Message.BlockPresenc" +
-      "eType\022\014\n\004auth\030\003 \001(\014\"+\n\021BlockPresenceType" +
-      "\022\010\n\004Have\020\000\022\014\n\010DontHave\020\001b\006proto3"
+      "\n\014pendingBytes\030\005 \001(\005\022\017\n\007traceId\030\006 \001(\t\032\226\002" +
+      "\n\010Wantlist\022;\n\007entries\030\001 \003(\0132*.bitswap.me" +
+      "ssage.pb.Message.Wantlist.Entry\022\014\n\004full\030" +
+      "\002 \001(\010\032\235\001\n\005Entry\022\r\n\005block\030\001 \001(\014\022\020\n\010priori" +
+      "ty\030\002 \001(\005\022\016\n\006cancel\030\003 \001(\010\022?\n\010wantType\030\004 \001" +
+      "(\0162-.org.peergos.protocol.bitswap.pb.Message.Wantlist" +
+      ".WantType\022\024\n\014sendDontHave\030\005 \001(\010\022\014\n\004auth\030" +
+      "\006 \001(\014\"\037\n\010WantType\022\t\n\005Block\020\000\022\010\n\004Have\020\001\0323" +
+      "\n\005Block\022\016\n\006prefix\030\001 \001(\014\022\014\n\004data\030\002 \001(\014\022\014\n" +
+      "\004auth\030\003 \001(\014\032g\n\rBlockPresence\022\013\n\003cid\030\001 \001(" +
+      "\014\022;\n\004type\030\002 \001(\0162-.org.peergos.protocol.bitswap.pb.Mes" +
+      "sage.BlockPresenceType\022\014\n\004auth\030\003 \001(\014\"+\n\021" +
+      "BlockPresenceType\022\010\n\004Have\020\000\022\014\n\010DontHave\020" +
+      "\001b\006proto3"
     };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-        }, assigner);
+        });
     internal_static_bitswap_message_pb_Message_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_bitswap_message_pb_Message_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bitswap_message_pb_Message_descriptor,
-        new java.lang.String[] { "Wantlist", "Blocks", "Payload", "BlockPresences", "PendingBytes", });
+        new java.lang.String[] { "Wantlist", "Blocks", "Payload", "BlockPresences", "PendingBytes", "TraceId", });
     internal_static_bitswap_message_pb_Message_Wantlist_descriptor =
       internal_static_bitswap_message_pb_Message_descriptor.getNestedTypes().get(0);
     internal_static_bitswap_message_pb_Message_Wantlist_fieldAccessorTable = new

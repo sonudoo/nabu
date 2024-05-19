@@ -160,7 +160,6 @@ public class KademliaEngine {
             }
             case GET_PROVIDERS: {
                 Multihash hash = Multihash.deserialize(msg.getKey().toByteArray());
-                System.out.println("Get providers start: " + hash.toString());
                 Set<Dht.Message.Peer> providers = providersStore.getProviders(hash);
                 if (blocks.hasAny(hash).join()) {
                     providers = new HashSet<>(providers);
@@ -180,7 +179,6 @@ public class KademliaEngine {
                         .collect(Collectors.toList()));
                 Dht.Message reply = builder.build();
                 stream.writeAndFlush(reply);
-                System.out.println("Get providers end: " + hash.toString());
                 responderSentBytes.inc(reply.getSerializedSize());
                 responderProvidersSentBytes.inc(reply.getSerializedSize());
                 break;
