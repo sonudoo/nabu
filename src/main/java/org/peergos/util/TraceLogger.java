@@ -1,10 +1,16 @@
 package org.peergos.util;
 
+import java.io.BufferedOutputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.UUID;
 
+import org.peergos.Client;
 import org.peergos.protocol.bitswap.pb.MessageOuterClass;
 import org.peergos.protocol.dht.pb.Dht;
 
@@ -215,11 +221,15 @@ public class TraceLogger {
         READ_FROM_FILE_STORE_END,
     };
 
+    private static TraceLogger traceLogger = null;
+
     // Maps peer Id (as string) to node Id.
     private HashMap<String, Integer> nodeIdMap;
     private int currentNodeId;
 
-    private static TraceLogger traceLogger = null;
+    FileOutputStream outFile = null;
+    BufferedOutputStream output = null;
+    Thread flusher;
 
     private TraceLogger() {
         // TODO(sonudoo): Remove a hardcoded mapping of peer Id to node Id.
@@ -235,6 +245,26 @@ public class TraceLogger {
         nodeIdMap.put("12D3KooWJWcBwDHBo7ecoBCsT8FJWvQax4Wmn2iKTCvG6uhLKZN6", 8);
         nodeIdMap.put("12D3KooWCfWmdJYdAUwm1pTxFKsRDRzGmsbeUMpriNNocMDVMmum", 9);
         currentNodeId = -1;
+
+        try {
+            outFile = new FileOutputStream(Client.DEFAULT_IPFS_DIR_PATH.toAbsolutePath().toString() + "/trace.log",
+                    /* append= */ true);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            return;
+        }
+        // An output stream with 100 MB buffer.
+        output = new BufferedOutputStream(outFile, 100 * 1024 * 1024);
+        flusher = new Thread(new Thread(new Runnable() {
+            public void run() {
+                try {
+                    flushLogs();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }));
+        flusher.start();
     }
 
     private void writeLog(TraceType type, String debugDetails) {
@@ -247,6 +277,38 @@ public class TraceLogger {
         builder.append(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(new Date(currentTimeMillis)) + "\t");
         builder.append(type.name() + "\t");
         builder.append(debugDetails);
-        System.out.println(builder.toString());
+        builder.append("\n");
+        String log = builder.toString();
+        // TODO(sonudoo): Turn off logging to stdout.
+        System.out.print(log);
+
+        synchronized (this) {
+            try {
+                // TODO(millerm): Rollover to a new log file after some limit.
+                output.write(log.getBytes(Charset.forName("UTF-8")));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+    private void flushLogs() throws IOException {
+        while (true) {
+            try {
+                // Flush every 100 seconds.
+                Thread.sleep(1000);
+                synchronized (this) {
+                    output.flush();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                break;
+            }
+        }
+        synchronized (this) {
+            output.close();
+            outFile.close();
+        }
     }
 }
