@@ -1,12 +1,12 @@
 package org.peergos;
 
-import io.ipfs.cid.Cid;
-import io.ipfs.cid.Cid.Codec;
+import com.sun.net.httpserver.HttpServer;
+
 import io.ipfs.multiaddr.MultiAddress;
-import io.libp2p.core.PeerId;
 
 import org.peergos.blockstore.metadatadb.BlockMetadataStore;
 import org.peergos.config.*;
+import org.peergos.net.APIHandler;
 import org.peergos.protocol.dht.DatabaseRecordStore;
 import org.peergos.protocol.http.*;
 import org.peergos.util.JSONParser;
@@ -17,7 +17,6 @@ import org.peergos.util.TraceLogger;
 import java.io.File;
 import java.io.IOException;
 import java.net.InetSocketAddress;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -69,37 +68,32 @@ public class Client {
         ipfs.start();
 
         System.out.println("Started client: " + args.getArg("id"));
-        Scanner scanner = new Scanner(System.in);
         TraceLogger traceLogger = TraceLogger.getInstance();
         traceLogger.setIdentity(config.identity.peerId);
-        while (true) {
-            System.out.print("Publish (P) or Retrieve (R)? ");
-            String opt = scanner.nextLine();
-            if (opt.toUpperCase().equals("P")) {
-                System.out.print("Enter contents to publish: ");
-                String content = scanner.nextLine();
-                byte[] contentBytes = content.getBytes();
-                Cid cid = ipfs.blockstore.put(contentBytes, Codec.Raw).join();
-                System.out.println("Cid: " + cid.toString());
-            } else if (opt.toUpperCase().equals("R")) {
-                // Start a new thread to build a new context.
-                Thread retrieverThread = new Thread(new Runnable() {
-                    public void run() {
-                        System.out.print("Enter Cid to retrieve: ");
-                        String cid = scanner.nextLine();
-                        Want want = new Want(Cid.decode(cid));
-                        traceLogger.startTrace();
-                        List<HashedBlock> blocks = ipfs.getBlocks(List.of(want), new HashSet<PeerId>(), false);
-                        System.out.println("Content: " + new String(blocks.get(0).block, StandardCharsets.UTF_8));
-                        traceLogger.endTrace();
-                    }
-                });
-                retrieverThread.start();
-                retrieverThread.join();
-            } else {
-                System.out.println("Try again");
+
+        String apiAddressArg = "Addresses.API";
+        MultiAddress apiAddress = args.hasArg(apiAddressArg) ? new MultiAddress(args.getArg(apiAddressArg))
+                : config.addresses.apiAddress;
+        InetSocketAddress localAPIAddress = new InetSocketAddress(apiAddress.getHost(), apiAddress.getPort());
+
+        int maxConnectionQueue = 500;
+        int handlerThreads = 50;
+        LOG.info("Starting HTTP API server at " + apiAddress.getHost() + ":" + localAPIAddress.getPort());
+        HttpServer httpServer = HttpServer.create(localAPIAddress, maxConnectionQueue);
+
+        httpServer.createContext(APIHandler.API_URL, new APIHandler(ipfs));
+        httpServer.setExecutor(Executors.newFixedThreadPool(handlerThreads));
+        httpServer.start();
+
+        Thread shutdownHook = new Thread(() -> {
+            LOG.info("Stopping API server...");
+            try {
+                httpServer.stop(3); // wait max 3 seconds
+            } catch (Exception ex) {
+                ex.printStackTrace();
             }
-        }
+        });
+        Runtime.getRuntime().addShutdownHook(shutdownHook);
     }
 
     private Config readConfig(Path configPath, Args args) throws IOException {

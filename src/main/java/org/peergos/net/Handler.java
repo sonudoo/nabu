@@ -10,7 +10,6 @@ import java.io.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 public abstract class Handler implements HttpHandler {
 
     private static final Logger LOG = Logging.LOG();
@@ -24,11 +23,7 @@ public abstract class Handler implements HttpHandler {
     @Override
     public void handle(HttpExchange httpExchange) {
         try {
-            if (!HttpUtil.allowedQuery(httpExchange)) {
-                httpExchange.sendResponseHeaders(403, 0);
-            } else {
-                handleCallToAPI(httpExchange);
-            }
+            handleCallToAPI(httpExchange);
         } catch (Exception e) {
             Throwable t = Exceptions.getRootCause(e);
             LOG.severe("Error handling " + httpExchange.getRequestURI());
@@ -39,7 +34,7 @@ public abstract class Handler implements HttpHandler {
 
     protected static byte[] read(InputStream in) throws IOException {
         try (ByteArrayOutputStream bout = new ByteArrayOutputStream();
-             OutputStream gout = new DataOutputStream(bout)) {
+                OutputStream gout = new DataOutputStream(bout)) {
             byte[] tmp = new byte[4096];
             int r;
             while ((r = in.read(tmp)) >= 0)
@@ -57,8 +52,7 @@ public abstract class Handler implements HttpHandler {
             dout.write(raw);
             dout.flush();
             dout.close();
-        } catch (IOException e)
-        {
+        } catch (IOException e) {
             LOG.log(Level.WARNING, e.getMessage(), e);
         }
     }
@@ -70,8 +64,7 @@ public abstract class Handler implements HttpHandler {
             dout.write(body);
             dout.flush();
             dout.close();
-        } catch (IOException e)
-        {
+        } catch (IOException e) {
             LOG.log(Level.WARNING, e.getMessage(), e);
         }
     }
