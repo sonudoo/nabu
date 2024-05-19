@@ -1,6 +1,5 @@
 package org.peergos;
 
-
 import java.io.File;
 import java.io.IOException;
 import java.util.Optional;
@@ -16,7 +15,8 @@ public class ClientWithLogExporter {
 	public Optional<Long> startClientProcess() {
 		try {
 			// TODO(@millerm) - handle multiple clients
-			ProcessBuilder clientProcessBuilder = new ProcessBuilder("java", "-cp", "target/nabu-v0.7.7-jar-with-dependencies.jar", "org.peergos.Client", "-id", "0");
+			ProcessBuilder clientProcessBuilder = new ProcessBuilder("java", "-cp",
+					"target/nabu-v0.7.7-jar-with-dependencies.jar", "org.peergos.Client", "-id", "0");
 
 			// Make standard input/output available
 			clientProcessBuilder.inheritIO();
@@ -34,10 +34,11 @@ public class ClientWithLogExporter {
 		// File log = new File("LogExporter.log");
 
 		try {
-			ProcessBuilder agentProcessBuilder = new ProcessBuilder("java", "-cp", "target/nabu-v0.7.7-jar-with-dependencies.jar", "org.peergos.LogExporter");
+			ProcessBuilder agentProcessBuilder = new ProcessBuilder("java", "-cp",
+					"target/nabu-v0.7.7-jar-with-dependencies.jar", "org.peergos.LogExporter");
 			agentProcessBuilder.inheritIO();
 
-			//agentProcessBuilder.redirectOutput(ProcessBuilder.Redirect.appendTo(log));
+			// agentProcessBuilder.redirectOutput(ProcessBuilder.Redirect.appendTo(log));
 
 			Process agentProcess = agentProcessBuilder.start();
 			return Optional.of(agentProcess.pid());
@@ -47,7 +48,6 @@ public class ClientWithLogExporter {
 
 		return Optional.empty();
 	}
-
 
 	public void run() throws Exception {
 		Optional<Long> maybeClientProcessId = startClientProcess();
@@ -63,7 +63,7 @@ public class ClientWithLogExporter {
 		if (maybeAgentProcessId.isPresent()) {
 			agentProcessHandle = ProcessHandle.of(maybeAgentProcessId.get());
 		}
-		
+
 		while (true) {
 			if (clientProcessHandle.isPresent()) {
 				if (clientProcessHandle.get().isAlive()) {
@@ -96,5 +96,5 @@ public class ClientWithLogExporter {
 		} catch (Exception e) {
 			LOG.log(Level.SEVERE, "SHUTDOWN", e);
 		}
-	}	
+	}
 }
