@@ -12,14 +12,11 @@ import org.peergos.util.Logging;
 
 import java.util.logging.Logger;
 import java.io.IOException;
-import java.io.BufferedInputStream;
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.nio.channels.FileChannel;
+import java.nio.channels.FileLock;
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
@@ -29,24 +26,24 @@ import java.util.logging.Level;
 
 public class LogExporter {
     private static final Logger LOG = Logging.LOG();
+
     private static final Gson gson = new Gson();
+
     private static final int SLEEP_TIME_MILLISECONDS = 10_000;
+
+    private static final int MAX_BUFFER_SIZE = 1024;
+
     private static final String LOG_FILE_PATH = Nabu.DEFAULT_IPFS_DIR_PATH.toAbsolutePath().toString() + "/trace.log";
+
     private static final String STATE_PATH = Nabu.DEFAULT_IPFS_DIR_PATH.toAbsolutePath().toString()
             + "/log-exporter-state.log";
 
-    private String exportEndpoint;
     private ZonedDateTime lastWritten;
     private DateTimeFormatter timestampFormatter;
-
-    private FileInputStream inFile = null;
-    private BufferedInputStream buffer = null;
 
     private final CloseableHttpClient httpClient = HttpClients.createDefault();
 
     public LogExporter(String exportEndpoint) throws Exception {
-        this.exportEndpoint = exportEndpoint;
-        // TODO(@millerm) - read from state upon initialization
         this.lastWritten = ZonedDateTime.ofInstant(java.time.Instant.EPOCH, ZoneOffset.UTC);
         this.timestampFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss 'UTC'");
     }
@@ -61,65 +58,64 @@ public class LogExporter {
         System.out.println("Wrote state.");
     }
 
-    public Map<String, Object> pollNewLogs() {
-        System.out.println("Polling new logs...");
-        Map<String, Object> logRecord = new HashMap<>();
+    private String _readLogs() {
+        try (FileChannel channel = new FileInputStream(LOG_FILE_PATH).getChannel()) {
+            try (FileLock lock = channel.lock(0, Long.MAX_VALUE, true)) {
+                java.nio.ByteBuffer buff = java.nio.ByteBuffer.allocate(MAX_BUFFER_SIZE);
+                StringBuilder logContent = new StringBuilder();
 
-        try {
-            inFile = new FileInputStream(LOG_FILE_PATH);
-            buffer = new BufferedInputStream(inFile);
+                while (channel.read(buff) > 0) {
+                    // See:
+                    // https://docs.oracle.com/javase%2F9%2Fdocs%2Fapi%2F%2F/java/nio/ByteBuffer.html#flip--
+                    buff.flip();
 
-            int rawLogData;
+                    while (buff.hasRemaining()) {
+                        logContent.append((char) buff.get());
+                    }
 
-            // Handle possible resource contention b/t writer & reader
-            while ((rawLogData = buffer.read()) != -1) {
-                System.out.print((char) rawLogData);
+                    buff.clear();
+                }
+
+                return logContent.toString();
+            } catch (Exception e) {
+                System.err.println("Error acquiring lock: " + e.getMessage());
+                e.printStackTrace();
+                return "";
             }
-
-            this.lastWritten = ZonedDateTime.now(ZoneOffset.UTC);
-
-        } catch (IOException e) {
+        } catch (Exception e) {
+            System.err.println("Error opening file: " + e.getMessage());
             e.printStackTrace();
-        } finally {
-            if (buffer != null) {
-                try {
-                    buffer.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (inFile != null) {
-                try {
-                    inFile.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
+            return "";
         }
-
-        return logRecord;
-
-        // // TODO(@millerm) - put data from raw log into JSON data structure
-        // Map<String, Object> logRecord = new HashMap<>();
-
-        // logRecord.put("timeUnixNano", System.nanoTime());
-        // logRecord.put("severityText", "INFO");
-        // logRecord.put("body", "TEST");
-        // logRecord.put("attributes", new HashMap<String, String>() {
-        // {
-        // put("service.name", "your-service-name");
-        // }
-        // });
-
-        // return logRecord;
     }
 
-    public void exportLogs(Map<String, Object> logRecord) {
-        System.out.println("Exporting logs...");
+    public String readLogs() {
+        System.out.println("Reading logs...");
 
+        return _readLogs();
+    }
+
+    private Map<String, Object> _formatLogRecord(String logRecord) {
+        Map<String, Object> formattedLogRecord = new HashMap<>();
+
+        formattedLogRecord.put("traceId", "123");
+        formattedLogRecord.put("threadId", "456");
+        formattedLogRecord.put("timestamp", "789");
+        formattedLogRecord.put("traceType", "test");
+        formattedLogRecord.put("details", "this");
+
+        return formattedLogRecord;
+    }
+
+    public Map<String, Object> formatLogRecord(String logRecord) {
+        return _formatLogRecord(logRecord);
+    }
+
+    private void _exportLogs(Map<String, Object> logRecord) {
+        String exportEndpoint = System.getenv("LOG_EXPORT_ENDPOINT");
         String jsonLog = gson.toJson(logRecord);
 
-        HttpPost httpPost = new HttpPost(this.exportEndpoint);
+        HttpPost httpPost = new HttpPost(exportEndpoint);
 
         httpPost.setHeader("Content-Type", "application/json");
         httpPost.setEntity(new StringEntity(jsonLog, "UTF-8"));
@@ -133,22 +129,20 @@ public class LogExporter {
         }
     }
 
-    public void garbageCollectLogs() {
-        System.out.println("Cleaning up old logs...");
+    public void exportLogs(Map<String, Object> logRecord) {
+        System.out.println("Exporting logs...");
 
-        // TODO(@millerm)
+        _exportLogs(logRecord);
     }
 
     public void run() throws Exception {
         System.out.println("Log collector is running...");
 
-        // TODO(@millerm) - create thread to persist state (i.e. context about the most
-        // recent logs exported)
-
         while (true) {
-            Map<String, Object> logRecord = pollNewLogs();
-
-            exportLogs(logRecord);
+            String logRecord = readLogs();
+            Map<String, Object> formattedLogRecord = formatLogRecord(logRecord);
+            exportLogs(formattedLogRecord);
+            writeState();
 
             Thread.sleep(SLEEP_TIME_MILLISECONDS);
         }
