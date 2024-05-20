@@ -14,7 +14,6 @@ import org.peergos.util.*;
 import org.peergos.util.Logging;
 
 import java.io.*;
-import java.nio.charset.*;
 import java.util.*;
 import java.util.concurrent.*;
 import java.util.function.*;
@@ -30,8 +29,6 @@ public class BitswapEngine {
     private final ConcurrentHashMap<Want, Boolean> persistBlocks = new ConcurrentHashMap<>();
     private final ConcurrentHashMap<Want, PeerId> blockHaves = new ConcurrentHashMap<>();
     private final Map<Want, Boolean> deniedWants = Collections.synchronizedMap(new LRUCache<>(10_000));
-    private final Map<PeerId, Map<Want, Long>> recentWantsSent = Collections
-            .synchronizedMap(new org.peergos.util.LRUCache<>(100));
     private final Map<PeerId, Boolean> blockedPeers = Collections.synchronizedMap(new LRUCache<>(1_000));
     private final boolean blockAggressivePeers;
     private final Set<PeerId> connections = new HashSet<>();
@@ -98,28 +95,13 @@ public class BitswapEngine {
         }
     }
 
-    private Map<Want, Long> recentSentWants(PeerId peer) {
-        Map<Want, Long> recent = recentWantsSent.get(peer);
-        if (recent == null) {
-            recent = Collections.synchronizedMap(new LRUCache<>(1000));
-            recentWantsSent.put(peer, recent);
-        }
-        return recent;
-    }
-
     public Set<Want> getWants(Set<PeerId> peers) {
         if (peers.size() == 1) {
-            PeerId peer = peers.stream().findFirst().get();
-            Map<Want, Long> recent = recentSentWants(peer);
-
             long now = System.currentTimeMillis();
-            long minResendWait = 5_000;
             Set<Want> res = localWants.entrySet().stream()
                     .filter(e -> e.getValue().creationTime > now - 5 * 60 * 1000)
                     .map(e -> e.getKey())
-                    .filter(w -> !recent.containsKey(w) || recent.get(w) < now - minResendWait)
                     .collect(Collectors.toSet());
-            res.forEach(w -> recent.put(w, now));
             return res;
         }
         return localWants.keySet();

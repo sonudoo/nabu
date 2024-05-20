@@ -7,7 +7,7 @@
             "projectName": "nabu",
             "request": "attach",
             "hostName": "localhost",
-            "port": 5001
+            "port": 6001
         }
     ]
 }
