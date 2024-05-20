@@ -13,11 +13,16 @@ import org.peergos.util.Logging;
 import java.util.logging.Logger;
 import java.io.IOException;
 import java.io.BufferedInputStream;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.ZoneOffset;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
@@ -27,8 +32,13 @@ public class LogExporter {
     private static final Gson gson = new Gson();
     private static final int SLEEP_TIME_MILLISECONDS = 10_000;
     private static final String LOG_FILE_PATH = Nabu.DEFAULT_IPFS_DIR_PATH.toAbsolutePath().toString() + "/trace.log";
+    private static final String STATE_PATH = Nabu.DEFAULT_IPFS_DIR_PATH.toAbsolutePath().toString()
+            + "/log-exporter-state.log";
 
     private String exportEndpoint;
+    private ZonedDateTime lastWritten;
+    private DateTimeFormatter timestampFormatter;
+
     private FileInputStream inFile = null;
     private BufferedInputStream buffer = null;
 
@@ -36,6 +46,19 @@ public class LogExporter {
 
     public LogExporter(String exportEndpoint) throws Exception {
         this.exportEndpoint = exportEndpoint;
+        // TODO(@millerm) - read from state upon initialization
+        this.lastWritten = ZonedDateTime.ofInstant(java.time.Instant.EPOCH, ZoneOffset.UTC);
+        this.timestampFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss 'UTC'");
+    }
+
+    public void writeState() {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(STATE_PATH))) {
+            writer.write(this.lastWritten.format(this.timestampFormatter));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Wrote state.");
     }
 
     public Map<String, Object> pollNewLogs() {
@@ -52,6 +75,8 @@ public class LogExporter {
             while ((rawLogData = buffer.read()) != -1) {
                 System.out.print((char) rawLogData);
             }
+
+            this.lastWritten = ZonedDateTime.now(ZoneOffset.UTC);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -108,8 +133,17 @@ public class LogExporter {
         }
     }
 
-    public void start() throws Exception {
+    public void garbageCollectLogs() {
+        System.out.println("Cleaning up old logs...");
+
+        // TODO(@millerm)
+    }
+
+    public void run() throws Exception {
         System.out.println("Log collector is running...");
+
+        // TODO(@millerm) - create thread to persist state (i.e. context about the most
+        // recent logs exported)
 
         while (true) {
             Map<String, Object> logRecord = pollNewLogs();
@@ -125,7 +159,7 @@ public class LogExporter {
 
         try {
             LogExporter logExporter = new LogExporter(exportEndpoint);
-            logExporter.start();
+            logExporter.run();
         } catch (Exception e) {
             LOG.log(Level.SEVERE, "SHUTDOWN", e);
         }
