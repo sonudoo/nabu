@@ -1,24 +1,24 @@
 {
 	"Addresses":{
-		"API":"/ip4/127.0.0.1/tcp/5004",
-		"Gateway":"/ip4/127.0.0.1/tcp/8083",
-		"ProxyTarget":"/ip4/127.0.0.1/tcp/8009",
-		"AllowTarget":"http://localhost:8008",
+		"API":"/ip4/127.0.0.1/tcp/5000",
+		"Gateway":"/ip4/127.0.0.1/tcp/8080",
+		"ProxyTarget":"/ip4/127.0.0.1/tcp/8001",
+		"AllowTarget":"http://localhost:8000",
 		"Swarm":[
-			"/ip6/0:0:0:0:0:0:0:0/tcp/4004"
+			"/ip4/10.198.0.2/tcp/4000"
 		]
 	},
 	"Bootstrap":[
-		"/ip6/::/tcp/4001/p2p/12D3KooWMDHFtZjTZ6Hdi5WEQPBxJp7gT4yqtQkne6DCqiQCBP73",
-		"/ip6/::/tcp/4002/p2p/12D3KooWNdeb2dTYZ9X4T1PREUoFgR8f3yrGbMjMsd8PSZgcBZ3s",
-		"/ip6/::/tcp/4003/p2p/12D3KooWNvMgnv9iHJDcEKRriGc7zT5NcTwffaKE1XgZRUZ1BDPe",
-		"/ip6/::/tcp/4004/p2p/12D3KooWHA6vxTu6F2grKnErGsZMMJiBXVJvAoCQzhKM5KcFgrDR",
-		"/ip6/::/tcp/4005/p2p/12D3KooWDbhwoVhREeDsZ8HHj6LfsykRJnG7TA8wEfXGQfnhiSBf",
-		"/ip6/::/tcp/4006/p2p/12D3KooWT1gBjWRTJuyqGa4dRuHyexGUBAR2Psoh6hqqAGej6Bc5",
-		"/ip6/::/tcp/4007/p2p/12D3KooWH8vCRRoH73tV7KaXf6o1dzJms7FxH7hd3M3eYSjF9zC7",
-		"/ip6/::/tcp/4008/p2p/12D3KooWHyor6CQ21vMhtSJ2qb1YEBfv9vgpe1VgA5iMYT4DTd9T",
-		"/ip6/::/tcp/4009/p2p/12D3KooWJWcBwDHBo7ecoBCsT8FJWvQax4Wmn2iKTCvG6uhLKZN6",
-		"/ip6/::/tcp/4010/p2p/12D3KooWCfWmdJYdAUwm1pTxFKsRDRzGmsbeUMpriNNocMDVMmum"
+		"/ip4/10.128.0.2/tcp/4000/p2p/12D3KooWMDHFtZjTZ6Hdi5WEQPBxJp7gT4yqtQkne6DCqiQCBP73",
+		"/ip4/10.148.0.2/tcp/4000/p2p/12D3KooWNdeb2dTYZ9X4T1PREUoFgR8f3yrGbMjMsd8PSZgcBZ3s",
+		"/ip4/10.166.0.2/tcp/4000/p2p/12D3KooWNvMgnv9iHJDcEKRriGc7zT5NcTwffaKE1XgZRUZ1BDPe",
+		"/ip4/10.198.0.2/tcp/4000/p2p/12D3KooWHA6vxTu6F2grKnErGsZMMJiBXVJvAoCQzhKM5KcFgrDR",
+		"/ip4/10.162.0.2/tcp/4000/p2p/12D3KooWDbhwoVhREeDsZ8HHj6LfsykRJnG7TA8wEfXGQfnhiSBf",
+		"/ip4/10.190.0.2/tcp/4000/p2p/12D3KooWT1gBjWRTJuyqGa4dRuHyexGUBAR2Psoh6hqqAGej6Bc5",
+		"/ip4/10.208.0.3/tcp/4000/p2p/12D3KooWH8vCRRoH73tV7KaXf6o1dzJms7FxH7hd3M3eYSjF9zC7",
+		"/ip4/10.174.0.2/tcp/4000/p2p/12D3KooWHyor6CQ21vMhtSJ2qb1YEBfv9vgpe1VgA5iMYT4DTd9T",
+		"/ip4/10.202.0.2/tcp/4000/p2p/12D3KooWJWcBwDHBo7ecoBCsT8FJWvQax4Wmn2iKTCvG6uhLKZN6",
+		"/ip4/10.200.0.2/tcp/4000/p2p/12D3KooWCfWmdJYdAUwm1pTxFKsRDRzGmsbeUMpriNNocMDVMmum"
 	],
 	"Datastore":{
 		"Filter":{
@@ -53,7 +53,7 @@
 	"Metrics":{
 		"Enabled":true,
 		"Address":"localhost",
-		"Port":9103
+		"Port":9100
 	},
 	"Identity":{
 		"PeerID":"12D3KooWHA6vxTu6F2grKnErGsZMMJiBXVJvAoCQzhKM5KcFgrDR",
