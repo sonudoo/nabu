@@ -1,11 +1,11 @@
 {
 	"Addresses":{
-		"API":"/ip4/127.0.0.1/tcp/5000",
-		"Gateway":"/ip4/127.0.0.1/tcp/8080",
-		"ProxyTarget":"/ip4/127.0.0.1/tcp/8001",
-		"AllowTarget":"http://localhost:8000",
+		"API":"/ip4/0.0.0.0/tcp/5000",
+		"Gateway":"/ip4/0.0.0.0/tcp/8080",
+		"ProxyTarget":"/ip4/0.0.0.0/tcp/8001",
+		"AllowTarget":"http://0.0.0.0:8000",
 		"Swarm":[
-			"/ip4/10.200.0.2/tcp/4000"
+			"/ip4/0.0.0.0/tcp/4000"
 		]
 	},
 	"Bootstrap":[

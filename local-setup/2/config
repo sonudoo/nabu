@@ -1,11 +1,11 @@
 {
 	"Addresses":{
-		"API":"/ip4/127.0.0.1/tcp/5003",
-		"Gateway":"/ip4/127.0.0.1/tcp/8082",
-		"ProxyTarget":"/ip4/127.0.0.1/tcp/8007",
-		"AllowTarget":"http://localhost:8006",
+		"API":"/ip4/0.0.0.0/tcp/5003",
+		"Gateway":"/ip4/0.0.0.0/tcp/8082",
+		"ProxyTarget":"/ip4/0.0.0.0/tcp/8007",
+		"AllowTarget":"http://0.0.0.0:8006",
 		"Swarm":[
-			"/ip6/0:0:0:0:0:0:0:0/tcp/4003"
+			"/ip6/::/tcp/4003"
 		]
 	},
 	"Bootstrap":[
@@ -52,7 +52,7 @@
 	},
 	"Metrics":{
 		"Enabled":true,
-		"Address":"localhost",
+		"Address":"0.0.0.0",
 		"Port":9102
 	},
 	"Identity":{
