@@ -32,7 +32,7 @@ import static org.peergos.EmbeddedIpfs.buildBlockMetadata;
 public class Client {
 
     public static final String IPFS_PATH = "IPFS_PATH";
-    public static Path DEFAULT_IPFS_CONFIG_PATH = Paths.get(System.getProperty("user.dir"), "setup");
+    public static Path DEFAULT_IPFS_CONFIG_PATH;
     public static Path DEFAULT_IPFS_DIR_PATH = Paths.get(System.getProperty("user.home"), ".ipfs");
 
     private static final Logger LOG = Logging.LOG();
@@ -43,6 +43,8 @@ public class Client {
     }
 
     public Client(Args args) throws Exception {
+        DEFAULT_IPFS_CONFIG_PATH = args.hasArg("local") ? Paths.get(System.getProperty("user.dir"), "local-setup")
+                : Paths.get(System.getProperty("user.dir"), "setup");
         DEFAULT_IPFS_CONFIG_PATH = Paths.get(DEFAULT_IPFS_CONFIG_PATH.toAbsolutePath().toString(), args.getArg("id"));
         DEFAULT_IPFS_DIR_PATH = Paths.get(DEFAULT_IPFS_DIR_PATH.toAbsolutePath().toString(), args.getArg("id"));
         Path configPath = DEFAULT_IPFS_CONFIG_PATH;

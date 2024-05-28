@@ -17,7 +17,7 @@ Note: Only the content retrieval (GET) path is traced.
 ./compile.sh
 ```
 ```
-./run.sh <node-id>
+./run-local.sh <node-id>
 ```
 
 `node-id` can be 0-9.
