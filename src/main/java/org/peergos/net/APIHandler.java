@@ -16,7 +16,7 @@ public class APIHandler extends Handler {
     public static final Version CURRENT_VERSION = Version.parse("0.7.7");
     public static final String GET = "block/get";
     public static final String PUT = "block/put";
-    public static final String HEALTH = "health";
+    public static final String HEALTHZ = "healthz";
 
     private final EmbeddedIpfs ipfs;
     private final int maxBlockSize;
@@ -74,7 +74,7 @@ public class APIHandler extends Handler {
                     replyJson(httpExchange, JSONParser.toString(res));
                     break;
                 }
-                case HEALTH: {
+                case HEALTHZ: {
                     try {
                         httpExchange.sendResponseHeaders(200, 0);
                     } catch (IOException ioe) {
