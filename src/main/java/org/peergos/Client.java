@@ -79,7 +79,7 @@ public class Client {
         InetSocketAddress localAPIAddress = new InetSocketAddress(apiAddress.getHost(), apiAddress.getPort());
 
         int maxConnectionQueue = 500;
-        int handlerThreads = 50;
+        int handlerThreads = 5;
         LOG.info("Starting HTTP API server at " + apiAddress.getHost() + ":" + localAPIAddress.getPort());
         HttpServer httpServer = HttpServer.create(localAPIAddress, maxConnectionQueue);
 
