@@ -57,6 +57,13 @@ public class TraceLogger {
     }
 
     /**
+     * Returns the current trace id.
+     */
+    public String getTraceId() {
+        return TraceContext.getTraceId();
+    }
+
+    /**
      * Logs (if trace context is available) the client start of a kademlia lookup.
      */
     public Dht.Message HandleKademliaClientStart(Dht.Message msg, PeerId remotePeerId) {

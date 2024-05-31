@@ -49,9 +49,10 @@ public class APIHandler extends Handler {
                     List<HashedBlock> block = ipfs.getBlocks(List.of(new Want(Cid.decode(cid.get(0)))),
                             new HashSet<>(),
                             /* addToLocal= */ false);
-                    if (shouldTrace)
-                        traceLogger.endTrace();
                     if (!block.isEmpty()) {
+                        if (shouldTrace) {
+                            httpExchange.getResponseHeaders().add("Trace-Id", traceLogger.getTraceId());
+                        }
                         replyBytes(httpExchange, block.get(0).block);
                     } else {
                         try {
@@ -60,6 +61,8 @@ public class APIHandler extends Handler {
                             HttpUtil.replyError(httpExchange, ioe);
                         }
                     }
+                    if (shouldTrace)
+                        traceLogger.endTrace();
                     break;
                 }
                 case PUT: {
