@@ -282,6 +282,9 @@ public class TraceLogger {
                         flushLogs();
                     } catch (IOException e) {
                         e.printStackTrace();
+                    } catch (InterruptedException ie) {
+                        Thread.currentThread().interrupt();
+                        return;
                     }
                 }
             }));
@@ -289,20 +292,6 @@ public class TraceLogger {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             return;
-        }
-    }
-
-    private void _writeLog(String log) {
-        synchronized (this) {
-            try {
-                // Rollover to a new log file after some limit.
-                if (outFile.getChannel().size() > MAX_LOG_FILE_SIZE_MB) {
-                    createAndSetupOutput();
-                }
-                output.write(log.getBytes(Charset.forName("UTF-8")));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
         }
     }
 
@@ -343,7 +332,24 @@ public class TraceLogger {
         _writeLog(log);
     }
 
-    private void flushLogs() throws IOException {
+    private void _writeLog(String log) {
+        synchronized (this) {
+            try {
+                synchronized (this) {
+                    // Rollover to a new log file after log file limit is exceeded.
+                    if (outFile.getChannel().size() > MAX_LOG_FILE_SIZE_MB) {
+                        flusher.interrupt();
+                        createAndSetupOutput();
+                    }
+                    output.write(log.getBytes(Charset.forName("UTF-8")));
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void flushLogs() throws IOException, InterruptedException {
         while (true) {
             try {
                 // Flush every 100 seconds.
@@ -351,14 +357,13 @@ public class TraceLogger {
                 synchronized (this) {
                     output.flush();
                 }
+            } catch (InterruptedException ie) {
+                throw ie;
             } catch (Exception e) {
                 e.printStackTrace();
                 break;
             }
         }
-        synchronized (this) {
-            output.close();
-            outFile.close();
-        }
+
     }
 }
