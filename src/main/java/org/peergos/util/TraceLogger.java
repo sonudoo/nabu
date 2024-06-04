@@ -24,7 +24,7 @@ public class TraceLogger {
     /**
      * Size of a traceId.
      */
-    private static final int TRACE_ID_SIZE_IN_BYTES = 16;
+    private static final int TRACE_ID_SIZE_IN_BYTES = 8;
 
     /**
      * Returns the singleton instance of the TraceLogger.
@@ -46,13 +46,13 @@ public class TraceLogger {
     }
 
     /**
-     * Generates a random Hex string of length 16 characters
+     * Generates a random Hex string of length traceIdSize * 2
      * 
      * @return traceId The randomly generated traceId.
      */
     public String generateTraceId(int traceIdSize) {
         Random random = new Random();
-        byte[] bytes = new byte[8]; // 8 bytes * 2 hex characters per byte = 16 hex characters
+        byte[] bytes = new byte[traceIdSize]; // length will be traceIdSize * 2 hex chars
         random.nextBytes(bytes);
 
         StringBuilder builder = new StringBuilder();
