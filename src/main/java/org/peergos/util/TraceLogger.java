@@ -41,25 +41,6 @@ public class TraceLogger {
     }
 
     /**
-     * Generates a random 32 character hex string.
-     * 
-     * @return traceId The randomly generated traceId.
-     */
-    private String generateTraceId() {
-        Random random = new Random();
-        StringBuilder builder = new StringBuilder();
-
-        byte[] bytes = new byte[16]; // length will be length 32 hex chars
-        random.nextBytes(bytes);
-
-        for (byte b : bytes) {
-            builder.append(String.format("%02x", b));
-        }
-
-        return builder.toString();
-    }
-
-    /**
      * Starts recording the traces for all subsequent trace points on the current
      * thread and child threads.
      * Also propagates the trace context to servers.
@@ -198,6 +179,25 @@ public class TraceLogger {
     }
 
     // -------------- PRIVATE MEMBERS -------------
+
+    /**
+     * Generates a random 32 character hex string.
+     * 
+     * @return traceId The randomly generated traceId.
+     */
+    private String generateTraceId() {
+        Random random = new Random();
+        StringBuilder builder = new StringBuilder();
+
+        byte[] bytes = new byte[16]; // length will be length 32 hex chars
+        random.nextBytes(bytes);
+
+        for (byte b : bytes) {
+            builder.append(String.format("%02x", b));
+        }
+
+        return builder.toString();
+    }
 
     /**
      * Holds the context for the current thread trace. The context contains the
