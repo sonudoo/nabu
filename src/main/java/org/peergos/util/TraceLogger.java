@@ -8,7 +8,7 @@ import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.UUID;
+import java.util.Random;
 
 import org.peergos.Client;
 import org.peergos.protocol.bitswap.pb.MessageOuterClass;
@@ -21,6 +21,11 @@ import io.libp2p.core.PeerId;
  * Logs thread traces to the trace file. This is a singleton class.
  */
 public class TraceLogger {
+    /**
+     * Character length of a traceId.
+     */
+    private static final int TRACE_ID_LENGTH = 16;
+
     /**
      * Returns the singleton instance of the TraceLogger.
      */
@@ -41,12 +46,30 @@ public class TraceLogger {
     }
 
     /**
+     * Generates a random Hex string of length 16 characters
+     * 
+     * @return traceId The randomly generated traceId.
+     */
+    public String generateTraceId(int traceIdLength) {
+        Random random = new Random();
+        byte[] bytes = new byte[8]; // 8 bytes * 2 hex characters per byte = 16 hex characters
+        random.nextBytes(bytes);
+
+        StringBuilder builder = new StringBuilder();
+        for (byte b : bytes) {
+            builder.append(String.format("%02x", b));
+        }
+
+        return builder.toString();
+    }
+
+    /**
      * Starts recording the traces for all subsequent trace points on the current
      * thread and child threads.
      * Also propagates the trace context to servers.
      */
     public void startTrace() {
-        TraceContext.setTraceId(UUID.randomUUID().toString());
+        TraceContext.setTraceId(generateTraceId(TRACE_ID_LENGTH));
     }
 
     /**
@@ -267,10 +290,10 @@ public class TraceLogger {
     private void createAndSetupOutput() {
         try {
             // Prepend each log file with the creation timestamp
-            long logFileCreationTimestampMillis = System.currentTimeMillis();
+            long logFileCreationTimestampNanos = System.nanoTime();
 
             outFile = new FileOutputStream(
-                    Client.DEFAULT_IPFS_DIR_PATH.toAbsolutePath().toString() + "/" + logFileCreationTimestampMillis
+                    Client.DEFAULT_IPFS_DIR_PATH.toAbsolutePath().toString() + "/" + logFileCreationTimestampNanos
                             + ".trace.log",
                     /* append= */ true);
 
@@ -300,9 +323,9 @@ public class TraceLogger {
         builder.append(TraceContext.getTraceId() + "\t");
         builder.append(currentNodeId + "\t");
         builder.append(Thread.currentThread().getId() + "\t");
-        long currentTimeMillis = System.currentTimeMillis();
-        builder.append(currentTimeMillis + "\t");
-        builder.append(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(new Date(currentTimeMillis)) + "\t");
+        long currentTimeNanos = System.nanoTime();
+        builder.append(currentTimeNanos + "\t");
+        builder.append(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(new Date(currentTimeNanos)) + "\t");
         builder.append(type.name() + "\t");
         builder.append(debugDetails);
         builder.append("\n");
@@ -319,9 +342,9 @@ public class TraceLogger {
         builder.append(currentNodeId + "\t");
         builder.append(remotePeerId.toString() + "\t");
         builder.append(Thread.currentThread().getId() + "\t");
-        long currentTimeMillis = System.currentTimeMillis();
-        builder.append(currentTimeMillis + "\t");
-        builder.append(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(new Date(currentTimeMillis)) + "\t");
+        long currentTimeNanos = System.nanoTime();
+        builder.append(currentTimeNanos + "\t");
+        builder.append(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(new Date(currentTimeNanos)) + "\t");
         builder.append(type.name() + "\t");
         builder.append(debugDetails);
         builder.append("\n");
