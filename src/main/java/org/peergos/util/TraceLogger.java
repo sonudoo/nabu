@@ -24,7 +24,7 @@ public class TraceLogger {
     /**
      * Size of a traceId.
      */
-    private static final int TRACE_ID_SIZE_IN_BYTES = 8;
+    private static final int TRACE_ID_SIZE_IN_BYTES = 16;
 
     /**
      * Returns the singleton instance of the TraceLogger.
