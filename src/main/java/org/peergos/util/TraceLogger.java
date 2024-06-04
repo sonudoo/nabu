@@ -46,13 +46,13 @@ public class TraceLogger {
     }
 
     /**
-     * Generates a random Hex string of length traceIdSize * 2
+     * Generates a random Hex string of length traceIdSizeInBytes * 2
      * 
      * @return traceId The randomly generated traceId.
      */
-    public String generateTraceId(int traceIdSize) {
+    public String generateTraceId(int traceIdSizeInBytes) {
         Random random = new Random();
-        byte[] bytes = new byte[traceIdSize]; // length will be traceIdSize * 2 hex chars
+        byte[] bytes = new byte[traceIdSizeInBytes]; // length will be length traceIdSizeInBytes * 2 hex chars
         random.nextBytes(bytes);
 
         StringBuilder builder = new StringBuilder();
