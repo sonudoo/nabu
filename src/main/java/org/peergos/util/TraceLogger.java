@@ -321,7 +321,7 @@ public class TraceLogger {
         builder.append(Thread.currentThread().getId() + "\t");
         long currentTimeNanos = System.nanoTime();
         builder.append(currentTimeNanos + "\t");
-        builder.append(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(new Date(currentTimeNanos)) + "\t");
+        builder.append(new SimpleDateFormat("yyyy-mm-dd hh:mm:ss.fffffffff").format(new Date(currentTimeNanos)) + "\t");
         builder.append(type.name() + "\t");
         builder.append(debugDetails);
         builder.append("\n");
@@ -336,11 +336,11 @@ public class TraceLogger {
         StringBuilder builder = new StringBuilder();
         builder.append(TraceContext.getTraceId() + "\t");
         builder.append(currentNodeId + "\t");
-        builder.append(remotePeerId.toString() + "\t");
+        builder.append(nodeIdMap.get(remotePeerId.toString()) + "\t");
         builder.append(Thread.currentThread().getId() + "\t");
         long currentTimeNanos = System.nanoTime();
         builder.append(currentTimeNanos + "\t");
-        builder.append(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(new Date(currentTimeNanos)) + "\t");
+        builder.append(new SimpleDateFormat("yyyy-mm-dd hh:mm:ss.fffffffff").format(new Date(currentTimeNanos)) + "\t");
         builder.append(type.name() + "\t");
         builder.append(debugDetails);
         builder.append("\n");
