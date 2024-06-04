@@ -22,11 +22,6 @@ import io.libp2p.core.PeerId;
  */
 public class TraceLogger {
     /**
-     * Size of a traceId.
-     */
-    private static final int TRACE_ID_SIZE_IN_BYTES = 16;
-
-    /**
      * Returns the singleton instance of the TraceLogger.
      */
     public static TraceLogger getInstance() {
@@ -46,16 +41,17 @@ public class TraceLogger {
     }
 
     /**
-     * Generates a random Hex string of length traceIdSizeInBytes * 2
+     * Generates a random 32 character hex string.
      * 
      * @return traceId The randomly generated traceId.
      */
-    public String generateTraceId(int traceIdSizeInBytes) {
+    private String generateTraceId() {
         Random random = new Random();
-        byte[] bytes = new byte[traceIdSizeInBytes]; // length will be length traceIdSizeInBytes * 2 hex chars
+        StringBuilder builder = new StringBuilder();
+
+        byte[] bytes = new byte[16]; // length will be length 32 hex chars
         random.nextBytes(bytes);
 
-        StringBuilder builder = new StringBuilder();
         for (byte b : bytes) {
             builder.append(String.format("%02x", b));
         }
@@ -69,7 +65,7 @@ public class TraceLogger {
      * Also propagates the trace context to servers.
      */
     public void startTrace() {
-        TraceContext.setTraceId(generateTraceId(TRACE_ID_SIZE_IN_BYTES));
+        TraceContext.setTraceId(generateTraceId());
     }
 
     /**
