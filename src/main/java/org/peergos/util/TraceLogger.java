@@ -8,7 +8,7 @@ import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.UUID;
+import java.util.Random;
 
 import org.peergos.Client;
 import org.peergos.protocol.bitswap.pb.MessageOuterClass;
@@ -46,7 +46,7 @@ public class TraceLogger {
      * Also propagates the trace context to servers.
      */
     public void startTrace() {
-        TraceContext.setTraceId(UUID.randomUUID().toString());
+        TraceContext.setTraceId(generateTraceId());
     }
 
     /**
@@ -70,7 +70,8 @@ public class TraceLogger {
         if (msg.getType() != Dht.Message.MessageType.GET_PROVIDERS || !TraceContext.isSet()) {
             return msg;
         }
-        writeLog(TraceType.GET_PROVIDERS_CLIENT_START, "Peer nodeId: " + nodeIdMap.get(remotePeerId.toString()));
+        writeLog(TraceType.GET_PROVIDERS_CLIENT_START, remotePeerId,
+                "Peer nodeId: " + nodeIdMap.get(remotePeerId.toString()));
         return msg.toBuilder().setTraceId(TraceContext.getTraceId()).build();
     }
 
@@ -82,7 +83,8 @@ public class TraceLogger {
             return;
         }
         TraceContext.setTraceId(msg.getTraceId());
-        writeLog(TraceType.GET_PROVIDERS_SERVER_START, "Peer nodeId: " + nodeIdMap.get(remotePeerId.toString()));
+        writeLog(TraceType.GET_PROVIDERS_SERVER_START, remotePeerId,
+                "Peer nodeId: " + nodeIdMap.get(remotePeerId.toString()));
     }
 
     /**
@@ -92,7 +94,8 @@ public class TraceLogger {
         if (msg.getType() != Dht.Message.MessageType.GET_PROVIDERS || !TraceContext.isSet()) {
             return;
         }
-        writeLog(TraceType.GET_PROVIDERS_SERVER_END, "Peer nodeId: " + nodeIdMap.get(remotePeerId.toString()));
+        writeLog(TraceType.GET_PROVIDERS_SERVER_END, remotePeerId,
+                "Peer nodeId: " + nodeIdMap.get(remotePeerId.toString()));
         TraceContext.clearTraceId();
     }
 
@@ -103,7 +106,8 @@ public class TraceLogger {
         if (msg.getType() != Dht.Message.MessageType.GET_PROVIDERS || !TraceContext.isSet()) {
             return;
         }
-        writeLog(TraceType.GET_PROVIDERS_CLIENT_END, "Peer nodeId: " + nodeIdMap.get(remotePeerId.toString()));
+        writeLog(TraceType.GET_PROVIDERS_CLIENT_END, remotePeerId,
+                "Peer nodeId: " + nodeIdMap.get(remotePeerId.toString()));
     }
 
     /**
@@ -113,7 +117,7 @@ public class TraceLogger {
         if (!TraceContext.isSet()) {
             return msg;
         }
-        writeLog(TraceType.BITSWAP_CLIENT_START,
+        writeLog(TraceType.BITSWAP_CLIENT_START, remotePeerId,
                 "Want " + msg.getWantlist().getEntriesCount() + " hashes. Peer nodeId: "
                         + nodeIdMap.get(remotePeerId.toString()));
         return msg.toBuilder().setTraceId(TraceContext.getTraceId()).build();
@@ -129,7 +133,9 @@ public class TraceLogger {
         }
         TraceContext.setTraceId(msg.getTraceId());
         boolean isServer = msg.hasWantlist();
-        writeLog(isServer ? TraceType.BITSWAP_SERVER_START : TraceType.BITSWAP_CLIENT_END,
+        writeLog(
+                isServer ? TraceType.BITSWAP_SERVER_START : TraceType.BITSWAP_CLIENT_END,
+                remotePeerId,
                 isServer ? "Want " + msg.getWantlist().getEntriesCount() + " hashes. Peer nodeId: "
                         + nodeIdMap.get(remotePeerId.toString())
                         : msg.getPayloadCount() + " blocks. Peer nodeId: " + nodeIdMap.get(remotePeerId.toString()));
@@ -145,7 +151,7 @@ public class TraceLogger {
         if (!TraceContext.isSet()) {
             return;
         }
-        writeLog(TraceType.BITSWAP_SERVER_END,
+        writeLog(TraceType.BITSWAP_SERVER_END, remotePeerId,
                 msg.getPayloadCount() + " blocks. Peer nodeId: " + nodeIdMap.get(remotePeerId.toString()));
         TraceContext.clearTraceId();
     }
@@ -173,6 +179,25 @@ public class TraceLogger {
     }
 
     // -------------- PRIVATE MEMBERS -------------
+
+    /**
+     * Generates a random 32 character hex string.
+     * 
+     * @return traceId The randomly generated traceId.
+     */
+    private String generateTraceId() {
+        Random random = new Random();
+        StringBuilder builder = new StringBuilder();
+
+        byte[] bytes = new byte[16]; // length will be length 32 hex chars
+        random.nextBytes(bytes);
+
+        for (byte b : bytes) {
+            builder.append(String.format("%02x", b));
+        }
+
+        return builder.toString();
+    }
 
     /**
      * Holds the context for the current thread trace. The context contains the
@@ -233,6 +258,7 @@ public class TraceLogger {
     // Maps peer Id (as string) to node Id.
     private HashMap<String, Integer> nodeIdMap;
     private int currentNodeId;
+    private final int MAX_LOG_FILE_SIZE_MB = 16 * 1024 * 1024; // 16MB log file size. Inspired by typical PSQL WAL size.
 
     FileOutputStream outFile = null;
     BufferedOutputStream output = null;
@@ -253,25 +279,39 @@ public class TraceLogger {
         nodeIdMap.put("12D3KooWCfWmdJYdAUwm1pTxFKsRDRzGmsbeUMpriNNocMDVMmum", 9);
         currentNodeId = -1;
 
+        createAndSetupOutput();
+
+    }
+
+    private void createAndSetupOutput() {
         try {
-            outFile = new FileOutputStream(Client.DEFAULT_IPFS_DIR_PATH.toAbsolutePath().toString() + "/trace.log",
+            // Prepend each log file with the creation timestamp
+            long logFileCreationTimestampNanos = System.nanoTime();
+
+            outFile = new FileOutputStream(
+                    Client.DEFAULT_IPFS_DIR_PATH.toAbsolutePath().toString() + "/" + logFileCreationTimestampNanos
+                            + ".trace.log",
                     /* append= */ true);
+
+            // An output stream with 100 MB buffer.
+            output = new BufferedOutputStream(outFile, 100 * 1024 * 1024);
+            flusher = new Thread(new Thread(new Runnable() {
+                public void run() {
+                    try {
+                        flushLogs();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (InterruptedException ie) {
+                        Thread.currentThread().interrupt();
+                        return;
+                    }
+                }
+            }));
+            flusher.start();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             return;
         }
-        // An output stream with 100 MB buffer.
-        output = new BufferedOutputStream(outFile, 100 * 1024 * 1024);
-        flusher = new Thread(new Thread(new Runnable() {
-            public void run() {
-                try {
-                    flushLogs();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }));
-        flusher.start();
     }
 
     private void writeLog(TraceType type, String debugDetails) {
@@ -279,9 +319,9 @@ public class TraceLogger {
         builder.append(TraceContext.getTraceId() + "\t");
         builder.append(currentNodeId + "\t");
         builder.append(Thread.currentThread().getId() + "\t");
-        long currentTimeMillis = System.currentTimeMillis();
-        builder.append(currentTimeMillis + "\t");
-        builder.append(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(new Date(currentTimeMillis)) + "\t");
+        long currentTimeNanos = System.nanoTime();
+        builder.append(currentTimeNanos + "\t");
+        builder.append(new SimpleDateFormat("yyyy-mm-dd hh:mm:ss.fffffffff").format(new Date(currentTimeNanos)) + "\t");
         builder.append(type.name() + "\t");
         builder.append(debugDetails);
         builder.append("\n");
@@ -289,18 +329,46 @@ public class TraceLogger {
         // TODO(sonudoo): Turn off logging to stdout.
         System.out.print(log);
 
+        _writeLog(log);
+    }
+
+    private void writeLog(TraceType type, PeerId remotePeerId, String debugDetails) {
+        StringBuilder builder = new StringBuilder();
+        builder.append(TraceContext.getTraceId() + "\t");
+        builder.append(currentNodeId + "\t");
+        builder.append(nodeIdMap.get(remotePeerId.toString()) + "\t");
+        builder.append(Thread.currentThread().getId() + "\t");
+        long currentTimeNanos = System.nanoTime();
+        builder.append(currentTimeNanos + "\t");
+        builder.append(new SimpleDateFormat("yyyy-mm-dd hh:mm:ss.fffffffff").format(new Date(currentTimeNanos)) + "\t");
+        builder.append(type.name() + "\t");
+        builder.append(debugDetails);
+        builder.append("\n");
+        String log = builder.toString();
+        // TODO(sonudoo): Turn off logging to stdout.
+        System.out.print(log);
+
+        _writeLog(log);
+    }
+
+    private void _writeLog(String log) {
         synchronized (this) {
             try {
-                // TODO(millerm): Rollover to a new log file after some limit.
-                output.write(log.getBytes(Charset.forName("UTF-8")));
+                synchronized (this) {
+                    // Rollover to a new log file after log file limit is exceeded.
+                    if (outFile.getChannel().size() > MAX_LOG_FILE_SIZE_MB) {
+                        flusher.interrupt();
+                        createAndSetupOutput();
+                    }
+                    output.write(log.getBytes(Charset.forName("UTF-8")));
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-
     }
 
-    private void flushLogs() throws IOException {
+    private void flushLogs() throws IOException, InterruptedException {
         while (true) {
             try {
                 // Flush every 100 seconds.
@@ -308,14 +376,13 @@ public class TraceLogger {
                 synchronized (this) {
                     output.flush();
                 }
+            } catch (InterruptedException ie) {
+                throw ie;
             } catch (Exception e) {
                 e.printStackTrace();
                 break;
             }
         }
-        synchronized (this) {
-            output.close();
-            outFile.close();
-        }
+
     }
 }
