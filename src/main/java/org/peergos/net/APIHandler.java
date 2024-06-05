@@ -47,8 +47,7 @@ public class APIHandler extends Handler {
                     if (shouldTrace)
                         traceLogger.startTrace();
                     List<HashedBlock> block = ipfs.getBlocks(List.of(new Want(Cid.decode(cid.get(0)))),
-                            new HashSet<>(),
-                            /* addToLocal= */ false);
+                            new HashSet<>());
                     if (!block.isEmpty()) {
                         if (shouldTrace) {
                             httpExchange.getResponseHeaders().add("Trace-Id", traceLogger.getTraceId());

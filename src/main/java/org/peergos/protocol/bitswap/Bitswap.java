@@ -24,7 +24,6 @@ public class Bitswap extends StrictProtocolBinding<BitswapController> implements
 
     private final BitswapEngine engine;
     private final LRUCache<PeerId, Boolean> connected = new LRUCache<>(100);
-    private final LRUCache<Set<PeerId>, DownloadManager> downloads = new LRUCache<>(100);
     private AddressBook addrs;
 
     public Bitswap(BitswapEngine engine) {
@@ -57,27 +56,23 @@ public class Bitswap extends StrictProtocolBinding<BitswapController> implements
 
     public CompletableFuture<HashedBlock> get(Want hash,
                                               Host us,
-                                              Set<PeerId> peers,
-                                              boolean addToBlockstore) {
-        return get(List.of(hash), us, peers, addToBlockstore).get(0);
+                                              Set<PeerId> peers) {
+        return get(List.of(hash), us, peers).get(0);
     }
 
     public List<CompletableFuture<HashedBlock>> get(List<Want> wants,
                                                     Host us,
-                                                    Set<PeerId> peers,
-                                                    boolean addToBlockstore) {
+                                                    Set<PeerId> peers) {
         if (wants.isEmpty())
             return Collections.emptyList();
         List<CompletableFuture<HashedBlock>> results = new ArrayList<>();
         for (Want w : wants) {
             if (w.cid.getType() == Multihash.Type.id)
                 continue;
-            CompletableFuture<HashedBlock> res = engine.getWant(w, addToBlockstore);
+            CompletableFuture<HashedBlock> res = engine.getWant(w);
             results.add(res);
         }
         sendWants(us, peers);
-        DownloadManager manager = downloads.getOrDefault(peers, new DownloadManager(us, peers));
-        manager.ensureRunning();
         return results;
     }
 

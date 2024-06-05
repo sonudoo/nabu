@@ -26,33 +26,19 @@ public class BitswapEngine {
     private final Blockstore store;
     private final int maxMessageSize;
     private final ConcurrentHashMap<Want, WantResult> localWants = new ConcurrentHashMap<>();
-    private final ConcurrentHashMap<Want, Boolean> persistBlocks = new ConcurrentHashMap<>();
     private final ConcurrentHashMap<Want, PeerId> blockHaves = new ConcurrentHashMap<>();
-    private final Map<Want, Boolean> deniedWants = Collections.synchronizedMap(new LRUCache<>(10_000));
-    private final Map<PeerId, Boolean> blockedPeers = Collections.synchronizedMap(new LRUCache<>(1_000));
-    private final boolean blockAggressivePeers;
     private final Set<PeerId> connections = new HashSet<>();
     private final BlockRequestAuthoriser authoriser;
     private AddressBook addressBook;
 
-    public BitswapEngine(Blockstore store, BlockRequestAuthoriser authoriser, int maxMessageSize,
-            boolean blockAggressivePeers) {
+    public BitswapEngine(Blockstore store, BlockRequestAuthoriser authoriser, int maxMessageSize) {
         this.store = store;
         this.authoriser = authoriser;
         this.maxMessageSize = maxMessageSize;
-        this.blockAggressivePeers = blockAggressivePeers;
-    }
-
-    public BitswapEngine(Blockstore store, BlockRequestAuthoriser authoriser, int maxMessageSize) {
-        this(store, authoriser, maxMessageSize, false);
     }
 
     public int maxMessageSize() {
         return maxMessageSize;
-    }
-
-    public boolean allowConnection(PeerId peer) {
-        return !blockAggressivePeers || !blockedPeers.containsKey(peer);
     }
 
     public void setAddressBook(AddressBook addrs) {
@@ -63,12 +49,10 @@ public class BitswapEngine {
         connections.add(peer);
     }
 
-    public CompletableFuture<HashedBlock> getWant(Want w, boolean addToBlockstore) {
+    public CompletableFuture<HashedBlock> getWant(Want w) {
         WantResult existing = localWants.get(w);
         if (existing != null)
             return existing.result;
-        if (addToBlockstore)
-            persistBlocks.put(w, true);
         WantResult res = new WantResult(System.currentTimeMillis());
         localWants.put(w, res);
         return res.result;
@@ -146,17 +130,6 @@ public class BitswapEngine {
                 boolean wantBlock = e.getWantType().getNumber() == 0;
                 Want w = new Want(c, auth);
                 if (wantBlock) {
-                    boolean denied = deniedWants.containsKey(w);
-                    if (denied) {
-                        MessageOuterClass.Message.BlockPresence presence = MessageOuterClass.Message.BlockPresence
-                                .newBuilder()
-                                .setCid(ByteString.copyFrom(c.toBytes()))
-                                .setType(MessageOuterClass.Message.BlockPresenceType.DontHave)
-                                .build();
-                        presences.add(presence);
-                        messageSize += presence.getSerializedSize();
-                        continue;
-                    }
                     boolean blockPresent = store.has(c).join();
                     if (!blockPresent)
                         absentBlocks++;
@@ -178,10 +151,6 @@ public class BitswapEngine {
                         messageSize += blockSize;
                         blocks.add(blockP);
                     } else if (sendDontHave) {
-                        if (blockPresent) {
-                            deniedWants.put(w, true);
-                            LOG.info("Rejecting auth for block " + c + " from " + sourcePeerId.bareMultihash());
-                        }
                         MessageOuterClass.Message.BlockPresence presence = MessageOuterClass.Message.BlockPresence
                                 .newBuilder()
                                 .setCid(ByteString.copyFrom(c.toBytes()))
@@ -189,10 +158,6 @@ public class BitswapEngine {
                                 .build();
                         presences.add(presence);
                         messageSize += presence.getSerializedSize();
-                    } else if (blockPresent) {
-                        deniedWants.put(w, true);
-                        LOG.info("Rejecting repeated invalid auth for block " + c + " from "
-                                + sourcePeerId.bareMultihash());
                     }
                 } else {
                     boolean hasBlock = store.has(c).join();
@@ -236,10 +201,6 @@ public class BitswapEngine {
                     WantResult waiter = localWants.get(w);
                     if (waiter != null) {
                         receivedWantedBlock = true;
-                        if (persistBlocks.containsKey(w)) {
-                            store.put(data, codec);
-                            persistBlocks.remove(w);
-                        }
                         waiter.result.complete(new HashedBlock(c, data));
                         localWants.remove(w);
                     } else
@@ -249,8 +210,6 @@ public class BitswapEngine {
                 e.printStackTrace();
             }
         }
-        if (!localWants.isEmpty())
-            System.out.println("Remaining: " + localWants.size());
         boolean receivedRequestedHave = false;
         for (MessageOuterClass.Message.BlockPresence blockPresence : msg.getBlockPresencesList()) {
             Cid c = Cid.cast(blockPresence.getCid().toByteArray());
@@ -262,11 +221,6 @@ public class BitswapEngine {
                 receivedRequestedHave = true;
                 blockHaves.put(w, source.remotePeerId());
             }
-        }
-        if (absentBlocks > 10 && presentBlocks == 0 && !receivedRequestedHave && !receivedWantedBlock) {
-            // This peer is sending us lots of irrelevant requests, block them
-            blockedPeers.put(source.remotePeerId(), true);
-            source.close();
         }
 
         if (presences.isEmpty() && blocks.isEmpty())
