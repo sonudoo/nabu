@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Random;
@@ -306,7 +307,7 @@ public class TraceLogger {
 
             // An output stream with 100 MB buffer.
             output = new BufferedOutputStream(outFile, 100 * 1024 * 1024);
-            
+
             flusher = new Thread(new Thread(new Runnable() {
                 public void run() {
                     try {
@@ -326,15 +327,18 @@ public class TraceLogger {
         }
     }
 
+    @SuppressWarnings("deprecation")
     private void writeLog(TraceType type, String debugDetails) {
         StringBuilder builder = new StringBuilder();
         builder.append(TraceContext.getTraceId() + "\t");
         builder.append(currentNodeId + "\t");
         builder.append(Thread.currentThread().getId() + "\t");
-        long currentTimeNanos = System.nanoTime();
-        builder.append(currentTimeNanos + "\t");
-        builder.append(new SimpleDateFormat("yyyy-mm-dd hh:mm:ss.SSSSSSS").format(new Date(currentTimeNanos)) + "\t");
-        builder.append(type.name() + "\t");
+        long currentTimeMillis = System.currentTimeMillis();
+        builder.append(currentTimeMillis + "\t");
+        Instant instance = Instant.ofEpochMilli(currentTimeMillis);
+        var localDateTime = java.time.LocalDateTime
+                .ofInstant(instance, java.time.ZoneId.of("America/Los_Angeles"));
+        builder.append(localDateTime + "\t");
         builder.append(debugDetails);
         builder.append("\n");
         String log = builder.toString();
@@ -344,15 +348,19 @@ public class TraceLogger {
         _writeLog(log);
     }
 
+    @SuppressWarnings("deprecation")
     private void writeLog(TraceType type, PeerId remotePeerId, String debugDetails) {
         StringBuilder builder = new StringBuilder();
         builder.append(TraceContext.getTraceId() + "\t");
         builder.append(currentNodeId + "\t");
         builder.append(nodeIdMap.get(remotePeerId.toString()) + "\t");
         builder.append(Thread.currentThread().getId() + "\t");
-        long currentTimeNanos = System.nanoTime();
-        builder.append(currentTimeNanos + "\t");
-        builder.append(new SimpleDateFormat("yyyy-mm-dd hh:mm:ss.SSSSSSS").format(new Date(currentTimeNanos)) + "\t");
+        long currentTimeMillis = System.currentTimeMillis();
+        builder.append(currentTimeMillis + "\t");
+        Instant instance = Instant.ofEpochMilli(currentTimeMillis);
+        var localDateTime = java.time.LocalDateTime
+                .ofInstant(instance, java.time.ZoneId.of("America/Los_Angeles"));
+        builder.append(localDateTime + "\t");
         builder.append(type.name() + "\t");
         builder.append(debugDetails);
         builder.append("\n");
