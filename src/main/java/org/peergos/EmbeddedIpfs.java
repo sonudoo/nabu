@@ -74,7 +74,7 @@ public class EmbeddedIpfs {
         return bitswap.maxBlockSize();
     }
 
-    public List<HashedBlock> getBlocks(List<Want> wants, Set<PeerId> peers, boolean addToLocal) {
+    public List<HashedBlock> getBlocks(List<Want> wants, Set<PeerId> peers) {
         List<HashedBlock> blocksFound = new ArrayList<>();
 
         List<Want> local = new ArrayList<>();
@@ -101,7 +101,7 @@ public class EmbeddedIpfs {
             return blocksFound;
         return java.util.stream.Stream.concat(
                         blocksFound.stream(),
-                        blocks.get(remote, peers, addToLocal).stream())
+                        blocks.get(remote, peers).stream())
                 .collect(Collectors.toList());
     }
 
@@ -251,7 +251,7 @@ public class EmbeddedIpfs {
         CircuitStopProtocol.Binding stop = new CircuitStopProtocol.Binding();
         CircuitHopProtocol.RelayManager relayManager = CircuitHopProtocol.RelayManager.limitTo(builder.getPrivateKey(), ourPeerId, 5);
         Bitswap bitswap = new Bitswap(bitswapProtocolId.orElse(Bitswap.PROTOCOL_ID),
-                new BitswapEngine(blockstore, authoriser, maxBitswapMsgSize.orElse(Bitswap.MAX_MESSAGE_SIZE), true));
+                new BitswapEngine(blockstore, authoriser, maxBitswapMsgSize.orElse(Bitswap.MAX_MESSAGE_SIZE)));
         Optional<HttpProtocol.Binding> httpHandler = handler.map(HttpProtocol.Binding::new);
 
         List<ProtocolBinding> protocols = new ArrayList<>();

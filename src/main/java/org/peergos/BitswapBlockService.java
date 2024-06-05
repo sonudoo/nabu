@@ -20,19 +20,19 @@ public class BitswapBlockService implements BlockService {
     }
 
     @Override
-    public List<HashedBlock> get(List<Want> hashes, Set<PeerId> peers, boolean addToBlockstore) {
+    public List<HashedBlock> get(List<Want> hashes, Set<PeerId> peers) {
         if (peers.isEmpty()) {
             // Optimistic bitswap has been removed purposely.
             List<PeerAddresses> providers = dht.findProviders(hashes.get(0).cid, us, 5).join();
             peers = providers.stream()
                     .map(p -> PeerId.fromBase58(p.peerId.toBase58()))
                     .collect(Collectors.toSet());
-            return bitswap.get(hashes, us, peers, addToBlockstore)
+            return bitswap.get(hashes, us, peers)
                     .stream()
                     .map(f -> f.join())
                     .collect(Collectors.toList());
         }
-        return bitswap.get(hashes, us, peers, addToBlockstore)
+        return bitswap.get(hashes, us, peers)
                 .stream()
                 .map(f -> f.join())
                 .collect(Collectors.toList());

@@ -262,7 +262,7 @@ public class TraceLogger {
 
     FileOutputStream outFile = null;
     BufferedOutputStream output = null;
-    Thread flusher;
+    Thread flusher = null;
 
     private TraceLogger() {
         // TODO(sonudoo): Remove a hardcoded mapping of peer Id to node Id.
@@ -278,12 +278,23 @@ public class TraceLogger {
         nodeIdMap.put("12D3KooWJWcBwDHBo7ecoBCsT8FJWvQax4Wmn2iKTCvG6uhLKZN6", 8);
         nodeIdMap.put("12D3KooWCfWmdJYdAUwm1pTxFKsRDRzGmsbeUMpriNNocMDVMmum", 9);
         currentNodeId = -1;
-
-        createAndSetupOutput();
-
     }
 
-    private void createAndSetupOutput() {
+    private void createAndSetupOutput() throws InterruptedException, IOException {
+        if (flusher != null) {
+            flusher.interrupt();
+            flusher.join();
+            flusher = null;
+        }
+        if (output != null) {
+            output.flush();
+            output.close();
+            output = null;
+        }
+        if (outFile != null) {
+            outFile.flush();
+            outFile.close();
+        }
         try {
             // Prepend each log file with the creation timestamp
             long logFileCreationTimestampNanos = System.nanoTime();
@@ -295,6 +306,7 @@ public class TraceLogger {
 
             // An output stream with 100 MB buffer.
             output = new BufferedOutputStream(outFile, 100 * 1024 * 1024);
+            
             flusher = new Thread(new Thread(new Runnable() {
                 public void run() {
                     try {
@@ -321,7 +333,7 @@ public class TraceLogger {
         builder.append(Thread.currentThread().getId() + "\t");
         long currentTimeNanos = System.nanoTime();
         builder.append(currentTimeNanos + "\t");
-        builder.append(new SimpleDateFormat("yyyy-mm-dd hh:mm:ss.fffffffff").format(new Date(currentTimeNanos)) + "\t");
+        builder.append(new SimpleDateFormat("yyyy-mm-dd hh:mm:ss.SSSSSSS").format(new Date(currentTimeNanos)) + "\t");
         builder.append(type.name() + "\t");
         builder.append(debugDetails);
         builder.append("\n");
@@ -340,7 +352,7 @@ public class TraceLogger {
         builder.append(Thread.currentThread().getId() + "\t");
         long currentTimeNanos = System.nanoTime();
         builder.append(currentTimeNanos + "\t");
-        builder.append(new SimpleDateFormat("yyyy-mm-dd hh:mm:ss.fffffffff").format(new Date(currentTimeNanos)) + "\t");
+        builder.append(new SimpleDateFormat("yyyy-mm-dd hh:mm:ss.SSSSSSS").format(new Date(currentTimeNanos)) + "\t");
         builder.append(type.name() + "\t");
         builder.append(debugDetails);
         builder.append("\n");
@@ -356,13 +368,14 @@ public class TraceLogger {
             try {
                 synchronized (this) {
                     // Rollover to a new log file after log file limit is exceeded.
-                    if (outFile.getChannel().size() > MAX_LOG_FILE_SIZE_MB) {
-                        flusher.interrupt();
+                    if (outFile == null || outFile.getChannel().size() > MAX_LOG_FILE_SIZE_MB) {
                         createAndSetupOutput();
                     }
                     output.write(log.getBytes(Charset.forName("UTF-8")));
                 }
-            } catch (IOException e) {
+            } catch (InterruptedException ie) {
+                ie.printStackTrace();
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
