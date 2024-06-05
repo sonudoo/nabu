@@ -118,23 +118,15 @@ public class BitswapEngine {
         int messageSize = 0;
         Multihash peerM = Multihash.deserialize(source.remotePeerId().getBytes());
         Cid sourcePeerId = new Cid(1, Cid.Codec.Libp2pKey, peerM.getType(), peerM.getHash());
-        int absentBlocks = 0;
-        int presentBlocks = 0;
         if (msg.hasWantlist()) {
             for (MessageOuterClass.Message.Wantlist.Entry e : msg.getWantlist().getEntriesList()) {
                 Cid c = Cid.cast(e.getBlock().toByteArray());
                 Optional<String> auth = e.getAuth().isEmpty() ? Optional.empty()
                         : Optional.of(ArrayOps.bytesToHex(e.getAuth().toByteArray()));
-                boolean isCancel = e.getCancel();
                 boolean sendDontHave = e.getSendDontHave();
                 boolean wantBlock = e.getWantType().getNumber() == 0;
-                Want w = new Want(c, auth);
                 if (wantBlock) {
                     boolean blockPresent = store.has(c).join();
-                    if (!blockPresent)
-                        absentBlocks++;
-                    else
-                        presentBlocks++;
                     if (blockPresent && authoriser.allowRead(c, sourcePeerId, auth.orElse("")).join()) {
                         MessageOuterClass.Message.Block blockP = MessageOuterClass.Message.Block.newBuilder()
                                 .setPrefix(ByteString.copyFrom(prefixBytes(c)))
@@ -181,7 +173,6 @@ public class BitswapEngine {
                 }
             }
         }
-        boolean receivedWantedBlock = false;
         for (MessageOuterClass.Message.Block block : msg.getPayloadList()) {
             byte[] cidPrefix = block.getPrefix().toByteArray();
             Optional<String> auth = block.getAuth().isEmpty() ? Optional.empty()
@@ -200,7 +191,6 @@ public class BitswapEngine {
                     Want w = new Want(c, auth);
                     WantResult waiter = localWants.get(w);
                     if (waiter != null) {
-                        receivedWantedBlock = true;
                         waiter.result.complete(new HashedBlock(c, data));
                         localWants.remove(w);
                     } else
@@ -210,7 +200,6 @@ public class BitswapEngine {
                 e.printStackTrace();
             }
         }
-        boolean receivedRequestedHave = false;
         for (MessageOuterClass.Message.BlockPresence blockPresence : msg.getBlockPresencesList()) {
             Cid c = Cid.cast(blockPresence.getCid().toByteArray());
             Optional<String> auth = blockPresence.getAuth().isEmpty() ? Optional.empty()
@@ -218,7 +207,6 @@ public class BitswapEngine {
             Want w = new Want(c, auth);
             boolean have = blockPresence.getType().getNumber() == 0;
             if (have && localWants.containsKey(w)) {
-                receivedRequestedHave = true;
                 blockHaves.put(w, source.remotePeerId());
             }
         }

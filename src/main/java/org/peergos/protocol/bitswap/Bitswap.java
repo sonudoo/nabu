@@ -82,34 +82,6 @@ public class Bitswap extends StrictProtocolBinding<BitswapController> implements
         return res;
     }
 
-    private class DownloadManager {
-        private final Host us;
-        private final Set<PeerId> peers;
-        private final AtomicBoolean running = new AtomicBoolean(false);
-
-        public DownloadManager(Host us, Set<PeerId> peers) {
-            this.us = us;
-            this.peers = peers;
-        }
-
-        public void ensureRunning() {
-            if (! running.get())
-                new Thread(() -> run()).start();
-        }
-
-        public void run() {
-            running.set(true);
-            while (true) {
-                try {Thread.sleep(5_000);} catch (InterruptedException e) {}
-                Set<Want> wants = engine.getWants(peers);
-                if (wants.isEmpty())
-                    break;
-                sendWants(us, wants, peers);
-            }
-            running.set(false);
-        }
-    }
-
     public void sendWants(Host us, Set<PeerId> peers) {
         Set<Want> wants = engine.getWants(peers);
         sendWants(us, wants, peers);
@@ -124,6 +96,7 @@ public class Bitswap extends StrictProtocolBinding<BitswapController> implements
                         .setWantType(audience.size() <= 2 || haves.containsKey(want) ?
                                 MessageOuterClass.Message.Wantlist.WantType.Block :
                                 MessageOuterClass.Message.Wantlist.WantType.Have)
+                                .setSendDontHave(true)
                         .setBlock(ByteString.copyFrom(want.cid.toBytes()))
                         .setAuth(ByteString.copyFrom(ArrayOps.hexToBytes(want.authHex.orElse(""))))
                         .build())
