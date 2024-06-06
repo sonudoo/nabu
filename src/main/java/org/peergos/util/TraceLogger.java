@@ -339,6 +339,7 @@ public class TraceLogger {
         var localDateTime = java.time.LocalDateTime
                 .ofInstant(instance, java.time.ZoneId.of("America/Los_Angeles"));
         builder.append(localDateTime + "\t");
+        builder.append(type.name() + "\t");
         builder.append(debugDetails);
         builder.append("\n");
         String log = builder.toString();
