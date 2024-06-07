@@ -42,12 +42,12 @@ public class APIHandler extends Handler {
                     if (cid == null || cid.size() != 1) {
                         throw new APIException("argument \"cid\" is required");
                     }
+                    Want want = new Want(Cid.decode(cid.get(0)));
                     List<String> trace = params.get("trace");
-                    boolean shouldTrace = trace != null && !trace.isEmpty();
+                    boolean shouldTrace = trace != null && !trace.isEmpty() && !ipfs.isLocal(want);
                     if (shouldTrace)
                         traceLogger.startTrace();
-                    List<HashedBlock> block = ipfs.getBlocks(List.of(new Want(Cid.decode(cid.get(0)))),
-                            new HashSet<>());
+                    List<HashedBlock> block = ipfs.getBlocks(List.of(want), new HashSet<>());
                     if (!block.isEmpty()) {
                         if (shouldTrace) {
                             httpExchange.getResponseHeaders().add("Trace-Id", traceLogger.getTraceId());

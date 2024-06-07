@@ -74,6 +74,10 @@ public class EmbeddedIpfs {
         return bitswap.maxBlockSize();
     }
 
+    public boolean isLocal(Want want) {
+        return blockstore.has(want.cid).join();
+    }
+
     public List<HashedBlock> getBlocks(List<Want> wants, Set<PeerId> peers) {
         List<HashedBlock> blocksFound = new ArrayList<>();
 
