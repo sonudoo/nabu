@@ -14,7 +14,7 @@ Note: Only the content retrieval (GET) path is traced.
 ## Setup
 
 ```
-./compile.sh
+./compile-local.sh
 ```
 ```
 ./run-local.sh <node-id>
